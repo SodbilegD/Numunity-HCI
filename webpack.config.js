@@ -1,4 +1,5 @@
 const path = require("path");
+
 const postCSSPlugins = [
     require("postcss-mixins"),
     require("postcss-import"),
@@ -15,7 +16,7 @@ module.exports = {
     },
     // Web browseriig full reload hiilgui haruulah
     devServer: {
-        watchFiles: ("./app/**/*.html"),
+        watchFiles: ("./app/*.html"),
         static: {
             directory: path.join(__dirname, 'app')
         },
