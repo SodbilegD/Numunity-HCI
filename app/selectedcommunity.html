@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Team DKS Discussion</title>
+    <title>Team DKS Selected Community</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
@@ -15,27 +15,29 @@
     <header class="large-hero">
         <!-- flexbox ashiglana div-eer hamburger btn, search bar newtreh, burtguuleh btn(css modifier primary, secondary ungiig ni 
             todorhoilj gargaj uguh) -->
-        <i class="fa-solid fa-bars"></i>
-        <img src="logo.png" alt="logo">
+        <i class="fa-regular fa-bars"></i>
+        <img src="/app/assets/images/logo.png" alt="Team DKS logo">
         <h2>DKS</h2>
         <div id="search-bar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Хайлт хийх">
+            <input type="text" id="search" placeholder="Хайлт хийх">
         </div>
-        <a href="#"><i class="fa-regular fa-bell"></i></a>
-        <a href="#"><i class="fa-regular fa-user"></i></a>
+        
+
+        <a href="#"><i class="fa-regular fa-bell"></i>Notifications</a>
+        <a href="#"><i class="fa-regular fa-user"></i>Profile</a>
 
         
     </header>
     <nav>
         <ul>
-            <li><a href="page1.html">Нүүр хуудас</a></li>
-            <li><a href="page2.html">Хэлэлцүүлэг</a></li>
-            <li><a href="page3.html">Чат өрөө</a></li>
-            <li><a href="page4.html">Миний хадгалсан</a></li>
+            <li><a href="index.html">Нүүр хуудас</a></li>
+            <li><a href="discussion.html">Хэлэлцүүлэг</a></li>
+            <li><a href="chat.html">Чат өрөө</a></li>
+            <li><a href="selectedcommunity.html">Миний хадгалсан</a></li>
             <li><a href="page5.html">Миний профайл</a></li>
             <li><a href="page6.html">Гарах</a></li>
-        </ul>
+        </ul>   
     </nav>
     <main>
         <div class="new-post">
@@ -54,7 +56,7 @@
         <div class="post">
             <div class="post-profile">
                 <i class="fa-regular fa-user"></i>
-                <h3>Amet</h3>
+                <p>Amet</p>
                 <p>1h ago</p>
             </div>
             <hr>
@@ -79,7 +81,7 @@
         <div class="post">
             <div class="post-profile">
                 <i class="fa-regular fa-user"></i>
-                <h3>Amet</h3>
+                <p>Amet</p>
                 <p>1h ago</p>
             </div>
             <hr>
@@ -104,7 +106,7 @@
         <div class="post">
             <div class="post-profile">
                 <i class="fa-regular fa-user"></i>
-                <h3>Amet</h3>
+                <p>Amet</p>
                 <p>1h ago</p>
             </div>
             <hr>
@@ -129,7 +131,7 @@
         <div class="post">
             <div class="post-profile">
                 <i class="fa-regular fa-user"></i>
-                <h3>Amet</h3>
+                <p>Amet</p>
                 <p>1h ago</p>
             </div>
             <hr>
@@ -150,20 +152,22 @@
             </div>
         </div>
 
-
-        <ul class="pagination">
-            <li><a href="#"><i class="fa-solid fa-arrow-left"></i></a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#"><i class="fa-solid fa-arrow-right"></i></a></li>
-        </ul> 
+        <nav>
+            <ul class="pagination">
+                <li><a href="#"><i class="fa-solid fa-arrow-left"></i> Previous</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Next</a></li>
+            </ul>
+        </nav>
+        
     </main>
 
 
     <aside class="advertisements">
         <div class="about-community">
-            <h4>Веб програмчлал</h4>
+            <h3>Веб програмчлал</h3>
             <hr>
             <p>Веб програм хөгжүүлэлттэй холбоотой  өөрт тулгарсан асуудлаа хуваалцацгаая.</p>
             <i class="fa-regular fa-clock"></i>
@@ -171,8 +175,8 @@
             <div><p>Дагагчид<br>1485</p></div>
             <div><p>Нийт пост<br>10.5К</p></div>
         </div>
-        <a href="ad.com"><img src="ad1.png" alt="advertisement-1"></a>
-        <a href="ad.com"><img src="ad1.png" alt="advertisement-2"></a>
+        <a href="ad.com"><img src="assets/images/ad1.png" alt="advertisement-1"></a>
+        <a href="ad.com"><img src="assets/images/ad2.png" alt="advertisement-2"></a>
     </aside>
 
 
@@ -193,7 +197,8 @@
 
 
         <div class="footer-copyright">
-            <img src="logo.png" alt="logo">
+            <img src="/app/assets/images/logo.png" alt="Team DKS logo">
+
             <h3>DKS</h3>
             <p>DKS &copy; 2023 - All Rights Reserved</p>
         </div>
@@ -211,6 +216,6 @@
             <i class="fa-brands fa-whatsapp"></i>
         </div>
     </footer>
-    <script src="bundled.js"></script>
+    <script type="text/javascript" src="./bundled.js"></script>
 </body>
 </html>
