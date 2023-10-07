@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="That is chat room.">
+    <meta name="keywords" content="Chat, date, study, chat room, community chat">
+    <title>Chat Room</title>
+</head>
+<body>
+    <header class="large-hero">
+        <i class="fa-solid fa-bars"></i>
+        <img src="logo.png" alt="">
+        <h2>DKS</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Нүүр хуудас</a></li>
+            <li><a href="discussion.html">Хэлэлцүүлэг</a></li>
+            <li><a href="chat.html">Чат өрөө</a></li>
+            <li><a href="selectedcommunity.html">Миний хадгалсан</a></li>
+            <li><a href="page5.html">Миний профайл</a></li>
+            <li><a href="page6.html">Гарах</a></li>
+        </ul>   
+    </nav>
+    <main>
+        <header>
+            <div class="title">
+                <img src="#" alt="icon">
+                <h1>DKS Rooms</h1>
+            </div>
+            <button type="button" onclick="show_hide()">
+                <img src="toggle.png" alt="hamburger menu icon">
+            </button>
+        </header>
+        <div class="container">
+            <div class="users-window">
+                <div class="users-rooms">
+                    <h3>Rooms</h3>
+                    <ul class="rooms-list">
+                        <li>Anime</li>
+                        <li>Basketball</li>
+                        <li>Study</li>
+                    </ul>
+                </div>
+                <div class="users-head">
+                    <h3>Хүмүүс</h3>
+                    <h4>3</h4>
+                    <div class="users-list">
+                        <p>Sodoo</p>
+                        <p>Dukk</p>
+                        <p>Khulan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-window">
+                <button class="leave-btn">Гарах</button>
+                <div class="chats">
+                    <div class="user-join">
+                        <p><b>Sodoo</b> өрөөнд орж ирлээ</p>
+                    </div>
+                    <div class="message incoming">
+                        <h5>Sodoo</h5>
+                        <p>Тавтай морил DKS</p>
+                    </div>
+                    <div class="message outgoing">
+                        <h5>Khulan</h5>
+                        <p>Тавтай морил Sodoo</p>
+                    </div>
+                </div>
+                <div class="user-input">
+                    <input type="text" placeholder="Энд бичнэ үү...">
+                    <button>Илгээх</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-nav">
+            <h3>Цэс:</h3>
+            <ul>
+                <i class="fa-solid fa-house"></i>
+                <li><a href="page1.html">Нүүр хуудас</a></li>
+                <i class="fa-solid fa-comments"></i>
+                <li><a href="discussion.html">Хэлэлцүүлэг</a></li>
+                <i class="fa-solid fa-comment-dots"></i>
+                <li><a href="chat.html">Чат өрөө</a></li>
+                <i class="fa-solid fa-user"></i>
+                <li><a href="page4.html">Миний профайл</a></li>
+            </ul>
+        </div>
+        <div class="footer-copyright">
+            <img src="logo.png" alt="copyright img">
+            <h3>DKS</h3>
+            <p>DKS &copy;2023 - All Rights Reserved</p>
+        </div>
+        <div class="footer-contacts">
+            <h3>Холбоо барих:</h3>
+            <i class="fa-solid fa-phone"></i>
+            <p>+976 9999 9999</p>
+            <i class="fa-solid fa-envelope"></i>
+            <p>team_dks@nomail.com</p>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
+    </footer>
+    <script type="text/javascript" src="socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./bundled.js"></script>
+</body>
+</html>
