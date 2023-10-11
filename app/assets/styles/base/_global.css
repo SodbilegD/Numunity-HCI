@@ -1,7 +1,10 @@
+:root {
+    box-sizing: border-box;
+}
 body {
     font-family: 'Comfortaa', cursive;
     color: #333;
 }
-h1{
+h1 {
     color: black;
 }
