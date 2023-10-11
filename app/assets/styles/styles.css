@@ -2,3 +2,5 @@
 @import 'normalize.css';
 @import 'modules/_test.css';
 @import 'base/_global.css';
+@import 'base/_variables.css';
+@import 'modules/_chat.css';
