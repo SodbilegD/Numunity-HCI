@@ -1,0 +1,110 @@
+
+.write-post{
+    background-color: $main-white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 0.5rem;
+    height: 5rem;
+    color: $main-goy-ungu;
+
+    &__prof{
+        width: 2.5rem;
+    }
+
+    &__status-box{
+        margin: 1.5rem 0;
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        padding: 0.5rem;
+        color: $main-goy-ungu;
+        font-size: var(--small-text);
+    }
+    
+    &__img-icon{
+        width: 3rem;
+    }
+}
+
+.community{
+    display: flex;
+    direction: row;
+    align-items: center;
+    margin: 1.5rem;
+
+    &__name{
+        font-size: var(--big-text);
+    }
+    &__join-button,
+    &__new-button,
+    &__trending-button{
+        color: $background-white;
+        background-color: $main-goy-ungu;
+        border: 1px solid $main-goy-ungu;
+        padding: 0.5rem 1.5rem;
+        border-radius: 2rem;
+    }
+
+    &__join-button:hover,
+    &__new-button:hover,
+    &__trending-button:hover{
+        color: $main-goy-ungu;
+        background-color: $background-white;
+    }
+
+    &__join-button{
+        margin-left: 2rem;
+    }
+    &__new-button{
+        margin-left: auto;
+        margin-right: 1rem ;
+    }
+}
+
+.post{
+    background-color: $main-white;
+    border-radius: 0.5rem;
+    border: 1px solid $main-goy-ungu;
+    padding: 1rem;
+    &__profile{
+        display: flex;
+        direction: row;
+        align-items: center;
+        margin: 0;
+        &__img{
+            max-width: 2.5rem;
+            
+        }
+        &__name{
+            font-size: var(--medium-text);
+        }
+        &__time{
+            margin-left: auto;
+        }
+    }
+
+    &__title{
+        font-size: var(--medium-text);
+        font-weight: bold;
+    }
+    &__detail{
+        font-size: var(--small-text);
+    }
+    &__reactions{
+        display: flex;
+        direction: row;
+        margin: 0;
+        justify-content: flex-start;
+        &__list{
+            margin-left: 0;
+            padding: 0;
+        }
+        &__list:active{
+            color: $main-goy-ungu;
+            font-weight: 900;
+        }
+        
+    }
+}
