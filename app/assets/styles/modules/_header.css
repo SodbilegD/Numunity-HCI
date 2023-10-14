@@ -1,0 +1,88 @@
+*{
+    margin: 15px 20px;
+    
+}
+
+.main-header{
+    background-color: $main-white;
+    color: $main-goy-ungu;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+
+    &__logo{
+        max-width: 30px;
+    }
+    &__search-bar {
+        display: flex;
+        align-items: center;
+    }
+      
+    &__search-field {
+        padding: 5px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 5px;
+    }
+      
+    &__notif,
+    &__profile {
+        text-decoration: none;
+        color: #fff; /* Set your desired link color */
+    }
+      
+      /* Style for the hamburger icon */
+      &__hamburger {
+        cursor: pointer;
+      }
+      
+      /* Style for the sidebar */
+      &__nav {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -250px; /* This will hide the sidebar by default */
+        width: 250px; /* Set your desired sidebar width */
+        height: 100%;
+        background-color: #444; /* Set your desired sidebar background color */
+        padding: 20px;
+        color: #fff; /* Set your desired text color */
+        transition: left 0.3s ease;
+        z-index: 1;
+      }
+      
+      /* Style for the navigation list in the sidebar */
+      &__navlist {
+        list-style: none;
+        padding: 0;
+      }
+      
+      &__item {
+        margin-bottom: 10px;
+      }
+      
+      &__item a {
+        text-decoration: none;
+        color: #fff; /* Set your desired link color */
+      }
+      
+      /* Show the sidebar when the hamburger icon is clicked */
+      &__hamburger:focus + &__nav {
+        left: 0;
+      }
+      
+      /* Hide the sidebar when the hamburger icon is clicked again */
+      &__hamburger:focus + &__nav:focus-within {
+        left: -250px;
+      }
+}
+
+  
+  
+
+
+
+
