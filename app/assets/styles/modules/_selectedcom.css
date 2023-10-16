@@ -1,13 +1,11 @@
-
 .write-post{
     background-color: $main-white;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    border-radius: 0.5rem;
-    height: 5rem;
     color: $main-goy-ungu;
-
+    margin-right: 30px;
+    font-size: 13px;
+   
     &__prof{
         width: 2.5rem;
     }
