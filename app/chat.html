@@ -33,19 +33,10 @@
         </nav>
     </header>
     <main class="chat-main">
-        <!-- <header class="chat-main__header">
-            <div class="chat-main__header__title">
-                <h1>DKS Rooms</h1>
-            </div>
-            <button type="button">
-                <img src="assets/images/hamburger.png" alt="hamburger-menu">
-            </button>
-        </header> -->
         <div class="chat-main__container">
-            <div class="users-window">
+            <nav class="users-window">
                 <div class="users-rooms">
-                    <i class="fa-solid fa-house-user"></i>
-                    <h3>Rooms</h3>
+                    <h3>Rooms<i class="fa-solid fa-house-user"></i></h3>
                     <ul class="rooms-list">
                         <li>Anime</li>
                         <li>Basketball</li>
@@ -55,31 +46,43 @@
                 <div class="users-head">
                     <h3>Хүмүүс</h3>
                     <h4>3</h4>
-                    <div class="users-list">
-                        <p>Sodoo <strong class="badge-color">/Walking Wikipedia</strong> </p>
-                        <p>Dukk <strong class="badge-color">/Room Clown</strong></p>
-                        <p>Khulan <strong class="badge-color">/Grammar police</strong></p>
-                    </div>
+                    <ul class="users-list">
+                        <li>Sodoo <strong class="badge-color">/Walking Wikipedia</strong> </li>
+                        <li>Dukk <strong class="badge-color">/Room Clown</strong></li>
+                        <li>Khulan <strong class="badge-color">/Grammar police</strong></li>
+                    </ul>
                 </div>
-            </div>
+            </nav>
+            
             <div class="chat-window">
-                <button class="leave-btn">Гарах</button>
+                <!-- <button class="leave-btn">Гарах</button> -->
+                <div class="room-name">
+                    <h1>
+                        <img src="assets/images/profile.png" alt="user-profile-picture" class="room-picture">
+                        Anime
+                    </h1>
+                </div>
                 <div class="chats">
                     <div class="user-join">
-                        <p><b>Sodoo</b> <img src="assets/images/profile.png" alt="profile picture" class=".profile-picture"> өрөөнд орж ирлээ</p>
+                        <p class="user-join__text"><b class="">Sodoo</b> <img src="assets/images/profile.png" alt="profile picture" class=".profile-picture"> өрөөнд орж ирлээ</p>
                     </div>
                     <div class="message incoming">
                         <img src="assets/images/profile.png" alt="user-profile-picture" class="profile-picture">
-                        <h5>Sodoo</h5>
-                        <p>Тавтай морил DKS</p>
+                        <div class="message__text">
+                            <h5>Sodoo</h5>
+                            <p>Тавтай морил DKS Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, expedita.</p>
+                        </div>
                     </div>
                     <div class="message outgoing">
+                        <div class="message__text">
+                            <h5>Khulan</h5>
+                            <p>Тавтай морил Sodoo</p>
+                        </div>
                         <img src="assets/images/profile.png" alt="user-profile-picture" class="profile-picture">
-                        <h5>Khulan</h5>
-                        <p>Тавтай морил Sodoo</p>
                     </div>
                 </div>
                 <div class="user-input">
+                    <img src="assets/images/profile.png" alt="user-profile-picture" class="profile-picture">
                     <input type="text" placeholder="Энд бичнэ үү...">
                     <button>Илгээх</button>
                 </div>
