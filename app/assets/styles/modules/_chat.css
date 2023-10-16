@@ -1,13 +1,13 @@
-main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
+.chat-main {
+    margin: 0 auto;
+    width: 90%;
     overflow: hidden;
-    background-color: lightgray;
+    background-color: $main-white;
+    border: 0.75rem solid $main-goy-ungu;
+    border-radius: 1rem;
+    height: auto;
 
-    header {
+    &__header {
         background-color: inherit;
         color: black;
         padding: 7px 20px;
@@ -15,33 +15,34 @@ main {
         flex-direction: row;
         justify-content: flex-between;
         align-items: center;
-        div.title {
+        &__title {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
         }
-        button{
+        &__button{
             background: transparent;
             border: none;
             outline: none;
 
         }
     }
-    div.container{
+    &__container{
         background-color: $main-white;
-        padding: 20px;
+        padding: 0 1.25rem;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: stretch;
+        border-radius: 1rem;
         div.users-window{
             width: 350px;
-            color: white;
-            background-color: $dark-grey;
+            color: $dark-grey;
+            background-color: $main-white;
             padding: 15px 20px;
-            border-radius: 10px;
             margin-right: 20px;
+            border-right: solid 1rem $main-goy-ungu;
             .users-rooms{
                 ul{
                     text-decoration: none;
@@ -73,7 +74,7 @@ main {
         div.chat-window {
             width: 100%;
             border-radius: 10px;
-            background-color: #3f3f3f;
+            background-color: $main-white;
             position: relative;
             button.leave-btn{
                 position: absolute;
@@ -82,14 +83,14 @@ main {
                 padding: 5px 10px;
                 border-radius: 5px;
                 color: $main-white;
-                background-color: $main-goy-ungu;
+                background-color: $main-goy-ungu-op;
             }
             div.chats{
                 min-height: 65vh;
                 padding: 20px;
                 div.user-join {
                     font-size: 0.9rem;
-                    color: #3f3f3f;
+                    color: $main-goy-ungu;
                     border-radius: 50px;
                     width: max-content;
                     padding: 7px 20px;
@@ -98,8 +99,8 @@ main {
 
                 }
                 div.message{
-                    color: #3f3f3f;
-                    background-color: $main-white;
+                    color: $dark-grey;
+                    background-color: $main-goy-ungu-op;
                     padding: 5px 15px;
                     max-width: 400px;
                     margin-bottom: 15px;
@@ -115,8 +116,8 @@ main {
                 }
                 div.outgoing{
                     margin-left: auto;
-                    color: $main-white;
-                    background-color: $main-goy-ungu;
+                    color: $dark-grey;
+                    background-color: $main-goy-ungu-op;
                     border-radius: 50px 10px 10px 50px;
                 }
             }
@@ -168,7 +169,7 @@ main {
                 width: 100%;
                 border: 0 0 10px 10px;
                 height: max-content;
-                z-index: 5;
+                z-index: 4;
                 box-shadow: 0 15px 20px -20px black;
                 padding: 0;
                 display: none;
