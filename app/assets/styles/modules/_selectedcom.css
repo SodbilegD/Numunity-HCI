@@ -1,4 +1,3 @@
-
 .write-post{
     background-color: $main-white;
     display: flex;
@@ -21,10 +20,6 @@
         padding: 0.5rem;
         color: $main-goy-ungu;
         font-size: var(--small-text);
-    }
-    
-    &__img-icon{
-        width: 3rem;
     }
 }
 
