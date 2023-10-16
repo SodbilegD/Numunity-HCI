@@ -1,6 +1,7 @@
 
 .section{
-    width: 100%;
+    width: 80%;
+    float: left;
     background-color: $main-white;
     border-radius: 6px;
     padding: 20px;
