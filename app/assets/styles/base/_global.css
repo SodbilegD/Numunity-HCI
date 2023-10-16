@@ -1,11 +1,11 @@
 :root {
     box-sizing: border-box;
-    --extra-small-text: 11px;
-    --small-text: 18px;
-    --medium-text: 24px;
-    --bigmedium-text: 30px;
-    --big-text: 40px;
-    --footer-text: 60px;
+    --extra-small-text: 0.5rem;
+    --small-text: 1rem;
+    --medium-text: 1.25rem;
+    --bigmedium-text: 1.5rem;
+    --big-text: 1.75rem;
+    --footer-text: 2rem;
 }
 body {
     font-family: 'Comfortaa', cursive;
@@ -13,6 +13,7 @@ body {
     background-color: #F5F5FA;
     padding: 0 10rem;
 }
+  
 
 main{
     margin: 0;

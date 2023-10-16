@@ -20,10 +20,6 @@
         color: $main-goy-ungu;
         font-size: var(--small-text);
     }
-    
-    &__img-icon{
-        width: 3rem;
-    }
 }
 
 .community{

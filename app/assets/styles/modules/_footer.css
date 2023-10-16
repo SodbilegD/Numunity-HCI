@@ -1,46 +1,87 @@
 .footer{
     background-color: $main-white;
     display: flex;
-    direction: column;
-    margin-top: 1rem;
-    padding: 0;
+    justify-content: space-between;
+    padding: 2rem;
     &__nav{
-        flex-direction: row;
-        h3{
+        flex: 1;
+        &__title{
             text-align: center;
+            font-size: var(--medium-text);
+            padding-top: 1rem;
         }
-        ul{
+        &__list{
             list-style: none;
-            li{
-                margin-bottom: -1rem;
-                list-style: none;
-                a{
-                    text-decoration: none;
-                }
-            }
+            font-size: var(--small-text);
+            text-align: left;
+            padding: 1.75rem 0;
         }
-    }
-    &__copyright{
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        h3{
+        &__list a{
+            text-decoration: none;
+            color: $main-black;
+        }
+        &__list i{
             color: $main-goy-ungu;
-            font-size: 3rem;
-            img{
-                width: 3rem;
-                height: 3rem;
-            }
+        }
+        &__item{
+            padding: 0;
+            margin: -0.5rem 0;
         }
     }
-    &__contacts{
-        flex-direction: row;
-        h3{
-            text-align: center;
-        }
-        i{
-            align-items: center;    
+
+    &__copyright{
+        flex: 1;
+        text-align: center;
+        &__logo{
+            display: flex;
+            direction: row;
             justify-content: center;
+            align-items: center;
+            padding-top: 3rem;
+        }
+        &__logo img{
+            width: 3.5rem;
+        }
+        &__logo h3{
+            font-size: var(--footer-text);
+            color: $main-goy-ungu;
+            margin-left: 0;
+        }
+        &__text{
+            margin: 3rem 0;
+            color: $main-goy-ungu;
         }
     }
+    
+    &__contacts{
+        flex: 1;
+        &__title{
+            text-align: center;
+            font-size: var(--medium-text);
+            padding-top: 1rem;
+        }
+        &__list{
+            list-style: none;
+            font-size: var(--small-text);
+            text-align: left;
+            padding: 1.75rem 0;
+            margin: 0;
+        }
+        &__list a{
+            text-decoration: none;
+            color: $main-black;
+        }
+        &__list i{
+            color: $main-goy-ungu;
+        }
+        &__item{
+            padding: 0;
+            margin: -0.5rem 0;
+        }
+        &__app{
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
 }
