@@ -46,7 +46,7 @@
     <main>
         <form class="write-post">
             <img src="/assets/images/profile.png" alt="profile" class="write-post__prof">
-            <textarea class="write-post__status-box" rows="2" placeholder="What's on your mind?" ></textarea>
+            <textarea class="write-post__status-box" rows="1" placeholder="What's on your mind?" ></textarea>
             <i class="fa-solid fa-image" class="write-post__img-icon"></i>
         </form>
             <!--<div class="button-group pull-right">
@@ -145,13 +145,13 @@
             </div>
         </article>
 
-        <nav>
-            <ul class="pagination">
-                <li><a href="#"><i class="fa-solid fa-arrow-left"></i> Previous</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="fa-solid fa-arrow-right"></i> Next</a></li>
+        <nav class="pagination">
+            <ul class="pagination__list">
+                <li class="pagination__arrow"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
+                <li class="pagination__number"><a href="#">1</a></li>
+                <li class="pagination__number"><a href="#">2</a></li>
+                <li class="pagination__number"><a href="#">3</a></li>
+                <li class="pagination__arrow"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
             </ul>
         </nav>
         
@@ -176,31 +176,39 @@
 
     <footer class="footer">
         <!-- nav div-gui -->
-        <div class="footer__nav">
+        <section class="footer__nav">
             <h3 class="footer__nav__title">Цэс:</h3>
             <ul class="footer__nav__list">
                 <li class="footer__nav__item"><a href="page1.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                 <li class="footer__nav__item"><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
                 <li class="footer__nav__item"><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                <li class="footer__nav__item"><a href="page4.html"></a><i class="fa-solid fa-user"></i>Миний профайл</a></li>
+                <li class="footer__nav__item"><a href="page4.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
             </ul>
-        </div>
-        <div class="footer__copyright">
-            <img src="assets/images/logo.png" alt="Team DKS logo">
-            <h3>DKS</h3>
-            <p>DKS &copy; 2023 - All Rights Reserved</p>
-        </div>
-        <div class="footer__contacts">
-            <h3>Холбоо барих:</h3>
-            <i class="fa-solid fa-phone"></i>
-            <p>+976 9999 9999</p>
-            <i class="fa-solid fa-envelope"></i>
-            <p>team_dks@nomail.com</p>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
+        </section>
+        <section class="footer__copyright">
+            <div class="footer__copyright__logo">
+                <img src="assets/images/logo.png" alt="Team DKS logo">
+                <h3>DKS</h3>
+            </div>
+            <p class="footer__copyright__text">DKS &copy; 2023 - All Rights Reserved</p>
+        </section>
+        <section class="footer__contacts">
+            <h3 class="footer__contacts__title">Холбоо барих:</h3>
+            <ul class="footer__contacts__list">
+                <li class="footer__contacts__item">
+                    <a href="tel:+97699999999"><i class="fa-solid fa-phone"></i>+976 9999 9999</a>
+                </li>
+                <li class="footer__contacts__item">
+                    <a href="mailto:team_dks@nomail.com"><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</a>
+                </li>
+                <li class="footer__contacts__app">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </li>
+            </ul>
+        </section>
     </footer>
     <script type="text/javascript" src="./bundled.js"></script>
 </body>

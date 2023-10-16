@@ -11,8 +11,10 @@
 @import 'base/_global.css';
 @import 'base/_mixins.css';
 @import 'base/_variables.css';
-@import 'modules/_test.css';
 @import 'modules/_chat.css';
 @import 'modules/_header.css';
+@import 'modules/_footer.css';
 @import 'modules/_selectedcom.css';
 @import 'modules/_footer.css';
+@import 'modules/_pagination.css';
+
