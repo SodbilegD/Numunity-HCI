@@ -169,7 +169,7 @@
                 width: 100%;
                 border: 0 0 10px 10px;
                 height: max-content;
-                z-index: 5;
+                z-index: 4;
                 box-shadow: 0 15px 20px -20px black;
                 padding: 0;
                 display: none;
