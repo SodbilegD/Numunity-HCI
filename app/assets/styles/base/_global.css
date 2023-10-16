@@ -25,4 +25,6 @@ h1 {
     color: black;
 }
 
-
+input{
+    border: 1px solid $main-goy-ungu!important;
+}
