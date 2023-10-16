@@ -1,0 +1,29 @@
+
+.section{
+    width: 80%;
+    float: left;
+    background-color: $main-white;
+    border-radius: 6px;
+    padding: 20px;
+ 
+    &__highlight{
+    }
+    &__viewmore{
+
+    }
+
+    
+    &__title{
+    
+    }
+    &-text{
+        color: $background-white;
+        margin: 15px 0;
+        font-size: 15px;
+
+    }
+    
+}
+.post{
+
+}

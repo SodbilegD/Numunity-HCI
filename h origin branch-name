@@ -1,0 +1,322 @@
+[33mcommit b61a164b2002b9d8a508e74d97dd6b261755dfb6[m[33m ([m[1;36mHEAD -> [m[1;32mItachi[m[33m)[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Mon Oct 16 20:30:59 2023 +0800
+
+    smth changed
+
+[33mcommit dfd8365e5dfe2eb890912a895b514ab05a6e89e1[m[33m ([m[1;31morigin/Itachi[m[33m)[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Mon Oct 16 20:04:30 2023 +0800
+
+    Merge into styles.css
+
+[33mcommit 02ac7af0f3c81204fe2db76ff1a4e3fdafe3dff7[m
+Merge: 4e31dc1 a09b570
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Mon Oct 16 19:58:17 2023 +0800
+
+    plssssssssssssssssssssssssssssssssssssssssss
+
+[33mcommit 4e31dc10aa3ea4c3c427283412fc8a0b8771d6b9[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Mon Oct 16 19:54:54 2023 +0800
+
+    Committing my local changes before merging
+
+[33mcommit 99764f91accdf96abefbb41581e838287d4fd974[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Mon Oct 16 19:51:33 2023 +0800
+
+    index.html, css joohon nemsen n
+
+[33mcommit a09b5701865e7f88696ee7cdfec147015f6b25a5[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sun Oct 15 18:33:51 2023 +0800
+
+    sda
+
+[33mcommit 55dd230e1c020632477b0833ab522cc341efdc13[m
+Merge: 73ea3f9 129d2c5
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sun Oct 15 18:30:06 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS
+
+[33mcommit 73ea3f90d489000b3bfc947511a5f9a4ed4d6758[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sun Oct 15 18:28:30 2023 +0800
+
+    asd
+
+[33mcommit 129d2c5d3430273393372cdca541919938c0d57f[m
+Merge: 9e9aae8 8cea0e1
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Sat Oct 14 23:37:20 2023 +0800
+
+    Merge pull request #13 from SodbilegD/khulan5
+    
+    Khulan5
+
+[33mcommit 8cea0e110e7a891e2672ade68880c971e08d5b4c[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Sat Oct 14 23:26:35 2023 +0800
+
+    Khulan css halit push
+
+[33mcommit b126a8ce867a8bcba53219d329ff104abee27d88[m
+Merge: eff6853 9e9aae8
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Oct 11 22:44:40 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khulan4
+
+[33mcommit eff68538bc752e245ac13f222815252003b90048[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Oct 11 22:44:03 2023 +0800
+
+    discussion zassn
+
+[33mcommit dbacf8fdb0ecea43ba260739bf8f59d070209e9f[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Oct 11 22:36:47 2023 +0800
+
+    discussion class nemsen
+
+[33mcommit 9e9aae8e3ee91fa911e3c7972adab78aa50d1bbf[m
+Merge: 4978a4a 6f4f2c4
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Wed Oct 11 13:59:12 2023 +0800
+
+    Merge pull request #12 from SodbilegD/Sodoo
+    
+    bagshiin helsneer zassan mixin oruulsan
+
+[33mcommit 6f4f2c48bc3fec7ad9c28f00d262ec7173bca468[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Wed Oct 11 13:58:19 2023 +0800
+
+    bagshiin helsneer zassan mixin oruulsan
+
+[33mcommit 4978a4aa041cd6229f222a7a0138a25d1a628b84[m
+Merge: 0a2a827 44cedc7
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 23:16:34 2023 +0800
+
+    Merge pull request #11 from SodbilegD/Sodoo
+    
+    Sodoo
+
+[33mcommit 44cedc7d57f1584b8512c44dda03f4879936d533[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sat Oct 7 23:15:57 2023 +0800
+
+    Sodoo
+
+[33mcommit 938d4dfb356ebea289b5b7e7689417044aa9cd57[m
+Merge: f59bf5e 0a2a827
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sat Oct 7 23:15:00 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Sodoo
+
+[33mcommit f59bf5edd7d343023b49629afd75ba5612e460a7[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sat Oct 7 23:14:49 2023 +0800
+
+    plugins nemsen
+
+[33mcommit 0a2a8270160b26fd1ff12693a94391f7fada7c0b[m
+Merge: 0327c33 02bc6a9
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 22:55:56 2023 +0800
+
+    Merge pull request #10 from SodbilegD/khulan3
+    
+    Lighthouse-r shalgasan final
+
+[33mcommit 02bc6a91cd703f8a616c067ba3992c5d218c3810[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Sat Oct 7 22:52:17 2023 +0800
+
+    Lighthouse-r shalgasan final
+
+[33mcommit 0327c33d3dce1b764037724edc529a97077f5250[m
+Merge: 1f4821a 7115e36
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 18:15:05 2023 +0800
+
+    Merge pull request #9 from SodbilegD/Sodoo
+    
+    Sodoo
+
+[33mcommit 7115e3642ecd2191ed3d6fb33b6b10549e10e870[m
+Merge: 37d1792 1f4821a
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sat Oct 7 18:14:28 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Sodoo
+
+[33mcommit 37d17923e12462b637a898305270922131cc9ae8[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sat Oct 7 18:14:17 2023 +0800
+
+    w3c deer shalgaad zassan
+
+[33mcommit 1f4821a44ff8dfa9ba0be5aa338df80cfba01d7f[m
+Merge: c118117 5d3c06f
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 18:13:13 2023 +0800
+
+    Merge pull request #8 from SodbilegD/Itachi
+    
+    Itachi
+
+[33mcommit c118117d7a7c9f44de7346b7fb935e2e339f179f[m
+Merge: afa3787 724a77c
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 18:12:46 2023 +0800
+
+    Merge pull request #7 from SodbilegD/khulan2
+    
+    Khulan w3c shalgaad zassn
+
+[33mcommit 724a77c5ee61ca0f608978412e120a74c3336d87[m
+Merge: 26fa383 afa3787
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 18:12:09 2023 +0800
+
+    Merge branch 'main' into khulan2
+
+[33mcommit 5d3c06fc53a6ea4b79d3b52a1608498bf32bca75[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Sat Oct 7 18:03:50 2023 +0800
+
+    Itachi
+
+[33mcommit afa37871e5b62a36c7188df56ce3fc1ea36b6d1a[m
+Merge: d8932f2 9fb9a9d
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Sat Oct 7 01:53:34 2023 +0800
+
+    Merge pull request #6 from SodbilegD/Sodoo
+    
+    chat roomiin html code oruullaa
+
+[33mcommit 9fb9a9d2204596145ac3197e187c015c3dd09f75[m
+Author: Pyoyoyo <sodbileg.d13@gmail.com>
+Date:   Sat Oct 7 01:52:56 2023 +0800
+
+    chat roomiin html code oruullaa
+
+[33mcommit 26fa38347d10d342546e2e769c89344f983d7324[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Sat Oct 7 01:22:32 2023 +0800
+
+    Khulan w3c shalgaad zassn
+
+[33mcommit d8932f254777e602424413bfd2a4648a951c871c[m
+Merge: d65b186 c068b3a
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Fri Oct 6 18:12:39 2023 +0800
+
+    Merge pull request #5 from SodbilegD/khulan1
+    
+    selected community popup
+
+[33mcommit c068b3a610515388ed50ca3747198fc95e2ed4dc[m
+Merge: 8df3c68 d65b186
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Fri Oct 6 18:12:30 2023 +0800
+
+    Merge branch 'main' into khulan1
+
+[33mcommit d65b18694b505eb5c00a0206cf87fda61e0191ef[m
+Merge: cb59bf6 262017f
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Fri Oct 6 14:36:42 2023 +0800
+
+    Merge pull request #4 from SodbilegD/Itachi
+    
+    pages
+
+[33mcommit 262017fb578164f7207c207ab01923e4be8cfed2[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Fri Oct 6 14:35:35 2023 +0800
+
+    pages
+
+[33mcommit 8df3c68e1e1efb58b98effaa1441c7115fa72ae5[m[33m ([m[1;31morigin/khulan1[m[33m)[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Oct 5 15:30:29 2023 +0800
+
+    selected community popup
+
+[33mcommit cb59bf6ad73b4e3205fe28af2d42576290055472[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 2fe83f7 dd2859b
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Thu Oct 5 14:37:56 2023 +0800
+
+    Merge pull request #3 from SodbilegD/Dulguun
+    
+    qwerty
+
+[33mcommit dd2859ba61a59e467d7a9638b1a565fa331f2638[m[33m ([m[1;32mDulguun[m[33m)[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Oct 5 14:34:57 2023 +0800
+
+    qwerty
+
+[33mcommit 2fe83f7f294a57b6281c58d24a0e46478c354b02[m
+Merge: 698ea70 0d866b1
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Thu Oct 5 13:51:05 2023 +0800
+
+    Merge pull request #2 from SodbilegD/khulan
+    
+    discussion selected community
+
+[33mcommit 0d866b1518bbd0dba50f932c1d1956abb1308658[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Oct 5 13:48:38 2023 +0800
+
+    discussion selected community
+
+[33mcommit 698ea70fb8a7b12873f0d9fc49b5e0c663eabd22[m
+Merge: 17d11a7 5d2ff15
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Oct 5 12:13:30 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS
+
+[33mcommit 17d11a7346ef9819d9b80273324341ea7b6f0e34[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Oct 5 12:08:54 2023 +0800
+
+    blah blah
+
+[33mcommit 5d2ff15fd4960c3c2ba8ec5d16807e10fbcd58c9[m
+Merge: b0664d5 14de0b2
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Thu Oct 5 03:06:03 2023 +0800
+
+    Merge pull request #1 from SodbilegD/sodoo
+    
+    shaardlagatai package-uud bolon holboltuudig hiij nemsen
+
+[33mcommit 14de0b255f231f64cc0932db5449f33a521eb2a0[m
+Author: SodbilegD <21b1num0742@stud.num.edu.mn>
+Date:   Thu Oct 5 03:03:43 2023 +0800
+
+    shaardlagatai package-uud bolon holboltuudig hiij nemsen
+
+[33mcommit b0664d57298146995520898a0f349948563a5997[m
+Author: SodbilegD <21b1num0742@stud.num.edu.mn>
+Date:   Wed Oct 4 08:46:57 2023 +0800
+
+    initial commit
+
+[33mcommit a4e8b2cb1c762e39eadb568f57352d64b95e0fa5[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Oct 4 08:14:18 2023 +0800
+
+    Create index.html

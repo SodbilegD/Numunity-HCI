@@ -20,60 +20,60 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
 <body>
-    <header class="large-hero">
+    <header class="main-header">
         <!-- flexbox ashiglana div-eer hamburger btn, search bar newtreh, burtguuleh btn(css modifier primary, secondary ungiig ni 
             todorhoilj gargaj uguh) -->
-        <i class="fa-solid fa-bars"></i>
-        <img src="assets/images/logo.png" alt="Team DKS logo">
-        <h2>DKS</h2>
-        <div id="search-bar">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Хайлт хийх">
-        </div>
+        <i class="fa-solid fa-bars" class="main-header__hamburger"></i>
+        <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__logo">
+        <h2 class="main-header__title">DKS</h2>
+        <form class="main-header__search-bar">
+            <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
+            <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
+        </form>
+        <a href="#"><i class="fa-regular fa-bell" class="main-header__notif"></i></a>
+        <a href="#"><i class="fa-regular fa-user" class="main-header__profile"></i></a>
         <button type="button" class="login-button">Нэвтрэх</button>
         <button type="button" class="signup-button">Бүртгүүлэх</button>
-        <!--Main-->
-        <nav>
-            <ul>
-                <li><a href="page1.html">Нүүр хуудас</a></li>
-                <li><a href="discussion.html">Хэлэлцүүлэг</a></li>
-                <li><a href="chat.html">Чат өрөө</a></li>
-                <li><a href="selectedcommunity.html">Миний хадгалсан</a></li>
-                <li><a href="page5.html">Миний профайл</a></li>
-                <li><a href="page6.html">Гарах</a></li>
+        <nav class="main-header__nav">
+            <ul class="main-header__navlist">
+                <li class="main-header__item"><a href="index.html">Нүүр хуудас</a></li>
+                <li class="main-header__item"><a href="discussion.html">Хэлэлцүүлэг</a></li>
+                <li class="main-header__item"><a href="chat.html">Чат өрөө</a></li>
+                <li class="main-header__item"><a href="selectedcommunity.html">Миний хадгалсан</a></li>
+                <li class="main-header__item"><a href="page5.html">Миний профайл</a></li>
+                <li class="main-header__item"><a href="page6.html">Гарах</a></li>
             </ul>   
         </nav>
     </header>
+
     <main>
-        <section>
-            <form>
-                <textarea class="form-control status-box" rows="2" placeholder="What's on your mind?" ></textarea>
-                <i class="fa-solid fa-image"></i>
+        
+            <form class="write-post">
+                <img src="/assets/images/profile.png" alt="profile" class="write-post__prof">
+                <textarea class="write-post__status-box" rows="2" placeholder="What's on your mind?" ></textarea>
+                <i class="fa-solid fa-image" class="write-post__img-icon"></i>
             </form>
-            <div class="button-group pull-right">
+             <!--<div class="button-group pull-right">
                 <a href="#" class="btn btn-primary">Post</a>
-            </div>
-            <ul class="posts">
-            </ul>
-        </section>
+            </div>-->
         
         
-        <section>
+        <section class="section">
           <!--highlight post-->
-            <section>
-                <h3> Онцлох:</h3>
-                <a href="#">Цааш үзэх</a>
-                    <article>
-                        <div class="post-profile">
-                            <i class="fa-regular fa-user"></i>
-                            <h3>Amet</h3>
-                            <a href="#">>>Lorem ipsum</a>
-                            <p>MUST/MNUE/NUM</p>
-                            <P>6 hours ago</P>
+            <section class="section__highlight">
+                <h3 class="section__title"> Онцлох:</h3>
+                <a href="#" class="section__viewmore">Цааш үзэх</a>
+                    <article class="post">
+                        <div class="post_profile">
+                            <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                            <p class="post__profile__name">Amet</p>
+                            <p class="post__profile__time">1h ago</p>
+                            <a href="#" class="post__viewmore">>>Lorem ipsum</a>
+                            <p class="post__univ">MUST/MNUE/NUM</p>
                         </div>
                         <hr>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
-                        <p>
+                        <h3 class="post__title"> Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
+                        <p class="post__text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
                             Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
                             Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
@@ -84,20 +84,20 @@
                     </article>
             </section>
             <!--Trending-->
-            <section>
-                <h3> Тренд:</h3>
-                <a href="#">Цааш үзэх</a>
-                    <article>
-                        <div class="post-profile">
-                            <i class="fa-regular fa-user"></i>
-                            <h3>Amet <strong>/Walking Wikipedia</strong></h3>
-                            <a href="#">>>Lorem ipsum</a>
-                            <p>MUST/MNUE/NUM</p>
-                            <P>6 hours ago</P>
+            <section class="section__highlight">
+                <h3 class="section__title"> Онцлох:</h3>
+                <a href="#" class="section__viewmore">Цааш үзэх</a>
+                    <article class="post">
+                        <div class="post_profile">
+                            <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                            <p class="post__profile__name">Amet</p>
+                            <p class="post__profile__time">1h ago</p>
+                            <a href="#" class="post__viewmore">>>Lorem ipsum</a>
+                            <p class="post__univ">MUST/MNUE/NUM</p>
                         </div>
                         <hr>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
-                        <p>
+                        <h3 class="post__title"> Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
+                        <p class="post__text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
                             Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
                             Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
@@ -107,20 +107,20 @@
                         </p>
                     </article>
             </section>
-            <section>
-                <h3> Шинэ:</h3>
-                <a href="#">Цааш үзэх</a>
-                    <article>
-                        <div class="post-profile">
-                            <i class="fa-regular fa-user"></i>
-                            <h3>Amet</h3>
-                            <a href="#">>>Lorem ipsum</a>
-                            <p>MUST/MNUE/NUM</p>
-                            <P>6 hours ago</P>
+            <section class="section__highlight">
+                <h3 class="section__title"> Онцлох:</h3>
+                <a href="#" class="section__viewmore">Цааш үзэх</a>
+                    <article class="post">
+                        <div class="post_profile">
+                            <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                            <p class="post__profile__name">Amet</p>
+                            <p class="post__profile__time">1h ago</p>
+                            <a href="#" class="post__viewmore">>>Lorem ipsum</a>
+                            <p class="post__univ">MUST/MNUE/NUM</p>
                         </div>
                         <hr>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
-                        <p>
+                        <h3 class="post__title"> Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
+                        <p class="post__text">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
                             Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
                             Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
@@ -141,7 +141,7 @@
         </ul>
     </aside>
 
-    <footer>
+    <footer class="footer">
         <!-- nav div-gui -->
         <div class="footer-nav">
             <h3>Цэс:</h3>
