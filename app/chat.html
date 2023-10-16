@@ -9,34 +9,42 @@
     <title>Chat Room</title>
 </head>
 <body>
-    <header class="icon">
-        <i class="fa-solid fa-bars"></i>
-        <img src="assets/images/logo.png" alt="Team DKS logo">
-        <h2>DKS</h2>
-        <nav>
-            <ul>
-                <li><a href="index.html">Нүүр хуудас</a></li>
-                <li><a href="discussion.html">Хэлэлцүүлэг</a></li>
-                <li><a href="chat.html">Чат өрөө</a></li>
-                <li><a href="selectedcommunity.html">Миний хадгалсан</a></li>
-                <li><a href="page5.html">Миний профайл</a></li>
-                <li><a href="page6.html">Гарах</a></li>
+    <header class="main-header">
+        <!-- flexbox ashiglana div-eer hamburger btn, search bar newtreh, burtguuleh btn(css modifier primary, secondary ungiig ni 
+            todorhoilj gargaj uguh) -->
+        <i class="fa-solid fa-bars" class="main-header__hamburger"></i>
+        <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__logo">
+        <h2 class="main-header__title">DKS</h2>
+        <form class="main-header__search-bar">
+            <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
+            <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
+        </form>
+        <a href="#"><i class="fa-regular fa-bell" class="main-header__notif"></i></a>
+        <a href="#"><i class="fa-regular fa-user" class="main-header__profile"></i></a>
+        <nav class="main-header__nav">
+            <ul class="main-header__navlist">
+                <li class="main-header__item"><a href="index.html">Нүүр хуудас</a></li>
+                <li class="main-header__item"><a href="discussion.html">Хэлэлцүүлэг</a></li>
+                <li class="main-header__item"><a href="chat.html">Чат өрөө</a></li>
+                <li class="main-header__item"><a href="selectedcommunity.html">Миний хадгалсан</a></li>
+                <li class="main-header__item"><a href="page5.html">Миний профайл</a></li>
+                <li class="main-header__item"><a href="page6.html">Гарах</a></li>
             </ul>   
         </nav>
     </header>
-    <main>
-        <header class="main-header">
-            <div class="main-header__title">
-                <i class="fa-solid fa-house-user"></i>
+    <main class="chat-main">
+        <!-- <header class="chat-main__header">
+            <div class="chat-main__header__title">
                 <h1>DKS Rooms</h1>
             </div>
             <button type="button">
-                <!-- <img src="assets/images/hamburger.png" alt="hamburger-menu"> -->
+                <img src="assets/images/hamburger.png" alt="hamburger-menu">
             </button>
-        </header>
-        <div class="container">
+        </header> -->
+        <div class="chat-main__container">
             <div class="users-window">
                 <div class="users-rooms">
+                    <i class="fa-solid fa-house-user"></i>
                     <h3>Rooms</h3>
                     <ul class="rooms-list">
                         <li>Anime</li>
@@ -48,9 +56,9 @@
                     <h3>Хүмүүс</h3>
                     <h4>3</h4>
                     <div class="users-list">
-                        <p>Sodoo</p>
-                        <p>Dukk</p>
-                        <p>Khulan</p>
+                        <p>Sodoo <strong class="badge-color">/Walking Wikipedia</strong> </p>
+                        <p>Dukk <strong class="badge-color">/Room Clown</strong></p>
+                        <p>Khulan <strong class="badge-color">/Grammar police</strong></p>
                     </div>
                 </div>
             </div>
@@ -58,13 +66,15 @@
                 <button class="leave-btn">Гарах</button>
                 <div class="chats">
                     <div class="user-join">
-                        <p><b>Sodoo</b> өрөөнд орж ирлээ</p>
+                        <p><b>Sodoo</b> <img src="assets/images/profile.png" alt="profile picture" class=".profile-picture"> өрөөнд орж ирлээ</p>
                     </div>
                     <div class="message incoming">
+                        <img src="assets/images/profile.png" alt="user-profile-picture" class="profile-picture">
                         <h5>Sodoo</h5>
                         <p>Тавтай морил DKS</p>
                     </div>
                     <div class="message outgoing">
+                        <img src="assets/images/profile.png" alt="user-profile-picture" class="profile-picture">
                         <h5>Khulan</h5>
                         <p>Тавтай морил Sodoo</p>
                     </div>
@@ -76,27 +86,24 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-nav">
+    <footer class="footer">
+        <div class="footer__nav">
             <h3>Цэс:</h3>
             <ul>
                 <li><a href="page1.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                 <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
-                <li><i class="fa-solid fa-comment-dots"></i><a href="chat.html">Чат өрөө</a></li>
-                <li><i class="fa-solid fa-user"></i><a href="page4.html">Миний профайл</a></li>
+                <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
+                <li><a href="page4.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
             </ul>
         </div>
-        <div class="footer-copyright">
-            <img src="assets/images/logo.png" alt="Team DKS logo">
-            <h3>DKS</h3>
+        <div class="footer__copyright">
+            <h3><img src="assets/images/logo.png" alt="Team DKS logo">DKS</h3>
             <p>DKS &copy; 2023 - All Rights Reserved</p>
         </div>
-        <div class="footer-contacts">
+        <div class="footer__contacts">
             <h3>Холбоо барих:</h3>
-            <i class="fa-solid fa-phone"></i>
-            <p>+976 9999 9999</p>
-            <i class="fa-solid fa-envelope"></i>
-            <p>team_dks@nomail.com</p>
+            <p><i class="fa-solid fa-phone"></i>+976 9999 9999</p>
+            <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-twitter"></i>
