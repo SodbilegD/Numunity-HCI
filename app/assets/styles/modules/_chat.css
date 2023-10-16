@@ -104,6 +104,11 @@ main {
                     max-width: 400px;
                     margin-bottom: 15px;
                     border-radius: 10px 50px 50px 10px;
+                    .profile-picture{
+                        border-radius: 50%;
+                        border: none;
+                        width: 2rem;
+                    }
                     p{
                         font-size: 16px;
                     }
@@ -126,7 +131,7 @@ main {
                     background-color: $main-white;
                     padding: 10px 20px;
                     outline: none;
-                    border: none;
+                    border: 1px solid $main-goy-ungu;
                     width: 100%;
                     border-radius: 50px 0 0 50px;
 
@@ -148,7 +153,7 @@ main {
     }
 }
 
-@media screen and (max-width: 960px) {
+@mixin atSmall {
     main {
         width: 95%;
         button{
