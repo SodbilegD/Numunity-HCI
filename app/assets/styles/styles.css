@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 @import 'normalize.css';
+@import 'base/_variables.css';
 @import 'modules/_test.css';
 @import 'base/_global.css';
-@import 'base/_variables.css';
 @import 'modules/index.css';
 @import 'modules/_header.css';
 @import 'modules/_selectedcom.css';
@@ -11,6 +11,7 @@
 @import 'base/_global.css';
 @import 'base/_mixins.css';
 @import 'base/_variables.css';
+@import 'modules/_badge.css';
 @import 'modules/_chat.css';
 @import 'modules/_header.css';
 @import 'modules/_footer.css';
