@@ -1,0 +1,26 @@
+.btn{
+    background-color: $main-goy-ungu;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.2rem;
+    display: inline-block;
+    border: none;
+    border-radius: 1rem;
+    &--op {
+        background-color: $main-white;
+        color: $main-goy-ungu;
+        border: 1px solid $main-goy-ungu;
+    }
+
+    &--large {
+        padding: 1.1rem 1.9rem;
+        
+        @mixin atSmall {
+            font-size: 1.25rem;
+        }
+    }
+    @mixin atSmall{
+        font-size: 0.5rem;
+        padding: 0.5rem 0.75rem;
+    }
+}

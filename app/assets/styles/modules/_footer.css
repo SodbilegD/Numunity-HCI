@@ -1,9 +1,12 @@
 .footer{
     background-color: $main-white;
     display: flex;
-    direction: column;
-    margin-top: 1rem;
-    padding: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 1rem 5rem;
+    max-width: 100%;
     &__nav{
         flex-direction: row;
         h3{
@@ -12,12 +15,18 @@
         ul{
             list-style: none;
             li{
-                margin-bottom: -1rem;
                 list-style: none;
+                margin-bottom: 1rem;
                 a{
                     text-decoration: none;
+                    i{
+                        margin-right: 1rem;
+                    }
                 }
             }
+        }
+        @mixin atLarge{
+            display: none;
         }
     }
     &__copyright{
@@ -27,10 +36,23 @@
         h3{
             color: $main-goy-ungu;
             font-size: 3rem;
+            justify-content: center;
             img{
                 width: 3rem;
                 height: 3rem;
+                margin-right: 2rem;
             }
+        }
+        @mixin atMedium{
+            h3{
+                font-size: 2rem;
+                img{
+                    width: 2rem;
+                    height: 2rem;
+                    margin-right: 1rem;
+                }
+            }
+                
         }
     }
     &__contacts{
@@ -41,6 +63,10 @@
         i{
             align-items: center;    
             justify-content: center;
+            margin-right: 1rem;
         }
+    }
+    @mixin atMedium{
+            
     }
 }
