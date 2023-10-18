@@ -15,6 +15,8 @@
         justify-content: flex-start;
         align-items: stretch;
         border-radius: 1rem;
+        overflow-y: scroll;
+
         nav.users-window{
             max-width: 30%;
             color: $dark-grey;
@@ -49,15 +51,15 @@
                     font-size: 1rem;
                     font-weight: 500;
                 }
+            
         }
         div.chat-window {
             width: 100%;
             border-radius: 10px;
             background-color: $main-white;
             position: relative;
-            overflow-y: scroll;
             div.room-name{
-                border-bottom: 1px solid $dark-grey;
+                border-bottom: 1rem solid $main-goy-ungu;
                 h1{
                     display: flex;
                     flex-direction: row;
@@ -107,12 +109,15 @@
                     padding: 1rem;
                     max-width: 400px;
                     margin: 0;
+                    justify-content: center;
+                    align-items: center;
                     .profile-picture{
                         border-radius: 50%;
                         border: none;
                         width: 3rem;
                         height: 3rem;
                         margin: auto 0;
+                        
                     }
                     &__text{
                         h5{
@@ -142,48 +147,65 @@
             }
             div.user-input{
                 border: 1px solid $main-goy-ungu;
-                border-radius: 3rem;
+                border-radius: 1rem;
+                margin: auto;
+                margin-bottom: 1rem;
                 max-width: 90%;
                 min-height: auto;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: stretch;
-                padding: 20px;
+                padding: 1rem 2rem;
                 input{
-                    font-size: 16px;
+                    font-size: 1rem;
                     background-color: $main-white;
                     padding: 10px 20px;
                     outline: none;
-                    border: 1px solid $main-goy-ungu;
+                    border: 1px solid $main-goy-ungu-op;
                     width: 100%;
-                    border-radius: 50px 0 0 50px;
-
+                    border-radius: 3rem;
+                    margin: 0 1rem;
                 }
                 button{
                     font-size: 16px;
                     font-weight: 500;
-                    padding: 5px 15px;
+                    padding: 0.5rem 2rem;
                     border: none;
                     outline: none;
                     letter-spacing: 0.5px;
                     color: $main-white;
                     background-color: $main-goy-ungu;
-                    border-radius: 0 50px 50px 0;
+                    border-radius: 3rem;
 
                 }
             }
         }
     }
+    @mixin atLarge{
+        margin: auto;
+        overflow: hidden;
+        background-color: $main-white;
+        border: 0.25rem solid $main-goy-ungu;
+        border-radius: 0.5rem;
+        height: auto;
+    }
 }
 
 @mixin atSmall {
-    main {
+    .chat-main {
         width: 95%;
+        margin: auto;
+        overflow: hidden;
+        background-color: $main-white;
+        border: 0.25rem solid $main-goy-ungu;
+        border-radius: 0.5rem;
+        height: auto;
+        
         button{
             display: block;
         }
-        div.container{
+        &__container{
             position: relative;
             div.users-window{
                 position: absolute;
@@ -195,7 +217,6 @@
                 z-index: 4;
                 box-shadow: 0 15px 20px -20px black;
                 padding: 0;
-                display: none;
             }
             div.chat-window{
                 div.chats{
