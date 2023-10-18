@@ -1,6 +1,5 @@
-
 .section{
-    width: 80%;
+    width: 70%;
     float: left;
     background-color: $main-white;
     border-radius: 6px;
@@ -9,7 +8,7 @@
     &__highlight{
     }
     &__viewmore{
-
+        
     }
 
     
@@ -22,8 +21,4 @@
         font-size: 15px;
 
     }
-    
-}
-.post{
-
 }

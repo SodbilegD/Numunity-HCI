@@ -7,27 +7,6 @@
     border-radius: 1rem;
     height: auto;
 
-    &__header {
-        background-color: inherit;
-        color: black;
-        padding: 7px 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-between;
-        align-items: center;
-        &__title {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        &__button{
-            background: transparent;
-            border: none;
-            outline: none;
-
-        }
-    }
     &__container{
         background-color: $main-white;
         padding: 0 1.25rem;
@@ -36,46 +15,63 @@
         justify-content: flex-start;
         align-items: stretch;
         border-radius: 1rem;
-        div.users-window{
-            width: 350px;
+        overflow-y: scroll;
+
+        nav.users-window{
+            max-width: 30%;
             color: $dark-grey;
             background-color: $main-white;
-            padding: 15px 20px;
-            margin-right: 20px;
             border-right: solid 1rem $main-goy-ungu;
             .users-rooms{
-                ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                ul.rooms-list{
                     text-decoration: none;
                     li{
-                        text-decoration: none;
                         list-style: none;
+                        text-decoration: none;
                     }
                 }
             }
             div.users-head {
-                margin: 15px;
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                
+                justify-content: flex-start;
+                align-items: flex-start;
                 }
                 h4{
-                    background-color: lightgrey;
                     padding: 0 8px;
                     border: 50px;
                 }
-                div.users-list p{
-                    font-size: 16px;
+                ul.users-list li{
+                    list-style: none;
+                    text-decoration: none;
+                    font-size: 1rem;
                     font-weight: 500;
-                    margin-bottom: 15px;
                 }
+            
         }
         div.chat-window {
             width: 100%;
             border-radius: 10px;
             background-color: $main-white;
             position: relative;
+            div.room-name{
+                border-bottom: 1rem solid $main-goy-ungu;
+                h1{
+                    display: flex;
+                    flex-direction: row;
+                    .room-picture{
+                        border-radius: 50%;
+                        border: none;
+                        width: 3rem;
+                        height: 3rem;
+                        margin: auto 1rem;
+                    }
+                }
+            }
             button.leave-btn{
                 position: absolute;
                 top: 0;
@@ -86,81 +82,130 @@
                 background-color: $main-goy-ungu-op;
             }
             div.chats{
-                min-height: 65vh;
+                min-height: 60vh;
+                max-width: 100%;
                 padding: 20px;
                 div.user-join {
-                    font-size: 0.9rem;
+                    font-size: 0.75rem;
                     color: $main-goy-ungu;
-                    border-radius: 50px;
                     width: max-content;
                     padding: 7px 20px;
                     margin: 0 auto;
                     margin-bottom: 15px;
-
+                    &__text{
+                        .profile-picture{
+                            border-radius: 50%;
+                            border: none;
+                            width: 1rem;
+                            height: 1rem;
+                            margin: 0;
+                        }
+                    }
                 }
                 div.message{
                     color: $dark-grey;
-                    background-color: $main-goy-ungu-op;
-                    padding: 5px 15px;
+                    display: flex;
+                    flex-direction: row;
+                    padding: 1rem;
                     max-width: 400px;
-                    margin-bottom: 15px;
-                    border-radius: 10px 50px 50px 10px;
+                    margin: 0;
+                    justify-content: center;
+                    align-items: center;
                     .profile-picture{
                         border-radius: 50%;
                         border: none;
-                        width: 2rem;
+                        width: 3rem;
+                        height: 3rem;
+                        margin: auto 0;
+                        
                     }
-                    p{
-                        font-size: 16px;
+                    &__text{
+                        h5{
+                            display: flex;
+                            justify-content: flex-start;
+                            padding-left: 2rem;
+                        }
+                        p{
+                            font-size: 1rem;
+                            max-width: 400px;
+                            padding: 1rem;
+                            background-color: $main-goy-ungu-op;
+                            border-radius: 2.5rem;
+                        }
                     }
                 }
                 div.outgoing{
                     margin-left: auto;
-                    color: $dark-grey;
-                    background-color: $main-goy-ungu-op;
-                    border-radius: 50px 10px 10px 50px;
+                    display: flex;
+                    flex-direction: row;
+                    border-radius: 50px 50px 50px 50px;
+                    h5{
+                        justify-content: flex-end;
+                        margin-right: 2rem;
+                    }
                 }
             }
             div.user-input{
+                border: 1px solid $main-goy-ungu;
+                border-radius: 1rem;
+                margin: auto;
+                margin-bottom: 1rem;
+                max-width: 90%;
+                min-height: auto;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: stretch;
-                padding: 20px;
+                padding: 1rem 2rem;
                 input{
-                    font-size: 16px;
+                    font-size: 1rem;
                     background-color: $main-white;
                     padding: 10px 20px;
                     outline: none;
-                    border: 1px solid $main-goy-ungu;
+                    border: 1px solid $main-goy-ungu-op;
                     width: 100%;
-                    border-radius: 50px 0 0 50px;
-
+                    border-radius: 3rem;
+                    margin: 0 1rem;
                 }
                 button{
                     font-size: 16px;
                     font-weight: 500;
-                    padding: 5px 15px;
+                    padding: 0.5rem 2rem;
                     border: none;
                     outline: none;
                     letter-spacing: 0.5px;
                     color: $main-white;
                     background-color: $main-goy-ungu;
-                    border-radius: 0 50px 50px 0;
+                    border-radius: 3rem;
 
                 }
             }
         }
     }
+    @mixin atLarge{
+        margin: auto;
+        overflow: hidden;
+        background-color: $main-white;
+        border: 0.25rem solid $main-goy-ungu;
+        border-radius: 0.5rem;
+        height: auto;
+    }
 }
 
 @mixin atSmall {
-    main {
+    .chat-main {
         width: 95%;
+        margin: auto;
+        overflow: hidden;
+        background-color: $main-white;
+        border: 0.25rem solid $main-goy-ungu;
+        border-radius: 0.5rem;
+        height: auto;
+        
         button{
             display: block;
         }
-        div.container{
+        &__container{
             position: relative;
             div.users-window{
                 position: absolute;
@@ -172,7 +217,6 @@
                 z-index: 4;
                 box-shadow: 0 15px 20px -20px black;
                 padding: 0;
-                display: none;
             }
             div.chat-window{
                 div.chats{

@@ -23,7 +23,24 @@
     <header class="main-header">
         <!-- flexbox ashiglana div-eer hamburger btn, search bar newtreh, burtguuleh btn(css modifier primary, secondary ungiig ni 
             todorhoilj gargaj uguh) -->
-        <i class="fa-solid fa-bars" class="main-header__hamburger"></i>
+        
+        <nav class="sidemenu">
+            <input type="checkbox" id="check">
+            <label for="check">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+            </label>
+            <div class="sidebar">
+            <ul>
+                <li><a href="index.html" class='fas fa-pager'>Нүүр хуудас</a></li>
+                <li><a href="discussion.html" class="sidebar__list">Хэлэлцүүлэг</a></li>
+                <li><a href="chat.html" class="sidebar__list">Чат өрөө</a></li>
+                <li><a href="selectedcommunity.html" class="sidebar__list">Миний хадгалсан</a></li>
+                <li><a href="page5.html" class="sidebar__list">Миний профайл</a></li>
+                <li><a href="page6.html" class="sidebar__list">Гарах</a></li>   
+            </ul>
+        </div>
+        </nav>
         <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__logo">
         <h2 class="main-header__title">DKS</h2>
         <form class="main-header__search-bar">
@@ -32,16 +49,6 @@
         </form>
         <a href="#"><i class="fa-regular fa-bell" class="main-header__notif"></i></a>
         <a href="#"><i class="fa-regular fa-user" class="main-header__profile"></i></a>
-        <nav class="main-header__nav">
-            <ul class="main-header__navlist">
-                <li class="main-header__item"><a href="index.html">Нүүр хуудас</a></li>
-                <li class="main-header__item"><a href="discussion.html">Хэлэлцүүлэг</a></li>
-                <li class="main-header__item"><a href="chat.html">Чат өрөө</a></li>
-                <li class="main-header__item"><a href="selectedcommunity.html">Миний хадгалсан</a></li>
-                <li class="main-header__item"><a href="page5.html">Миний профайл</a></li>
-                <li class="main-header__item"><a href="page6.html">Гарах</a></li>
-            </ul>   
-        </nav>
     </header>
 
     <main>
@@ -62,7 +69,7 @@
                 <h3 class="section__title"> Онцлох:</h3>
                 <a href="#" class="section__viewmore">Цааш үзэх</a>
                     <article class="post">
-                        <div class="post_profile">
+                        <div class="post__profile">
                             <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
                             <p class="post__profile__name">Amet</p>
                             <p class="post__profile__time">1h ago</p>
@@ -83,7 +90,7 @@
             </section>
             <!--Trending-->
             <section class="section__highlight">
-                <h3 class="section__title"> Онцлох:</h3>
+                <h3 class="section__title"> Trending:</h3>
                 <a href="#" class="section__viewmore">Цааш үзэх</a>
                     <article class="post">
                         <div class="post_profile">
@@ -106,7 +113,7 @@
                     </article>
             </section>
             <section class="section__highlight">
-                <h3 class="section__title"> Онцлох:</h3>
+                <h3 class="section__title"> Шинэ:</h3>
                 <a href="#" class="section__viewmore">Цааш үзэх</a>
                     <article class="post">
                         <div class="post_profile">
@@ -140,27 +147,23 @@
     </aside>
 
     <footer class="footer">
-        <!-- nav div-gui -->
-        <div class="footer-nav">
+        <div class="footer__nav">
             <h3>Цэс:</h3>
             <ul>
                 <li><a href="page1.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                 <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
-                <li><i class="fa-solid fa-comment-dots"></i><a href="chat.html">Чат өрөө</a></li>
-                <li><i class="fa-solid fa-user"></i><a href="page4.html">Миний профайл</a></li>
+                <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
+                <li><a href="page4.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
             </ul>
         </div>
-        <div class="footer-copyright">
-            <img src="assets/images/logo.png" alt="Team DKS logo">
-            <h3>DKS</h3>
-            <p>DKS & copy &amp; 2023 - All Rights Reserved</p>
+        <div class="footer__copyright">
+            <h3><img src="assets/images/logo.png" alt="Team DKS logo">DKS</h3>
+            <p>DKS &copy; 2023 - All Rights Reserved</p>
         </div>
-        <div class="footer-contacts">
+        <div class="footer__contacts">
             <h3>Холбоо барих:</h3>
-            <i class="fa-solid fa-phone"></i>
-            <p>+976 9999 9999</p>
-            <i class="fa-solid fa-envelope"></i>
-            <p>team_dks@nomail.com</p>
+            <p><i class="fa-solid fa-phone"></i>+976 9999 9999</p>
+            <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-twitter"></i>

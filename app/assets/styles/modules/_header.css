@@ -1,8 +1,11 @@
+
+
 .main-header{
     margin: 0.75rem 0;
     padding: 0 3rem;
     background-color: $main-white;
     color: $main-goy-ungu;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -108,11 +111,15 @@
       &__hamburger:focus + &__nav:focus-within {
         left: -250px;
       }
+    @mixin atSmall{
+    width: 100%;
+    }
+  
       @mixin atLarge{
 
       }
 }
-
+    
   
   
 

@@ -20,6 +20,7 @@
             li{
                 list-style: none;
                 margin-bottom: 1rem;
+                margin-bottom: 1rem;
                 a{
                     text-decoration: none;
                     i{
@@ -32,6 +33,9 @@
         @mixin atLarge{
             display: none;
         }
+        @mixin atLarge{
+            display: none;
+        }
     }
     &__copyright{
         display: flex;
@@ -40,9 +44,11 @@
         h3{
             color: $main-goy-ungu;
             font-size: 3rem;
+            justify-content: center;
             img{
                 width: 3rem;
                 height: 3rem;
+                margin-right: 2rem;
                 margin-right: 2rem;
             }
         }
@@ -80,6 +86,9 @@
             font-size: 1.5rem;
             margin: 1rem;
         }
+    }
+    @mixin atMedium{
+            
     }
     @mixin atMedium{
             
