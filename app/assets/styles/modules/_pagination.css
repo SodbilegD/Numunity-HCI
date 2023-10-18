@@ -6,24 +6,28 @@
         justify-content: center;
         align-items: center;
         font-size: var(--small-text);
+        gap: 1.5rem;
     }
-    &__arrow{
-        color: $main-goy-ungu;
-        margin: 0;
-        padding: 0;
-        align-self: center;
-    }
-    &__arrow a{
-        text-decoration: none;
+    &__arrow,
+    &__number{
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     &__number{
-        height: 2.5rem;
         width: 2.5rem;
+        height: 2.5rem;
         border: 1px solid $main-goy-ungu;
-        border-radius: 2.5rem;
-        color: $main-goy-ungu;
+        border-radius: 50%;
     }
+    &__arrow a,
     &__number a{
         text-decoration: none;
+        color: $main-goy-ungu;
+    }
+    &__arrow i{
+        padding: 0 1rem;
+        font-size: 1.25rem;
+        color: $main-goy-ungu;
     }
 }
