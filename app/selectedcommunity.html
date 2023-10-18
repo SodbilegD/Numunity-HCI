@@ -23,14 +23,20 @@
         <!-- flexbox ashiglana div-eer hamburger btn, search bar newtreh, burtguuleh btn(css modifier primary, secondary ungiig ni 
             todorhoilj gargaj uguh) -->
         <i class="fa-solid fa-bars" class="main-header__hamburger"></i>
-        <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__logo">
-        <h2 class="main-header__title">DKS</h2>
+        <div class="main-header__container1">
+            <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
+            <h2 class="main-header__container1__title">DKS</h2>
+        </div>
+        
         <form class="main-header__search-bar">
             <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
             <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
         </form>
-        <a href="#"><i class="fa-regular fa-bell" class="main-header__notif"></i></a>
-        <a href="#"><i class="fa-regular fa-user" class="main-header__profile"></i></a>
+        <div class="main-header__container2">
+            <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
+            <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a>
+        </div>
+        
         <nav class="main-header__nav">
             <ul class="main-header__navlist">
                 <li class="main-header__item"><a href="index.html">Нүүр хуудас</a></li>
@@ -42,173 +48,164 @@
             </ul>   
         </nav>
     </header>
-    
-    <main>
-        <form class="write-post">
-            <img src="/assets/images/profile.png" alt="profile" class="write-post__prof">
-            <textarea class="write-post__status-box" rows="1" placeholder="What's on your mind?" ></textarea>
-            <i class="fa-solid fa-image" class="write-post__img-icon"></i>
-        </form>
-            <!--<div class="button-group pull-right">
-                <a href="#" class="btn btn-primary">Post</a>
-            </div>-->
 
-        <section class="community">
-            <h1 class="community__name">>> Веб програмчлал</h1>
-            <button type="button" class="community__join-button">нэгдэх</button>
-            <button type="button" class="community__new-button">шинэ</button>
-            <button type="button" class="community__trending-button">тренд</button>
-        </section>
-        
+    <div class="main-container">
+        <main>
+            <form class="write-post">
+                <img src="/assets/images/profile.png" alt="profile" class="write-post__prof">
+                <textarea class="write-post__status-box" rows="1" placeholder="What's on your mind?" ></textarea>
+                <a href="#" class="write-post__img-icon"><i class="fa-solid fa-image"></i></a>
+            </form>
+                <!--<div class="button-group pull-right">
+                    <a href="#" class="btn btn-primary">Post</a>
+                </div>-->
 
-
-        <article class="post">
-            <div class="post__profile">
-                <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
-                <p class="post__profile__name">Amet</p>
-                <p class="post__profile__time">1h ago</p>
-            </div>
-            <hr>
-            <h3 class="post__title">How do I stop obsessing over grades?</h3>
-            <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
-                my mind. I’ve never gotten anything lower than an A- 
-                and I feel actuallty sick over this What can I do?
-            </p>
-            <div class="post__reactions">
-                <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
-            </div>
-        </article>
+            <section class="community">
+                <h1 class="community__name">>> Веб програмчлал</h1>
+                <button type="button" class="community__join-button">нэгдэх</button>
+                <button type="button" class="community__new-button">шинэ</button>
+                <button type="button" class="community__trending-button">тренд</button>
+            </section>
+            
 
 
-        <article class="post">
-            <div class="post__profile">
-                <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
-                <p class="post__profile__name">Amet</p>
-                <p class="post__profile__time">1h ago</p>
-            </div>
-            <hr>
-            <h3 class="post__title">How do I stop obsessing over grades?</h3>
-            <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
-                my mind. I’ve never gotten anything lower than an A- 
-                and I feel actuallty sick over this What can I do?
-            </p>
-            <div class="post__reactions">
-                <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
-            </div>
-        </article>
-
-
-        <article class="post">
-            <div class="post__profile">
-                <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
-                <p class="post__profile__name">Amet</p>
-                <p class="post__profile__time">1h ago</p>
-            </div>
-            <hr>
-            <h3 class="post__title">How do I stop obsessing over grades?</h3>
-            <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
-                my mind. I’ve never gotten anything lower than an A- 
-                and I feel actuallty sick over this What can I do?
-            </p>
-            <div class="post__reactions">
-                <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
-            </div>
-        </article>
-
-
-        <article class="post">
-            <div class="post__profile">
-                <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
-                <p class="post__profile__name">Amet</p>
-                <p class="post__profile__time">1h ago</p>
-            </div>
-            <hr>
-            <h3 class="post__title">How do I stop obsessing over grades?</h3>
-            <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
-                my mind. I’ve never gotten anything lower than an A- 
-                and I feel actuallty sick over this What can I do?
-            </p>
-            <div class="post__reactions">
-                <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
-                <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
-            </div>
-        </article>
-
-        <nav class="pagination">
-            <ul class="pagination__list">
-                <li class="pagination__arrow"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
-                <li class="pagination__number"><a href="#">1</a></li>
-                <li class="pagination__number"><a href="#">2</a></li>
-                <li class="pagination__number"><a href="#">3</a></li>
-                <li class="pagination__arrow"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
-            </ul>
-        </nav>
-        
-    </main>
-    <aside class="advertisements">
-        <!-- ul li -->
-        <ul>
-            <li>
-                <h3>Веб програмчлал</h3>
+            <article class="post">
+                <div class="post__profile">
+                    <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                    <p class="post__profile__name">Amet</p>
+                    <p class="post__profile__time">1h ago</p>
+                </div>
                 <hr>
-                <p>Веб програм хөгжүүлэлттэй холбоотой  өөрт тулгарсан асуудлаа хуваалцацгаая.</p>
-                <i class="fa-regular fa-clock"></i>
-                <p>Нээгдсэн: 2023. 09. 23</p>
-                <p>Дагагчид<br>1485</p>
-                <p>Нийт пост<br>10.5К</p>
-            </li>
-            <li><a href="ad.com"><img src="assets/images/ad1.png" alt="advertisements1"></a></li>
-            <li><a href="ad.com"><img src="assets/images/ad2.png" alt="advertisements2"></a></li>
-        </ul>
-    </aside>
+                <h3 class="post__title">How do I stop obsessing over grades?</h3>
+                <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
+                    my mind. I’ve never gotten anything lower than an A- 
+                    and I feel actuallty sick over this What can I do?
+                </p>
+                <div class="post__reactions">
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
+                </div>
+            </article>
 
+
+            <article class="post">
+                <div class="post__profile">
+                    <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                    <p class="post__profile__name">Amet</p>
+                    <p class="post__profile__time">1h ago</p>
+                </div>
+                <hr>
+                <h3 class="post__title">How do I stop obsessing over grades?</h3>
+                <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
+                    my mind. I’ve never gotten anything lower than an A- 
+                    and I feel actuallty sick over this What can I do?
+                </p>
+                <div class="post__reactions">
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
+                </div>
+            </article>
+
+
+            <article class="post">
+                <div class="post__profile">
+                    <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                    <p class="post__profile__name">Amet</p>
+                    <p class="post__profile__time">1h ago</p>
+                </div>
+                <hr>
+                <h3 class="post__title">How do I stop obsessing over grades?</h3>
+                <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
+                    my mind. I’ve never gotten anything lower than an A- 
+                    and I feel actuallty sick over this What can I do?
+                </p>
+                <div class="post__reactions">
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
+                </div>
+            </article>
+
+
+            <article class="post">
+                <div class="post__profile">
+                    <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                    <p class="post__profile__name">Amet</p>
+                    <p class="post__profile__time">1h ago</p>
+                </div>
+                <hr>
+                <h3 class="post__title">How do I stop obsessing over grades?</h3>
+                <p class="post__detail">I just got a B+ on an essay and I’m absolutely losing 
+                    my mind. I’ve never gotten anything lower than an A- 
+                    and I feel actuallty sick over this What can I do?
+                </p>
+                <div class="post__reactions">
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
+                    <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
+                </div>
+            </article>
+
+            <nav class="pagination">
+                <ul class="pagination__list">
+                    <li class="pagination__arrow"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
+                    <li class="pagination__number"><a href="#">1</a></li>
+                    <li class="pagination__number"><a href="#">2</a></li>
+                    <li class="pagination__number"><a href="#">3</a></li>
+                    <li class="pagination__arrow"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
+                </ul>
+            </nav>
+            
+        </main>
+        <aside class="advertisements">
+            <ul class="advertisements__list">
+                <li class="advertisements__info">
+                    <h3 class="advertisements__info__title">Веб програмчлал</h3>
+                    <hr>
+                    <p class="advertisements__info__detail">Веб програм хөгжүүлэлттэй холбоотой  өөрт тулгарсан асуудлаа хуваалцацгаая.</p>
+                    <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: 2023. 09. 23</p>
+                    <div class="advertisements__info__container">
+                        <p class="advertisements__info__followers">Дагагчид<br><span>1.4k</span></p>
+                        <hr>
+                        <p class="advertisements__info__total">Нийт пост<br><span>10.5k</span></p>
+                    </div>
+                    
+                </li>
+                <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad1.png" alt="advertisements1"></a></li>
+                <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad2.png" alt="advertisements2"></a></li>
+            </ul>
+        </aside>
+    </div>
 
     <footer class="footer">
-        <!-- nav div-gui -->
-        <section class="footer__nav">
-            <h3 class="footer__nav__title">Цэс:</h3>
-            <ul class="footer__nav__list">
-                <li class="footer__nav__item"><a href="page1.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
-                <li class="footer__nav__item"><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
-                <li class="footer__nav__item"><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                <li class="footer__nav__item"><a href="page4.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
+        <div class="footer__nav">
+            <h3>Цэс:</h3>
+            <ul>
+                <li><a href="page1.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
+                <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
+                <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
+                <li><a href="page4.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
             </ul>
-        </section>
-        <section class="footer__copyright">
-            <div class="footer__copyright__logo">
-                <img src="assets/images/logo.png" alt="Team DKS logo">
-                <h3>DKS</h3>
-            </div>
-            <p class="footer__copyright__text">DKS &copy; 2023 - All Rights Reserved</p>
-        </section>
-        <section class="footer__contacts">
-            <h3 class="footer__contacts__title">Холбоо барих:</h3>
-            <ul class="footer__contacts__list">
-                <li class="footer__contacts__item">
-                    <a href="tel:+97699999999"><i class="fa-solid fa-phone"></i>+976 9999 9999</a>
-                </li>
-                <li class="footer__contacts__item">
-                    <a href="mailto:team_dks@nomail.com"><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</a>
-                </li>
-                <li class="footer__contacts__app">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-whatsapp"></i>
-                </li>
-            </ul>
-        </section>
+        </div>
+        <div class="footer__copyright">
+            <h3><img src="assets/images/logo.png" alt="Team DKS logo">DKS</h3>
+            <p>DKS &copy; 2023 - All Rights Reserved</p>
+        </div>
+        <div class="footer__contacts">
+            <h3>Холбоо барих:</h3>
+            <p><i class="fa-solid fa-phone"></i>+976 9999 9999</p>
+            <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+        </div>
     </footer>
     <script type="text/javascript" src="./bundled.js"></script>
 </body>

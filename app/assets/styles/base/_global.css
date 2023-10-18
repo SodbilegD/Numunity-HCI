@@ -1,6 +1,6 @@
 :root {
     box-sizing: border-box;
-    --extra-small-text: 0.5rem;
+    --extra-small-text: 0.75rem;
     --small-text: 1rem;
     --medium-text: 1.25rem;
     --bigmedium-text: 1.5rem;
@@ -10,19 +10,36 @@
 body {
     font-family: 'Comfortaa', cursive;
     color: #333;
-    background-color: #F5F5FA;
+    background-color: $background-white;
     padding: 0 10rem;
+    @mixin atLarge{
+        padding: 0 5rem;
+    }
+
 }
-  
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
 
 main{
     margin: 0;
+    width: 75%;
+    @mixin atMedium{
+        width: 100%;
+    }
 }
 aside{
-    background-color: #ccc;
+    width: 25%;
+    background-color: $main-white;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    @mixin atMedium{
+        display: none;
+    }
 }
-h1 {
-    color: black;
-}
+
 
 

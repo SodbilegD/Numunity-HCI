@@ -1,42 +1,72 @@
-*{
-    margin: 0.75rem 1rem;
-    
-}
-
 .main-header{
+    margin: 0.75rem 0;
+    padding: 0 3rem;
     background-color: $main-white;
     color: $main-goy-ungu;
-    padding: 0 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 0.5rem;
 
-    &__logo{
-        max-width: 30px;
+    @mixin atLarge{
+        padding: 0 1.5rem;
     }
+
+    &__container1{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      &__logo{
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+    
     &__search-bar {
         display: flex;
         align-items: center;
+        width: calc(100%/3);
+        padding: 0.25rem 1.25rem;
+        border-radius: 1.25rem;
+        background-color: $background-white;
+        
     }
       
     &__search-field {
-        padding: 5px;
-        margin: 0 10px;
+        width: 100%;
+        padding: 0.25rem;
+        margin: 0 0.5rem;
         border: none;
-        border-radius: 5px;
+        background-color: transparent;
+    }
+    &__search-field:focus{
+        outline: none;
+    }
+
+    &__container2{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      color: $main-goy-ungu;
+
+      &__notif,
+      &__profile {
+        text-decoration: none;
+        font-size: 1.25rem;
+        color: $main-goy-ungu;
+      }
+
     }
       
-    &__notif,
-    &__profile {
-        text-decoration: none;
-        color: #fff; /* Set your desired link color */
-    }
+    
       
       /* Style for the hamburger icon */
-      &__hamburger {
-        cursor: pointer;
-      }
+    &__hamburger {
+      font-size: 1.25rem;
+    }
       
       /* Style for the sidebar */
       &__nav {
@@ -77,6 +107,9 @@
       /* Hide the sidebar when the hamburger icon is clicked again */
       &__hamburger:focus + &__nav:focus-within {
         left: -250px;
+      }
+      @mixin atLarge{
+
       }
 }
 
