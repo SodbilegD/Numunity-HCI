@@ -1,16 +1,14 @@
-*{
-    margin: 0.75rem 1rem;
-    
-}
+
 
 .main-header{
     background-color: $main-white;
     color: $main-goy-ungu;
-    padding: 0 10px;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 0.5rem;
+    max-width: 100%;
 
     &__logo{
         max-width: 30px;
@@ -78,8 +76,12 @@
       &__hamburger:focus + &__nav:focus-within {
         left: -250px;
       }
+    @mixin atSmall{
+    width: 100%;
+    }
+  
 }
-
+    
   
   
 
