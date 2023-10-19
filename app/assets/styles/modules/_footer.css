@@ -16,7 +16,7 @@
         }
         ul{
             list-style: none;
-            font-size: var(--small-text);
+            font-size: var(--medium-text);
             li{
                 list-style: none;
                 margin-bottom: 1rem;
@@ -29,9 +29,6 @@
                     }
                 }
             }
-        }
-        @mixin atLarge{
-            display: none;
         }
         @mixin atLarge{
             display: none;
@@ -54,7 +51,7 @@
         }
         p{
             color: $main-goy-ungu;
-            font-size: var(--small-text);
+            font-size: var(--medium-text);
         }
         @mixin atMedium{
             h3{
@@ -64,8 +61,13 @@
                     height: 2rem;
                     margin-right: 1rem;
                 }
+            }   
+            p{
+                font-size: var(--small-text);
             }
-                
+        }
+        @mixin atSmall{
+            flex-direction: column;
         }
     }
     &__contacts{
@@ -73,7 +75,7 @@
         align-self: flex-start;
         h3{
             text-align: center;
-            font-size: var(--medium-text);
+            font-size: var(--big-text);
             margin-bottom: 2rem;
         }
         i{
@@ -86,8 +88,41 @@
             font-size: 1.5rem;
             margin: 1rem;
         }
+        @mixin atMedium{
+            i{
+                width: var(--medium-text);
+                margin-right: 0.5rem;
+                font-size: 10px;
+            }
+            .fa-brands{
+                width: var(--medium-text);
+            }
+            h3{
+                font-size: var(--medium-text);
+            }   
+            p{
+                font-size: var(--small-text);
+            }
+        }
+        @mixin atSmall{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h3{
+                font-size: var(--medium-text);
+            }   
+            p{
+                font-size: var(--small-text);
+            }
+            i{
+                margin-right: 0.5rem;
+                font-size: 50%;
+            }
+        }
     }
-    @mixin atMedium{
-            
+    @mixin atSmall{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 }
