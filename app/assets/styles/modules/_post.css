@@ -66,6 +66,8 @@
             margin-left: auto;
             opacity: 0.5;
             font-size: var(--desktop-text-small);
+            text-decoration: none;
+            color: var(--color-black);
             @mixin atMedium{
                 font-size: var(--tablet-text-small);
             }
