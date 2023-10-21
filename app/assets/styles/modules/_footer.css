@@ -56,7 +56,7 @@
         }
         @mixin atMedium{
             h3{
-                font-size: var(--tablet-medium-text);
+                font-size: var(--tablet-text-medium);
                 img{
                     width: 2rem;
                     height: 2rem;
@@ -70,7 +70,7 @@
         @mixin atSmall{
             flex-direction: column;
             h3{
-                font-size: var(--mobile-medium-text);
+                font-size: var(--mobile-text-medium);
                 img{
                     width: 2rem;
                     height: 2rem;
