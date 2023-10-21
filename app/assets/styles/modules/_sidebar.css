@@ -1,22 +1,15 @@
-.main-header{
-    *{
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        text-decoration: none;
-    }
-}
+
 #check{
     display: none;
 }
-label #btn{
+label &__hamburger{
  position: absolute;
  cursor: pointer;   
  border-radius: 3px;    
 }
-label #btn{
-    left: 250px;
-    top: 25px;
+label &__hamburgern{
+    left: 400px;
+    top: 10px;
     font-size: 35px;
     padding: 6px 12px;
     transition: all .5s;
@@ -35,7 +28,7 @@ label #cancel{
 }
 
 
-#check:checked ~ label #btn{
+#check:checked ~ label &__hamburger{
     left: 250px;
 }
 
@@ -47,7 +40,7 @@ label #cancel{
  width: 250px;
  height: 100%;
  transition: all .5s ease;
-    
+
 }
 .sidebar{
     position: fixed;
