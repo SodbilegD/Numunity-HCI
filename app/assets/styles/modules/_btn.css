@@ -1,26 +1,37 @@
 .btn{
-    background-color: $main-goy-ungu;
-    color: #fff;
-    text-decoration: none;
-    padding: 0.75rem 1.2rem;
-    display: inline-block;
-    border: none;
-    border-radius: 1rem;
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-main);
+    border-radius: 2rem;
+    font-size: var(--desktop-text-small);
     &--op {
-        background-color: $main-white;
-        color: $main-goy-ungu;
-        border: 1px solid $main-goy-ungu;
+        background-color: var(--color-white);
+        color: var(--color-main);
+    }
+    @mixin atMedium{
+        font-size: var(--tablet-text-small);
+        padding: 0.4rem 0.8rem;
     }
 
-    &--large {
-        padding: 1.1rem 1.9rem;
-        
-        @mixin atSmall {
-            font-size: 1.25rem;
+    @mixin atSmall{
+        font-size: var(--mobile-text-small);
+        padding: 0.25rem 0.75rem;
+    }
+
+    &--login,
+    &--signup{
+        @mixin atSmall{
+            display: none;
         }
     }
-    @mixin atSmall{
-        font-size: 0.5rem;
-        padding: 0.5rem 0.75rem;
-    }
+}
+.btn:hover{
+    color: var(--color-main);
+    background-color: var(--color-background-white);
+}
+
+.btn--op:hover{
+    background-color: var(--color-main);
+    color: var(--color-white);
 }

@@ -1,142 +1,39 @@
-.write-post{
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    border-radius: 0.5rem;
-    border: 1px solid $main-goy-ungu;
-    background-color: $main-white;
-   
-    &__prof{
-        width: 2.5rem;
-    }
-
-    &__status-box{
-        margin: 1.5rem;
-        border-radius: 0.5rem;
-        width: 100%;
-        border: none;
-        font-size: var(--small-text);
-        resize: none;
-        @mixin atMedium{
-            font-size: var(--extra-small-text); 
-        }
-    }
-    &__status-box:focus{
-        outline: none;
-    }
-    &__img-icon{
-        font-size: 1.25rem;
-        color: $main-goy-ungu;
-    }
-}
-
 .community{
     display: flex;
     direction: row;
     align-items: center;
     margin: 1.5rem 0;
+
     @mixin atMedium{
         margin: 0.5rem;
     }
 
     &__name{
-        font-size: var(--big-text);
+        font-size: var(--desktop-text-large);
         @mixin atMedium{
-            font-size: var(--medium-text);
+            font-size: var(--tablet-text-medium);
         }
-    }
-    
-    &__join-button,
-    &__new-button,
-    &__trending-button{
-        color: $background-white;
-        background-color: $main-goy-ungu;
-        border: 1px solid $main-goy-ungu;
-        padding: 0.5rem 1.5rem;
-        border-radius: 2rem;
-        @mixin atMedium{
-            padding: 0.25rem 1rem;
-            font-size: var(--extra-small-text);
-        }
-    }
-
-    &__join-button:hover,
-    &__new-button:hover,
-    &__trending-button:hover{
-        color: $main-goy-ungu;
-        background-color: $background-white;
     }
 
     &__join-button{
         margin-left: 2rem;
         margin-right: auto;
+        @mixin atSmall{
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__join-button::before{
+        content: "нэгдэх";
+        @mixin atSmall{
+            content: "+";
+        }
     }
     &__trending-button{
         margin-left: 2rem;
-    }
-}
-
-.post{
-    padding: 1rem 2rem;
-    margin-bottom: 1.5rem;
-    background-color: $main-white;
-    border-radius: 0.5rem;
-    border: 1px solid $main-goy-ungu;
-    &__profile{
-        display: flex;
-        direction: row;
-        align-items: center;
-        margin: 0;
-        &__img{
-            max-width: 2.5rem;
-            padding-right: 1.5rem;
+        @mixin atSmall{
+            margin-left: 0.25rem;
         }
-        &__name{
-            font-size: var(--medium-text);
-            @mixin atMedium{
-                font-size: var(--small-text);
-            }
-        }
-        &__time{
-            margin-left: auto;
-            opacity: 0.5;
-            @mixin atMedium{
-                font-size: var(--extra-small-text);
-            }
-        }
-    }
-
-    &__title{
-        font-size: var(--medium-text);
-        font-weight: bold;
-        @mixin atMedium{
-            font-size: var(--small-text);
-        }
-    }
-    &__detail{
-        font-size: var(--small-text);
-        @mixin atMedium{
-            font-size: var(--extra-small-text);
-        }
-    }
-    &__reactions{
-        display: flex;
-        direction: row;
-        justify-content: flex-start;
-        @mixin atMedium{
-            font-size: var(--extra-small-text);
-        }
-        &__list{
-            padding-right: 2.5rem;
-        }
-        &__list i{
-            padding-right: 1rem;
-        }
-        &__list:active{
-            color: $main-goy-ungu;
-            font-weight: 900;
-        }
-        
     }
 }
 
@@ -149,27 +46,28 @@
     &__info{
         padding: 0 1.5rem;
         border-radius: 0.5rem;
-        border: 1px solid $main-goy-ungu;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--color-main);
         &__title{
-            font-size: var(--medium-text);
+            font-size: var(--desktop-text-medium);
             text-align: center;
         }
         &__detail{
-            font-size: var(--small-text);
+            font-size: var(--desktop-text-small);
             text-align: justify;
         }
         &__opened{
-            font-size: var(--small-text);
+            font-size: var(--desktop-text-small);
             margin: 0;
         }
         &__opened i{
             padding-right: 0.75rem;
-            color:  $main-goy-ungu;
+            color:  var(--color-main);
         }
         &__container{
             display: flex;
             text-align: center;
-            font-size: var(--small-text);
+            font-size: var(--desktop-text-small);
             margin-top: 0;
         }
         &__followers,
@@ -180,20 +78,16 @@
         }
         &__followers span,
         &__total span{
-            font-size: var(--medium-text);
+            font-size: var(--desktop-text-medium);
             font-weight: 600;
         }
         &__followers{
             padding-right: 0.1rem;
-            border-right: 1px solid $main-goy-ungu;
+            border-right: 1px solid var(--color-main);
         }
         &__total{
             padding-left: 0.3rem;
         }
-    }
-    &__item img{
-        width: 100%;
-        margin-top: 1.5rem;
     }
 
 }

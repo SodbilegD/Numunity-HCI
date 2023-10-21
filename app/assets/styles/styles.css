@@ -3,17 +3,18 @@
 @import 'base/_variables.css';
 @import 'base/_mixins.css';
 @import 'base/_global.css';
-@import 'modules/_badge.css';
-@import 'modules/index.css';
 @import 'modules/_header.css';
-@import 'modules/_selectedcom.css';
 @import 'modules/_footer.css';
-@import 'normalize.css';
-@import 'base/_global.css';
-@import 'base/_variables.css';
-@import 'modules/_chat.css';
-@import 'modules/_header.css';
-@import 'modules/_selectedcom.css';
-@import 'modules/_footer.css';
+@import 'modules/_post.css';
+@import 'modules/_writepost.css';
 @import 'modules/_pagination.css';
 @import 'modules/_btn.css';
+
+@import 'modules/index.css';
+@import 'modules/_selectedcom.css';
+@import 'modules/_discussion.css';
+@import 'normalize.css';
+@import 'modules/_badge.css';
+@import 'modules/_chat.css';
+/*@import 'modules/_sidebar.css';*/
+

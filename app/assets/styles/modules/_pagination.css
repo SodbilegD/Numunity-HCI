@@ -5,8 +5,16 @@
         list-style: none;
         justify-content: center;
         align-items: center;
-        font-size: var(--small-text);
+        font-size: var(--desktop-text-small);
         gap: 1.5rem;
+        @mixin atMedium{
+            font-size: var(--tablet-text-small);
+            gap: 1rem;
+        }
+        @mixin atSmall{
+            font-size: var(--mobile-text-small);
+            gap: 0.5rem;
+        }
     }
     &__arrow,
     &__number{
@@ -17,17 +25,33 @@
     &__number{
         width: 2.5rem;
         height: 2.5rem;
-        border: 1px solid $main-goy-ungu;
+        border: 1px solid var(--color-main);
         border-radius: 50%;
+        @mixin atMedium{
+            width: 2rem;
+            height: 2rem;
+        }
+        @mixin atSmall{
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
     &__arrow a,
     &__number a{
         text-decoration: none;
-        color: $main-goy-ungu;
+        color: var(--color-main);
     }
     &__arrow i{
         padding: 0 1rem;
         font-size: 1.25rem;
-        color: $main-goy-ungu;
+        color: var(--color-main);
+        @mixin atMedium{
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+        @mixin atSmall{
+            font-size: 0.75rem;
+            padding: 0 0.25rem;
+        }
     }
 }

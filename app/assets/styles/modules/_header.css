@@ -1,13 +1,16 @@
 .main-header{
     margin: 0.75rem 0;
-    padding: 0 3rem;
-    background-color: $main-white;
-    color: $main-goy-ungu;
-    padding: 0 1rem;
+    background-color: var(--color-white);
+    color: var(--color-main);
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 0.5rem;
+
+    @mixin atMedium{
+      padding: 0 1rem;
+    }
 
     &__container1{
       display: flex;
@@ -15,9 +18,29 @@
       justify-content: space-between;
       gap: 1rem;
 
+      @mixin atMedium{
+        gap: 0.75rem;
+        font-size: var(--tablet-text-small);
+      }
+
+      @mixin atSmall{
+        gap: 0.25rem;
+        font-size: var(--mobile-text-small);
+      }
+
       &__logo{
         width: 2rem;
         height: 2rem;
+
+        @mixin atMedium{
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        @mixin atSmall{
+          width: 1rem;
+          height: 1rem;
+        }
       }
     }
     
@@ -27,7 +50,13 @@
         width: calc(100%/3);
         padding: 0.25rem 1.25rem;
         border-radius: 1.25rem;
-        background-color: $background-white;
+        background-color: var(--color-background-white); 
+
+        @mixin atSmall{
+          width: 0;
+          padding: 0;
+          margin: 0;
+        }
     }
       
     &__search-field {
@@ -36,9 +65,24 @@
         margin: 0 0.5rem;
         border: none;
         background-color: transparent;
+
+        @mixin atSmall{
+          display: none;
+        }
+       
     }
     &__search-field:focus{
         outline: none;
+    }
+
+    &__search-field::placeholder{
+      font-size: var(--desktop-text-small);
+      color: var(--color-main);
+
+      @mixin atMedium{
+        font-size: var(--tablet-text-small);
+      }    
+
     }
 
     &__container2{
@@ -46,41 +90,62 @@
       align-items: center;
       justify-content: space-between;
       gap: 4rem;
-      color: $main-goy-ungu;
+      color: var(--color-main);
+      
+      &--icons{
+        
+        @mixin atMedium{
+          gap: 2rem;
+        }
 
+        @mixin atSmall{
+          gap: 1rem;
+        }
+      }
+
+      &--buttons{
+        gap: 1rem;
+      }
       &__notif,
       &__profile {
         text-decoration: none;
         font-size: 1.25rem;
-        color: $main-goy-ungu;
+        color: var(--color-main);
+      }
+      &__user{
+        display: none;
+        
+        @mixin atSmall{
+          display: flex;
+        }
       }
 
     }
       
     
-      
-      /* Style for the hamburger icon */
+    
+      /* Style for the hamburger icon 
     &__hamburger {
       font-size: 1.25rem;
-    }
+    }*/ 
       
       /* Style for the sidebar */
       &__nav {
-        display: none;
+        display: none;/*
         flex-direction: column;
         position: fixed;
         top: 0;
-        left: -250px; /* This will hide the sidebar by default */
-        width: 250px; /* Set your desired sidebar width */
+        left: -250px; /* This will hide the sidebar by default 
+        width: 250px; /* Set your desired sidebar width 
         height: 100%;
-        background-color: #444; /* Set your desired sidebar background color */
+        background-color: #444; /* Set your desired sidebar background color 
         padding: 20px;
-        color: #fff; /* Set your desired text color */
+        color: #fff; /* Set your desired text color 
         transition: left 0.3s ease;
-        z-index: 1;
+        z-index: 1;*/
       }
       
-      /* Style for the navigation list in the sidebar */
+      /* Style for the navigation list in the sidebar 
       &__navlist {
         list-style: none;
         padding: 0;
@@ -92,18 +157,19 @@
       
       &__item a {
         text-decoration: none;
-        color: #fff; /* Set your desired link color */
+        color: #fff; /* Set your desired link color 
       }
       
-      /* Show the sidebar when the hamburger icon is clicked */
+      /* Show the sidebar when the hamburger icon is clicked 
       &__hamburger:focus + &__nav {
         left: 0;
       }
       
-      /* Hide the sidebar when the hamburger icon is clicked again */
+      /* Hide the sidebar when the hamburger icon is clicked again 
       &__hamburger:focus + &__nav:focus-within {
         left: -250px;
       }
+      */
     @mixin atLarge{
         padding: 0 1.5rem;
         font-size: var(--medium-text);
@@ -150,10 +216,3 @@
       } 
     }
 }
-    
-  
-  
-
-
-
-
