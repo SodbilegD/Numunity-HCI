@@ -1,104 +1,93 @@
-.write-post{
-    background-color: $main-white;
-    display: flex;
-    align-items: center;
-    color: $main-goy-ungu;
-    margin-right: 30px;
-    font-size: 13px;
-   
-    &__prof{
-        width: 2.5rem;
-    }
-
-    &__status-box{
-        margin: 1.5rem 0;
-        border-radius: 0.5rem;
-        width: 100%;
-        max-width: 100%;
-        border: none;
-        padding: 0.5rem;
-        color: $main-goy-ungu;
-        font-size: var(--small-text);
-    }
-}
-
 .community{
     display: flex;
     direction: row;
     align-items: center;
-    margin: 1.5rem;
+    margin: 1.5rem 0;
+
+    @mixin atMedium{
+        margin: 0.5rem;
+    }
 
     &__name{
-        font-size: var(--big-text);
-    }
-    &__join-button,
-    &__new-button,
-    &__trending-button{
-        color: $background-white;
-        background-color: $main-goy-ungu;
-        border: 1px solid $main-goy-ungu;
-        padding: 0.5rem 1.5rem;
-        border-radius: 2rem;
-    }
-
-    &__join-button:hover,
-    &__new-button:hover,
-    &__trending-button:hover{
-        color: $main-goy-ungu;
-        background-color: $background-white;
+        font-size: var(--desktop-text-large);
+        @mixin atMedium{
+            font-size: var(--tablet-text-medium);
+        }
     }
 
     &__join-button{
         margin-left: 2rem;
+        margin-right: auto;
+        @mixin atSmall{
+            margin-left: 0.5rem;
+        }
     }
-    &__new-button{
-        margin-left: auto;
-        margin-right: 1rem ;
+
+    &__join-button::before{
+        content: "нэгдэх";
+        @mixin atSmall{
+            content: "+";
+        }
+    }
+    &__trending-button{
+        margin-left: 2rem;
+        @mixin atSmall{
+            margin-left: 0.25rem;
+        }
     }
 }
 
-.post{
-    background-color: $main-white;
-    border-radius: 0.5rem;
-    border: 1px solid $main-goy-ungu;
-    padding: 1rem;
-    &__profile{
-        display: flex;
-        direction: row;
-        align-items: center;
-        margin: 0;
-        &__img{
-            max-width: 2.5rem;
-            
+.advertisements{
+    margin: 0;
+    &__list{
+        list-style: none;
+        padding: 0 0.5rem;
+    }
+    &__info{
+        padding: 0 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--color-main);
+        &__title{
+            font-size: var(--desktop-text-medium);
+            text-align: center;
         }
-        &__name{
-            font-size: var(--medium-text);
+        &__detail{
+            font-size: var(--desktop-text-small);
+            text-align: justify;
         }
-        &__time{
-            margin-left: auto;
+        &__opened{
+            font-size: var(--desktop-text-small);
+            margin: 0;
+        }
+        &__opened i{
+            padding-right: 0.75rem;
+            color:  var(--color-main);
+        }
+        &__container{
+            display: flex;
+            text-align: center;
+            font-size: var(--desktop-text-small);
+            margin-top: 0;
+        }
+        &__followers,
+        &__total{
+            flex: 1;
+            margin-top: 0.5rem;
+            line-height: 2.5rem;
+        }
+        &__followers span,
+        &__total span{
+            font-size: var(--desktop-text-medium);
+            font-weight: 600;
+        }
+        &__followers{
+            padding-right: 0.1rem;
+            border-right: 1px solid var(--color-main);
+        }
+        &__total{
+            padding-left: 0.3rem;
         }
     }
 
-    &__title{
-        font-size: var(--medium-text);
-        font-weight: bold;
-    }
-    &__detail{
-        font-size: var(--small-text);
-    }
-    &__reactions{
-        display: flex;
-        direction: row;
-        margin: 0;
-        justify-content: flex-start;
-        &__list{
-            margin-left: 0;
-            padding: 0;
-        }
-        &__list:active{
-            color: $main-goy-ungu;
-            font-weight: 900;
-        }
-        
-    }
 }

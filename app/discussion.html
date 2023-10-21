@@ -3,124 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <title>Team DKS Discussion</title>
+    <link rel="author" href="#" />
+	<meta name="author" content="Dulguun" />
+	<link rel="author" href="#" />
+	<meta name="author" content="Khulan" />
+    <link rel="author" href="#" />
+	<meta name="author" content="Sodbileg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-    <!-- Fonts link nemeh -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
 </head>
 <body>
     <header class="main-header">
-        <!-- flexbox ashiglana div-eer hamburger btn, search bar newtreh, burtguuleh btn(css modifier primary, secondary ungiig ni 
-            todorhoilj gargaj uguh) -->
         <i class="fa-solid fa-bars" class="main-header__hamburger"></i>
-        <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__logo">
-        <h2 class="main-header__title">DKS</h2>
+        <div class="main-header__container1">
+            <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
+            <h2 class="main-header__container1__title">DKS</h2>
+        </div>
+        
         <form class="main-header__search-bar">
             <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
-            <input type="text" placeholder="Хайлт хийх" class="main-header__search-field">
+            <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
         </form>
-        <button type="button" class="main-header__login-button btn">Нэвтрэх</button>
-        <button type="button" class="main-header__signup-button  btn btn--op">Бүртгүүлэх</button>
+        <div class="main-header__container2 main-header__container2--icons">
+            <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
+            <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a>
+        </div>
+        
         <nav class="main-header__nav">
             <ul class="main-header__navlist">
                 <li class="main-header__item"><a href="index.html">Нүүр хуудас</a></li>
                 <li class="main-header__item"><a href="discussion.html">Хэлэлцүүлэг</a></li>
                 <li class="main-header__item"><a href="chat.html">Чат өрөө</a></li>
                 <li class="main-header__item"><a href="selectedcommunity.html">Миний хадгалсан</a></li>
-                <li class="main-header__item"><a href="page5.html">Миний профайл</a></li>
-                <li class="main-header__item"><a href="page6.html">Гарах</a></li>
+                <li class="main-header__item"><a href="selectedcommunity.html">Миний профайл</a></li>
+                <li class="main-header__item"><a href="selectedcommunity.html">Гарах</a></li>
             </ul>   
         </nav>
     </header>
-    <main>
-        <div class="post-reactions">
-            <i class="fa-regular fa-face-smile-beam"></i>
-            <i class="fa-regular fa-face-frown"></i>
-            <i class="fa-regular fa-comment"></i>
-            <i class="fa-regular fa-share-from-square"></i>
-        </div>
-        <div class="selected-post">
-            <div class="post-profile">
-                <i class="fa-regular fa-user"></i>
-                <h3>Amet</h3>
-                <p>>>Lorem ipsum</p>
-            </div>
-            <hr>
-            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
-                Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
-                Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
-                Curabitur magna libero, euismod volutpat rutrum ac, facilisis eget nisi. Morbi rhoncus varius nisl, ut 
-                feugiat leo laoreet vel. Proin turpis lorem, tempor eu facilisis porta, pellentesque eu elit. Phasellus 
-                egestas eu massa ut maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        </div>
-        <input type="text" placeholder="What are your thoughts?" class="comment-field">
-        <button type="button" class="send-button">Send</button>
-        <div class="post-comments">
-            <div>
-                <p>2598 Comments</p>
-                <button type="button" class="new-button">new</button>
-                <button type="button" class="trending-button">trending</button>
-            </div>
-    
-            <hr>
-
-            <div class="single-comment">
-                <div class="comment-profile">
-                    <i class="fa-regular fa-user"></i>
-                    <p>bot</p>
+    <div class="main-container">
+        <main>
+            <div class="sub-container1">
+                <div class="post-reactions">
+                    <i class="post-reactions__icon fa-regular fa-face-smile-beam"></i>
+                    <i class="post-reactions__icon fa-regular fa-face-frown"></i>
+                    <i class="post-reactions__icon fa-regular fa-comment"></i>
+                    <i class="post-reactions__icon fa-regular fa-share-from-square"></i>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                    make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
-                    remaining essentially unchanged. </p>
-                <div class="comment-reactions">
-                    <i class="fa-solid fa-arrow-up"></i>
-                    <p>Agree</p>
-                    <i class="fa-solid fa-arrow-down"></i>
-                    <i class="fa-solid fa-reply"></i>
-                    <p>Reply</p>
-                </div>
-            </div>
-            <div class="single-comment">
-                <div class="comment-profile">
-                    <i class="fa-regular fa-user"></i>
-                    <p>bot</p>
-                </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                    make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
-                    remaining essentially unchanged. </p>
-                <div class="comment-reactions">
-                    <i class="fa-solid fa-arrow-up"></i>
-                    <p>Agree</p>
-                    <i class="fa-solid fa-arrow-down"></i>
-                    <i class="fa-solid fa-reply"></i>
-                    <p>Reply</p>
-                </div>
-            </div>
+                <div class="sub-container2">
+                    <article class="post">
+                        <div class="post__profile">
+                            <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                            <p class="post__profile__name">Amet</p>
+                            <a href="#" class="post__profile__community">>>Lorem ipsum</a>
+                        </div>
+                        <hr>
+                        <h1 class="post__title">Lorem ipsum dolor sit amet, consectetur adipiscing.</h1>
+                        <p class="post__detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
+                            Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
+                            Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
+                            Curabitur magna libero, euismod volutpat rutrum ac, facilisis eget nisi. Morbi rhoncus varius nisl, ut 
+                            feugiat leo laoreet vel. Proin turpis lorem, tempor eu facilisis porta, pellentesque eu elit. Phasellus 
+                            egestas eu massa ut maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+                            Morbi rhoncus varius nisl, ut feugiat leo laoreet vel. Proin turpis lorem, tempor eu facilisis porta, pellentesque eu elit. Phasellus 
+                            egestas eu massa ut maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                        <div class="post__reactions post__reactions--hidden">
+                            <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
+                            <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
+                            <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
+                            <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
+                        </div>
+                        <p class="post__profile__time post__profile__time--down">1h ago</p>
+                    </article>
+        
+                    <div class="write-comment">
+                        <textarea placeholder="What are your thoughts?" class="write-comment__input" rows=10 ></textarea>
+                        <button type="button" class="write-comment__send-button btn">илгээх</button>
+                    </div>
+        
+                    <div class="post-comments">
+                        <div class="post-comments__filter">
+                            <p class="post-comments__filter__total">2598 Comments</p>
+                            <button type="button" class="post-comments__filter__new-button btn">new</button>
+                            <button type="button" class="post-comments__filter__trending-button btn">trending</button>
+                        </div>
+                
+                        <hr>
             
-            <button type="button">View more...</button>
-        </div>
-    </main>
-    <aside class="advertisements">
-        <a href="ad.com"><img src="assets/images/ad1.png" alt="advertisement-1"></a>
-        <a href="ad.com"><img src="assets/images/ad2.png" alt="advertisement-2"></a>
-        <a href="ad.com"><img src="assets/images/ad3.png" alt="advertisement-3"></a>
-    </aside>
+                        <div class="single-comment">
+                            <div class="single-comment__profile">
+                                <img src="/assets/images/profile.png" alt="profile" class="single-comment__profile__img">
+                                <p class="single-comment__profile__name">Bot</p>
+                            </div>
+                            <p class="single-comment__detail">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
+                                make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
+                                remaining essentially unchanged. 
+                            </p>
 
+                            <div class="single-comment__reactions">                            
+                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>Agree</p>
+                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
+                                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
+                            </div>
+                        </div>
+                        
+                        <div class="single-comment">
+                            <div class="single-comment__profile">
+                                <img src="/assets/images/profile.png" alt="profile" class="single-comment__profile__img">
+                                <p class="single-comment__profile__name">Bot</p>
+                            </div>
+                            <p class="single-comment__detail">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
+                                make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
+                                remaining essentially unchanged. 
+                            </p>
 
+                            <div class="single-comment__reactions">                            
+                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>Agree</p>
+                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
+                                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="post-comments__view-more">View more...</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside class="advertisements">
+            <a href="ad.com"><img src="assets/images/ad1.png" alt="advertisement-1"></a>
+            <a href="ad.com"><img src="assets/images/ad2.png" alt="advertisement-2"></a>
+            <a href="ad.com"><img src="assets/images/ad3.png" alt="advertisement-3"></a>
+        </aside>
+    </div>
+    
     <footer class="footer">
         <div class="footer__nav">
             <h3>Цэс:</h3>
             <ul>
-                <li><a href="page1.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                 <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
                 <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                <li><a href="page4.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
+                <li><a href="selectedcommunity.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
             </ul>
         </div>
         <div class="footer__copyright">
@@ -129,8 +160,9 @@
         </div>
         <div class="footer__contacts">
             <h3>Холбоо барих:</h3>
-            <p><i class="fa-solid fa-phone"></i>+976 9999 9999</p>
+            <p><i class="fa-solid fa-phone"></i>+976 8066 5030</p>
             <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
+            <i class="fa-sharp fa-solid fa-share-nodes fa-bounce fa-2xl"></i>
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-twitter"></i>

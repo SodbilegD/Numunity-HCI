@@ -1,0 +1,208 @@
+.sub-container1{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.post-reactions{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 1rem 2rem 0;
+    gap: 2rem;
+
+    @mixin atSmall{
+        display: none;
+    }
+    &__icon{
+        width: 1.2rem;
+        height: 1.2rem;
+        padding: 0.75rem;
+        font-size: 1.2rem;
+        border-radius: 50%;
+        background-color: var(--color-white);
+        color: var(--color-light-grey);
+
+        @mixin atMedium{
+            width: 1rem;
+            height: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+.sub-container2{
+    margin: 0;
+}
+
+.write-comment{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    padding: 1rem 2rem;
+    border: 1px solid var(--color-main);
+    border-radius: 0.5rem;
+
+    @mixin atMedium{
+        padding: 0.5rem 1rem;
+    }
+
+    &__input{
+        width: 100%;
+        resize: none;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 1rem 0;
+        font-size: var(--desktop-text-small);
+
+        @mixin atMedium{
+            font-size: var(--tablet-text-small);
+        }
+        @mixin atSmall{
+            font-size: var(--mobile-text-small);
+        }
+    }
+    &__input:focus{
+        outline: none;
+    }
+    &__send-button{
+        align-self: flex-end;
+    }
+}
+
+.post-comments{
+    border: 1px solid var(--color-main);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-white);
+    margin-top: 2rem;
+    text-align: center;
+
+    @mixin atMedium{
+        padding: 0.5rem 1rem;
+    }
+
+    &__filter{
+        display: flex;
+        direction: row;
+        align-items: center;
+
+        &__total{
+            justify-self: flex-start;
+            font-size: var(--desktop-text-small);
+            margin-right: auto;
+
+            @mixin atMedium{
+                font-size: var(--tablet-text-small);
+            }
+
+            @mixin atSmall{
+                font-size: var(--mobile-text-small);
+            }
+            
+        }
+
+        &__new-button,
+        &__trending-button{
+            margin-left: 0.75rem;
+        }
+    }
+
+    &__view-more{
+        border: none;
+        background-color: transparent;
+        font-size: var(--desktop-text-xsmall);
+        padding: 2rem 1rem 1rem 1rem;
+
+        @mixin atMedium{
+            padding: 1rem;
+            font-size: var(--tablet-text-small);
+        }
+
+        @mixin atMedium{
+            font-size: var(--mobile-text-small);
+        }
+    }
+}
+
+.single-comment{
+    padding: 1rem 0;
+
+    @mixin atMedium{
+        padding: 0.5rem 0;
+    }
+
+    &__profile{
+        display: flex;
+        direction: row;
+        align-items: center;
+
+        &__img{
+            width: 2rem;
+            margin-right: 1rem;
+
+            @mixin atMedium{
+                width: 1.75rem;
+                margin-right: 0.75rem;
+            }
+
+            @mixin atSmall{
+                width: 1.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+
+        &__name{
+            font-size: var(--desktop-text-medium);
+            @mixin atMedium{
+                font-size: var(--tablet-text-medium);
+            }
+            @mixin atSmall{
+                font-size: var(--mobile-text-medium);
+            }
+        }
+    }
+
+    &__detail{
+        font-size: var(--desktop-text-small);
+        text-align: justify;
+        margin: 0;
+
+        @mixin atMedium{
+            font-size: var(--tablet-text-small);
+        }
+        @mixin atSmall{
+            font-size: var(--mobile-text-small);
+        }
+    }
+
+    &__reactions{
+        display: flex;
+        direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        color: var(--color-main);
+        
+        &__list{
+            padding-right: 2rem;
+            font-size: var(--desktop-text-small);
+
+            @mixin atMedium{
+                font-size: var(--tablet-text-small);
+                padding-right: 1.75rem;
+            }
+            @mixin atMedium{
+                font-size: var(--mobile-text-small);
+                padding-right: 1.5rem;
+            }
+        }
+
+        &__list i{
+            padding-right: 0.75rem;
+
+            @mixin atMedium{
+                padding-right: 0.5rem;
+            }
+        }
+    }
+}

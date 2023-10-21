@@ -1,24 +1,40 @@
-.section{
-    width: 70%;
-    float: left;
-    background-color: $main-white;
-    border-radius: 6px;
-    padding: 20px;
- 
-    &__highlight{
+.post-section{
+    padding-top: 1rem;
+
+    @mixin atMedium{
+        padding-top: 0.5rem;
     }
-    &__viewmore{
-        
+    @mixin atSmall{
+        padding-top: 0.25rem;
     }
 
-    
-    &__title{
-    
-    }
-    &-text{
-        color: $background-white;
-        margin: 15px 0;
-        font-size: 15px;
+    &__category{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 0;
 
+        &__title{
+            font-size: var(--desktop-text-medium);
+            @mixin atMedium{
+                font-size: var(--tablet-text-medium);
+            }
+
+            @mixin atSmall{
+                font-size: var(--mobile-text-medium);
+            }
+        }
+        &__view-more{
+            font-size: var(--desktop-text-small);
+            text-decoration: none;
+            color: var(--color-black);
+            @mixin atMedium{
+                font-size: var(--tablet-text-small);
+            }
+            @mixin atSmall{
+                font-size: var(--mobile-text-small);
+            }
+        }
     }
 }

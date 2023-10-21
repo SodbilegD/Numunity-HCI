@@ -22,36 +22,55 @@
             color: $dark-grey;
             background-color: $main-white;
             border-right: solid 1rem $main-goy-ungu;
+            
             .users-rooms{
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
+                margin-left: -1rem;
+                h3{
+
+                }
                 ul.rooms-list{
                     text-decoration: none;
                     li{
-                        list-style: none;
+                        font-size: 0.75rem;
+                        list-style: circle;
                         text-decoration: none;
+                        padding: 0.25rem 0.5rem;
                     }
                 }
             }
+
             div.users-head {
                 display: flex;
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
+                justify-content: center;
+                align-items: center;
+                margin-left: -1rem;
+                h3{
+                    
                 }
                 h4{
                     padding: 0 8px;
                     border: 50px;
                 }
-                ul.users-list li{
+                .users-list li{
                     list-style: none;
                     text-decoration: none;
-                    font-size: 1rem;
+                    font-size: 0.75rem;
                     font-weight: 500;
+                    padding: 0.25rem 0.5rem;
                 }
-            
+            }
+            @mixin atMedium{
+                display: none;
+                border-right: solid 0.25rem $main-goy-ungu;
+            }
+            @mixin atLarge{
+                border-right: solid 0.5rem $main-goy-ungu;
+            }
         }
         div.chat-window {
             width: 100%;
@@ -59,17 +78,23 @@
             background-color: $main-white;
             position: relative;
             div.room-name{
+                padding: 0.5rem 1rem;
                 border-bottom: 1rem solid $main-goy-ungu;
+                .room-picture{
+                    border-radius: 50%;
+                    border: none;
+                    width: 3rem;
+                    height: 3rem;
+                    margin: auto 1rem;
+                }
                 h1{
-                    display: flex;
-                    flex-direction: row;
-                    .room-picture{
-                        border-radius: 50%;
-                        border: none;
-                        width: 3rem;
-                        height: 3rem;
-                        margin: auto 1rem;
-                    }
+
+                }
+                @mixin atLarge{
+                    border-bottom: 0.5rem solid $main-goy-ungu;
+                }
+                @mixin atMedium{
+                    border-bottom: 0.25rem solid $main-goy-ungu;
                 }
             }
             button.leave-btn{
@@ -89,9 +114,9 @@
                     font-size: 0.75rem;
                     color: $main-goy-ungu;
                     width: max-content;
-                    padding: 7px 20px;
+                    padding: 0.5rem 1rem;
                     margin: 0 auto;
-                    margin-bottom: 15px;
+                    margin-bottom: 1rem;
                     &__text{
                         .profile-picture{
                             border-radius: 50%;
@@ -107,7 +132,7 @@
                     display: flex;
                     flex-direction: row;
                     padding: 1rem;
-                    max-width: 400px;
+                    max-width: max-content;
                     margin: 0;
                     justify-content: center;
                     align-items: center;
@@ -117,6 +142,7 @@
                         width: 3rem;
                         height: 3rem;
                         margin: auto 0;
+                        padding: 0.5rem 1rem;
                         
                     }
                     &__text{
@@ -138,7 +164,7 @@
                     margin-left: auto;
                     display: flex;
                     flex-direction: row;
-                    border-radius: 50px 50px 50px 50px;
+                    border-radius: 3rem;
                     h5{
                         justify-content: flex-end;
                         margin-right: 2rem;
@@ -177,7 +203,9 @@
                     color: $main-white;
                     background-color: $main-goy-ungu;
                     border-radius: 3rem;
-
+                    @mixin atMedium{
+                        padding: 0.5rem 1rem;
+                    }
                 }
             }
         }
@@ -186,9 +214,10 @@
         margin: auto;
         overflow: hidden;
         background-color: $main-white;
-        border: 0.25rem solid $main-goy-ungu;
+        border: 0.5rem solid $main-goy-ungu;
         border-radius: 0.5rem;
         height: auto;
+
     }
 }
 
@@ -198,7 +227,7 @@
         margin: auto;
         overflow: hidden;
         background-color: $main-white;
-        border: 0.25rem solid $main-goy-ungu;
+        border: 0.5rem solid $main-goy-ungu;
         border-radius: 0.5rem;
         height: auto;
         
