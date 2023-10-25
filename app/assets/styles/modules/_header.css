@@ -7,101 +7,136 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 0.5rem;
-<<<<<<< HEAD
     max-width: 100%;
-      .sidemenu{
+    
+    
+    /*sidebar ehlel */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Comfortaa', sans-serif;
+      
+  }
+  body{
+      background-color: #f2f2f2;
+  }
+  .slide{
+      height: 100%;
+      width: 180px;
+      left: 0;
+      position: absolute;
+      background-color: #fff;
+      transition: 0.5s ease;
+      transform: translateX(-180px);
+  }
+  h1{
+      color: #5555d8;
+      font-weight: 800;
+      text-align: center;
+      padding: 10px 0;
+      padding-right: 30px;
+      pointer-events: none;
+  }
+  ul li{
+      list-style: none;
+  }
+  ul li a{
+      color: #011a41;
+      font-weight: 500;
+      padding: 5px 0;
+      display: block;
+      text-transform: capitalize;
+      text-decoration: none;
+      transition: 0.2s ease;
+  }
+  ul li:hover a{
+      color: #fff;
+      background-color: #5555d8;
+  }
+  ul li a i{
+      width: 40px;
+      text-align: center;
+  }
+  input{
+      display: none;
+      visibility: hidden;
+      -webkit-appearance: none;
+  }
+  .toggle{
+      position: absolute;
+      height: 30px;
+      width: 30px;
+      top: 20px;
+      left: 15px;
+      z-index: 1;
+      cursor: pointer;
+      border-radius: 2px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .toggle .common{
+      position: absolute;
+      height: 2px;
+      width: 20px;
+      background-color: #5555d8;
+      border-radius: 50px;
+      transition: 0.3s ease;
+  }
+  .toggle .top_line{
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .toggle .middle_line{
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .toggle .bottom_line{
+      top: 70%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  input:checked ~ .toggle .top_line{
+      left: 2px;
+      top: 14px;
+      width: 25px;
+      transform: rotate(45deg);
+  }
+  input:checked ~ .toggle .bottom_line{
+      left: 2px;
+      top: 14px;
+      width: 25px;
+      transform: rotate(-45deg);
+  }
+  input:checked ~ .toggle .middle_line{
+      opacity: 0;
+      transform: translateX(20px);
+  }
+  input:checked ~ .slide{
+      transform: translateX(0);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
   
-    #check{
-  display: none;
-}
-label &__hamburger{
-position: absolute;
-cursor: pointer;   
-border-radius: 3px;    
-}
-label &__hamburger{
-  left: 400px;
-  top: 10px;
-  font-size: 35px;
-  padding: 6px 12px;
-  transition: all .5s;
-}
-label &__cancel{
-  z-index: 1111;
-  left: 350px;
-  top: 25px;
-  font-size: 35px;
-  padding: 6px 12px;
-  transition: all .5s;
-}
-#check:checked ~.sidebar{
-  left: 0;
-
-}
+/*Sidebar heseg end duusna*/
 
 
-#check:checked ~ label &__hamburger{
-  left: 250px;
-}
 
-
-.sidemenu{
-position: fixed;
-left: -250px;
-top: 0;
-width: 250px;
-height: 100%;
-transition: all .5s ease;
-
-}
-.sidebar{
-  position: fixed;
-  left: -350px;
-  top: 5%;
-  width: 250px;
-  height: 100%;
-  transition: all .5s ease;
-  background-color: $main-white; /* Set your desired sidebar background color */
-  padding: 20px;
-  color: #fff; /* Set your desired text color */   
- }
-
-ul a{
-
-  display: block;
-  height: 100%;
-  width: 100%;
-  line-height: 65px;
-  font-size: 20px;
-  color: blue;
-  padding-left: 40px;
-  box-sizing: border-box;
-  border-top: 1px solid rgba(255,255,255,.1);
-  border-bottom: 1px solid black;
-i{
-  margin-right: 16px;
-}
-}
-ul li:hover a{
-  padding-left: 50px;
-
-}  
-}
-    &__logo{
-        max-width: 30px;
-        left: 400px;
-=======
-
-    @mixin atMedium{
-      padding: 0 1rem;
->>>>>>> 9e7f42bdd7ab6f20a8fe530bc97420ace4f15b9e
-    }
 
     &__container1{
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 1rem;        
+
+    @mixin atMedium{
+      padding: 0 1rem;
+    }
+
+    &__logo{
+      max-width: 30px;
+      left: 400px;
 
       @mixin atMedium{
         gap: 0.75rem;
@@ -177,11 +212,6 @@ ul li:hover a{
       gap: 4rem;
       color: var(--color-main);
       
-<<<<<<< HEAD
-      
-    @mixin atSmall{
-    width: 100%;
-=======
       &--icons{
         
         @mixin atMedium{
@@ -304,60 +334,6 @@ ul li:hover a{
       i{
         font-size: 15px;
       } 
->>>>>>> 9e7f42bdd7ab6f20a8fe530bc97420ace4f15b9e
     }
 }
-<<<<<<< HEAD
-    
-  
-  
-
-
-/* Style for the hamburger icon */
-&__hamburger {
-  cursor: pointer;
 }
-
-/* Style for the sidebar */
-&__nav {
-  display: none;
-  flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: -250px; /* This will hide the sidebar by default */
-  width: 250px; /* Set your desired sidebar width */
-  height: 100%;
-  background-color: #444; /* Set your desired sidebar background color */
-  padding: 20px;
-  color: #fff; /* Set your desired text color */
-  transition: left 0.3s ease;
-  z-index: 1;
-}
-
-/* Style for the navigation list in the sidebar */
-&__navlist {
-  list-style: none;
-  padding: 0;
-}
-
-&__item {
-  margin-bottom: 10px;
-}
-
-&__item a {
-  text-decoration: none;
-  color: #fff; /* Set your desired link color */
-}
-
-/* Show the sidebar when the hamburger icon is clicked */
-&__hamburger:focus + &__nav {
-  left: 0;
-}
-
-/* Hide the sidebar when the hamburger icon is clicked again */
-&__hamburger:focus + &__nav:focus-within {
-  left: -250px;
-}
-
-=======
->>>>>>> 9e7f42bdd7ab6f20a8fe530bc97420ace4f15b9e
