@@ -17,23 +17,28 @@
 </head>
 <body>
     <header class="main-header">
-        <nav class="sidemenu main-header__nav">
-            <input type="checkbox" id="check">
-            <label for="check">
-                <i class="fas fa-bars" id="btn"></i>
-                <i class="fas fa-times" id="cancel"></i>
-            </label>
-            <div class="sidebar">
+        <label>
+            <input type="checkbox">
+            <div class="toggle">
+                <span class="top_line common"></span>
+                <span class="middle_line common"></span>
+                <span class="bottom_line common"></span>
+            </div>
+    
+            <div class="slide">
+                <h1>DKS</h1>
                 <ul>
-                    <li><a href="index.html" class='fas fa-pager'>Нүүр хуудас</a></li>
-                    <li><a href="discussion.html" class="sidebar__list">Хэлэлцүүлэг</a></li>
-                    <li><a href="chat.html" class="sidebar__list">Чат өрөө</a></li>
-                    <li><a href="selectedcommunity.html" class="sidebar__list">Миний хадгалсан</a></li>
-                    <li><a href="selectedcommunity.html" class="sidebar__list">Миний профайл</a></li>
-                    <li><a href="selectedcommunity.html" class="sidebar__list">Гарах</a></li>   
+                    <li><a href="#"><i class="fas fa-tv"></i>dashboard</a></li>
+                    <li><a href="#"><i class="far fa-user"></i>profile</a></li>
+                    <li><a href="#"><i class="fab fa-gripfire"></i>trending</a></li>
+                    <li><a href="#"><i class="far fa-comment"></i>messages</a></li>
+                    <li><a href="#"><i class="far fa-folder"></i>file manager</a></li>
+                    <li><a href="#"><i class="far fa-address-book"></i>portfolio</a></li>
+                    <li><a href="#"><i class="far fa-heart"></i>saved</a></li>
+                    <li><a href="#"><i class="fas fa-cogs"></i>settings</a></li>
                 </ul>
             </div>
-        </nav>
+        </label>
         <div class="main-header__container1">
             <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
             <h2 class="main-header__container1__title">DKS</h2>
@@ -46,7 +51,40 @@
         <div class="main-header__container2 main-header__container2--buttons">
            <!-- <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
             <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a> -->
+            
+            
+            
             <button type="button" class="main-header__login-button btn btn--op btn--login">Нэвтрэх</button>
+            
+
+
+
+
+<!--log-in form
+<a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
+
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4>Login</h4>
+        <form>
+          <input type="text" name="username" class="username form-control" placeholder="Username"/>
+          <input type="password" name="password" class="password form-control" placeholder="password"/>
+          <input class="btn login" type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+-->
+
+
+
+
+
             <button type="button" class="main-header__signup-button  btn btn--signup">Бүртгүүлэх</button>
             <i class="fa-regular fa-user main-header__container2__user"></i>
         </div>
