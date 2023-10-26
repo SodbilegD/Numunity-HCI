@@ -18,7 +18,11 @@
 </head>
 <body>
     <header class="main-header">
-        <i class="fa-solid fa-bars" class="main-header__hamburger"></i>
+        <div class="toggle">
+            <span class="toggle__line topline"></span>
+            <span class="toggle__line midline"></span>
+            <span class="toggle__line bottomline"></span>
+        </div>
         <div class="main-header__container1">
             <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
             <h2 class="main-header__container1__title">DKS</h2>
@@ -32,19 +36,21 @@
             <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
             <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a>
         </div>
-        
-        <nav class="main-header__nav">
-            <ul class="main-header__navlist">
-                <li class="main-header__item"><a href="index.html">Нүүр хуудас</a></li>
-                <li class="main-header__item"><a href="discussion.html">Хэлэлцүүлэг</a></li>
-                <li class="main-header__item"><a href="chat.html">Чат өрөө</a></li>
-                <li class="main-header__item"><a href="selectedcommunity.html">Миний хадгалсан</a></li>
-                <li class="main-header__item"><a href="selectedcommunity.html">Миний профайл</a></li>
-                <li class="main-header__item"><a href="selectedcommunity.html">Гарах</a></li>
-            </ul>   
-        </nav>
     </header>
     <div class="main-container">
+        <nav class="slide">
+            <h1 class="slide__title">Цэс</h1>
+            <ul class="slide__list">
+                <li class="slide__list__item"><a href="#"><i class="fas fa-tv"></i>dashboard</a></li>
+                <li class="slide__list__item"><a href="#"><i class="far fa-user"></i>profile</a></li>
+                <li class="slide__list__item"><a href="#"><i class="fab fa-gripfire"></i>trending</a></li>
+                <li class="slide__list__item"><a href="#"><i class="far fa-comment"></i>messages</a></li>
+                <li class="slide__list__item"><a href="#"><i class="far fa-folder"></i>file manager</a></li>
+                <li class="slide__list__item"><a href="#"><i class="far fa-address-book"></i>portfolio</a></li>
+                <li class="slide__list__item"><a href="#"><i class="far fa-heart"></i>saved</a></li>
+                <li class="slide__list__item"><a href="#"><i class="fas fa-cogs"></i>settings</a></li>
+            </ul>
+        </nav>
         <main>
             <div class="sub-container1">
                 <div class="post-reactions">

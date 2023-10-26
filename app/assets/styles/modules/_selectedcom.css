@@ -16,7 +16,7 @@
     }
 
     &__join-button{
-        margin-left: 2rem;
+        margin-left: 1rem;
         margin-right: auto;
         @mixin atSmall{
             margin-left: 0.5rem;
@@ -30,7 +30,7 @@
         }
     }
     &__trending-button{
-        margin-left: 2rem;
+        margin-left: 1rem;
         @mixin atSmall{
             margin-left: 0.25rem;
         }
