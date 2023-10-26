@@ -7,190 +7,76 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 0.5rem;
-    max-width: 100%;
     
+    @mixin atMedium{
+      padding: 0 1rem;
+    }    
     
-    /*sidebar ehlel */
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
-  body{
-      background-color: #f2f2f2;
-  }
-  .slide{
-      height: 100%;
-      width: 180px;
-      left: 0;
-      position: absolute;
-      background-color: #fff;
-      transition: 0.5s ease;
-      transform: translateX(-180px);
-  }
-  h1{
-      color: #5555d8;
-      font-weight: 800;
-      text-align: center;
-      padding: 10px 0;
-      padding-right: 30px;
-      pointer-events: none;
-  }
-  ul li{
-      list-style: none;
-  }
-  ul li a{
-      color: #011a41;
-      font-weight: 500;
-      padding: 5px 0;
-      display: block;
-      text-transform: capitalize;
-      text-decoration: none;
-      transition: 0.2s ease;
-  }
-  ul li:hover a{
-      color: #fff;
-      background-color: #5555d8;
-  }
-  ul li a i{
-      width: 40px;
-      text-align: center;
-  }
-  &__input{
-      display: none;
-      visibility: hidden;
-      -webkit-appearance: none;
-  }
-  .toggle{
-      position: absolute;
-      height: 30px;
-      width: 30px;
-      top: 20px;
-      left: 15px;
-      z-index: 1;
-      cursor: pointer;
-      border-radius: 2px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  .toggle .common{
-      position: absolute;
-      height: 2px;
-      width: 20px;
-      background-color: #5555d8;
-      border-radius: 50px;
-      transition: 0.3s ease;
-  }
-  .toggle .top_line{
-      top: 30%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  .toggle .middle_line{
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  .toggle .bottom_line{
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  input:checked ~ .toggle .top_line{
-      left: 2px;
-      top: 14px;
-      width: 25px;
-      transform: rotate(45deg);
-  }
-  input:checked ~ .toggle .bottom_line{
-      left: 2px;
-      top: 14px;
-      width: 25px;
-      transform: rotate(-45deg);
-  }
-  input:checked ~ .toggle .middle_line{
-      opacity: 0;
-      transform: translateX(20px);
-  }
-  input:checked ~ .slide{
-      transform: translateX(0);
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  }
-  
-/*Sidebar heseg end duusna*/
-
-
-
-
     &__container1{
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;        
 
-    @mixin atMedium{
-      padding: 0 1rem;
-    }
-
-    &__logo{
-      max-width: 30px;
-      left: 400px;
-
       @mixin atMedium{
-        gap: 0.75rem;
-        font-size: var(--tablet-text-small);
-      }
-
-      @mixin atSmall{
-        gap: 0.25rem;
-        font-size: var(--mobile-text-small);
+        padding: 0 1rem;
       }
 
       &__logo{
         width: 2rem;
         height: 2rem;
-
         @mixin atMedium{
           width: 1.5rem;
           height: 1.5rem;
         }
-
         @mixin atSmall{
           width: 1rem;
           height: 1rem;
         }
       }
+      &__title{
+        font-size: var(--desktop-text-medium);
+        
+        @mixin atMedium{
+          font-size: var(--tablet-text-medium);
+        }
+
+        @mixin atSmall{
+          font-size: var(--mobile-text-medium);
+        }
+
+      }
     }
     
     &__search-bar {
-        display: flex;
-        align-items: center;
-        width: calc(100%/3);
-        padding: 0.25rem 1.25rem;
-        border-radius: 1.25rem;
-        background-color: var(--color-background-white); 
+      display: flex;
+      align-items: center;
+      width: calc(100%/3);
+      padding: 0.25rem 1.25rem;
+      border-radius: 1.25rem;
+      background-color: var(--color-background-white); 
 
-        @mixin atSmall{
-          width: 0;
-          padding: 0;
-          margin: 0;
-        }
+      @mixin atSmall{
+        width: 0;
+        padding: 0;
+        margin: 0;
+      }
     }
       
     &__search-field {
-        width: 100%;
-        padding: 0.25rem;
-        margin: 0 0.5rem;
-        border: none;
-        background-color: transparent;
+      width: 100%;
+      padding: 0.25rem;
+      margin: 0 0.5rem;
+      border: none;
+      background-color: transparent;
 
-        @mixin atSmall{
-          display: none;
-        }
-       
+      @mixin atSmall{
+        display: none;
+      }
     }
+
     &__search-field:focus{
-        outline: none;
+      outline: none;
     }
 
     &__search-field::placeholder{
@@ -200,7 +86,6 @@
       @mixin atMedium{
         font-size: var(--tablet-text-small);
       }    
-
     }
 
     &__container2{
@@ -224,12 +109,14 @@
       &--buttons{
         gap: 1rem;
       }
+
       &__notif,
       &__profile {
         text-decoration: none;
         font-size: 1.25rem;
         color: var(--color-main);
       }
+
       &__user{
         display: none;
         
@@ -237,101 +124,165 @@
           display: flex;
         }
       }
+    }
+  }
 
-    }
-      
+
+/*sidebar ehlel*/
+
+.slide{
+  width: 15rem;
+  background-color: var(--color-white);
+  transition: 0.5s ease;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: none;
+
+  @mixin atMedium{
+    width: 9rem;
+    padding: 0.5rem;
+  }
+
+  @mixin atSmall{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__title{
+    color: var(--color-black);
+    font-size: var(--desktop-text-medium);
+    text-align: center;
     
-    
-      /* Style for the hamburger icon 
-    &__hamburger {
-      font-size: 1.25rem;
-    }*/ 
-      
-      /* Style for the sidebar */
-      &__nav {
-        display: none;/*
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -250px; /* This will hide the sidebar by default 
-        width: 250px; /* Set your desired sidebar width 
-        height: 100%;
-        background-color: #444; /* Set your desired sidebar background color 
-        padding: 20px;
-        color: #fff; /* Set your desired text color 
-        transition: left 0.3s ease;
-        z-index: 1;*/
-      }
-      
-      /* Style for the navigation list in the sidebar 
-      &__navlist {
-        list-style: none;
-        padding: 0;
-      }
-      
-      &__item {
-        margin-bottom: 10px;
-      }
-      
-      &__item a {
-        text-decoration: none;
-        color: #fff; /* Set your desired link color 
-      }
-      
-      /* Show the sidebar when the hamburger icon is clicked 
-      &__hamburger:focus + &__nav {
-        left: 0;
-      }
-      
-      /* Hide the sidebar when the hamburger icon is clicked again 
-      &__hamburger:focus + &__nav:focus-within {
-        left: -250px;
-      }
-      */
-    @mixin atLarge{
-        padding: 0 1.5rem;
-        font-size: var(--medium-text);
-        i{
-          width: 10px;
-          height: 10px;
-        }
-        &__container1{    
-          &__logo{
-            width: 1.5rem;
-            height: 1.5rem;
-          }
-        }
-        &__search-bar {
-          width: calc(100%/3);
-      }
-    }
     @mixin atMedium{
-      font-size: var(--small-text);
-      &__container1{    
-        &__logo{
-          width: 1rem;
-          height: 1rem;
-        }
-      }
-      &__search-bar {
-        width: calc(100%/4);
-    }
+      font-size: var(--tablet-text-medium);
     }
     @mixin atSmall{
-      width: 90%;
-      font-size: var(--small-text);
-      &__container1{    
-        &__logo{
-          width: 1rem;
-          height: 1rem;
-        }
-      }
-      &__search-bar {
-        width: calc(100%/5);
-      }
-      i{
-        font-size: 15px;
-      } 
+      padding-top: 3rem;
+      text-align: center;
     }
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+
+    &__item{
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem ;
+      font-size: var(--desktop-text-small);
+      
+      @mixin atMedium{
+        font-size: var(--tablet-text-small);
+      }
+
+      @mixin atSmall{
+        padding: 1rem 2rem;
+      }
+    }
+
+    &__item a{
+      text-transform: capitalize;
+      text-decoration: none;
+      color: var(--color-black);
+      
+    }
+    &__item:hover{
+      transform: translateX(1.5rem);
+
+      @mixin atMedium{
+        transform: translateX(0.75rem);
+      }
+    }
+    &__item:hover a{
+      color: var(--color-main);
+      font-weight: 700;
+    }
+    &__item i{
+      padding-right: 1rem;
+
+      @mixin atMedium{
+        padding-right: 0.3rem;
+      }
+    }
+  }
 }
+
+.slide.show{
+  display: block;
+
+  @mixin atSmall{
+    translateX: 
+  }
 }
+
+.toggle{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+
+  @mixin atMedium{
+    gap: 0.2rem;
+  }
+  @mixin atSmall{
+    z-index: 2;
+    gap: 0.15rem;
+  }
+
+  &__line{
+    height: 0.2rem;
+    width: 1.5rem;
+    background-color: var(--color-main);
+    transition: all 0.3s ease-out;
+
+    @mixin atMedium{
+      height: 0.15rem;
+      width: 1.2rem;
+    }
+    @mixin atSmall{
+      height: 0.15rem;
+      width: 1rem;
+    }
+  }
+}
+
+.toggle.close{
+  transform: rotate(180deg);
+  
+  .topline{
+    transform: rotate(45deg) translate(0.3rem, 0.3rem);
+
+    @mixin atMedium{
+      transform: rotate(45deg) translate(0.2rem, 0.2rem);
+    }
+    
+    @mixin atSmall{
+      transform: rotate(45deg) translate(0.175rem, 0.175rem);
+    }
+  }
+  .midline{
+    opacity: 0;
+  }
+  .bottomline{
+    transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+
+    @mixin atMedium{
+      transform: rotate(-45deg) translate(0.3rem, -0.3rem);
+    }
+
+    @mixin atSmall{
+      transform: rotate(-45deg) translate(0.25rem, -0.25rem);
+    }
+  }
+  
+}
+
+
+/*Sidebar heseg end duusna*/
