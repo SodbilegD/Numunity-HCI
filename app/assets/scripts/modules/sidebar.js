@@ -29,3 +29,25 @@ function toggleMenu() {
         showMenu = false;
     }
 }
+
+
+
+
+document.getElementById("notif-icon").addEventListener("click", function(){
+    if (document.querySelector(".popup").style.display === "none") {
+        document.querySelector(".popup").style.display = "block";
+    } else {
+    }
+});
+
+        
+        
+
+// Close popups if clicking outside them
+/*document.addEventListener("click", function(event) {
+    if (!event.target.matches(".popup-button") && !event.target.matches(".popup")) {
+        popups.forEach(function(popup) {
+            popup.style.display = "none";
+        });
+    }
+});*/
