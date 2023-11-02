@@ -9,8 +9,9 @@
 @import 'modules/_writepost.css';
 @import 'modules/_pagination.css';
 @import 'modules/_btn.css';
+@import 'modules/_notif.css';
 
-@import 'modules/index.css';
+@import 'modules/_index.css';
 @import 'modules/_selectedcom.css';
 @import 'modules/_discussion.css';
 @import 'normalize.css';
@@ -22,5 +23,4 @@
 @import 'modules/_footer.css';
 @import 'modules/_pagination.css';
 @import 'modules/_btn.css';
-@import 'modules/login.css';
 

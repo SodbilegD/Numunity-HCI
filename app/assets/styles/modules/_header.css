@@ -215,10 +215,6 @@
 
 .slide.show{
   display: block;
-
-  @mixin atSmall{
-    translateX: 
-  }
 }
 
 .toggle{

@@ -1,14 +1,29 @@
 {
-    "post": [
+    "postsData": [
       {
-        "post__profile__name": "user1",
-        "post__detail": "This is a sample post.",
-        "timestamp": "2023-11-01 10:00:00"
+          "profileName": "Amet",
+          "timeAgo": "1h ago",
+          "title": "How do I stop obsessing over grades?",
+          "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+          "data-category": "new"
       },
       {
-        "post__profile__name": "user2",
-        "post__detail": "Another post on the platform.",
-        "timestamp": "2023-11-01 10:30:00"
+        "profileName": "Sodoo",
+        "timeAgo": "3h ago",
+        "title": "How do I stop obsessing over grades?",
+        "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
+      },
+      {
+        "profileName": "Hulan",
+        "timeAgo": "5h ago",
+        "title": "How do I stop obsessing over grades?",
+        "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
+      },
+      {
+        "profileName": "Dukk",
+        "timeAgo": "10h ago",
+        "title": "How do I stop obsessing over grades?",
+        "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
       }
     ]
   }
