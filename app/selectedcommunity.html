@@ -222,36 +222,5 @@
         </div>
     </footer>
     <script type="text/javascript" src="./bundled.js"></script>
-    <script>
-        const agreeIcon = document.getElementById('agreeIcon');
-        const disagreeIcon = document.getElementById('disagreeIcon');
-        const agreeCount = document.getElementById('agreeCount');
-        const disagreeCount = document.getElementById('disagreeCount');
-    
-        let agreeClicked = false;
-        let disagreeClicked = false;
-    
-        agreeIcon.addEventListener('click', () => {
-            if (agreeClicked) {
-                agreeCount.textContent = parseInt(agreeCount.textContent) - 1;
-                agreeIcon.style.color = 'inherit';
-            } else {
-                agreeCount.textContent = parseInt(agreeCount.textContent) + 1;
-                agreeIcon.style.color = 'blue';
-            }
-            agreeClicked = !agreeClicked;
-        });
-    
-        disagreeIcon.addEventListener('click', () => {
-            if (disagreeClicked) {
-                disagreeCount.textContent = parseInt(disagreeCount.textContent) - 1;
-                disagreeIcon.style.color = 'inherit';
-            } else {
-                disagreeCount.textContent = parseInt(disagreeCount.textContent) + 1;
-                disagreeIcon.style.color = 'red';
-            }
-            disagreeClicked = !disagreeClicked;
-        });
-    </script>
 </body>
 </html>
