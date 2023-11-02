@@ -85,10 +85,20 @@
                     and I feel actuallty sick over this What can I do?
                 </p>
                 <div class="post__reactions">
-                    <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
-                    <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
-                    <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
-                    <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
+                    <p class="post__reactions__list">
+                        <i class="fa-regular fa-face-smile-beam" class="post__reactions__icon" id="agreeIcon"></i>
+                        <span id="agreeCount">0</span> Agree
+                    </p>
+                    <p class="post__reactions__list">
+                        <i class="fa-regular fa-face-frown" class="post__reactions__icon" id="disagreeIcon"></i>
+                        <span id="disagreeCount">0</span> Disagree
+                    </p>
+                    <p class="post__reactions__list">
+                        <i class="fa-regular fa-comment" class="post__reactions__icon"></i> Comment
+                    </p>
+                    <p class="post__reactions__list">
+                        <i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i> Share
+                    </p>
                 </div>
             </article>
 
@@ -212,5 +222,36 @@
         </div>
     </footer>
     <script type="text/javascript" src="./bundled.js"></script>
+    <script>
+        const agreeIcon = document.getElementById('agreeIcon');
+        const disagreeIcon = document.getElementById('disagreeIcon');
+        const agreeCount = document.getElementById('agreeCount');
+        const disagreeCount = document.getElementById('disagreeCount');
+    
+        let agreeClicked = false;
+        let disagreeClicked = false;
+    
+        agreeIcon.addEventListener('click', () => {
+            if (agreeClicked) {
+                agreeCount.textContent = parseInt(agreeCount.textContent) - 1;
+                agreeIcon.style.color = 'inherit';
+            } else {
+                agreeCount.textContent = parseInt(agreeCount.textContent) + 1;
+                agreeIcon.style.color = 'blue';
+            }
+            agreeClicked = !agreeClicked;
+        });
+    
+        disagreeIcon.addEventListener('click', () => {
+            if (disagreeClicked) {
+                disagreeCount.textContent = parseInt(disagreeCount.textContent) - 1;
+                disagreeIcon.style.color = 'inherit';
+            } else {
+                disagreeCount.textContent = parseInt(disagreeCount.textContent) + 1;
+                disagreeIcon.style.color = 'red';
+            }
+            disagreeClicked = !disagreeClicked;
+        });
+    </script>
 </body>
 </html>
