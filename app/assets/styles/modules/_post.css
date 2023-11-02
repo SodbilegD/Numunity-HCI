@@ -124,6 +124,19 @@
 
         &__list{
             padding-right: 2.5rem;
+            &.clicked {
+                background-color: var(--color-white);
+                color: var(--color-main);
+                .reaction-button{
+                    background-color: var(--color-white);
+                    color: var(--color-main);
+                }
+            }
+            .reaction-button{
+                border: none;
+                background-color: var(--color-white);
+                color: var(--color-black);
+            }
             @mixin atMedium{
                 padding-right: 1.25rem;
             }
@@ -147,3 +160,4 @@
         
     }
 }
+
