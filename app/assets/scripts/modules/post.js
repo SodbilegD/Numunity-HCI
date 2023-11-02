@@ -4,25 +4,25 @@ const postsData = [
       profileName: "Amet",
       timeAgo: "1h ago",
       title: "How do I stop obsessing over grades?",
-      detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+      detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
   },
   {
     profileName: "Sodoo",
     timeAgo: "3h ago",
     title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
   },
   {
     profileName: "Hulan",
     timeAgo: "5h ago",
     title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
   },
   {
     profileName: "Dukk",
     timeAgo: "10h ago",
     title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
   }
   // Add more post data here
 ];
