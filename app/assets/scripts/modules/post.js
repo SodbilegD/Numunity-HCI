@@ -153,4 +153,4 @@ function filterContent(category) {
 
 
 // Call the function to render posts
-renderPosts();
+renderPosts(); 
