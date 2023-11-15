@@ -1,51 +1,7 @@
-// Sample data for dynamic posts
-const postsData = [
-  {
-    id: "1",
-    profileName: "Amet",
-    profimg: "/assets/images/profile.png",
-    timeAgo: "1h ago",
-    title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
-    community: "Веб програмчлал",
-    publishedDate: "2020.11.03 07:00:01"
-    
-},
-{
-  id: "2",
-  profileName: "Sodoo",
-  profimg: "/assets/images/profile.png",
-  timeAgo: "2h ago",
-  title: "How do I stop obsessing over grades?",
-  detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
-  community: "Веб програмчлал",
-  publishedDate: "2020.11.03 08:10:01"
-  
-},
-{
-  id: "3",
-  profileName: "Dukk",
-  profimg: "/assets/images/profile.png",
-  timeAgo: "5h ago",
-  title: "How do I stop obsessing over grades?",
-  detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
-  community: "Веб програмчлал",
-  publishedDate: "2020.11.03 03:20:01"
-  
-},
-{
-  id: "4",
-  profileName: "Khuln",
-  profimg: "/assets/images/profile.png",
-  timeAgo: "1h ago",
-  title: "How do I stop obsessing over grades?",
-  detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
-  community: "Веб програмчлал",
-  publishedDate: "2020.11.03 07:15:01"
-  
-}
-  // Add more post data here
-];
+import { fetchData } from "./dataFetcher.js";
+
+const postsData = await fetchData();
+console.log(postsData);
 
 // Create an object containing the posts data
 const dataObject = {
@@ -59,38 +15,38 @@ const jsonData = JSON.stringify(dataObject, null, 2); // The second argument (nu
 console.log(jsonData);
 
 // Function to create dynamic post elements
-function createPostElement(postData) {
+function createPostElement(post) {
   const postElement = document.createElement("article");
   postElement.classList.add("post");
 
   // Create the post content
   postElement.innerHTML = `
       <div class="post__profile" id="posts-container">
-          <img src="${postData.profimg}" alt="profile" class="post__profile__img">
-          <p class="post__profile__name">${postData.profileName}</p>
-          <p class="post__profile__time">${postData.timeAgo}</p>
-      </div>
-      <hr>
-      <h3 class="post__title">${postData.title}</h3>
-      <p class="post__detail">${postData.detail}</p>
-      <div class="post__reactions">
-        <p class="post__reactions__list">
-            <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
-            <span class="reaction-count">0</span> <button class="reaction-button ">Agree</button>
-        </p>
-        <p class="post__reactions__list">
-            <i class="fa-regular fa-face-frown post__reactions__icon"></i>
-            <span class="reaction-count">0</span> <button class="reaction-button ">Disagree</button>
-        </p>
-        <p class="post__reactions__list">
-            <i class="fa-regular fa-comment post__reactions__icon"></i>
-            <span class="reaction-count">0</span> Comment
-        </p>
-        <p class="post__reactions__list">
-            <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-            <span class="reaction-count">0</span> Share
-        </p>
-      </div>
+      <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+      <p class="post__profile__name">${post.profileName}</p>
+      <p class="post__profile__time">${post.timeAgo}</p>
+    </div>
+    <hr>
+    <h3 class="post__title">${post.title}</h3>
+    <p class="post__detail">${post.detail}</p>
+    <div class="post__reactions">
+    <p class="post__reactions__list">
+        <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
+        <span class="reaction-count">${post.agreeCount}</span> <button class="reaction-button ">Agree</button>
+    </p>
+    <p class="post__reactions__list">
+        <i class="fa-regular fa-face-frown post__reactions__icon"></i>
+        <span class="reaction-count">${post.disagreeCount}</span> <button class="reaction-button ">Disagree</button>
+    </p>
+    <p class="post__reactions__list">
+        <i class="fa-regular fa-comment post__reactions__icon"></i>
+        <span class="reaction-count">${post.commentCount}</span> Comment
+    </p>
+    <p class="post__reactions__list">
+        <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
+        <span class="reaction-count">${post.shareCount}</span> Share
+    </p>
+    </div>
   `;
 
   return postElement;
@@ -99,8 +55,8 @@ function createPostElement(postData) {
 // Function to add posts to the posts container
 function renderPosts() {
   const postsContainer = document.getElementById("posts-container");
-  postsData.forEach((postData) => {
-      const postElement = createPostElement(postData);
+  postsData.record.post.postList.forEach((post) => {
+      const postElement = createPostElement(post);
       postsContainer.appendChild(postElement);
   });
 }
