@@ -14,32 +14,32 @@ class RecentPostItem {
 
     Render() {
         return `<article class="post" id="recentPost_${this.id}">
-                    <div class="post__profile" id="posts-container">
-                        <img src="${this.profimg}" alt="profile" class="post__profile__img">
-                        <p class="post__profile__name">${this.profileName}</p>
-                        <p class="post__profile__time">${this.timeAgo}</p>
-                    </div>
-                    <hr>
-                    <h3 class="post__title">${this.title}</h3>
-                    <p class="post__detail">${this.detail}</p>
-                    <div class="post__reactions">
-                        <p class="post__reactions__list">
-                            <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
-                            <span class="reaction-count">0</span> <button class="reaction-button ">Agree</button>
-                        </p>
-                        <p class="post__reactions__list">
-                            <i class="fa-regular fa-face-frown post__reactions__icon"></i>
-                            <span class="reaction-count">0</span> <button class="reaction-button ">Disagree</button>
-                        </p>
-                        <p class="post__reactions__list">
-                            <i class="fa-regular fa-comment post__reactions__icon"></i>
-                            <span class="reaction-count">0</span> Comment
-                        </p>
-                        <p class="post__reactions__list">
-                            <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-                            <span class="reaction-count">0</span> Share
-                        </p>
-                    </div>
+                <div class="post__profile" id="posts-container">
+                <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+                <p class="post__profile__name">${this.profileName}</p>
+                <p class="post__profile__time">${this.timeAgo}</p>
+            </div>
+            <hr>
+            <h3 class="post__title">${this.title}</h3>
+            <p class="post__detail">${this.detail}</p>
+            <div class="post__reactions">
+            <p class="post__reactions__list">
+                <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
+                <span class="reaction-count">${this.agreeCount}</span> <button class="reaction-button ">Agree</button>
+            </p>
+            <p class="post__reactions__list">
+                <i class="fa-regular fa-face-frown post__reactions__icon"></i>
+                <span class="reaction-count">${this.disagreeCount}</span> <button class="reaction-button ">Disagree</button>
+            </p>
+            <p class="post__reactions__list">
+                <i class="fa-regular fa-comment post__reactions__icon"></i>
+                <span class="reaction-count">${this.commentCount}</span> Comment
+            </p>
+            <p class="post__reactions__list">
+                <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
+                <span class="reaction-count">${this.shareCount}</span> Share
+            </p>
+            </div>
                 </article>`
     }
 }
@@ -93,7 +93,7 @@ export default class RecentPost {
                                     this._recentPostList.push(_newPost);
                                     return _newPost.Render();
                                 })
-                                //.reduce((prevVal, curVal) => prevVal + curVal, "")
+                                .reduce((prevVal, curVal) => prevVal + curVal, "")
                         );
 
                     }
@@ -120,8 +120,8 @@ const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/6544865f0574da762
 recentPost.Download("posts-container");
 
 //Download post in every 60 seconds into #posts-container
-//setInterval(() => recentPost.Download("posts-container"), 60000);
+// setInterval(() => recentPost.Download("posts-container"), 1000);
 
 //Upload updated post in every 15 seconds back to server
-//setInterval(() => recentPost.Upload(), 15000);
+// setInterval(() => recentPost.Upload(), 1000);
 
