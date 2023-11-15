@@ -1,29 +1,49 @@
 // Sample data for dynamic posts
 const postsData = [
   {
-      profileName: "Amet",
-      timeAgo: "1h ago",
-      title: "How do I stop obsessing over grades?",
-      detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-  },
-  {
-    profileName: "Sodoo",
-    timeAgo: "3h ago",
+    id: "1",
+    profileName: "Amet",
+    profimg: "/assets/images/profile.png",
+    timeAgo: "1h ago",
     title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-  },
-  {
-    profileName: "Hulan",
-    timeAgo: "5h ago",
-    title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-  },
-  {
-    profileName: "Dukk",
-    timeAgo: "10h ago",
-    title: "How do I stop obsessing over grades?",
-    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-  }
+    detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+    community: "Веб програмчлал",
+    publishedDate: "2020.11.03 07:00:01"
+    
+},
+{
+  id: "2",
+  profileName: "Sodoo",
+  profimg: "/assets/images/profile.png",
+  timeAgo: "2h ago",
+  title: "How do I stop obsessing over grades?",
+  detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+  community: "Веб програмчлал",
+  publishedDate: "2020.11.03 08:10:01"
+  
+},
+{
+  id: "3",
+  profileName: "Dukk",
+  profimg: "/assets/images/profile.png",
+  timeAgo: "5h ago",
+  title: "How do I stop obsessing over grades?",
+  detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+  community: "Веб програмчлал",
+  publishedDate: "2020.11.03 03:20:01"
+  
+},
+{
+  id: "4",
+  profileName: "Khuln",
+  profimg: "/assets/images/profile.png",
+  timeAgo: "1h ago",
+  title: "How do I stop obsessing over grades?",
+  detail: "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+  community: "Веб програмчлал",
+  publishedDate: "2020.11.03 07:15:01"
+  
+}
   // Add more post data here
 ];
 
@@ -46,7 +66,7 @@ function createPostElement(postData) {
   // Create the post content
   postElement.innerHTML = `
       <div class="post__profile" id="posts-container">
-          <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
+          <img src="${postData.profimg}" alt="profile" class="post__profile__img">
           <p class="post__profile__name">${postData.profileName}</p>
           <p class="post__profile__time">${postData.timeAgo}</p>
       </div>
