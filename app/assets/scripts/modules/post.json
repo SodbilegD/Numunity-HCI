@@ -1,29 +1,53 @@
 {
-    "postsData": [
-      {
-          "profileName": "Amet",
+    "post": {
+      "type": "recent",
+      "postsData": [
+        {
+            "id": "1",
+            "profileName": "Amet",
+            "profimg": "/assets/images/profile.png",
+            "timeAgo": "1h ago",
+            "title": "How do I stop obsessing over grades?",
+            "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "community": "Веб програмчлал",
+            "publishedDate": "2020.11.03 07:00:01"
+            
+        },
+        {
+          "id": "2",
+          "profileName": "Sodoo",
+          "profimg": "/assets/images/profile.png",
+          "timeAgo": "2h ago",
+          "title": "How do I stop obsessing over grades?",
+          "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+          "community": "Веб програмчлал",
+          "publishedDate": "2020.11.03 08:10:01"
+          
+        },
+        {
+          "id": "3",
+          "profileName": "Dukk",
+          "profimg": "/assets/images/profile.png",
+          "timeAgo": "5h ago",
+          "title": "How do I stop obsessing over grades?",
+          "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+          "community": "Веб програмчлал",
+          "publishedDate": "2020.11.03 03:20:01"
+          
+        },
+        {
+          "id": "4",
+          "profileName": "Khuln",
+          "profimg": "/assets/images/profile.png",
           "timeAgo": "1h ago",
           "title": "How do I stop obsessing over grades?",
           "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
-          "data-category": "new"
-      },
-      {
-        "profileName": "Sodoo",
-        "timeAgo": "3h ago",
-        "title": "How do I stop obsessing over grades?",
-        "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-      },
-      {
-        "profileName": "Hulan",
-        "timeAgo": "5h ago",
-        "title": "How do I stop obsessing over grades?",
-        "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-      },
-      {
-        "profileName": "Dukk",
-        "timeAgo": "10h ago",
-        "title": "How do I stop obsessing over grades?",
-        "detail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?"
-      }
-    ]
+          "community": "Веб програмчлал",
+          "publishedDate": "2020.11.03 07:15:01"
+          
+        }
+      ]
+    }
+      
   }
+
