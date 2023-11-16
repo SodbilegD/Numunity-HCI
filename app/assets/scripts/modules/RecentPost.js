@@ -77,10 +77,9 @@ export default class RecentPost {
         .then(result => {
                         result.json().then(jsob => {
 
-                    const parsedDate = new Date();
-                    parsedDate.setDate(parsedDate.getDate() - 1);
-                    console.log(parsedDate);
-                    const filteredArray = jsob.record.post.postList.filter(postItem => Date.parse(postItem.publishedDate) < Date.parse(parsedDate));
+                    //filter only new PostItem
+                    console.log(jsob.record.post.postList[0].publishedDate);
+                    const filteredArray = jsob.record.post.postList.filter(postItem => Date.parse(postItem.publishedDate) > this.dateFilter);
                     console.log(filteredArray);
                     //updating own js
                     if(filteredArray.length > 0){
@@ -116,16 +115,13 @@ const gebi = id => document.getElementById(id);
 
 //Create RecentNews object, with url
 const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/6544865f0574da7622c15ac9", Date.parse(dateFilter));
-//Load content from RecentNewsURL
-const newButton = document.querySelector(".community__new-button");
 
-newButton.addEventListener("click", (e) => {
-    const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/6544865f0574da7622c15ac9", Date.parse(dateFilter) - 1 );
-    console.log("readyyyyyyy");
-    recentPost.Download("posts-container");
-});
+//Load content from RecentNewsURL
+recentPost.Download("posts-container");
+
 //Download post in every 60 seconds into #posts-container
 // setInterval(() => recentPost.Download("posts-container"), 1000);
 
 //Upload updated post in every 15 seconds back to server
 // setInterval(() => recentPost.Upload(), 1000);
+
