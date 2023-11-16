@@ -153,10 +153,6 @@
                 padding-right: 0.25rem;
             }
         }
-        &__list:active{
-            color: var(--color-main);
-            font-weight: 900;
-        }
         
     }
 }
