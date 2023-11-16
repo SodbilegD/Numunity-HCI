@@ -70,14 +70,23 @@
                 <button type="button" class="btn community__trending-button">тренд</button>
             </section>
             <div id="posts-container"></div>
-            <nav class="pagination">
+            <!-- <nav class="pagination">
                 <ul class="pagination__list">
-                    <li class="pagination__arrow"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
+                    <li class="pagination__arrow" id="prev-button"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
                     <li class="pagination__number"><a href="#">1</a></li>
                     <li class="pagination__number"><a href="#">2</a></li>
                     <li class="pagination__number"><a href="#">3</a></li>
-                    <li class="pagination__arrow"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
+                    <li class="pagination__arrow" id="next-button"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
                 </ul>
+            </nav> -->
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+                  &lt;
+                </button>
+                    <div id="pagination-numbers"></div>
+                <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+                  &gt;
+                </button>
             </nav>
             
         </main>
