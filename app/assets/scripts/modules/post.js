@@ -25,7 +25,6 @@ async function init() {
             const postElement = createPostElement(post);
             
             postsContainer.insertAdjacentHTML("afterbegin", postElement);
-            console.log(postsContainer);
 
             // Set up event listeners for the reaction buttons of the newly created post
             const reactionButtons = document.querySelectorAll(".post__reactions__list");
