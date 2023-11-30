@@ -9,7 +9,8 @@ export class community {
     }
 
     Render() {
-        //document.getElementById("community").innerHTML = "";
+        // document.getElementById("community").innerHTML = "";
+        console.log(document.getElementById("community"));
         document.getElementById("community").insertAdjacentHTML('afterbegin', `
             <h1 class="community__name">>> ${this.communityName}</h1>`);
     

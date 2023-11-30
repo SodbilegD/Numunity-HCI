@@ -1,5 +1,3 @@
-pagination.js
-
 document.addEventListener('DOMContentLoaded', function () {
     var itemList = document.getElementById('posts-container');
     var items = itemList.getElementsByTagName('article');
