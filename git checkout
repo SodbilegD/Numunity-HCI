@@ -1,0 +1,266 @@
+[33mcommit c0eb8522ed08226c6c9a06ba5811b82e4b151cc1[m[33m ([m[1;36mHEAD -> [m[1;32mItachi[m[33m)[m
+Merge: 8dac561 2887b20
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Nov 16 11:43:27 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Itachi
+
+[33mcommit 8dac5612cd70b8bea80ad16d9e1add487039fe24[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Nov 16 11:40:29 2023 +0800
+
+    nothing
+
+[33mcommit 2887b208e8c54f0173d23c66618304c7629b0f49[m
+Merge: 5dcb66c 5214331
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Nov 15 10:17:21 2023 +0800
+
+    Merge pull request #34 from SodbilegD/khuln
+    
+    Khuln
+
+[33mcommit 5214331c9607d646cc9b43841ecccd06d9daede5[m
+Merge: 5fc5104 5dcb66c
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Nov 15 10:16:20 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khuln
+
+[33mcommit 5fc510423d73c0f8bc567ef8194198d6533a770b[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Nov 15 10:16:12 2023 +0800
+
+    Post.js fetch
+
+[33mcommit 5dcb66cad5224d347cffdc09bc3261b92632c6ff[m
+Merge: a77d526 8e7b316
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Nov 15 09:25:20 2023 +0800
+
+    Merge pull request #33 from SodbilegD/khuln
+    
+    Khuln
+
+[33mcommit 8e7b316e239eff5003b26c97366cbc503dbb7b3b[m
+Merge: e8099f5 a77d526
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Nov 15 09:24:40 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khuln
+
+[33mcommit e8099f593a02f23ba7975af702007b7fdb4f1668[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Wed Nov 15 09:24:31 2023 +0800
+
+    API fetch
+
+[33mcommit 5f6b89e85287dbce35e0ab3a4b2c115a4ad6c1f5[m
+Merge: 2ec937b a77d526
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Fri Nov 3 14:15:01 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Itachi
+
+[33mcommit a77d52600129fac55ecc8bd749d959cc80238dd0[m
+Merge: b4b6268 c91937d
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Fri Nov 3 11:12:00 2023 +0800
+
+    Merge pull request #32 from SodbilegD/khuln
+    
+    fixes
+
+[33mcommit c91937d5e73081277ae0515b0567000924e64618[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Fri Nov 3 11:09:48 2023 +0800
+
+    fixes
+
+[33mcommit b4b626851177b531e40e0317fc8b985b3c75d213[m
+Merge: 2d4dcdd 7685de6
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Fri Nov 3 11:05:03 2023 +0800
+
+    Merge pull request #31 from SodbilegD/khuln
+    
+    Khuln
+
+[33mcommit 7685de615ead56310e7fc55a2a82fcde1b2720ae[m
+Merge: e699abe 2d4dcdd
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Fri Nov 3 11:03:59 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khuln
+
+[33mcommit e699abefa4e03fb467d2960c31b978680050c695[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Fri Nov 3 11:03:49 2023 +0800
+
+    aldaa zassn
+
+[33mcommit 2ec937b25aeaec2c247a942971265f986aa52404[m
+Merge: 1323486 2d4dcdd
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Nov 2 13:52:37 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Itachi
+
+[33mcommit 2d4dcddbfca8a3ae06b770c66e3226eae831b33e[m
+Merge: ce6249b 91edad0
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 13:48:02 2023 +0800
+
+    Merge pull request #30 from SodbilegD/khuln
+    
+    Khuln
+
+[33mcommit 91edad0f1af12ed754da80926dd3c9f4c7cd6b7f[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 13:46:33 2023 +0800
+
+    test
+
+[33mcommit 811be9ca1a6b7f3a02b46681bbdf6dc2dac7430c[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 13:28:40 2023 +0800
+
+    hhe
+
+[33mcommit 9f2b1d9474171f3322644d056d3a38f32098b243[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 13:03:02 2023 +0800
+
+    yuchbish
+
+[33mcommit 132348683a236d6cda96c6d092d545aeb35b622b[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Nov 2 12:58:54 2023 +0800
+
+    idk
+
+[33mcommit 1e04fd2afe358b983370d2cc996a772b1eb5f7ec[m
+Merge: 4f98614 ce6249b
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Nov 2 12:57:40 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Itachi
+
+[33mcommit e7d919879eccc682a94a74ad57b0ac68b743d2e1[m
+Merge: 71bf309 ce6249b
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 12:53:32 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khuln
+
+[33mcommit ce6249b99b993752e8ce02ace0e9b3d22ab3b87c[m
+Merge: 2dbd3e8 bce9449
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Thu Nov 2 12:53:04 2023 +0800
+
+    Merge pull request #29 from SodbilegD/Sodoo
+    
+    dynamic js
+
+[33mcommit bce9449635135cbd54ce727007f9d6cbea0369be[m
+Merge: d28e51a 2dbd3e8
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Thu Nov 2 12:52:57 2023 +0800
+
+    Merge branch 'main' into Sodoo
+
+[33mcommit 4f9861414b446f265ede30d6c7e34a0366208fd0[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Nov 2 12:48:54 2023 +0800
+
+    nothing
+
+[33mcommit 71bf3094fc00d3fc5d14ee19516b64f532a9e2d9[m
+Merge: 5a6b11c 2dbd3e8
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 12:47:39 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khuln
+
+[33mcommit 5a6b11c76ad12b76f34c76e172a4f8a62d461399[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 12:47:24 2023 +0800
+
+    k
+
+[33mcommit 2dbd3e8eca788b2d1ba299306c79fb334b0811d0[m
+Merge: a441361 b61d6b2
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 12:45:23 2023 +0800
+
+    Merge pull request #28 from SodbilegD/khuln
+    
+    Khuln
+
+[33mcommit b61d6b2611039cae8b348d3e75f48ea136e783e0[m
+Merge: 4a86157 a441361
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 12:43:09 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into khuln
+
+[33mcommit 4a8615744711834ecd7cca3b13b33baa16bfc75e[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Nov 2 12:42:55 2023 +0800
+
+    popupcss
+
+[33mcommit d28e51ac596e8d4e98ac39de8722942c9e10a56c[m
+Author: sodbilegd <21b1num0742@stud.num.edu.mn>
+Date:   Thu Nov 2 12:40:55 2023 +0800
+
+    dynamic js
+
+[33mcommit a441361acd6e09d5be58e9d17495c57b210e7e50[m
+Merge: 5dc797e a3c7420
+Author: Sodbileg <144205655+SodbilegD@users.noreply.github.com>
+Date:   Tue Oct 31 20:22:25 2023 +0800
+
+    Merge pull request #27 from SodbilegD/Sodoo
+    
+    page
+
+[33mcommit a3c74202ed2c26ec8799c92689d963c301482c8a[m
+Author: sodbilegd <21b1num0742@stud.num.edu.mn>
+Date:   Tue Oct 31 20:21:47 2023 +0800
+
+    page
+
+[33mcommit 5dc797e5a5b4aba0cd8c814d683067af2a7d0086[m
+Merge: 222d417 a9cbe32
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Oct 26 12:17:48 2023 +0800
+
+    Merge pull request #26 from SodbilegD/khuln
+    
+    sidebar applied for all pages
+
+[33mcommit a9cbe3295aa9d6e1138f1cc9c51b8268260c043b[m
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Oct 26 12:16:31 2023 +0800
+
+    sidebar applied for all pages
+
+[33mcommit 0d6d3fd3f14abe44052ba6e8d0bebb79eb0e437c[m
+Merge: 1b4dd48 222d417
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Oct 26 11:56:12 2023 +0800
+
+    Merge branch 'main' of https://github.com/SodbilegD/DKS into Itachi
+
+[33mcommit 1b4dd48e97d227d129d48aab2c51f0950edea214[m
+Author: Dulguun Baldorj <duk.dulguun46@gmail.com>
+Date:   Thu Oct 26 11:53:52 2023 +0800
+
+    nothing
+
+[33mcommit 222d4176d244d96d12c24362b4946365f655e8a5[m
+Merge: 424f55e de06b72
+Author: Khulan Battur <117669774+kulnaak@users.noreply.github.com>
+Date:   Thu Oct 26 08:48:07 2023 +0800
+

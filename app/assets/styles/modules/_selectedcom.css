@@ -8,7 +8,7 @@
         margin: 0.5rem;
     }
 
-    &__name{
+    &x_name{
         font-size: var(--desktop-text-large);
         @mixin atMedium{
             font-size: var(--tablet-text-medium);

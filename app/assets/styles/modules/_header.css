@@ -217,6 +217,7 @@
   display: block;
 }
 
+
 .toggle{
   display: flex;
   flex-direction: column;
@@ -279,6 +280,7 @@
   }
   
 }
+
 
 
 /*Sidebar heseg end duusna*/
