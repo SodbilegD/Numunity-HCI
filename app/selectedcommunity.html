@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
-<body>
+<body id="selectedcommunity">
     <header class="main-header">
         <div class="toggle">
             <span class="toggle__line topline"></span>
@@ -63,40 +63,28 @@
                     <a href="#" class="btn btn-primary">Post</a>
                 </div>-->
 
-            <section class="community">
-                <h1 class="community__name">>> Веб програмчлал</h1>
+            <section id="community" class="community">
                 <button type="button" class="btn community__join-button"></button>
                 <button type="button" class="btn community__new-button">шинэ</button>
                 <button type="button" class="btn community__trending-button">тренд</button>
             </section>
 
             <div id="posts-container"></div>
-            
-            <nav class="pagination">
-                <ul class="pagination__list">
-                    <li class="pagination__arrow"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
-                    <li class="pagination__number"><a href="#">1</a></li>
-                    <li class="pagination__number"><a href="#">2</a></li>
-                    <li class="pagination__number"><a href="#">3</a></li>
-                    <li class="pagination__arrow"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
-                </ul>
+            <div id="comments-container" class="comments-container"></div>
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev" aria-label="Previous page" title="Previous page">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                    <div id="pagination" class="pagination"></div>
+                <button class="pagination-button" id="next" aria-label="Next page" title="Next page">
+                    <i class="fa-solid fa-arrow-right"></i> 
+                </button>
             </nav>
             
         </main>
         <aside class="advertisements">
             <ul class="advertisements__list">
-                <li class="advertisements__info">
-                    <h3 class="advertisements__info__title">Веб програмчлал</h3>
-                    <hr>
-                    <p class="advertisements__info__detail">Веб програм хөгжүүлэлттэй холбоотой  өөрт тулгарсан асуудлаа хуваалцацгаая.</p>
-                    <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: 2023. 09. 23</p>
-                    <div class="advertisements__info__container">
-                        <p class="advertisements__info__followers">Дагагчид<br><span>1.4k</span></p>
-                        <hr>
-                        <p class="advertisements__info__total">Нийт пост<br><span>10.5k</span></p>
-                    </div>
-                    
-                </li>
+                <li id="community-detail" class="advertisements__info"></li>
                 <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad1.png" alt="advertisements1"></a></li>
                 <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad2.png" alt="advertisements2"></a></li>
             </ul>
@@ -110,7 +98,7 @@
                 <li><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                 <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
                 <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                <li><a href="selectedcommunity.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
+                <li><a href="selectedcommunity.html"><i class="fa-solid fa-user"></i>Community</a></li>
             </ul>
         </div>
         <div class="footer__copyright">
@@ -129,6 +117,5 @@
         </div>
     </footer>
     <script type="text/javascript" src="./bundled.js"></script>
-    <script type="module" src="./assets/scripts/modules/RecentPost.js"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
 </head>
-<body>
+<body id="discussion">
     <header class="main-header">
         <div class="toggle">
             <span class="toggle__line topline"></span>
@@ -98,85 +98,21 @@
                     <i class="post-reactions__icon fa-regular fa-share-from-square"></i>
                 </div>
                 <div class="sub-container2">
-                    <article class="post">
-                        <div class="post__profile">
-                            <img src="/assets/images/profile.png" alt="profile" class="post__profile__img">
-                            <p class="post__profile__name">Amet</p>
-                            <a href="#" class="post__profile__community">>>Lorem ipsum</a>
-                        </div>
-                        <hr>
-                        <h1 class="post__title">Lorem ipsum dolor sit amet, consectetur adipiscing.</h1>
-                        <p class="post__detail">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
-                            Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
-                            Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
-                            Curabitur magna libero, euismod volutpat rutrum ac, facilisis eget nisi. Morbi rhoncus varius nisl, ut 
-                            feugiat leo laoreet vel. Proin turpis lorem, tempor eu facilisis porta, pellentesque eu elit. Phasellus 
-                            egestas eu massa ut maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                            Morbi rhoncus varius nisl, ut feugiat leo laoreet vel. Proin turpis lorem, tempor eu facilisis porta, pellentesque eu elit. Phasellus 
-                            egestas eu massa ut maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        </p>
-                        <div class="post__reactions post__reactions--hidden">
-                            <p class="post__reactions__list"><i class="fa-regular fa-face-smile-beam" class="post__reactions__icon"></i>Agree</p>
-                            <p class="post__reactions__list"><i class="fa-regular fa-face-frown" class="post__reactions__icon"></i>Disagree</p>
-                            <p class="post__reactions__list"><i class="fa-regular fa-comment" class="post__reactions__icon"></i>Comment</p>
-                            <p class="post__reactions__list"><i class="fa-regular fa-share-from-square" class="post__reactions__icon"></i>Share</p>
-                        </div>
-                        <p class="post__profile__time post__profile__time--down">1h ago</p>
-                    </article>
+                    <div id="posts-container"></div>
         
                     <div class="write-comment">
-                        <textarea placeholder="What are your thoughts?" class="write-comment__input" rows=10 ></textarea>
-                        <button type="button" class="write-comment__send-button btn">илгээх</button>
+                        <textarea id="comment-input" placeholder="What are your thoughts?" class="write-comment__input" rows=10 ></textarea>
+                        <button type="button" id="send-comment-button" class="write-comment__send-button btn">илгээх</button>
                     </div>
         
-                    <div class="post-comments">
+                    <div class="post-comments" id = "post-comments">
                         <div class="post-comments__filter">
-                            <p class="post-comments__filter__total">2598 Comments</p>
-                            <button type="button" class="post-comments__filter__new-button btn">new</button>
-                            <button type="button" class="post-comments__filter__trending-button btn">trending</button>
+                            <p class="post-comments__filter__total"><span id="total-comments">0</span> Comments</p>
+                            <button type="button" id="comment-new-filter" class="post-comments__filter__new-button btn">new</button>
                         </div>
-                
+        
                         <hr>
-            
-                        <div class="single-comment">
-                            <div class="single-comment__profile">
-                                <img src="/assets/images/profile.png" alt="profile" class="single-comment__profile__img">
-                                <p class="single-comment__profile__name">Bot</p>
-                            </div>
-                            <p class="single-comment__detail">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                                make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                remaining essentially unchanged. 
-                            </p>
-
-                            <div class="single-comment__reactions">                            
-                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>Agree</p>
-                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
-                                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
-                            </div>
-                        </div>
-                        
-                        <div class="single-comment">
-                            <div class="single-comment__profile">
-                                <img src="/assets/images/profile.png" alt="profile" class="single-comment__profile__img">
-                                <p class="single-comment__profile__name">Bot</p>
-                            </div>
-                            <p class="single-comment__detail">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to 
-                                make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                remaining essentially unchanged. 
-                            </p>
-
-                            <div class="single-comment__reactions">                            
-                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>Agree</p>
-                                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
-                                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
-                            </div>
-                        </div>
-                        
-                        <button type="button" class="post-comments__view-more">View more...</button>
+                        <div id="comments-container" class="comments-container"></div>
                     </div>
                 </div>
             </div>
