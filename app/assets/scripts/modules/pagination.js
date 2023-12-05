@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     var itemList = document.getElementById('posts-container');
     var items = itemList.getElementsByTagName('article');
-    var itemsPerPage = 2;
+    var itemsPerPage = 3;
     var currentPage = 1;
 
     function showPage(page) {
