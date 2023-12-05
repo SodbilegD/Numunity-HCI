@@ -12,7 +12,7 @@ function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark })
   }
   
   function updateButton({ buttonEl, isDark }) {
-    const newCta = isDark ? "L" : "D";
+    const newCta = isDark ? "Light" : "Dark";
     
     buttonEl.setAttribute("aria-label", newCta);
     buttonEl.innerText = newCta;

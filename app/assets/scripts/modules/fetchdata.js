@@ -1,20 +1,22 @@
-import { community } from "./community.js";
 import { fetchData } from "./dataFetch.js";
+import { community } from "./community.js";
 import RecentPostItem from "./RecentPostItem.js";
 import renderComments from "./commentFetch.js";
 
 const jsonData = await fetchData();
-const allData = JSON.stringify(jsonData, null, 2);
+// const allData = JSON.stringify(jsonData, null, 2);
 
 const communityData = jsonData.record.community;
 
 const postsContainer = document.getElementById("posts-container");
 const currentUrl = new URL(window.location.href);
 const communityID = currentUrl.searchParams.get('communityID');
+console.log(communityID);
 const temp = communityData.find(community => parseInt(community.communityId) === parseInt(communityID));
+console.log(temp);
 if (temp) {
-    const newCommunity = new community(temp);
-    newCommunity.Render();
+    //const newCommunity = new community(temp);
+    //newCommunity.Render();
     renderPosts();
 }
 
@@ -25,16 +27,19 @@ function createPostElement(post) {
     postElement.id = 'recentPost_${post.postId}';
     postElement.innerHTML = newPost.Render();
     const viewPost = postElement.querySelector(".post__title");
+    console.log(viewPost);
     viewPost.addEventListener("click", function () {
-        renderDiscussion(communityID, post.postId);
         console.log("hha");
-        window.location.href = 'discussion.html?communityId=${communityId}&postId=${post.postId}';
+        renderDiscussion(communityID);
+        window.location.href = `discussion.html?communityID=${communityID}&postId=${post.postId}`;
     });
     return postElement;
 }
 
 function renderPosts() {
     postsContainer.innerHTML = "";
+    console.log("+++++++++++++++++++++++++++++++++++++++++++"+communityID);
+    console.log(communityData);
     communityData[parseInt(communityID) - 1].posts.forEach((post) => {
         const postElement = createPostElement(post);
         postsContainer.insertAdjacentElement("afterbegin", postElement);
@@ -46,7 +51,7 @@ function renderPosts() {
             let count = parseInt(countElement.textContent);
 
             // Check if the user has already reacted
-            const userReactionKey = 'user_reaction_${reactionType}';
+            const userReactionKey = `user_reaction_${reactionType}`;
             let hasUserReacted = localStorage.getItem(userReactionKey);
 
 
@@ -77,34 +82,37 @@ function renderPosts() {
     });
 }
 
-function renderDiscussion(postId) {
-    console.log(communityID);
-    console.log(postId);
-    const temp = communityData[parseInt(communityID) - 1].posts.find(post => parseInt(post.postId) === parseInt(postId));
+function renderDiscussion(postID) {
+    console.log(communityData[parseInt(communityID)].posts.find(post => parseInt(post.postId) === parseInt(postID)));
+    const temp = communityData[parseInt(communityID)].posts.find(post => parseInt(post.postId) === parseInt(postID));
+    console.log(temp);
     const newPost = new RecentPostItem(temp);
     postsContainer.innerHTML = newPost.RenderSinglePost();
-    // communityData[parseInt(communityId)-1].posts.forEach((post) => {
-    //     if(post.postId == id){
-    //         const newPost = new RecentPostItem(post);
-    //         postsContainer.innerHTML = newPost.RenderSinglePost();
-    //     }
-    // });
-    renderComments(communityData, communityID, postId);
+    communityData[parseInt(communityID)-1].posts.forEach((post) => {
+        if(post.postId == postID){
+            const newPost = new RecentPostItem(post);
+            postsContainer.innerHTML = newPost.RenderSinglePost();
+        }
+    });
+    renderComments(communityData, communityID, postID);
 }
 
 
 const bodyId = document.body.id;
+
+console.log(document.body.id+"!!!!!!!!!!!!!!!!!!!");
 switch (bodyId) {
     case "discussion":
-        renderDiscussion();
+        const postID = currentUrl.searchParams.get('postId');
+        document.addEventListener("DOMContentLoaded",renderDiscussion(postID));
         break;
     case "index":
         //page3Function();
         break;
-    case "chat":   
+    case "chat":
         //page3Function();
         break;
     default:
         console.log("No matching function for the loaded page.");
         break;
-}
+}   
