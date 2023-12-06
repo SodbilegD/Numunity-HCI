@@ -61,7 +61,8 @@ export default class RecentPost {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8',
-                        'versioning' : false
+                        'versioning' : false,
+                        'X-Master-Key' : '$2a$10$J8t7992aOYOEYTbS2N2Yo.wwBMKynfbjYoCPPAMqXIWEPna6RZr2O'
                     },
                     body: JSON.stringify(this._recentPostList)
                 })
@@ -78,9 +79,10 @@ export default class RecentPost {
                         result.json().then(jsob => {
 
                     const parsedDate = new Date();
-                    parsedDate.setDate(parsedDate.getDate() - 1);
-                    console.log(parsedDate);
-                    const filteredArray = jsob.record.post.postList.filter(postItem => Date.parse(postItem.publishedDate) < Date.parse(parsedDate));
+                    parsedDate.setDate(parsedDate.getDate() - 7);
+                    const filteredArray = jsob.record.community[0].posts.filter(
+                        postItem => Date.parse(postItem.publishedDate) < Date.parse(parsedDate)
+                        );
                     console.log(filteredArray);
                     //updating own js
                     if(filteredArray.length > 0){
@@ -115,12 +117,12 @@ console.log(dateFilter);
 const gebi = id => document.getElementById(id);
 
 //Create RecentNews object, with url
-const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/6544865f0574da7622c15ac9", Date.parse(dateFilter));
+const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/656027a554105e766fd4532b", Date.parse(dateFilter));
 //Load content from RecentNewsURL
-const newButton = document.querySelector(".community__new-button");
+const newButton = document.getElementById("newButton");
 
 newButton.addEventListener("click", (e) => {
-    const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/6544865f0574da7622c15ac9", Date.parse(dateFilter) - 1 );
+    const recentPost = new RecentPost("https://api.jsonbin.io/v3/b/656027a554105e766fd4532b", Date.parse(dateFilter));
     console.log("readyyyyyyy");
     recentPost.Download("posts-container");
 });

@@ -1,99 +1,58 @@
-const paginationNumbers = document.querySelector(".pagination-numbers");
-const paginatedList = document.querySelector(".paginated-list");
-const listItems = paginatedList.querySelectorAll("li");
-const nextButton = document.getElementById("next-button");
-const prevButton = document.getElementById("prev-button");
+document.addEventListener('DOMContentLoaded', function () {
+  var itemList = document.getElementById('posts-container');
+  var items = itemList.getElementsByTagName('article');
+  var itemsPerPage = 3;
+  var currentPage = 1;
 
-const paginationLimit = 10;
-const pageCount = Math.ceil(listItems.length / paginationLimit);
-let currentPage = 1;
-
-const disableButton = (button) => {
-  button.classList.add("disabled");
-  button.setAttribute("disabled", true);
-};
-
-const enableButton = (button) => {
-  button.classList.remove("disabled");
-  button.removeAttribute("disabled");
-};
-
-const handlePageButtonsStatus = () => {
-  if (currentPage === 1) {
-    disableButton(prevButton);
-  } else {
-    enableButton(prevButton);
+  function showPage(page) {
+      for (var i = 0; i < items.length; i++) {
+          items[i].style.display = i >= (page - 1) * itemsPerPage && i < page * itemsPerPage ? 'block' : 'none';
+      }
   }
 
-  if (pageCount === currentPage) {
-    disableButton(nextButton);
-  } else {
-    enableButton(nextButton);
+  function updatePaginationButtons() {
+      var paginationContainer = document.getElementById('pagination');
+      paginationContainer.innerHTML = '';
+
+      var totalPages = Math.ceil(items.length / itemsPerPage);
+
+      for (var i = 1; i <= totalPages; i++) {
+          var li = document.createElement('li');
+          li.textContent = i;
+          li.addEventListener('click', function () {
+              currentPage = parseInt(this.textContent);
+              showPage(currentPage);
+              updatePaginationButtons();
+          });
+
+          if (i === currentPage) {
+              li.classList.add('active');
+          }
+
+          paginationContainer.appendChild(li);
+      }
   }
-};
 
-const handleActivePageNumber = () => {
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    button.classList.remove("active");
-    const pageIndex = Number(button.getAttribute("page-index"));
-    if (pageIndex == currentPage) {
-      button.classList.add("active");
-    }
-  });
-};
-
-const appendPageNumber = (index) => {
-  const pageNumber = document.createElement("button");
-  pageNumber.className = "pagination-number";
-  pageNumber.innerHTML = index;
-  pageNumber.setAttribute("page-index", index);
-  pageNumber.setAttribute("aria-label", "Page " + index);
-
-  paginationNumbers.appendChild(pageNumber);
-};
-
-const getPaginationNumbers = () => {
-  for (let i = 1; i <= pageCount; i++) {
-    appendPageNumber(i);
+  function prevPage() {
+      if (currentPage > 1) {
+          currentPage--;
+          showPage(currentPage);
+          updatePaginationButtons();
+      }
   }
-};
 
-const setCurrentPage = (pageNum) => {
-  currentPage = pageNum;
+  function nextPage() {
+      if (currentPage < Math.ceil(items.length / itemsPerPage)) {
+          currentPage++;
+          showPage(currentPage);
+          updatePaginationButtons();
+      }
+  }
 
-  handleActivePageNumber();
-  handlePageButtonsStatus();
-  
-  const prevRange = (pageNum - 1) * paginationLimit;
-  const currRange = pageNum * paginationLimit;
+  document.getElementById('prev').addEventListener('click', prevPage);
+  document.getElementById('next').addEventListener('click', nextPage);
 
-  listItems.forEach((item, index) => {
-    item.classList.add("hidden");
-    if (index >= prevRange && index < currRange) {
-      item.classList.remove("hidden");
-    }
-  });
-};
-
-window.addEventListener("load", () => {
-  getPaginationNumbers();
-  setCurrentPage(1);
-
-  prevButton.addEventListener("click", () => {
-    setCurrentPage(currentPage - 1);
-  });
-
-  nextButton.addEventListener("click", () => {
-    setCurrentPage(currentPage + 1);
-  });
-
-  document.querySelectorAll(".pagination-number").forEach((button) => {
-    const pageIndex = Number(button.getAttribute("page-index"));
-
-    if (pageIndex) {
-      button.addEventListener("click", () => {
-        setCurrentPage(pageIndex);
-      });
-    }
-  });
+  // Initial page display
+  showPage(currentPage);
+  updatePaginationButtons();
 });

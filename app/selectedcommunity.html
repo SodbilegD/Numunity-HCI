@@ -66,7 +66,7 @@
             <section class="community">
                 <h1 class="community__name">>> Веб програмчлал</h1>
                 <button type="button" class="btn community__join-button"></button>
-                <button type="button" class="btn community__new-button">шинэ</button>
+                <button type="button" class="btn community__new-button" id="newButton">шинэ</button>
                 <button type="button" class="btn community__trending-button">тренд</button>
             </section>
             <div id="posts-container"></div>
@@ -80,14 +80,15 @@
                 </ul>
             </nav> -->
             <nav class="pagination-container">
-                <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
-                  &lt;
+                <button class="pagination-button" id="prev" aria-label="Previous page" title="Previous page">
+                    <i class="fa-solid fa-arrow-left"></i>
                 </button>
-                    <div id="pagination-numbers"></div>
-                <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
-                  &gt;
+                    <div id="pagination" class="pagination"></div>
+                <button class="pagination-button" id="next" aria-label="Next page" title="Next page">
+                    <i class="fa-solid fa-arrow-right"></i> 
                 </button>
             </nav>
+
             
         </main>
         <aside class="advertisements">
