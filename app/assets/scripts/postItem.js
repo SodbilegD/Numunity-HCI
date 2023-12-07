@@ -1,10 +1,12 @@
+import { fetchData } from "./modules/dataFetcher.js";
+const postsData = await fetchData();
+
 class PostItem extends HTMLElement {
-    constructor() {
+    constructor(postData) {
       super();
   
       // Create a shadow DOM
       this.attachShadow({ mode: 'open' });
-  
       // Default data
       this.postData = {
         profileName: '',
