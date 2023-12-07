@@ -17,12 +17,8 @@ class theCommunitySection extends HTMLElement {
         this.#render();
     }
     #render() {
-        document.getElementById("community").innerHTML = "";
-        console.log(document.getElementById("community"));
         document.getElementById("community").insertAdjacentHTML('afterbegin', `
             <h1 class="community__name">>> ${this.communityName}</h1>`);
-    
-        document.getElementById("community-detail").innerHTML = "";
         document.getElementById("community-detail").insertAdjacentHTML('afterbegin', `
             <h3 class="advertisements__info__title">${this.communityName}</h3>
             <hr>
