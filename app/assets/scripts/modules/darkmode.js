@@ -39,4 +39,4 @@ function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark })
     updateThemeOnHtmlEl({ theme: newTheme });
   
     currentThemeSetting = newTheme;
-  }); 
+  });

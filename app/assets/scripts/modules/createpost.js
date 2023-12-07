@@ -5,7 +5,6 @@ if (el.addEventListener)
 else if (el.attachEvent)
     el.attachEvent('onclick', createPost());
 
-
 function createPost(){
     var article = document.createElement("article");
     article.setAttribute("id", "myarticle");
@@ -13,10 +12,6 @@ function createPost(){
 
     var p = document.createElement("p");
 p.innerHTML = document.getElementById("posting-area").value;
-
-
-
-
     // test case, append the content
     document.body.appendChild(article);
     document.getElementById("myarticle").appendChild(p);
