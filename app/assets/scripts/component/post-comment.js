@@ -11,10 +11,7 @@ const postsContainer = document.getElementById("posts-container");
 class PostComment extends HTMLElement {
     constructor() {
         super();
-        //implementation
-        console.log(postsId);
-        console.log(posts[postsId-1].postId);
-        const filteredSinglePost = posts.filter(post => post.postId === 1);
+        const filteredSinglePost = posts.filter(post => post.postId == postsId);
         console.log(filteredSinglePost);
         this.#RenderSinglePost(filteredSinglePost);
         comments.forEach(comment => {
@@ -46,8 +43,8 @@ class PostComment extends HTMLElement {
     }
     #RenderSinglePost(post) {
         this.postId = post.postId;
-        this.postUsername = post.username;
-        this.postProfileImage = post.profileImage;
+        this.postUsername = post.user.username;
+        this.postProfileImage = post.user.profileImage;
         this.postTitle = post.postTitle;
         this.postDetail = post.postDetail;
         this.publishedDate = post.publishedDate;
