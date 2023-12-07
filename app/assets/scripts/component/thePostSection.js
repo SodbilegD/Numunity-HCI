@@ -1,60 +1,75 @@
-class PostItem extends HTMLElement {
+import { fetchData } from "../modules/dataFetcher.js";
+
+const jsondata = await fetchData();
+const currentUrl = new URL(window.location.href);
+const communityId = currentUrl.searchParams.get('communityId');
+const community = jsondata.record.community[communityId-1];
+const posts = jsondata.record.community[communityId-1].posts;
+const postsContainer = document.getElementById("posts-container");
+
+class thePostSection extends HTMLElement {
     constructor() {
         super();
-        this.postId = this.getAttribute("postId");
-        this.profileName = this.getAttribute("profileName");
-        this.myRoot = attachShadow({ mode: 'open' });
-        this.profimg = this.getAttribute("profImg");
-        this.timeAgo = this.getAttribute("timeAgo");
-        this.title = this.getAttribute("title");
-        this.detail = this.getAttribute("detail");
-        this.community = this.getAttribute("community");
-        this.publishedDate = this.getAttribute("publishedDate");
-        this.agreeCount = this.getAttribute("agreeCount");
-        this.disagreeCount = this.getAttribute("disagreeCount");
-        this.commentCount = this.getAttribute("commentCount");
-        this.shareCount = post.shareCount;
-
+        // this.myRoot = attachShadow({ mode: 'open' });
          // or any other logic you need
-         this.#Render();
+         posts.forEach(post => {
+             this.#Render(post);
+         });
     }
 
 
-    #Render() {
-        console.log("hi");
-        this.myRoot.innerHTML = `<p class="post__profile__name">${this.profileName}</p>`;
-        // this.innerHTML = `<div class="post__profile" id="posts-container">
-        //             <img src="${this.profimg}" alt="profile" class="post__profile__img">
-        //             <p class="post__profile__name">${this.profileName}</p>
-        //             <p class="post__profile__time">${this.timeAgo}</p>
-        //         </div>
-        //         <hr>
-        //         <h3 class="post__title"><a href="discussion.html?postId=${this.postId}"></a>${this.title}</h3>
-        //         <p class="post__detail">${this.detail}</p>
-        //         <div class="post__reactions">
-        //             <agree-disagree></agree-disagree>
-        //             <p class="post__reactions__list">
-        //                 <i class="fa-regular fa-comment post__reactions__icon"></i>
-        //                 <span class="reaction-count">${this.commentCount}</span> Comment
-        //             </p>
-        //             <p class="post__reactions__list">
-        //                 <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-        //                 <span class="reaction-count">${this.shareCount}</span> Share
-        //             </p>
-        //         </div>`;
+    #Render(post) {
+        this.postId = post.postId;
+        this.username = post.user.username;
+        this.profileImage = post.user.profileImage;
+        this.postTitle = post.postTitle;
+        this.postDetail = post.postDetail;
+        this.publishedDate = post.publishedDate;
+        this.timeAgo = new Date();
+        this.timeAgo = Date.parse(this.timeAgo) - Date.parse(this.publishedDate);
+        this.timeAgo = new Date(this.timeAgo);
+        this.agreeCount = post.agreeCount;
+        this.disagreeCount = post.disagreeCount;
+        this.commentCount = post.comments.length;
+        this.shareCount = post.shareCount;
+        this.communityName = community.communityName;
+        // this.myRoot.innerHTML = `<p class="post__profile__name">${this.username}</p>`;
+        postsContainer.insertAdjacentHTML("afterbegin", `
+        <article class="post" id="recentPost_${this.postId}">
+        <div class="post__profile">
+        <img src="${this.profileImage}" alt="profile" class="post__profile__img">
+        <p class="post__profile__name">${this.username}</p>
+        <p class="post__profile__time">${this.timeAgo}</p>
+    </div>
+    <hr>
+    <h3 class="post__title"><a href="discussion.html?postId=${this.postId}"></a>${this.postTitle}</h3>
+    <p class="post__detail">${this.postDetail}</p>
+    <div class="post__reactions">
+        <agree-disagree agreeCount=${this.agreeCount} disagreeCount=${this.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
+        <p class="post__reactions__list">
+            <i class="fa-regular fa-comment post__reactions__icon"></i>
+            <span class="reaction-count">${this.commentCount}</span> Comment
+        </p>
+        <p class="post__reactions__list">
+            <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
+            <span class="reaction-count">${this.shareCount}</span> Share
+        </p>
+    </div>
+    </article>`);
+        console.log(postsContainer);
     }
 
     #RenderSinglePost() {
         return `
-        <article class="post" id="recentPost_${this.id}">
+        <article class="post" id="recentPost_${this.postId}">
             <div class="post__profile" id="posts-container">
-                <img src="${this.profimg}" alt="profile" class="post__profile__img">
-                <p class="post__profile__name">${this.profileName}</p>
-                <a href="#" class="post__profile__community">>>${this.community}</a>
+                <img src="${this.profileImage}" alt="profile" class="post__profile__img">
+                <p class="post__profile__name">${this.username}</p>
+                <a href="#" class="post__profile__community">>>${this.communitName}</a>
             </div>
             <hr>
-            <h1 class="post__title">${this.title}</h1>
-            <p class="post__detail">${this.detail}</p>
+            <h1 class="post__title">${this.postTitle}</h1>
+            <p class="post__detail">${this.postDetail}</p>
             <div class="post__reactions post__reactions--hidden">
                 <agree-disagree></agree-disagree>
                 <p class="post__reactions__list">
@@ -72,12 +87,12 @@ class PostItem extends HTMLElement {
 
     
     connectedCallback() {
-        this.myRoot.querySelectorAll("button")[0].addEventListener("click", (e) => {
-            e.stopPropagation();
-            const myCart = document.querySelector("cart-info");
-            myCart.addToCart(this);
-            document.getElementById("totalProduct").innerText = myCart.getTotalCount();
-        });
+        // this.myRoot.querySelectorAll("button")[0].addEventListener("click", (e) => {
+        //     e.stopPropagation();
+        //     const myCart = document.querySelector("cart-info");
+        //     myCart.addToCart(this);
+        //     document.getElementById("totalProduct").innerText = myCart.getTotalCount();
+        // });
     }    
 
     disconnectedCallback() {
@@ -93,7 +108,7 @@ class PostItem extends HTMLElement {
     }
 }
 
-window.customElements.define('post-item', PostItem);
+window.customElements.define('the-post-section', thePostSection);
 // 
 
 // import  RecentPostItem  from "./RecentPostItem.js";

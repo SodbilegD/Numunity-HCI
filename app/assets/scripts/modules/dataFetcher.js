@@ -10,8 +10,6 @@ export async function fetchData() {
           }
         });
         const data = await response.json();
-        console.log("Succeed");
-        console.log(data.record);
         return data;
       } catch (error) {
         console.error('Error fetching data:', error);

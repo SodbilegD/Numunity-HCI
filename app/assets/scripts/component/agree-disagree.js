@@ -13,14 +13,33 @@ class AgreeDisagree extends HTMLElement {
 
         // Set up the initial HTML structure
         this.shadowRoot.innerHTML = `
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <style>
-            .active-agree {
-                color: green; /* Change this to your desired color for Agree */
-            }
-            .active-disagree {
-                color: red; /* Change this to your desired color for Disagree */
-            }
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+        .reactions{
+            display: flex;
+            direction: row;
+            font-size: 0.75rem;
+        }
+        .post__reactions_list{
+            padding-right: 2.5rem;
+        }
+        .clicked,
+        .clicked .reaction-button {
+            background-color: #5555d8;
+            color: #ffffd8;
+            font-family: 'Comfortaa', cursive;
+        }
+        .reaction-button {
+            border: none;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Comfortaa', cursive;
+            font-size: 0.75rem;
+        }
         </style>
+        <div class="reactions">
         <p class="post__reactions__list">
             <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
             <span class="reaction-count" id="agreeCount">${this.agreeCount}</span>
@@ -31,6 +50,7 @@ class AgreeDisagree extends HTMLElement {
             <span class="reaction-count" id="disagreeCount">${this.disagreeCount}</span>
             <button class="reaction-button" id="disagreeButton">Disagree</button>
         </p>
+        </div>
         `;
 
         // Bind event listeners
@@ -79,11 +99,11 @@ class AgreeDisagree extends HTMLElement {
         const disagreeButton = this.shadowRoot.getElementById('disagreeButton');
 
         if (this.isAgreeClicked) {
-            agreeButton.classList.add('active-agree');
-            disagreeButton.classList.remove('active-disagree');
+            agreeButton.classList.add('clicked');
+            disagreeButton.classList.remove('clicked');
         } else {
-            agreeButton.classList.remove('active-agree');
-            disagreeButton.classList.add('active-disagree');
+            agreeButton.classList.remove('clicked');
+            disagreeButton.classList.add('clicked');
         }
     }
 
