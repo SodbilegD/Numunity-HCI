@@ -100,38 +100,32 @@
                 </div>-->
 
             <section class="community">
-                <h1 class="community__name">>> Веб програмчлал</h1>
+                <div id="community"></div>
                 <button type="button" class="btn community__join-button"></button>
-                <button type="button" class="btn community__new-button">шинэ</button>
+                <button type="button" class="btn community__new-button" id="newButton">шинэ</button>
                 <button type="button" class="btn community__trending-button">тренд</button>
             </section>
 
-            <div id="posts-container"></div>
-            
-            <nav class="pagination">
-                <ul class="pagination__list">
-                    <li class="pagination__arrow"><a href="#"><i class="fa-solid fa-arrow-left"></i>Өмнөх</a></li>
-                    <li class="pagination__number"><a href="#">1</a></li>
-                    <li class="pagination__number"><a href="#">2</a></li>
-                    <li class="pagination__number"><a href="#">3</a></li>
-                    <li class="pagination__arrow"><a href="#">Дараах<i class="fa-solid fa-arrow-right"></i></a></li>
-                </ul>
+            <div id="posts-container">
+                <the-post-section></the-post-section>
+            </div>
+            <div id="comments-container" class="comments-container"></div>
+            <nav class="pagination-container">
+                <button class="pagination-button" id="prev" aria-label="Previous page" title="Previous page">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                    <div id="pagination" class="pagination"></div>
+                <button class="pagination-button" id="next" aria-label="Next page" title="Next page">
+                    <i class="fa-solid fa-arrow-right"></i> 
+                </button>
             </nav>
+
             
         </main>
         <aside class="advertisements">
             <ul class="advertisements__list">
-                <li class="advertisements__info">
-                    <h3 class="advertisements__info__title">Веб програмчлал</h3>
-                    <hr>
-                    <p class="advertisements__info__detail">Веб програм хөгжүүлэлттэй холбоотой  өөрт тулгарсан асуудлаа хуваалцацгаая.</p>
-                    <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: 2023. 09. 23</p>
-                    <div class="advertisements__info__container">
-                        <p class="advertisements__info__followers">Дагагчид<br><span>1.4k</span></p>
-                        <hr>
-                        <p class="advertisements__info__total">Нийт пост<br><span>10.5k</span></p>
-                    </div>
-                    
+                <li id="community-detail" class="advertisements__info">
+                    <the-community-section></the-community-section>
                 </li>
                 <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad1.png" alt="advertisements1"></a></li>
                 <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad2.png" alt="advertisements2"></a></li>
@@ -164,6 +158,9 @@
             <i class="fa-brands fa-whatsapp"></i>
         </div>
     </footer>
+    <script type="module" src="./assets/scripts/component/theCommunitySection.js"></script>
+    <script type="module" src="./assets/scripts/component/thePostSection.js"></script>
+    <script type="module" src="./assets/scripts/component/agree-disagree.js"></script>
     <script type="text/javascript" src="./bundled.js"></script>
 </body>
 </html>

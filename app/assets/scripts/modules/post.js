@@ -3,15 +3,7 @@ import  RecentPostItem  from "./RecentPostItem.js";
 
 async function init() {
     const postsData = await fetchData();
-
-    // Create an object containing the posts data
-    const dataObject = {
-        posts: postsData
-    };
-
-    // Convert the object to a JSON string
-    const jsonData = JSON.stringify(dataObject, null, 2);
-
+    
     function createPostElement(post) {
         const newPost = new RecentPostItem(post);
         return newPost.Render();
@@ -20,12 +12,10 @@ async function init() {
     // Function to add posts to the posts container
     function renderPosts() {
         const postsContainer = document.getElementById("posts-container");
-
-        postsData.record.post.postList.forEach((post) => {
+        postsData.record.community[0].posts.forEach((post) => {
             const postElement = createPostElement(post);
             
             postsContainer.insertAdjacentHTML("afterbegin", postElement);
-
             // Set up event listeners for the reaction buttons of the newly created post
             const reactionButtons = document.querySelectorAll(".post__reactions__list");
             reactionButtons.forEach(function (reactionButtons) {
