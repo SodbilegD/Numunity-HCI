@@ -92,4 +92,3 @@ newButton.addEventListener("click", (e) => {
 
 //Upload updated post in every 15 seconds back to server
 setInterval(() => recentPost.Upload(), 1);
-

@@ -63,16 +63,17 @@
                     <a href="#" class="btn btn-primary">Post</a>
                 </div>-->
 
-            <section id="community" class="community">
+            <section class="community">
+                <div id="community"></div>
                 <button type="button" class="btn community__join-button"></button>
-                <button type="button" class="btn community__new-button">шинэ</button>
+                <button type="button" class="btn community__new-button" id="newButton">шинэ</button>
                 <button type="button" class="btn community__trending-button">тренд</button>
             </section>
 
             <div id="posts-container">
-                <the-dks-agree></the-dks-agree>
+                <the-post-section></the-post-section>
             </div>
-            <!--<div id="comments-container" class="comments-container"></div>-->
+            <div id="comments-container" class="comments-container"></div>
             <nav class="pagination-container">
                 <button class="pagination-button" id="prev" aria-label="Previous page" title="Previous page">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -82,11 +83,14 @@
                     <i class="fa-solid fa-arrow-right"></i> 
                 </button>
             </nav>
+
             
         </main>
         <aside class="advertisements">
             <ul class="advertisements__list">
-                <li id="community-detail" class="advertisements__info"></li>
+                <li id="community-detail" class="advertisements__info">
+                    <the-community-section></the-community-section>
+                </li>
                 <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad1.png" alt="advertisements1"></a></li>
                 <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad2.png" alt="advertisements2"></a></li>
             </ul>
@@ -118,6 +122,9 @@
             <i class="fa-brands fa-whatsapp"></i>
         </div>
     </footer>
+    <script type="module" src="./assets/scripts/component/theCommunitySection.js"></script>
+    <script type="module" src="./assets/scripts/component/thePostSection.js"></script>
+    <script type="module" src="./assets/scripts/component/agree-disagree.js"></script>
     <script type="text/javascript" src="./bundled.js"></script>
     <script type="module" src="./assets/scripts/modules/the-dks-agree.js"></script>
 </body>
