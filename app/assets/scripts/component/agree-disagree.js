@@ -3,10 +3,10 @@ class AgreeDisagree extends HTMLElement {
         super();
 
         // Initial counts and state
-        this.agreeCount = 0;
-        this.disagreeCount = 0;
-        this.isAgreeClicked = false;
-        this.isDisagreeClicked = false;
+        this.agreeCount = this.getAttribute("agreeCount");
+        this.disagreeCount = this.getAttribute("disagreeCount");
+        this.isAgreeClicked = this.getAttribute("isAgreeClicked");
+        this.isDisagreeClicked = this.getAttribute("isgreeClicked");
 
         // Create shadow DOM
         this.attachShadow({ mode: 'open' });
@@ -20,32 +20,30 @@ class AgreeDisagree extends HTMLElement {
         .reactions{
             display: flex;
             direction: row;
-            font-size: 0.75rem;
+            font-size: 1rem;
         }
         .post__reactions_list{
             padding-right: 2.5rem;
         }
-        .clicked,
-        .clicked .reaction-button {
-            background-color: #5555d8;
-            color: #ffffd8;
-            font-family: 'Comfortaa', cursive;
+        i{
+            padding-right: 1rem;
         }
         .reaction-button {
             border: none;
             background-color: #ffffff;
             color: #000000;
             font-family: 'Comfortaa', cursive;
-            font-size: 0.75rem;
+            font-size: 1rem;
+            padding-right: 2.5rem;
         }
         </style>
         <div class="reactions">
-        <p class="post__reactions__list">
+        <p class="post__reactions__list" id="agree">
             <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
             <span class="reaction-count" id="agreeCount">${this.agreeCount}</span>
             <button class="reaction-button" id="agreeButton">Agree</button>
         </p>
-        <p class="post__reactions__list">
+        <p class="post__reactions__list" id="disagree">
             <i class="fa-regular fa-face-frown post__reactions__icon"></i>
             <span class="reaction-count" id="disagreeCount">${this.disagreeCount}</span>
             <button class="reaction-button" id="disagreeButton">Disagree</button>
@@ -59,52 +57,48 @@ class AgreeDisagree extends HTMLElement {
     }
 
     toggleAgree() {
-        if (!this.isAgreeClicked) {
-            this.agreeCount++;
-        } else {
-            this.agreeCount--;
-        }
-
+        this.agreeCount = this.toggleColor('agree', 'disagree', 'agreeButton', 'disagreeButton', this.isAgreeClicked, this.agreeCount);
         this.isAgreeClicked = !this.isAgreeClicked;
 
-        if (this.isDisagreeClicked) {
+        if (this.isAgreeClicked && this.isDisagreeClicked) {
             this.isDisagreeClicked = !this.isDisagreeClicked;
             this.disagreeCount--;
         }
 
-        this.updateButtonStyles();
         this.updateCounts();
     }
 
     toggleDisagree() {
-        if (!this.isDisagreeClicked) {
-            this.disagreeCount++;
-        } else {
-            this.disagreeCount--;
-        }
-
+        this.disagreeCount = this.toggleColor('disagree', 'agree', 'disagreeButton', 'agreeButton', this.isDisagreeClicked, this.disagreeCount);
         this.isDisagreeClicked = !this.isDisagreeClicked;
 
-        if (this.isAgreeClicked) {
+        if (this.isDisagreeClicked && this.isAgreeClicked) {
             this.isAgreeClicked = !this.isAgreeClicked;
             this.agreeCount--;
         }
 
-        this.updateButtonStyles();
         this.updateCounts();
     }
 
-    updateButtonStyles() {
-        const agreeButton = this.shadowRoot.getElementById('agreeButton');
-        const disagreeButton = this.shadowRoot.getElementById('disagreeButton');
+    toggleColor(clickedId, otherId, clickedButtonId, otherButtonId, isClicked, count) {
+        const clickedElement = this.shadowRoot.getElementById(clickedId);
+        const otherElement = this.shadowRoot.getElementById(otherId);
+        const clickedButtonElement = this.shadowRoot.getElementById(clickedButtonId);
+        const otherButtonElement = this.shadowRoot.getElementById(otherButtonId);
 
-        if (this.isAgreeClicked) {
-            agreeButton.classList.add('clicked');
-            disagreeButton.classList.remove('clicked');
+        if (!isClicked) {
+            count++;
+            clickedElement.style.color = '#5555d8';
+            otherElement.style.color = '#000000';
+            clickedButtonElement.style.color = '#5555d8';
+            otherButtonElement.style.color = '#000000';
         } else {
-            agreeButton.classList.remove('clicked');
-            disagreeButton.classList.add('clicked');
+            count--;
+            clickedElement.style.color = '#000000';
+            clickedButtonElement.style.color = '#000000';
         }
+
+        return count; // Return the updated count
     }
 
     updateCounts() {

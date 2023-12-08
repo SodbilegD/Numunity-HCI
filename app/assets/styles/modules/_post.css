@@ -85,6 +85,8 @@
     &__title{
         font-size: var(--desktop-text-medium);
         font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
 
         @mixin atMedium{
             font-size: var(--tablet-text-medium);
@@ -93,6 +95,11 @@
         @mixin atSmall{
             font-size: var(--mobile-text-medium);
         }
+    }
+
+    &__title:hover {
+        transform: translateX(0.5rem);
+        color: var(--color-main);
     }
     &__detail{
         font-size: var(--desktop-text-small);

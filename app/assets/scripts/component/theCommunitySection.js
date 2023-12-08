@@ -3,7 +3,9 @@ import { fetchData } from "../modules/dataFetcher.js";
 const jsondata = await fetchData();
 const currentUrl = new URL(window.location.href);
 const communityId = currentUrl.searchParams.get('communityId');
+console.log(communityId);
 const community = jsondata.record.community[communityId-1];
+
 // community.createdDate.setHours(0, 0, 0, 0);
 class theCommunitySection extends HTMLElement {
     constructor() {
