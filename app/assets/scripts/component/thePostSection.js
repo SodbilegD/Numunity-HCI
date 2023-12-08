@@ -4,7 +4,7 @@ const jsondata = await fetchData();
 const currentUrl = new URL(window.location.href);
 const communityId = currentUrl.searchParams.get('communityId');
 const community = jsondata.record.community[communityId-1];
-const posts = jsondata.record.community[communityId-1].posts;
+const posts = jsondata.record.community[communityId-1].posts; 
 const postsContainer = document.getElementById("posts-container");
 
 class thePostSection extends HTMLElement {
@@ -12,11 +12,20 @@ class thePostSection extends HTMLElement {
         super();
         // this.myRoot = attachShadow({ mode: 'open' });
          // or any other logic you need
-         posts.forEach(post => {
-             this.#Render(post);
-         });
+        posts.forEach(post => {
+            this.#Render(post);
+            this.addEventListenerToPostTitle(post.postId);
+        });
     }
-
+    addEventListenerToPostTitle(postTitleElement, postId) {
+        console.log(postTitleElement);
+            postTitleElement.addEventListener('click', () => {
+                
+                console.log(`Post title clicked! Post ID: ${postId}`);
+                
+                window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
+            });
+    };
 
     #Render(post) {
         this.postId = post.postId;
@@ -34,31 +43,45 @@ class thePostSection extends HTMLElement {
         this.shareCount = post.shareCount;
         this.communityName = community.communityName;
         // this.myRoot.innerHTML = `<p class="post__profile__name">${this.username}</p>`;
-        postsContainer.insertAdjacentHTML("afterbegin", `
-        <article class="post" id="recentPost_${this.postId}">
-        <div class="post__profile">
-        <img src="${this.profileImage}" alt="profile" class="post__profile__img">
-        <p class="post__profile__name">${this.username}</p>
-        <p class="post__profile__time">${this.timeAgo}</p>
-    </div>
-    <hr>
-    <h3 class="post__title"><a href="discussion.html?postId=${this.postId}"></a>${this.postTitle}</h3>
-    <p class="post__detail">${this.postDetail}</p>
-    <div class="post__reactions">
-        <agree-disagree agreeCount=${this.agreeCount} disagreeCount=${this.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
-        <p class="post__reactions__list">
-            <i class="fa-regular fa-comment post__reactions__icon"></i>
-            <span class="reaction-count">${this.commentCount}</span> Comment
-        </p>
-        <p class="post__reactions__list">
-            <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-            <span class="reaction-count">${this.shareCount}</span> Share
-        </p>
-    </div>
-    </article>`);
-        console.log(postsContainer);
-    }
 
+        var postElement = document.createElement('article');
+        postElement.classList.add('post');
+        postElement.id = `recentPost_${this.postId}`;
+
+        postElement.insertAdjacentHTML("afterbegin", `
+        
+            <div class="post__profile">
+                <img src="${this.profileImage}" alt="profile" class="post__profile__img">
+                <p class="post__profile__name">${this.username}</p>
+                <p class="post__profile__time">${this.timeAgo}</p>
+            </div>
+            <hr>`);
+            const postTitleElement = document.createElement('h3');
+            postTitleElement.classList.add('post__title');
+            postTitleElement.textContent = this.postTitle;
+            postElement.appendChild(postTitleElement);
+
+            postElement.insertAdjacentHTML("beforeend",`
+            <p class="post__detail">${this.postDetail}</p>
+
+
+            <div class="post__reactions">
+                <agree-disagree agreeCount=${this.agreeCount} disagreeCount=${this.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
+                <p class="post__reactions__list">
+                    <i class="fa-regular fa-comment post__reactions__icon"></i>
+                    <span class="reaction-count">${this.commentCount}</span> Comment
+                </p>
+                <p class="post__reactions__list">
+                    <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
+                    <span class="reaction-count">${this.shareCount}</span> Share
+                </p>
+            </div>
+        </article>`);
+        postsContainer.appendChild(postElement);
+        console.log(postTitleElement);
+        this.addEventListenerToPostTitle(postTitleElement, this.postId);
+    }
+    
     #RenderSinglePost() {
         return `
         <article class="post" id="recentPost_${this.postId}">
@@ -84,6 +107,7 @@ class thePostSection extends HTMLElement {
             <p class="post__profile__time post__profile__time--down">1h ago</p>
         </article>`;
     }
+
 
     
     connectedCallback() {

@@ -1,12 +1,11 @@
 import { fetchData } from './dataFetcher.js';
-import { renderPosts } from './post.js';
 
-// Fetch the data
-const data = await fetchData();
+const jsondata = await fetchData();
+const currentUrl = new URL(window.location.href);
+const communityId = currentUrl.searchParams.get('communityId');
+const community = jsondata.record.community[communityId-1];
+const posts = jsondata.record.community[communityId-1].posts;
 
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get('id');
-const date = urlParams.get('publishedDate');
 
 // Filter the data based on the category and date parameters
 let filteredData = data;
