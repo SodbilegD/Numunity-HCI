@@ -1,12 +1,13 @@
 import { fetchData } from './dataFetcher.js';
+import { renderPosts } from './post.js';
 
 // Fetch the data
-const jsondata = await fetchData();
-const currentUrl = new URL(window.location.href);
-let communityId = currentUrl.searchParams.get('communityId');
-let community = jsondata.record.community[communityId-1];
-const posts = jsondata.record.community[communityId-1].posts;
-const currentDate = new Date();
+const data = await fetchData();
+
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id');
+const date = urlParams.get('publishedDate');
+
 // Filter the data based on the category and date parameters
 const trendButtonElement = document.getElementById("trendButton");
 const newButtonElement = document.getElementById("newButton");

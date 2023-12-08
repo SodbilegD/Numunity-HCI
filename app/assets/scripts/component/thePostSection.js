@@ -45,14 +45,7 @@ class thePostSection extends HTMLElement {
             postElement.addEventListener("click", () => {
                 window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
             });
-            // console.log("asdfghjkl");
-            // this.renderDiscussion(postId);
     };
-
-    renderDiscussion(postId) {
-        this.#RenderSinglePost();
-        // renderComments(communityData, communityID, postID);
-    }
     
     #Render(post) {
         this.postId = post.postId;

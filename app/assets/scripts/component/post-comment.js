@@ -1,4 +1,5 @@
 import { fetchData } from "../modules/dataFetcher.js";
+import { sendDataToJsonBin } from "../modules/dataFetcher.js";
 
 const jsondata = await fetchData();
 const currentUrl = new URL(window.location.href);
@@ -6,10 +7,14 @@ const communityId = currentUrl.searchParams.get('communityId');
 const community = jsondata.record.community[communityId-1];
 const posts = community.posts;
 const postsId = currentUrl.searchParams.get('postId');
-const comments = posts[postsId].comments;
+const comments = posts[postsId-1].comments;
 const postsContainer = document.getElementById("posts-container");
 const commentsContainer = document.getElementById("comments-container");
 const trendCommentButton = document.getElementById("comment-trend-filter");
+const commentCounter = document.getElementById("total-comments");
+
+const sendCommentButton = document.getElementById("send-comment-button");
+
 class PostComment extends HTMLElement {
     constructor() {
         super();
@@ -31,6 +36,37 @@ class PostComment extends HTMLElement {
             // filteredData = filterNew(posts);
             // this.#Render(filteredData);
         });
+        commentCounter.innerHTML = comments.length;
+        sendCommentButton.addEventListener("click", async () => {
+            const commentInput = document.getElementById("comment-input");
+            const newCommentText = commentInput.value.trim();
+    
+            if (newCommentText !== "") {
+                
+                const newComment = {
+                    id: commentCounter.innerHTML,
+                    body: newCommentText,
+                    user: {
+                        id: 999,
+                        username: "comment writer",
+                        profileImage: "/assets/images/profile.png"
+                    },
+                    publishedDate: new Date().toISOString(),
+                    // Add any other properties you need
+                };
+    
+                comments.push(newComment);
+                
+                commentsContainer.innerHTML = "";
+                comments.forEach(comment => {
+                    this.#render(comment);
+                });
+    
+                commentInput.value = "";
+                commentCounter.innerHTML = comments.length;
+    
+                await sendDataToJsonBin(jsondata.record);
+            }});
         }
 
     #render(comment){
@@ -40,9 +76,12 @@ class PostComment extends HTMLElement {
         this.commentProfileImage = comment.user.profileImage;
         this.commentPublishedDate = comment.publishedDate;
         
-        this.innerHTML = 
-        `<div class="single-comment" id="single-comment_${(this.commentId)}">
-            <div class="single-comment__profile">
+        var commentElement = document.createElement('div');
+        commentElement.classList.add('single-comment');
+        commentElement.id = `single-comment_${(this.commentId)}`;
+
+        commentElement.insertAdjacentHTML("afterbegin",
+        `<div class="single-comment__profile">
                 <img src="${this.commentProfileImage}" alt="profile" class="single-comment__profile__img">
                 <p class="single-comment__profile__name">${this.commentUsername}</p>
             </div>
@@ -52,8 +91,8 @@ class PostComment extends HTMLElement {
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>agree</p>
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
-            </div>
-        </div>`
+            </div>`);
+        commentsContainer.appendChild(commentElement);        
     }
     renderSinglePost(post) {
         this.postId = post.postId;
