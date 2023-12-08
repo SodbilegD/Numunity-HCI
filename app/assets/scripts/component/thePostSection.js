@@ -14,19 +14,23 @@ class thePostSection extends HTMLElement {
          // or any other logic you need
         posts.forEach(post => {
             this.#Render(post);
-            this.addEventListenerToPostTitle(post.postId);
         });
     }
-    addEventListenerToPostTitle(postTitleElement, postId) {
-        console.log(postTitleElement);
-            postTitleElement.addEventListener('click', () => {
-                
+    
+    addEventListenerToPostTitle(postElement, postId) {
+            postElement.addEventListener("click", () => {
                 console.log(`Post title clicked! Post ID: ${postId}`);
-                
                 window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
             });
+            // console.log("asdfghjkl");
+            // this.renderDiscussion(postId);
     };
 
+    renderDiscussion(postId) {
+        this.#RenderSinglePost();
+        // renderComments(communityData, communityID, postID);
+    }
+    
     #Render(post) {
         this.postId = post.postId;
         this.username = post.user.username;
@@ -42,12 +46,11 @@ class thePostSection extends HTMLElement {
         this.commentCount = post.comments.length;
         this.shareCount = post.shareCount;
         this.communityName = community.communityName;
-        // this.myRoot.innerHTML = `<p class="post__profile__name">${this.username}</p>`;
+        // this.myRoot.innerHTML = <p class="post__profile__name">${this.username}</p>;
 
         var postElement = document.createElement('article');
         postElement.classList.add('post');
         postElement.id = `recentPost_${this.postId}`;
-
         postElement.insertAdjacentHTML("afterbegin", `
         
             <div class="post__profile">
@@ -57,14 +60,12 @@ class thePostSection extends HTMLElement {
             </div>
             <hr>`);
             const postTitleElement = document.createElement('h3');
+            postElement.appendChild(postTitleElement);
             postTitleElement.classList.add('post__title');
             postTitleElement.textContent = this.postTitle;
-            postElement.appendChild(postTitleElement);
 
             postElement.insertAdjacentHTML("beforeend",`
             <p class="post__detail">${this.postDetail}</p>
-
-
             <div class="post__reactions">
                 <agree-disagree agreeCount=${this.agreeCount} disagreeCount=${this.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
                 <p class="post__reactions__list">
@@ -78,12 +79,11 @@ class thePostSection extends HTMLElement {
             </div>
         </article>`);
         postsContainer.appendChild(postElement);
-        console.log(postTitleElement);
-        this.addEventListenerToPostTitle(postTitleElement, this.postId);
+        this.addEventListenerToPostTitle(postElement, this.postId);
     }
     
     #RenderSinglePost() {
-        return `
+        postsContainer.innerHTML = `
         <article class="post" id="recentPost_${this.postId}">
             <div class="post__profile" id="posts-container">
                 <img src="${this.profileImage}" alt="profile" class="post__profile__img">
@@ -170,7 +170,7 @@ window.customElements.define('the-post-section', thePostSection);
 //                 let count = parseInt(countElement.textContent);
 
 //                 // Check if the user has already reacted
-//                 const userReactionKey = `user_reaction_${reactionType}`;
+//                 const userReactionKey = user_reaction_${reactionType};
 //                 let hasUserReacted = localStorage.getItem(userReactionKey);
 
                 
