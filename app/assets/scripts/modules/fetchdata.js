@@ -29,8 +29,6 @@ function createPostElement(post) {
     const viewPost = postElement.querySelector(".post__title");
     console.log(viewPost);
     viewPost.addEventListener("click", function () {
-        console.log("hha");
-        renderDiscussion(communityID);
         window.location.href = `discussion.html?communityID=${communityID}&postId=${post.postId}`;
     });
     return postElement;

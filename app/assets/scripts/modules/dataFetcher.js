@@ -15,3 +15,20 @@ export async function fetchData() {
         console.error('Error fetching data:', error);
       }
 }
+
+export async function sendDataToJsonBin(data) {
+  const response = await fetch(apiUrl, {
+          method: "PUT",
+          headers: {
+              "Content-Type": "application/json",
+              "X-Master-Key":
+                  "$2a$10$J8t7992aOYOEYTbS2N2Yo.wwBMKynfbjYoCPPAMqXIWEPna6RZr2O",
+          },
+          body: JSON.stringify(data),
+      }
+  );
+
+  if (!response.ok) {
+      throw new Error('Failed to send data to jsonbin.io. Status: ${response.status}');
+  }
+}
