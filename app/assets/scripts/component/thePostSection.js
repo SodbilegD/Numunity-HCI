@@ -22,14 +22,7 @@ class thePostSection extends HTMLElement {
                 console.log(`Post title clicked! Post ID: ${postId}`);
                 window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
             });
-            // console.log("asdfghjkl");
-            // this.renderDiscussion(postId);
     };
-
-    renderDiscussion(postId) {
-        this.#RenderSinglePost();
-        // renderComments(communityData, communityID, postID);
-    }
     
     #Render(post) {
         this.postId = post.postId;
@@ -79,7 +72,7 @@ class thePostSection extends HTMLElement {
             </div>
         </article>`);
         postsContainer.appendChild(postElement);
-        this.addEventListenerToPostTitle(postElement, this.postId);
+        this.addEventListenerToPostTitle(postTitleElement, this.postId);
     }
     
     #RenderSinglePost() {
