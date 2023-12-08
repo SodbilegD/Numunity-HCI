@@ -3,7 +3,7 @@ import 'lazysizes';
 import './modules/chat.js';
 import './modules/sidebar.js';
 import './modules/dataFetcher.js';
-import './modules/pagination.js';
+// import './modules/pagination.js';
 // import './modules/ulrParser.js';
 // import './modules/selected-main.js';
 //import './modules/post.json';
