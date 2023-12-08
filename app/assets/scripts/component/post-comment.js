@@ -8,14 +8,28 @@ const posts = community.posts;
 const postsId = currentUrl.searchParams.get('postId');
 const comments = posts[postsId].comments;
 const postsContainer = document.getElementById("posts-container");
+const commentsContainer = document.getElementById("comments-container");
+const trendCommentButton = document.getElementById("comment-trend-filter");
 class PostComment extends HTMLElement {
     constructor() {
         super();
         const filteredSinglePost = posts.filter(post => post.postId == postsId);
-        console.log(filteredSinglePost);
-        this.#RenderSinglePost(filteredSinglePost);
+        this.renderSinglePost(filteredSinglePost[0]);
         comments.forEach(comment => {
             this.#render(comment);
+        });
+        trendCommentButton.addEventListener("click", () => {
+            // window.location.href = `selectedcommunity.html?communityId=${communityId}/latest`;
+            commentsContainer.innerHTML = "";
+            var currentDate = new Date();
+            console.log(Date.parse(posts[0].publishedDate) - currentDate);
+            var filteredDate = comments.filter(comment => Date.parse(comment.publishedDate) < currentDate - 7 && comment.agreeCount > 10);
+            filteredDate.forEach(comment => {
+                this.#render(comment);
+            });
+            
+            // filteredData = filterNew(posts);
+            // this.#Render(filteredData);
         });
         }
 
@@ -35,17 +49,17 @@ class PostComment extends HTMLElement {
             <p class="single-comment__detail">${this.commentBody}</p>
 
             <div class="single-comment__reactions">                            
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>Agree</p>
+                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>agree</p>
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
             </div>
         </div>`
     }
-    #RenderSinglePost(post) {
+    renderSinglePost(post) {
         this.postId = post.postId;
+        this.postTitle = post.postTitle;
         this.postUsername = post.user.username;
         this.postProfileImage = post.user.profileImage;
-        this.postTitle = post.postTitle;
         this.postDetail = post.postDetail;
         this.publishedDate = post.publishedDate;
         this.timeAgo = new Date();

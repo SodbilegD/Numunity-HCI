@@ -6,6 +6,8 @@ const communityId = currentUrl.searchParams.get('communityId');
 const community = jsondata.record.community[communityId-1];
 const posts = jsondata.record.community[communityId-1].posts; 
 const postsContainer = document.getElementById("posts-container");
+const trendButtonElement = document.getElementById("trendButton");
+const newButtonElement = document.getElementById("newButton");
 
 class thePostSection extends HTMLElement {
     constructor() {
@@ -15,11 +17,32 @@ class thePostSection extends HTMLElement {
         posts.forEach(post => {
             this.#Render(post);
         });
+        newButtonElement.addEventListener("click", () => {
+            // window.location.href = `selectedcommunity.html?communityId=${communityId}/latest`;
+            postsContainer.innerHTML = "";
+            var currentDate = new Date();
+            console.log(Date.parse(posts[0].publishedDate) - currentDate);
+            var filteredDate = posts.filter(post => Date.parse(post.publishedDate) < currentDate - 7);
+            filteredDate.forEach(post => {
+                this.#Render(post);
+            });
+            
+            // filteredData = filterNew(posts);
+            // this.#Render(filteredData);
+        });
+        trendButtonElement.addEventListener("click", () => {
+            // window.location.href = `selectedcommunity.html?communityId=${communityId}/trend`;
+            postsContainer.innerHTML = "";
+            // filteredData = this.filterTrend(posts);
+            var currentDate = new Date();
+            var filteredTrend = posts.filter(post => Date.parse(post.publishedDate) < currentDate - 7 && post.agreeCount > 15);
+            filteredTrend.forEach(post => {
+                this.#Render(post);
+            });
+        });
     }
-    
     addEventListenerToPostTitle(postElement, postId) {
             postElement.addEventListener("click", () => {
-                console.log(`Post title clicked! Post ID: ${postId}`);
                 window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
             });
             // console.log("asdfghjkl");
@@ -59,7 +82,7 @@ class thePostSection extends HTMLElement {
                 <p class="post__profile__time">${this.timeAgo}</p>
             </div>
             <hr>`);
-            const postTitleElement = document.createElement('h3');
+            var postTitleElement = document.createElement('h3');
             postElement.appendChild(postTitleElement);
             postTitleElement.classList.add('post__title');
             postTitleElement.textContent = this.postTitle;
@@ -79,7 +102,7 @@ class thePostSection extends HTMLElement {
             </div>
         </article>`);
         postsContainer.appendChild(postElement);
-        this.addEventListenerToPostTitle(postElement, this.postId);
+        this.addEventListenerToPostTitle(postTitleElement, this.postId);
     }
     
     #RenderSinglePost() {

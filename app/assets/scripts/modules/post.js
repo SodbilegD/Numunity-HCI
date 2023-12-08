@@ -8,7 +8,7 @@ async function init() {
         const newPost = new RecentPostItem(post);
         return newPost.Render();
     }
-
+    
     // Function to add posts to the posts container
     function renderPosts() {
         const postsContainer = document.getElementById("posts-container");
