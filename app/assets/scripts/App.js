@@ -7,9 +7,12 @@ import './modules/pagination.js';
 // import './modules/ulrParser.js';
 // import './modules/selected-main.js';
 //import './modules/post.json';
-// import './modules/pagination.js';
-// import './modules/fetchData.js';
-import './modules/post-comment.js';
+// import './modules/recentPost.js';
+// import './modules/RecentPostItem.js';
+// import './modules/post.js';
+// import './modules/community.js';
+// import './modules/render.js';
+import './modules/darkmode.js';
 if(module.hot) {
     module.hot.accept();
 }

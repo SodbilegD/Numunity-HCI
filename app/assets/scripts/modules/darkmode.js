@@ -39,3 +39,36 @@ function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark })
   
     currentThemeSetting = newTheme;
   });
+//   class DarkModeComponent extends HTMLElement {
+//     constructor() {
+//         super();
+
+//         // Create a Shadow DOM
+//         const shadow = this.attachShadow({ mode: 'open' });
+
+//         // Create a container element within the Shadow DOM
+//         const container = document.createElement('div');
+//         container.setAttribute('class', 'dark-mode-container');
+
+//         // Add content to the container
+//         container.innerHTML = `
+//             <p>This is some content inside the Shadow DOM.</p>
+//             <button type="button" aria-label="Change theme" class="darktheme">Toggle Theme</button>
+//         `;
+
+//         // Append the container to the Shadow DOM
+//         shadow.appendChild(container);
+
+//         // Add event listener to the button
+//         const button = shadow.querySelector('.darktheme');
+//         button.addEventListener('click', this.toggleDarkMode.bind(this));
+//     }
+
+//     toggleDarkMode() {
+//         // Toggle a class on the host element to apply dark mode styles
+//         this.classList.toggle('dark-mode-on');
+//     }
+// }
+
+// // Define the custom element
+// customElements.define('dark-mode-component', DarkModeComponent);
