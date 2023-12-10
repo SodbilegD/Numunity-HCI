@@ -156,7 +156,7 @@
             @mixin atMedium{
                 padding-right: 0.5rem;
             }
-            @mixin atMedium{
+            @mixin atSmall{
                 padding-right: 0.25rem;
             }
         }
