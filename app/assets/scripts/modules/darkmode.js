@@ -1,45 +1,114 @@
+class DarkModeComponent extends HTMLElement {
+  constructor() {
+      super();
 
-function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
-    if (localStorageTheme !== null) {
-      return localStorageTheme;
-    }
-  
-    if (systemSettingDark.matches) {
-      return "dark";
-    }
-  
-    return "light";
-  }
-  
-  function updateButton({ buttonEl, isDark }) {
-    const newCta = isDark ? "L" : "D";
+      const shadow = this.attachShadow({ mode: 'open' });
+
+      const container = document.createElement('div');
+      //         container.setAttribute('class', 'dark-mode-container');
+      
+      this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+      </style>
+      
+      container.innerHTML = 
+      
+      <button
+      type="button"
+      data-theme-toggle
+      aria-label="Change to light theme"
+      class="darktheme"
+      >light theme</button>
+      `;
+
+      shadow.appendChild(container);
+      function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
+        if (localStorageTheme !== null) {
+          return localStorageTheme;
+        }
+      
+        if (systemSettingDark.matches) {
+          return "dark";
+        }
+      
+        return "light";
+      }
+      
+      function updateButton({ buttonEl, isDark }) {
+        const newCta = isDark ? "L" : "D";
+        
+        buttonEl.setAttribute("aria-label", newCta);
+        buttonEl.innerText = newCta;
+      }
     
-    buttonEl.setAttribute("aria-label", newCta);
-    buttonEl.innerText = newCta;
-  }
+      function updateThemeOnHtmlEl({ theme }) {
+        document.querySelector("html").setAttribute("data-theme", theme);
+      }
+      
+      const button = document.querySelector("[data-theme-toggle]");
+      const localStorageTheme = localStorage.getItem("theme");
+      const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+      
+      let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
+      
+      updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
+      updateThemeOnHtmlEl({ theme: currentThemeSetting });
+    
+      button.addEventListener("click", (event) => {
+        const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+      
+        localStorage.setItem("theme", newTheme);
+        updateButton({ buttonEl: button, isDark: newTheme === "dark" });
+        updateThemeOnHtmlEl({ theme: newTheme });
+      
+        currentThemeSetting = newTheme;
+      });
+}
 
-  function updateThemeOnHtmlEl({ theme }) {
-    document.querySelector("html").setAttribute("data-theme", theme);
-  }
+// function calculateSettingAsThemeString({ localStorageTheme, systemSettingDark }) {
+//     if (localStorageTheme !== null) {
+//       return localStorageTheme;
+//     }
   
-  const button = document.querySelector("[data-theme-toggle]");
-  const localStorageTheme = localStorage.getItem("theme");
-  const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+//     if (systemSettingDark.matches) {
+//       return "dark";
+//     }
   
-  let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
+//     return "light";
+//   }
   
-  updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
-  updateThemeOnHtmlEl({ theme: currentThemeSetting });
+//   function updateButton({ buttonEl, isDark }) {
+//     const newCta = isDark ? "L" : "D";
+    
+//     buttonEl.setAttribute("aria-label", newCta);
+//     buttonEl.innerText = newCta;
+//   }
 
-  button.addEventListener("click", (event) => {
-    const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+//   function updateThemeOnHtmlEl({ theme }) {
+//     document.querySelector("html").setAttribute("data-theme", theme);
+//   }
   
-    localStorage.setItem("theme", newTheme);
-    updateButton({ buttonEl: button, isDark: newTheme === "dark" });
-    updateThemeOnHtmlEl({ theme: newTheme });
+//   const button = document.querySelector("[data-theme-toggle]");
+//   const localStorageTheme = localStorage.getItem("theme");
+//   const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
   
-    currentThemeSetting = newTheme;
-  });
+//   let currentThemeSetting = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
+  
+//   updateButton({ buttonEl: button, isDark: currentThemeSetting === "dark" });
+//   updateThemeOnHtmlEl({ theme: currentThemeSetting });
+
+//   button.addEventListener("click", (event) => {
+//     const newTheme = currentThemeSetting === "dark" ? "light" : "dark";
+  
+//     localStorage.setItem("theme", newTheme);
+//     updateButton({ buttonEl: button, isDark: newTheme === "dark" });
+//     updateThemeOnHtmlEl({ theme: newTheme });
+  
+//     currentThemeSetting = newTheme;
+//   });
 //   class DarkModeComponent extends HTMLElement {
 //     constructor() {
 //         super();
