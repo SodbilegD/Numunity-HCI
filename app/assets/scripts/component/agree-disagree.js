@@ -3,7 +3,7 @@ class AgreeDisagree extends HTMLElement {
         super();
 
         // Initial counts and state
-        this.agreeCount = this.getAttribute("agreeCount");
+        this.agreeCount = this.getAttribute("agreeCount") ;
         this.disagreeCount = this.getAttribute("disagreeCount");
         this.isAgreeClicked = this.getAttribute("isAgreeClicked");
         this.isDisagreeClicked = this.getAttribute("isDisagreeClicked");
@@ -36,18 +36,46 @@ class AgreeDisagree extends HTMLElement {
             font-size: 1rem;
             padding-right: 2.5rem;
         }
+        @media (max-width: 693px) {
+            .reactions{
+                font-size: 0.3rem;
+            }
+            .post__reactions_list{
+                padding-right: 0.5rem;
+            }
+            i{
+                padding-right: 0.25rem;
+            }
+            .reaction-button {
+                font-size: 0.6rem;
+            }
+        }
+        @media (max-width: 860px) {
+            .reactions{
+                font-size: 0.75rem;
+            }
+            .post__reactions_list{
+                padding-right: 1rem;
+            }
+            i{
+                padding-right: 0.5rem;
+            }
+            .reaction-button {
+                font-size: 0.75rem;
+            }
+        }
         </style>
         <div class="reactions">
-        <p class="post__reactions__list" id="agree">
-            <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
-            <span class="reaction-count" id="agreeCount">${this.agreeCount}</span>
-            <button class="reaction-button" id="agreeButton">Agree</button>
-        </p>
-        <p class="post__reactions__list" id="disagree">
-            <i class="fa-regular fa-face-frown post__reactions__icon"></i>
-            <span class="reaction-count" id="disagreeCount">${this.disagreeCount}</span>
-            <button class="reaction-button" id="disagreeButton">Disagree</button>
-        </p>
+            <p class="post__reactions__list" id="agree">
+                <i class="fa-regular fa-face-smile-beam post__reactions__icon"></i>
+                <span class="reaction-count" id="agreeCount">${this.agreeCount}</span>
+                <button class="reaction-button" id="agreeButton">Agree</button>
+            </p>
+            <p class="post__reactions__list" id="disagree">
+                <i class="fa-regular fa-face-frown post__reactions__icon"></i>
+                <span class="reaction-count" id="disagreeCount">${this.disagreeCount}</span>
+                <button class="reaction-button" id="disagreeButton">Disagree</button>
+            </p>
         </div>
         `;
 
@@ -57,53 +85,48 @@ class AgreeDisagree extends HTMLElement {
     }
 
     toggleAgree() {
-        this.agreeCount = this.toggleColor('agree', 'disagree', 'agreeButton', 'disagreeButton', this.isAgreeClicked, this.agreeCount);
-        this.isAgreeClicked = !this.isAgreeClicked;
+        if(this.isAgreeClicked){
+            this.agreeCount++;
+            this.shadowRoot.getElementById('agreeCount').textContent = this.agreeCount;
+            this.shadowRoot.getElementById('agreeButton').style.color = '#5555d8';
+            this.shadowRoot.getElementById('agree').style.color = '#5555d8';
 
-        if (this.isAgreeClicked && this.isDisagreeClicked) {
-            this.isDisagreeClicked = !this.isDisagreeClicked;
-            this.disagreeCount--;
-        }
-
-        this.updateCounts();
-    }
-
-    toggleDisagree() {
-        this.disagreeCount = this.toggleColor('disagree', 'agree', 'disagreeButton', 'agreeButton', this.isDisagreeClicked, this.disagreeCount);
-        this.isDisagreeClicked = !this.isDisagreeClicked;
-
-        if (this.isDisagreeClicked && this.isAgreeClicked) {
-            this.isAgreeClicked = !this.isAgreeClicked;
-            this.agreeCount--;
-        }
-
-        this.updateCounts();
-    }
-
-    toggleColor(clickedId, otherId, clickedButtonId, otherButtonId, isClicked, count) {
-        const clickedElement = this.shadowRoot.getElementById(clickedId);
-        const otherElement = this.shadowRoot.getElementById(otherId);
-        const clickedButtonElement = this.shadowRoot.getElementById(clickedButtonId);
-        const otherButtonElement = this.shadowRoot.getElementById(otherButtonId);
-
-        if (!isClicked) {
-            count++;
-            clickedElement.style.color = '#5555d8';
-            otherElement.style.color = '#000000';
-            clickedButtonElement.style.color = '#5555d8';
-            otherButtonElement.style.color = '#000000';
+            if(!this.isDisagreeClicked){
+                this.shadowRoot.getElementById('disagreeButton').style.color = '#000000';
+                this.shadowRoot.getElementById('disagree').style.color = '#000000';
+                this.disagreeCount--;
+                this.shadowRoot.getElementById('disagreeCount').textContent = this.disagreeCount;
+                this.isDisagreeClicked = !this.isDisagreeClicked;
+            }
         } else {
-            count--;
-            clickedElement.style.color = '#000000';
-            clickedButtonElement.style.color = '#000000';
+            this.agreeCount--;
+            this.shadowRoot.getElementById('agreeCount').textContent = this.agreeCount;
+            this.shadowRoot.getElementById('agreeButton').style.color = '#000000';
+            this.shadowRoot.getElementById('agree').style.color = '#000000';
         }
-
-        return count; // Return the updated count
+        this.isAgreeClicked = !this.isAgreeClicked;        
     }
+    toggleDisagree() {
+        if(this.isDisagreeClicked){
+            this.disagreeCount++;
+            this.shadowRoot.getElementById('disagreeCount').textContent = this.disagreeCount;
+            this.shadowRoot.getElementById('disagreeButton').style.color = '#5555d8';
+            this.shadowRoot.getElementById('disagree').style.color = '#5555d8';
 
-    updateCounts() {
-        this.shadowRoot.getElementById('agreeCount').textContent = this.agreeCount;
-        this.shadowRoot.getElementById('disagreeCount').textContent = this.disagreeCount;
+            if(!this.isAgreeClicked){
+                this.shadowRoot.getElementById('agreeButton').style.color = '#000000';
+                this.shadowRoot.getElementById('agree').style.color = '#000000';
+                this.agreeCount--;
+                this.shadowRoot.getElementById('agreeCount').textContent = this.agreeCount;
+                this.isAgreeClicked = !this.isAgreeClicked;
+            }
+        } else {
+            this.disagreeCount--;
+            this.shadowRoot.getElementById('disagreeCount').textContent = this.disagreeCount;
+            this.shadowRoot.getElementById('disagreeButton').style.color = '#000000';
+            this.shadowRoot.getElementById('disagree').style.color = '#000000';
+        }
+        this.isDisagreeClicked = !this.isDisagreeClicked;        
     }
 }
 

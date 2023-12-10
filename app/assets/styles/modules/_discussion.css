@@ -181,7 +181,6 @@
         direction: row;
         align-items: center;
         justify-content: flex-start;
-        color: var(--color-main);
         
         &__list{
             padding-right: 2rem;
