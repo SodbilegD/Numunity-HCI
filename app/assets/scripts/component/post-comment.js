@@ -75,6 +75,8 @@ class PostComment extends HTMLElement {
         this.commentUsername = comment.user.username;
         this.commentProfileImage = comment.user.profileImage;
         this.commentPublishedDate = comment.publishedDate;
+        this.agreeCount = comment.agreeCount ?? 0;
+        this.disagreeCount = comment.disagreeCount ?? 0;
         
         var commentElement = document.createElement('div');
         commentElement.classList.add('single-comment');
@@ -87,9 +89,8 @@ class PostComment extends HTMLElement {
             </div>
             <p class="single-comment__detail">${this.commentBody}</p>
 
-            <div class="single-comment__reactions">                            
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>agree</p>
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
+            <div class="single-comment__reactions">
+                <agree-disagree agreeCount=${this.agreeCount} disagreeCount=${this.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>                                                           
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
             </div>`);
         commentsContainer.appendChild(commentElement);        
@@ -108,13 +109,14 @@ class PostComment extends HTMLElement {
         this.disagreeCount = post.disagreeCount;
         this.commentCount = post.comments.length;
         this.shareCount = post.shareCount;
+        this.communityId = community.communityId;
         this.communityName = community.communityName;
         postsContainer.innerHTML = `
         <article class="post" id="recentPost_${this.postId}">
             <div class="post__profile" id="posts-container">
                 <img src="${this.postProfileImage}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${this.postUsername}</p>
-                <a href="#" class="post__profile__community">>>${this.communityName}</a>
+                <a href="selectedcommunity.html?communityId=${communityId}" class="post__profile__community">>>${this.communityName}</a>
             </div>
             <hr>
             <h1 class="post__title">${this.postTitle}</h1>
