@@ -75,6 +75,8 @@ class PostComment extends HTMLElement {
         this.commentUsername = comment.user.username;
         this.commentProfileImage = comment.user.profileImage;
         this.commentPublishedDate = comment.publishedDate;
+        this.commentAgreeCount = comment.agreeCount;
+        this.commentDisagreeCount = comment.disagreeCount;
         
         var commentElement = document.createElement('div');
         commentElement.classList.add('single-comment');
@@ -88,8 +90,8 @@ class PostComment extends HTMLElement {
             <p class="single-comment__detail">${this.commentBody}</p>
 
             <div class="single-comment__reactions">                            
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>agree</p>
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i></p>                                
+                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-up"></i>${this.commentAgreeCount}</p>
+                <p class="single-comment__reactions__list"><i class="fa-solid fa-arrow-down"></i>${this.disagreeCount}</p>                                
                 <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
             </div>`);
         commentsContainer.appendChild(commentElement);        

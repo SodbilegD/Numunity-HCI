@@ -17,64 +17,7 @@
 
 </head>
 <body id="discussion">
-    <header class="main-header">
-        <div class="toggle">
-            <span class="toggle__line topline"></span>
-            <span class="toggle__line midline"></span>
-            <span class="toggle__line bottomline"></span>
-        </div>
-        <div class="main-header__container1">
-            <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
-            <h2 class="main-header__container1__title">DKS</h2>
-        </div>
-        
-        <form class="main-header__search-bar">
-            <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
-            <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
-        </form>
-        <div class="main-header__container2 main-header__container2--icons">
-
-            <div class="popup-container">
-                <a href="#" id="notif-icon" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
-                <div class="popup">
-                    <h2 class="popup__title">Мэдэгдэл</h2>
-                    <ul class="popup__list">
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                    </ul>
-                        <a href="#" class="popup__viewmore">Цааш үзэх</a>
-                </div>
-            </div>
-
-            <div class="popup-container">
-                <a href="#" id="myprofile-icon" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a>
-                <div class="popup">
-                    <h2 class="popup__title">Миний профайл</h2>
-                    <img src="/assets/images/profile.png" alt="myprofile">
-                    <ul class="popup__list popup__list--profile">
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-regular fa-folder-open"></i></span>
-                            <a href="#">Хадгалсан</a>
-                        </li>
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-solid fa-gear"></i></span>
-                            <a href="#">Тохиргоо</a>
-                        </li>
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-solid fa-circle-question"></i></span>
-                            <a href="#">Тусламж</a>
-                        </li>
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-                            <a href="#">Гарах</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
+    <the-header-section></the-header-section>
     <div class="main-container">
         <nav class="slide">
             <h1 class="slide__title">Цэс</h1>
@@ -125,33 +68,10 @@
             <a href="ad.com"><img src="assets/images/ad3.png" alt="advertisement-3"></a>
         </aside>
     </div>
-    
-    <footer class="footer">
-        <div class="footer__nav">
-            <h3>Цэс:</h3>
-            <ul>
-                <li><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
-                <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
-                <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                <li><a href="selectedcommunity.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
-            </ul>
-        </div>
-        <div class="footer__copyright">
-            <h3><img src="assets/images/logo.png" alt="Team DKS logo">DKS</h3>
-            <p>DKS &copy; 2023 - All Rights Reserved</p>
-        </div>
-        <div class="footer__contacts">
-            <h3>Холбоо барих:</h3>
-            <p><i class="fa-solid fa-phone"></i>+976 8066 5030</p>
-            <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
-            <i class="fa-sharp fa-solid fa-share-nodes fa-bounce fa-2xl"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-    </footer>
+    <the-footer-section></the-footer-section>
+    <script type="module" src="./assets/scripts/component/the-header-section.js"></script>
     <script type="module" src="./assets/scripts/component/post-comment.js"></script>
+    <script type="module" src="./assets/scripts/component/the-footer-section.js"></script>
     <script type="text/javascript" src="./bundled.js"></script>
 </body>
 </html>

@@ -55,8 +55,7 @@ class thePostSection extends HTMLElement {
         this.postDetail = post.postDetail;
         this.publishedDate = post.publishedDate;
         this.timeAgo = new Date();
-        this.timeAgo = Date.parse(this.timeAgo) - Date.parse(this.publishedDate);
-        this.timeAgo = new Date(this.timeAgo);
+        this.timeAgo = this.timeAgo - Date.parse(this.publishedDate);
         this.agreeCount = post.agreeCount;
         this.disagreeCount = post.disagreeCount;
         this.commentCount = post.comments.length;
