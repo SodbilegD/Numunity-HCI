@@ -98,34 +98,6 @@ class thePostSection extends HTMLElement {
         this.addEventListenerToPostTitle(postTitleElement, this.postId);
     }
     
-    #RenderSinglePost() {
-        postsContainer.innerHTML = `
-        <article class="post" id="recentPost_${this.postId}">
-            <div class="post__profile" id="posts-container">
-                <img src="${this.profileImage}" alt="profile" class="post__profile__img">
-                <p class="post__profile__name">${this.username}</p>
-                <a href="#" class="post__profile__community">>>${this.communitName}</a>
-            </div>
-            <hr>
-            <h1 class="post__title">${this.postTitle}</h1>
-            <p class="post__detail">${this.postDetail}</p>
-            <div class="post__reactions post__reactions--hidden">
-                <agree-disagree></agree-disagree>
-                <p class="post__reactions__list">
-                    <i class="fa-regular fa-comment post__reactions__icon"></i>
-                    <span class="reaction-count">${this.commentCount}</span> Comment
-                </p>
-                <p class="post__reactions__list">
-                    <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-                    <span class="reaction-count">${this.shareCount}</span> Share
-                </p>
-            </div>
-            <p class="post__profile__time post__profile__time--down">1h ago</p>
-        </article>`;
-    }
-
-
-    
     connectedCallback() {
         // this.myRoot.querySelectorAll("button")[0].addEventListener("click", (e) => {
         //     e.stopPropagation();
