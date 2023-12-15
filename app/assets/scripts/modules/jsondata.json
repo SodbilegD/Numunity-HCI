@@ -1,54 +1,936 @@
 {
     "community": [
-        {
-            "communityId": "1",
-            "communityName": "Веб програмчлал",
-            "communityAbout": "Веб програм хөгжүүлэлттэй холбоотой өөрт тулгарсан асуудлаа хуваалцацгаая.",
-            "createdDate": "2023.11.22 07:00:01",
-            "followers": [
-                {
-                    "userId": "1",
-                    "userName": "hihuurhnuu",
-                    "profImg": "/assets/images/profile.png",
-                    "email": "dks@gmail.com",
-                    "password": "Hi$1234"
+      {
+        "communityId": "1",
+        "communityName": "Веб програмчлал",
+        "communityAbout": "Веб програм хөгжүүлэлттэй холбоотой өөрт тулгарсан асуудлаа хуваалцацгаая.",
+        "createdDate": "2023.11.22 07:00:01",
+        "followers": [
+          {
+            "userId": "1",
+            "userName": "hihuurhnuu",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "2",
+            "userName": "helloehello",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "3",
+            "userName": "qwerty",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "12345678"
+          }
+        ],
+        "posts": [
+          {
+            "postId": "1",
+            "user": {
+              "id": 1,
+              "username": "hihuurhnuu",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 03 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 120,
+            "disagreeCount": 13,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
                 },
-                {
-                    "userId": "2",
-                    "userName": "helloehello",
-                    "profImg": "/assets/images/profile.png",
-                    "email": "dks@gmail.com",
-                    "password": "Hi$1234"
-                }
-            ],
-            "posts": [
-                {
-                    "postId": "1",
-                    "user": {
-                        "id": 1,
-                        "username": "hihuurhnuu",
-                        "profileImage": "/assets/images/profile.png"
-                    },
-                    "postTitle": "How do I stop obsessing over grades?",
-                    "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
-                    "publishedDate": "2023.11.16 07:00:01",
-                    "agreeCount": 0,
-                    "disagreeCount": 0,
-                    "shareCount": 0,
-                    "comments": [
-                        {
-                            "id": 1,
-                            "body": "hi ene bol comment bro",
-                            "user": {
-                                "id": 1,
-                                "username": "hihuurhnuu",
-                                "profileImage": "/assets/images/profile.png"
-                            },
-                            "publishedDate": "2023-11-22T00:57:38.081Z"
-                        }
-                    ]
-                }
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hello",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "2",
+                "body": "hhhhhh",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "3",
+                "body": "asdgasdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "4",
+                "body": "wqerqwer",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:26:04.849Z"
+              },
+              {
+                "id": "5",
+                "body": "asdlhk;kahdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T01:27:33.703Z"
+              }
             ]
-        }
+          },
+          {
+            "postId": "2",
+            "user": {
+              "id": 1,
+              "username": "Dukk",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 10 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 53,
+            "disagreeCount": 10,
+            "shareCount": 2,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "heellloo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:36:51.728Z"
+              },
+              {
+                "id": "2",
+                "body": "asdflkhas;dfasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:01:07.731Z"
+              },
+              {
+                "id": "3",
+                "body": "hi comment bichij uzej bn kk",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T00:56:04.346Z"
+              }
+            ]
+          },
+          {
+            "postId": "3",
+            "user": {
+              "id": 1,
+              "username": "Sodoo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 3,
+            "disagreeCount": 11,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              }
+            ]
+          },
+          {
+            "postId": "4",
+            "user": {
+              "id": 1,
+              "username": "Heloo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 01 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 2,
+            "disagreeCount": 0,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hellooo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:51:43.394Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "communityId": "2",
+        "communityName": "Веб програмчлал",
+        "communityAbout": "Веб програм хөгжүүлэлттэй холбоотой өөрт тулгарсан асуудлаа хуваалцацгаая.",
+        "createdDate": "2023.11.22 07:00:01",
+        "followers": [
+          {
+            "userId": "1",
+            "userName": "hihuurhnuu",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "2",
+            "userName": "helloehello",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "3",
+            "userName": "qwerty",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "12345678"
+          }
+        ],
+        "posts": [
+          {
+            "postId": "1",
+            "user": {
+              "id": 1,
+              "username": "hihuurhnuu",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 03 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 120,
+            "disagreeCount": 13,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hello",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "2",
+                "body": "hhhhhh",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "3",
+                "body": "asdgasdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "4",
+                "body": "wqerqwer",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:26:04.849Z"
+              },
+              {
+                "id": "5",
+                "body": "asdlhk;kahdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T01:27:33.703Z"
+              }
+            ]
+          },
+          {
+            "postId": "2",
+            "user": {
+              "id": 1,
+              "username": "Dukk",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 10 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 53,
+            "disagreeCount": 10,
+            "shareCount": 2,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "heellloo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:36:51.728Z"
+              },
+              {
+                "id": "2",
+                "body": "asdflkhas;dfasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:01:07.731Z"
+              },
+              {
+                "id": "3",
+                "body": "hi comment bichij uzej bn kk",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T00:56:04.346Z"
+              }
+            ]
+          },
+          {
+            "postId": "3",
+            "user": {
+              "id": 1,
+              "username": "Sodoo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 3,
+            "disagreeCount": 11,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              }
+            ]
+          },
+          {
+            "postId": "4",
+            "user": {
+              "id": 1,
+              "username": "Heloo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 01 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 2,
+            "disagreeCount": 0,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hellooo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:51:43.394Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "communityId": "3",
+        "communityName": "Веб програмчлал",
+        "communityAbout": "Веб програм хөгжүүлэлттэй холбоотой өөрт тулгарсан асуудлаа хуваалцацгаая.",
+        "createdDate": "2023.11.22 07:00:01",
+        "followers": [
+          {
+            "userId": "1",
+            "userName": "hihuurhnuu",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "2",
+            "userName": "helloehello",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "3",
+            "userName": "qwerty",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "12345678"
+          }
+        ],
+        "posts": [
+          {
+            "postId": "1",
+            "user": {
+              "id": 1,
+              "username": "hihuurhnuu",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 03 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 120,
+            "disagreeCount": 13,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hello",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "2",
+                "body": "hhhhhh",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "3",
+                "body": "asdgasdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "4",
+                "body": "wqerqwer",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:26:04.849Z"
+              },
+              {
+                "id": "5",
+                "body": "asdlhk;kahdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T01:27:33.703Z"
+              }
+            ]
+          },
+          {
+            "postId": "2",
+            "user": {
+              "id": 1,
+              "username": "Dukk",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 10 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 53,
+            "disagreeCount": 10,
+            "shareCount": 2,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "heellloo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:36:51.728Z"
+              },
+              {
+                "id": "2",
+                "body": "asdflkhas;dfasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:01:07.731Z"
+              },
+              {
+                "id": "3",
+                "body": "hi comment bichij uzej bn kk",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T00:56:04.346Z"
+              }
+            ]
+          },
+          {
+            "postId": "3",
+            "user": {
+              "id": 1,
+              "username": "Sodoo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 3,
+            "disagreeCount": 11,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              }
+            ]
+          },
+          {
+            "postId": "4",
+            "user": {
+              "id": 1,
+              "username": "Heloo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 01 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 2,
+            "disagreeCount": 0,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hellooo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:51:43.394Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "communityId": "4",
+        "communityName": "Веб програмчлал",
+        "communityAbout": "Веб програм хөгжүүлэлттэй холбоотой өөрт тулгарсан асуудлаа хуваалцацгаая.",
+        "createdDate": "2023.11.22 07:00:01",
+        "followers": [
+          {
+            "userId": "1",
+            "userName": "hihuurhnuu",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "2",
+            "userName": "helloehello",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "Hi$1234"
+          },
+          {
+            "userId": "3",
+            "userName": "qwerty",
+            "profImg": "/assets/images/profile.png",
+            "email": "dks@gmail.com",
+            "password": "12345678"
+          }
+        ],
+        "posts": [
+          {
+            "postId": "1",
+            "user": {
+              "id": 1,
+              "username": "hihuurhnuu",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 03 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 120,
+            "disagreeCount": 13,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hello",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "2",
+                "body": "hhhhhh",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "3",
+                "body": "asdgasdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)"
+              },
+              {
+                "id": "4",
+                "body": "wqerqwer",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:26:04.849Z"
+              },
+              {
+                "id": "5",
+                "body": "asdlhk;kahdgasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T01:27:33.703Z"
+              }
+            ]
+          },
+          {
+            "postId": "2",
+            "user": {
+              "id": 1,
+              "username": "Dukk",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 10 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 53,
+            "disagreeCount": 10,
+            "shareCount": 2,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "heellloo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:36:51.728Z"
+              },
+              {
+                "id": "2",
+                "body": "asdflkhas;dfasdf",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-11T07:01:07.731Z"
+              },
+              {
+                "id": "3",
+                "body": "hi comment bichij uzej bn kk",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-13T00:56:04.346Z"
+              }
+            ]
+          },
+          {
+            "postId": "3",
+            "user": {
+              "id": 1,
+              "username": "Sodoo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 11 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 3,
+            "disagreeCount": 11,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              }
+            ]
+          },
+          {
+            "postId": "4",
+            "user": {
+              "id": 1,
+              "username": "Heloo",
+              "profileImage": "/assets/images/profile.png"
+            },
+            "postTitle": "How do I stop obsessing over grades?",
+            "postDetail": "I just got a B+ on an essay and I’m absolutely losing my mind. I’ve never gotten anything lower than an A- and I feel actually sick over this. What can I do?",
+            "publishedDate": "Mon Dec 01 2023 14:53:40 GMT+0800 (Ulaanbaatar Standard Time)",
+            "agreeCount": 2,
+            "disagreeCount": 0,
+            "shareCount": 0,
+            "comments": [
+              {
+                "id": 1,
+                "body": "hi ene bol comment bro",
+                "agreeCount": 12,
+                "disagreeCount": 1,
+                "user": {
+                  "id": 1,
+                  "username": "hihuurhnuu",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-11-22T00:57:38.081Z"
+              },
+              {
+                "id": "1",
+                "body": "hellooo",
+                "user": {
+                  "id": 999,
+                  "username": "comment writer",
+                  "profileImage": "/assets/images/profile.png"
+                },
+                "publishedDate": "2023-12-08T05:51:43.394Z"
+              }
+            ]
+          }
+        ]
+      }
     ]
 }
