@@ -31,53 +31,13 @@
             <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
         </form>
         <div class="main-header__container2 main-header__container2--buttons">
-           <!-- <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
-            <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a> -->
             
-            <!-- <button
-               type="button"
-               data-theme-toggle
-               aria-label="Change to light theme"
-               class="darktheme"
-               >light theme</button> -->
-
-               <template id="theme-button-template">
-                <button data-theme-button type="button" class="darktheme"></button>
-              </template>
-              
+            <div class="darkmode">
+                <button type="button" data-theme-toggle aria-label="Change to light theme" class="darktheme"></button> 
+            </div>
             
-            <button type="button" class="main-header__login-button btn btn--op btn--login">Нэвтрэх</button>
-            
-
-
-
-
-<!--log-in form
-<a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
-
-<div id="login" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    
-    <div class="modal-content">
-      <div class="modal-body">
-        <button data-dismiss="modal" class="close">&times;</button>
-        <h4>Login</h4>
-        <form>
-          <input type="text" name="username" class="username form-control" placeholder="Username"/>
-          <input type="password" name="password" class="password form-control" placeholder="password"/>
-          <input class="btn login" type="submit" value="Login" />
-        </form>
-      </div>
-    </div>
-  </div>  
-</div>
--->
-
-
-
-
-
-            <button type="button" class="main-header__signup-button  btn btn--signup">Бүртгүүлэх</button>
+            <button type="button" class="main-header__login-button btn btn--op btn--login">Login</button>
+            <button type="button" class="main-header__signup-button  btn btn--signup">Signup</button>
             <i class="fa-regular fa-user main-header__container2__user"></i>
         </div>
     </header>
@@ -216,5 +176,6 @@
         </div>
     </footer>
     <script src="bundled.js"></script>
+    <script src=”https://app.gazerecorder.com/GazeRecorderAPI.js”></script>
 </body>
 </html>
