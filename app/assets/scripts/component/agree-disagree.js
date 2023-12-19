@@ -64,6 +64,7 @@ class AgreeDisagree extends HTMLElement {
                 font-size: 0.75rem;
             }
         }
+        
         </style>
         <div class="reactions">
             <p class="post__reactions__list" id="agree">

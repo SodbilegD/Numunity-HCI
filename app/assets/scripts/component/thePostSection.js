@@ -20,9 +20,12 @@ class thePostSection extends HTMLElement {
         newButtonElement.addEventListener("click", () => {
             // window.location.href = `selectedcommunity.html?communityId=${communityId}/latest`;
             postsContainer.innerHTML = "";
-            var currentDate = new Date();
+            var date = new Date();
+            var currentDate = date.getTime() - (7 * 24 * 60 * 60 * 1000);
+            date.setTime(currentDate);
+            console.log(date);
             console.log(Date.parse(posts[0].publishedDate) - currentDate);
-            var filteredDate = posts.filter(post => Date.parse(post.publishedDate) < currentDate - 7);
+            var filteredDate = posts.filter(post => Date.parse(post.publishedDate) > date);
             filteredDate.forEach(post => {
                 this.#Render(post);
             });
@@ -34,8 +37,12 @@ class thePostSection extends HTMLElement {
             // window.location.href = `selectedcommunity.html?communityId=${communityId}/trend`;
             postsContainer.innerHTML = "";
             // filteredData = this.filterTrend(posts);
-            var currentDate = new Date();
-            var filteredTrend = posts.filter(post => Date.parse(post.publishedDate) < currentDate - 7 && post.agreeCount > 15);
+            // var day = date.getDate() - 12;
+            // date.setDate(day);
+            var date = new Date();
+            var currentDate = date.getTime() - (7 * 24 * 60 * 60 * 1000);
+            date.setTime(currentDate);
+            var filteredTrend = posts.filter(post => Date.parse(post.publishedDate) > date && post.agreeCount > 15);
             filteredTrend.forEach(post => {
                 this.#Render(post);
             });
@@ -71,7 +78,7 @@ class thePostSection extends HTMLElement {
             <div class="post__profile">
                 <img src="${this.profileImage}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${this.username}</p>
-                <p class="post__profile__time">${this.timeAgo}</p>
+                <p class="post__profile__time">${this.publishedDate}</p>
             </div>
             <hr>`);
             var postTitleElement = document.createElement('h3');
@@ -103,7 +110,7 @@ class thePostSection extends HTMLElement {
             <div class="post__profile" id="posts-container">
                 <img src="${this.profileImage}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${this.username}</p>
-                <a href="#" class="post__profile__community">>>${this.communitName}</a>
+                <a href="#" class="post__profile__community">>>${this.communityName}</a>
             </div>
             <hr>
             <h1 class="post__title">${this.postTitle}</h1>

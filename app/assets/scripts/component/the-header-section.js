@@ -12,6 +12,19 @@ class TheHeaderSection extends HTMLElement {
                 <span class="toggle__line midline"></span>
                 <span class="toggle__line bottomline"></span>
             </div>
+            <nav class="slide">
+                <h1 class="slide__title">Цэс</h1>
+                <ul class="slide__list">
+                    <li class="slide__list__item"><a href="#"><i class="fas fa-tv"></i>dashboard</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="far fa-user"></i>profile</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="fab fa-gripfire"></i>trending</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="far fa-comment"></i>messages</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="far fa-folder"></i>file manager</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="far fa-address-book"></i>portfolio</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="far fa-heart"></i>saved</a></li>
+                    <li class="slide__list__item"><a href="#"><i class="fas fa-cogs"></i>settings</a></li>
+                </ul>
+            </nav>
             <div class="main-header__container1">
                 <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
                 <h2 class="main-header__container1__title">DKS</h2>

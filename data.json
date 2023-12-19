@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Product1",
+        "comments":[
+            {"id": 10, "comment": "Best product"},
+            {"id": 11, "comment": "Good product"},
+            {"id": 12, "comment": "Bad product"}
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Product2",
+        "comments":[
+            {"id": 21, "comment": "Best product"},
+            {"id": 22, "comment": "Good product"},
+            {"id": 23, "comment": "Bad product"}
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Product3",
+        "comments":[
+            {"id": 31, "comment": "Best product"},
+            {"id": 32, "comment": "Good product"},
+            {"id": 33, "comment": "Bad product"}
+        ]
+    }
+]
