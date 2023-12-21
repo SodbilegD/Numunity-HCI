@@ -5,7 +5,7 @@ const { chunk } = require("lodash");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const fse = require("fs-extra");
-
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 
 const postcssPlugins = [
@@ -101,5 +101,18 @@ if (currentTask === "build") {
         new RunAfterCompile()
     );
 }
+
+module.exports = {
+    plugins: [
+        // To strip all locales except “en”
+        new MomentLocalesPlugin(),
+
+        // Or: To strip all locales except “en”, “es-us” and “ru”
+        // (“en” is built into Moment and can’t be removed)
+        new MomentLocalesPlugin({
+            localesToKeep: ['es-us', 'ru'],
+        }),
+    ],
+};
 
 module.exports = config;

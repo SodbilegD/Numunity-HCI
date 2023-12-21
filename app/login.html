@@ -14,13 +14,13 @@
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <!-- <link rel="stylesheet" href="./assets/styles/styles.css"> -->
     <script>
         async function login() {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            fetch("http://localhost:3000/login",
+            fetch("http://localhost:3000/login.html",
                 {
                     method: 'POST',
                     cache: "no-cache",
@@ -37,6 +37,7 @@
                 .then(result => {
                     if (result.status != 200)
                         {   document.getElementById("btn_login").insertAdjacentHTML("afterend", "<div style='display:inline-block;color:red;'> 🚷 </div>");
+                            alert("not 200 but its okay!!!!!!!!!!!");
                             return;}
 
                     result.json().then(loginResponse => document.getElementById("username").innerHTML = loginResponse.username+'<button onclick="logout();">LOGOUT</button>');
@@ -66,7 +67,7 @@
                     <a rel="noopener noreferrer" href="#">Нууц үг мартсан?</a>
                 </div>
             </div>
-            <button class="btn form__sign" id="btn_login" onclick="login()">Нэвтрэх</button>
+            <input class="btn form__sign" id="btn_login" onclick="login()" value="Нэвтрэх" type="button">
         </form>
         <div class="social-message">
             <div class="social-message__line"></div>

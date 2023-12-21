@@ -2,6 +2,9 @@ import path from 'path';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import { login } from './login.mjs';
+import '../../styles/styles.css';
+import 'lazysizes';
+import './modules/dataFetcher.js';
 
 const app = express();
 const port = 3000;

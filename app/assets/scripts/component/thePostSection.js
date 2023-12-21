@@ -1,5 +1,7 @@
 import { fetchData } from "../modules/dataFetcher.js";
-
+import moment from 'moment';
+// var moment = require('moment');
+// moment().format();
 const jsondata = await fetchData();
 const currentUrl = new URL(window.location.href);
 const communityId = currentUrl.searchParams.get('communityId');
@@ -61,8 +63,7 @@ class thePostSection extends HTMLElement {
         this.postTitle = post.postTitle;
         this.postDetail = post.postDetail;
         this.publishedDate = post.publishedDate;
-        this.timeAgo = new Date();
-        this.timeAgo = this.timeAgo - Date.parse(this.publishedDate);
+        this.timeAgo = moment(date.parse(this.publishedDate)).fromNow();
         this.agreeCount = post.agreeCount;
         this.disagreeCount = post.disagreeCount;
         this.commentCount = post.comments.length;
@@ -78,7 +79,7 @@ class thePostSection extends HTMLElement {
             <div class="post__profile">
                 <img src="${this.profileImage}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${this.username}</p>
-                <p class="post__profile__time">${this.publishedDate}</p>
+                <p class="post__profile__time">${this.timeAgo}</p>
             </div>
             <hr>`);
             var postTitleElement = document.createElement('h3');

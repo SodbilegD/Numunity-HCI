@@ -6,6 +6,10 @@ import MyClass from './mymodule.mjs';
 
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
+import './app/assets/styles/styles.css';
+import 'lazysizes';
+import './app/assets/scripts/modules/dataFetcher.js';
+// import './modules/sidebar.js';
 
 const app = express()
 const port = 3000
@@ -27,7 +31,7 @@ const options = {
             description:
                 "API for DKS community", 
             license: {
-                name: "NUM",
+                name: "DKS",
                 url: "https://dks.community.mn/"
             },
             contact: {

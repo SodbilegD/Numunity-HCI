@@ -1,4 +1,3 @@
-
 export default class MyClass{ 
     constructor(req, res){ 
         this.res = res;
