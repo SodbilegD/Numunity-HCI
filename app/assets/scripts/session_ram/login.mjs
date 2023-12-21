@@ -1,19 +1,20 @@
-import dbPromise from '../session_db/db/db.mjs';
-
-const UserCollection = 'User';
-const SessionCollection = 'Sessions';
+import { connectToMongoDB } from '../session_db/db/db.mjs';
+import cookieParser from 'cookie-parser';
 
 class Login {
+    constructor() {
+        // Initialize cookie-parser middleware
+        this.cookieParserMiddleware = cookieParser();
+    }
+
     async verifyLogin(req, res) {
         try {
-            // Wait for the database connection to be established
-            const db = await dbPromise;
-
             const email = req.body.email;
             const password = req.body.password;
 
-            // Query the MongoDB database to find a user with the provided email and password
-            const user = await db.collection(UserCollection).findOne({ email: email, password: password });
+            const db = await connectToMongoDB();
+            const UserCollection = db.collection('User');
+            const user = await UserCollection.findOne({ email: email, password: password });
 
             if (!user) {
                 // User not found or incorrect password
@@ -25,7 +26,7 @@ class Login {
             const sid = Math.floor(Math.random() * 100_000_000_000_000);
 
             // Store session information in the sessions collection
-            await db.collection(SessionCollection).insertOne({
+            await db.collection('Sessions').insertOne({
                 sid: sid,
                 user: email,
                 logged: new Date()
@@ -45,6 +46,16 @@ class Login {
             console.error('Error verifying login:', error);
             res.status(500).end();
         }
+    }
+
+    // Middleware function to parse cookies
+    parseCookies(req, res, next) {
+        this.cookieParserMiddleware(req, res, next);
+    }
+
+    // Function to get session ID from cookie
+    getSessionIdFromCookie(req) {
+        return req.cookie['session_id'];
     }
 }
 
