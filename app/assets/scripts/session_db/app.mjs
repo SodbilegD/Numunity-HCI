@@ -18,7 +18,7 @@ app.use(express.json());
 // login.users.set('admin@my.com', { fullname: "Administrator", password: "123" });
 // login.users.set('user2@my.com', { fullname: "USER TWO", password: "123" });
 
-app.get('/', (req, res) => {
+app.post('/', (req, res) => {
     res.sendFile("./login.html", options);
 })
 

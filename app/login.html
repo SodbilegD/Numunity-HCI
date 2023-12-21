@@ -14,7 +14,6 @@
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="./assets/styles/styles.css">
     <script>
         async function login() {
             const email = document.getElementById("email").value;
@@ -27,20 +26,18 @@
                     headers: {
                         "Content-Type": 'application/json; charset=UTF-8'
                     },
-                    body: JSON.stringify(
-                        { 
-                            email: email, 
-                            password: password 
-                        }
-                        )
+                    body: JSON.stringify({ email: email, password: password })
                 })
                 .then(result => {
-                    if (result.status != 200)
-                        {   document.getElementById("btn_login").insertAdjacentHTML("afterend", "<div style='display:inline-block;color:red;'> 🚷 </div>");
-                            return;}
-
-                    result.json().then(loginResponse => document.getElementById("username").innerHTML = loginResponse.username+'<button onclick="logout();">LOGOUT</button>');
-                });
+                    console.log(result);
+                    if (result.status !== 200) {
+                        document.getElementById("incorrect").innerHTML = "Та нэвтрэх нэр эсвэл нууц үгээ шалгана уу.";
+                        return;
+                    }
+                    window.location.href = "index.html";
+                    const header = document.getElementById("mainheader");
+                    header.classList.add("main-header__container2--icons");});
+                    
         }
         function logout(){
             fetch("http://localhost:3000/logout",
@@ -54,10 +51,11 @@
 <body>
     <main class="form-container">
         <p class="form-container__title">Нэвтрэх</p>
-        <form class="form">
+        <form class="form" >
+            <p id="incorrect"></p>
             <div class="form__input-group">
                 <label for="email">Цахим шуудан:</label>
-                <input type="text" name="email" id="email" placeholder="">
+                <input type="text" name="email" id="email" placeholder="" autofocus>
             </div>
             <div class="form__input-group">
                 <label for="password">Нууц үг:</label>
@@ -66,7 +64,8 @@
                     <a rel="noopener noreferrer" href="#">Нууц үг мартсан?</a>
                 </div>
             </div>
-            <button class="btn form__sign" id="btn_login" onclick="login()">Нэвтрэх</button>
+            <input type="button" value="Нэвтрэх" onclick="login()" class="btn form__sign" id="btn_login">
+            <!-- <input type="submit" value="Нэвтрэх" class="btn form__sign" id="btn_login"> -->
         </form>
         <div class="social-message">
             <div class="social-message__line"></div>
