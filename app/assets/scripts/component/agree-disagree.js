@@ -107,6 +107,7 @@ class AgreeDisagree extends HTMLElement {
         }
         this.isAgreeClicked = !this.isAgreeClicked;        
     }
+    
     toggleDisagree() {
         if(this.isDisagreeClicked){
             this.disagreeCount++;

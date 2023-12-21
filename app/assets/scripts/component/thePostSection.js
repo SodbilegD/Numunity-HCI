@@ -49,12 +49,50 @@ class thePostSection extends HTMLElement {
                 this.#Render(post);
             });
         });
+        this.postsContainer = document.getElementById("posts-container");
+        this.trendButtonElement = document.getElementById("trendButton");
+        this.newButtonElement = document.getElementById("newButton");
+        this.communityId = null;
+
+        this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
+        this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+
     }
-    addEventListenerToPostTitle(postElement, postId) {
-            postElement.addEventListener("click", () => {
-                window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
-            });
-    };
+
+    async connectedCallback() {
+        try {
+            const jsondata = await fetchData();
+            const currentUrl = new URL(window.location.href);
+            this.communityId = currentUrl.searchParams.get('communityId');
+            this.community = jsondata.record.community[this.communityId - 1];
+            this.posts = this.community.posts;
+            this.renderPosts(this.posts);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    } 
+
+    filterTrend() {
+        const currentDate = new Date();
+        const filteredTrend = this.posts.filter(post =>
+            Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
+        );
+    
+        this.renderPosts(filteredTrend);
+    }
+    
+    filterNew() {
+        const currentDate = new Date();
+        const filteredNew = this.posts.filter(post =>
+        Date.parse(post.publishedDate) > currentDate - 7);
+    
+        this.renderPosts(filteredNew);
+    }
+
+    renderPosts(posts) {
+        this.postsContainer.innerHTML = "";
+        posts.forEach(post => this.#Render(post));
+    }
     
     #Render(post) {
         this.postId = post.postId;
@@ -101,7 +139,7 @@ class thePostSection extends HTMLElement {
                 </p>
             </div>
         </article>`);
-        postsContainer.appendChild(postElement);
+        this.postsContainer.appendChild(postElement);
         this.addEventListenerToPostTitle(postTitleElement, this.postId);
     }
     
@@ -141,6 +179,13 @@ class thePostSection extends HTMLElement {
         //     document.getElementById("totalProduct").innerText = myCart.getTotalCount();
         // });
     }    
+
+    addEventListenerToPostTitle(postElement, postId) {
+        postElement.addEventListener("click", () => {
+            window.location.href = `discussion.html?communityId=${this.communityId}&postId=${postId}`;
+        });
+    };
+
 
     disconnectedCallback() {
         // Implementation
