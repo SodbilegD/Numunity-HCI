@@ -1,51 +1,52 @@
 import { fetchData } from "../modules/dataFetcher.js";
 
-const jsondata = await fetchData();
-const currentUrl = new URL(window.location.href);
-const communityId = currentUrl.searchParams.get('communityId');
-const community = jsondata.record.community[communityId-1];
-const posts = jsondata.record.community[communityId-1].posts; 
-const postsContainer = document.getElementById("posts-container");
-const trendButtonElement = document.getElementById("trendButton");
-const newButtonElement = document.getElementById("newButton");
-
 class thePostSection extends HTMLElement {
     constructor() {
         super();
-        // this.myRoot = attachShadow({ mode: 'open' });
-         // or any other logic you need
-        posts.forEach(post => {
-            this.#Render(post);
-        });
-        newButtonElement.addEventListener("click", () => {
-            // window.location.href = `selectedcommunity.html?communityId=${communityId}/latest`;
-            postsContainer.innerHTML = "";
-            var currentDate = new Date();
-            console.log(Date.parse(posts[0].publishedDate) - currentDate);
-            var filteredDate = posts.filter(post => Date.parse(post.publishedDate) < currentDate - 7);
-            filteredDate.forEach(post => {
-                this.#Render(post);
-            });
-            
-            // filteredData = filterNew(posts);
-            // this.#Render(filteredData);
-        });
-        trendButtonElement.addEventListener("click", () => {
-            // window.location.href = `selectedcommunity.html?communityId=${communityId}/trend`;
-            postsContainer.innerHTML = "";
-            // filteredData = this.filterTrend(posts);
-            var currentDate = new Date();
-            var filteredTrend = posts.filter(post => Date.parse(post.publishedDate) < currentDate - 7 && post.agreeCount > 15);
-            filteredTrend.forEach(post => {
-                this.#Render(post);
-            });
-        });
+        this.postsContainer = document.getElementById("posts-container");
+        this.trendButtonElement = document.getElementById("trendButton");
+        this.newButtonElement = document.getElementById("newButton");
+        this.communityId = null;
+
+        this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
+        this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+
     }
-    addEventListenerToPostTitle(postElement, postId) {
-            postElement.addEventListener("click", () => {
-                window.location.href = `discussion.html?communityId=${communityId}&postId=${postId}`;
-            });
-    };
+
+    async connectedCallback() {
+        try {
+            const jsondata = await fetchData();
+            const currentUrl = new URL(window.location.href);
+            this.communityId = currentUrl.searchParams.get('communityId');
+            this.community = jsondata.record.community[this.communityId - 1];
+            this.posts = this.community.posts;
+            this.renderPosts(this.posts);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    } 
+
+    filterTrend() {
+        const currentDate = new Date();
+        const filteredTrend = this.posts.filter(post =>
+            Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
+        );
+    
+        this.renderPosts(filteredTrend);
+    }
+    
+    filterNew() {
+        const currentDate = new Date();
+        const filteredNew = this.posts.filter(post =>
+        Date.parse(post.publishedDate) > currentDate - 7);
+    
+        this.renderPosts(filteredNew);
+    }
+
+    renderPosts(posts) {
+        this.postsContainer.innerHTML = "";
+        posts.forEach(post => this.#Render(post));
+    }
     
     #Render(post) {
         this.postId = post.postId;
@@ -94,18 +95,16 @@ class thePostSection extends HTMLElement {
                 </p>
             </div>
         </article>`);
-        postsContainer.appendChild(postElement);
+        this.postsContainer.appendChild(postElement);
         this.addEventListenerToPostTitle(postTitleElement, this.postId);
     }
-    
-    connectedCallback() {
-        // this.myRoot.querySelectorAll("button")[0].addEventListener("click", (e) => {
-        //     e.stopPropagation();
-        //     const myCart = document.querySelector("cart-info");
-        //     myCart.addToCart(this);
-        //     document.getElementById("totalProduct").innerText = myCart.getTotalCount();
-        // });
-    }    
+
+    addEventListenerToPostTitle(postElement, postId) {
+        postElement.addEventListener("click", () => {
+            window.location.href = `discussion.html?communityId=${this.communityId}&postId=${postId}`;
+        });
+    };
+
 
     disconnectedCallback() {
         // Implementation

@@ -1,22 +1,8 @@
 import { fetchData } from "../modules/dataFetcher.js";
 
-const jsondata = await fetchData();
-const currentUrl = new URL(window.location.href);
-const communityId = currentUrl.searchParams.get('communityId');
-console.log(communityId);
-const community = jsondata.record.community[communityId-1];
-
-// community.createdDate.setHours(0, 0, 0, 0);
 class theCommunitySection extends HTMLElement {
     constructor() {
         super();
-        this.communityId = community.communityId;
-        this.communityName = community.communityName;
-        this.communityAbout = community.communityAbout;
-        this.communityCreatedDate = community.createdDate;
-        this.followersLength = community.followers.length;
-        this.postsLength = community.posts.length;
-        this.#render();
     }
     #render() {
         document.getElementById("community").insertAdjacentHTML('afterbegin', `
@@ -33,8 +19,24 @@ class theCommunitySection extends HTMLElement {
             </div>
         `);
     }
-    connectedCallback() {
-        //implementation
+    async connectedCallback() {
+        try {
+            const jsondata = await fetchData();
+            const currentUrl = new URL(window.location.href);
+            this.communityId = currentUrl.searchParams.get('communityId');
+    
+            const community = jsondata.record.community[this.communityId - 1];
+            this.communityName = community.communityName;
+            this.communityAbout = community.communityAbout;
+            this.communityCreatedDate = community.createdDate;
+            this.followersLength = community.followers.length;
+            this.postsLength = community.posts.length;
+
+            this.#render();
+
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
 
     disconnectedCallback() {
