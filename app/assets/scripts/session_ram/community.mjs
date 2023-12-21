@@ -35,3 +35,5 @@ export const renderCommunity = async (req, res) => {
     const communityInstance = new Community();
     return await communityInstance.renderCommunity(req, res);
 };
+
+export { Community };
