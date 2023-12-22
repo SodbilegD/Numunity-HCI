@@ -1,4 +1,3 @@
-// db_user.js
 import db from './db.mjs';
 
 class DbUser {

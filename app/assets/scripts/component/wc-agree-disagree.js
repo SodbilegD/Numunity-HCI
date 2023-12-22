@@ -3,8 +3,8 @@ class AgreeDisagree extends HTMLElement {
         super();
 
         // Initial counts and state
-        this.agreeCount = this.getAttribute("agreeCount") ;
-        this.disagreeCount = this.getAttribute("disagreeCount");
+        this.agreeCount = this.getAttribute("agreeCount") ?? 0;
+        this.disagreeCount = this.getAttribute("disagreeCount") ?? 0;
         this.isAgreeClicked = this.getAttribute("isAgreeClicked");
         this.isDisagreeClicked = this.getAttribute("isDisagreeClicked");
 
