@@ -1,3 +1,4 @@
+import 'navigation-bar'
 class TheHeaderSection extends HTMLElement {
     constructor() {
         super();
