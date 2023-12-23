@@ -1,12 +1,11 @@
 import { MongoClient } from 'mongodb';
 
-const uri = 'mongodb://127.0.0.1:27017/?readPreference=primary&ssl=false&directConnection=true';
+const uri = 'mongodb+srv://kulnaak:Khulan123@dks-cluster.zwkwsze.mongodb.net/';
 
 export async function connectToMongoDB() {
   try {
     const client = new MongoClient(uri);
     await client.connect();
-    console.log('Connected to MongoDB');
     const db = client.db('DKS');
     return db;
   } catch (error) {
@@ -15,33 +14,17 @@ export async function connectToMongoDB() {
   }
 }
 
-export async function addCommentToPost(communityId, postId, newComment) {
-    try {
-        const client = new MongoClient(uri);
-        await client.connect();
-        const db = client.db('DKS');
-        const communityCollection = db.collection('Communities');       // Construct the filter to find the community and post
-        const filter = {
-            communityId: communityId,
-            'posts.postId': postId
-        };
+export async function fetchCommunityData(collectionName, communityId) {
+  try {
+      const db = await connectToMongoDB();
+      const collection = db.collection(collectionName);
+      if(collectionName === 'Community' && communityId){
+          return collection.findOne({ communityId: communityId });
+      }
+      return collection.find({}).toArray();
 
-        const update = {
-            $push: {
-                'posts.$.comments': newComment
-            }
-        };
-
-        const result = await communityCollection.updateOne(filter, update);
-
-        if (result.modifiedCount === 0) {
-            console.log('Community or post not found.');
-        } else {
-            console.log('Comment added successfully.');
-        }
-    } catch (error) {
-      console.error('Comment not added:', error);
+  } catch (error) {
+      console.error('Error fetching data from MongoDB:', error);
       throw error;
-    }
+  }
 }
-

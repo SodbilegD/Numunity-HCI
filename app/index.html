@@ -17,60 +17,21 @@
 </head>
 <body>
     <header class="main-header">
-        
         <div class="toggle">
             <span class="toggle__line topline"></span>
             <span class="toggle__line midline"></span>
             <span class="toggle__line bottomline"></span>
         </div>
-
-
         <div class="main-header__container1">
             <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
             <h2 class="main-header__container1__title">DKS</h2>
         </div>
-
         <form class="main-header__search-bar">
             <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
             <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
         </form>
         <div class="main-header__container2 main-header__container2--buttons">
-           <!-- <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
-            <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a> -->
-            
-            
-            
             <button type="button" class="main-header__login-button btn btn--op btn--login" onclick="window.location.href='login.html'">Нэвтрэх</button>
-            
-
-
-
-
-<!--log-in form
-<a class="login-trigger" href="#" data-target="#login" data-toggle="modal">Login</a>
-
-<div id="login" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    
-    <div class="modal-content">
-      <div class="modal-body">
-        <button data-dismiss="modal" class="close">&times;</button>
-        <h4>Login</h4>
-        <form>
-          <input type="text" name="username" class="username form-control" placeholder="Username"/>
-          <input type="password" name="password" class="password form-control" placeholder="password"/>
-          <input class="btn login" type="submit" value="Login" />
-        </form>
-      </div>
-    </div>
-  </div>  
-</div>
--->
-
-
-
-
-
             <button type="button" class="main-header__signup-button  btn btn--signup">Бүртгүүлэх</button>
             <i class="fa-regular fa-user main-header__container2__user"></i>
         </div>
@@ -79,13 +40,16 @@
         <nav class="slide">
             <h1 class="slide__title">Цэс</h1>
             <ul class="slide__list">
-                <li class="slide__list__item"><a href="#"><i class="fas fa-tv"></i>dashboard</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-user"></i>profile</a></li>
-                <li class="slide__list__item"><a href="#"><i class="fab fa-gripfire"></i>trending</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-comment"></i>Chat өрөө</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-folder"></i>Хэлэлцүүлэг</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-address-book">Public group</i></a></li>
-                <li class="slide__list__item"><a href="#"><i class="fas fa-cogs"></i>Гарах</a></li>
+                <li class="slide__list__item"><a href="#"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
+                <li class="slide__list__item"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг
+                    <ul>
+                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=1">Веб програмчлал</a></li>
+                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=2">Гоё хоол</a></li>
+                    </ul>
+                </li>
+                <li class="slide__list__item"><a href="#"><i class="fa-solid fa-comment-dots"></i>Chat өрөө</a></li>
+                <li class="slide__list__item"><a href="#"><i class="far fa-user"></i>Миний профайл</a></li>
+                <li class="slide__list__item slide__list__item--logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Гарах</a></li>
             </ul>
         </nav>
         <main>
@@ -183,32 +147,8 @@
             <a href="ad.com"><img src="assets/images/ad3.png" alt="advertisement-3"></a>
         </aside>
     </div>
-
-    <footer class="footer">
-        <div class="footer__nav">
-            <h3>Цэс:</h3>
-            <ul>
-                <li><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
-                <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
-                <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                <li><a href="community.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
-            </ul>
-        </div>
-        <div class="footer__copyright">
-            <h3><img src="assets/images/logo.png" alt="Team DKS logo">DKS</h3>
-            <p>DKS &copy; 2023 - All Rights Reserved</p>
-        </div>
-        <div class="footer__contacts">
-            <h3>Холбоо барих:</h3>
-            <p><i class="fa-solid fa-phone"></i>+976 8066 5030</p>
-            <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
-            <i class="fa-sharp fa-solid fa-share-nodes fa-bounce fa-2xl"></i>
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-instagram"></i>
-            <i class="fa-brands fa-twitter"></i>
-            <i class="fa-brands fa-whatsapp"></i>
-        </div>
-    </footer>
+    <wc-footer></wc-footer>
     <script src="bundled.js"></script>
+    <script type="module" src="./assets/scripts/component/wc-footer.js"></script>
 </body>
 </html>

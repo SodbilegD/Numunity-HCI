@@ -1,10 +1,7 @@
 import { connectToMongoDB } from '../session_db/db/db.mjs';
-import cookieParser from 'cookie-parser';
 
 class Login {
     constructor() {
-        // Initialize cookie-parser middleware
-        this.cookieParserMiddleware = cookieParser();
     }
 
     async verifyLogin(req, res) {
@@ -17,27 +14,18 @@ class Login {
             const user = await UserCollection.findOne({ email: email, password: password });
 
             if (!user) {
-                // User not found or incorrect password
                 res.status(403).end();
                 return;
             }
-
-            // Generate a session ID (you may want to use a more secure method)
             const sid = Math.floor(Math.random() * 100_000_000_000_000);
 
-            // Store session information in the sessions collection
             await db.collection('Sessions').insertOne({
                 sid: sid,
                 user: email,
                 logged: new Date()
             });
-
             console.log('Session created:', sid);
-
-            // Set the session ID in the response cookie
             res.cookie('session_id', sid);
-
-            // Send a successful response
             res.status(200).send({
                 result: 'OK'
             });
@@ -48,14 +36,38 @@ class Login {
         }
     }
 
-    // Middleware function to parse cookies
-    parseCookies(req, res, next) {
-        this.cookieParserMiddleware(req, res, next);
-    }
+    // // Middleware function to parse cookies
+    // parseCookies(req, res, next) {
+    //     this.cookieParserMiddleware(req, res, next);
+    // }
 
     // Function to get session ID from cookie
-    getSessionIdFromCookie(req) {
-        return req.cookie['session_id'];
+    async getUserFromCookie(req, res) {
+        try {
+            const sessionId = req.cookies['session_id'];
+            console.log("User's sessionID: ", sessionId);
+            if(sessionId){
+                const db = await connectToMongoDB();
+                const SIDcollection = await db.collection('Sessions').find({}).toArray();
+                const userSID = SIDcollection.find(c => c.sid === parseInt(sessionId));
+                if(userSID){
+                    const db = await connectToMongoDB();
+                    const Usercollection = await db.collection('User').find({}).toArray();
+                    const user = Usercollection.find(c => c.email === userSID.user);
+                    res.status(200).send({
+                        result: 'OK',
+                        user: user
+                    });
+                }
+            }
+        } catch (error) {
+            console.error('Getting user is failed:', error);
+            res.status(500).end();
+        }
+
+        
+
+        
     }
 }
 
