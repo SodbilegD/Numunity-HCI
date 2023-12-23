@@ -1,7 +1,5 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 // import { sendDataToJsonBin } from "../modules/dataFetcher.js";
-// import { addCommentToPost } from "../session_db/db/db.mjs";
-// import { getSessionIdFromCookie } from "../session_ram/login.mjs";
 
 class PostComment extends HTMLElement {
     constructor() {
@@ -9,12 +7,12 @@ class PostComment extends HTMLElement {
         this.postsContainer = document.getElementById("posts-container");
         this.commentsContainer = document.getElementById("comments-container");
         this.commentCounter = document.getElementById("total-comments");
-        this.sendCommentButton = document.getElementById("send-comment-button");
     
         this.trendCommentButton = document.getElementById("comment-trend-filter");
         this.trendCommentButton.addEventListener("click", this.filterTrend.bind(this));
-    
-        this.sendCommentButton.addEventListener("click", this.handleSendComment(this));
+
+        const sendCommentButton = document.getElementById("send-comment-button");
+        sendCommentButton.addEventListener("click", this.handleSendComment.bind(this));
     }
 
     async connectedCallback() {
@@ -29,7 +27,6 @@ class PostComment extends HTMLElement {
                 },
                 body: JSON.stringify({ communityId: this.communityId , postId: this.postId }),
             });
-            console.log("responsee",response);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -139,30 +136,58 @@ class PostComment extends HTMLElement {
     }
 
     async handleSendComment() {
+        const currentUrl = new URL(window.location.href);
+        const communityId = currentUrl.searchParams.get('communityId');
+        const postId = currentUrl.searchParams.get('postId');
+        const commentCounter = document.getElementById("total-comments");
         const commentInput = document.getElementById("comment-input");
+        console.log(commentInput.value);
         const newCommentText = commentInput.value.trim();
-    
+        
         if (newCommentText !== "") {
-            // Get session ID from cookie
-            const sessionId = getSessionIdFromCookie();
-            const userSID = this.sessions.find(s => s.sid === sessionId);
-            const user = this.users.find(u => u.email === userSID.user);
             
+            const response = await fetch("http://localhost:3000/getuser",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                }
+            });
+            console.log("responseeeee",response);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const user = data.user;
+
             const newComment = {
-                id: this.commentCounter.innerHTML,
+                id: commentCounter.innerHTML,
                 body: newCommentText,
                 user: user.userId,
                 publishedDate: new Date().toISOString(),
                 agreeCount: 0,
                 disagreeCount: 0
             };
-            
-            await addCommentToPost(this.communityId, this.post.postId, newComment);
-    
+
+            const otherResponse = await fetch("http://localhost:3000/addnewcomment",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify({ communityId: communityId, postId: postId, newComment: newComment})
+            });
+            if (!otherResponse.ok) {
+                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
+            }
+            const otherdata = await otherResponse.json();
+            this.comments = otherdata.comments;
             this.renderComments(this.comments);
             commentInput.value = "";
-        }
-    }
+        };}
 
     
     // async handleSendComment() {

@@ -1,21 +1,9 @@
-import { connectToMongoDB } from '../session_db/db/db.mjs';
+import { fetchCommunityData } from "../session_db/db/db.mjs";
 
 class CommunityList {
-    async fetchCommunityListData() {
-        try {
-            const db = await connectToMongoDB();
-            const communityData = await db.collection('Community').find({}).toArray();
-            return communityData[0].community;
-        } catch (error) {
-            console.error('Error fetching community list data from MongoDB:', error);
-            throw error;
-        }
-    }
-
     async renderCommunityList(req, res) {
         try {
-            const community = await this.fetchCommunityListData();
-            console.log(community);
+            const community = await fetchCommunityData('Community', null);
             if (!community) {
                 res.status(403).end();
                 return;
