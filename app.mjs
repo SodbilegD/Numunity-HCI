@@ -1,23 +1,23 @@
 import express from 'express';
-import data from './data.json' assert { type: 'json' };
-
-
+// import data from './data.json' assert { type: 'json' };
+import { connectToMongoDB } from "./app/assets/scripts/session_db/db/db.mjs";
 import MyClass from './mymodule.mjs';
-
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
-import './app/assets/styles/styles.css';
-import 'lazysizes';
-import './app/assets/scripts/modules/dataFetcher.js';
+import { community } from './app/assets/scripts/session_ram/community.mjs';
+import { comment } from 'postcss';
 // import './modules/sidebar.js';
-
+const uri = 'mongodb://127.0.0.1:27017/?readPreference=primary&ssl=false&directConnection=true';
+const db = await connectToMongoDB();
+const data = await db.collection().find({}).toArray();
 const app = express()
 const port = 3000
 let likes = 0;
+// const data = fetchData();
 
 //http://localhost:3000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
 //эхэлсэн бол диск дээрх public фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
-app.use("/public", express.static('public'));
+app.use("/app", express.static('app'));
 
 //json data хүлээж авдаг болгохын тулд дуудаж өгнө.
 app.use(express.json());
@@ -112,14 +112,12 @@ app.get(
  *                                  type: string
  */
 
-app.post('/community/:post/:postId/likes', (req, res) => { 
+app.post('/communities/:communityId/posts/:postId/likes', (req, res) => { 
         likes += req.body.likes;
         res.writeHead(201, "CREATED", { 'Content-Type': 'text/plain' });
         res.send();
     }
 )
-
-
 
 /**
  * @swagger
@@ -146,7 +144,7 @@ app.post('/community/:post/:postId/likes', (req, res) => {
  *                                  type: string
  */
 
-app.get('/community/:post/:postId/likes', (req, res) => {
+app.get('/communities/:communityId/posts/:postId/likes', (req, res) => {
     res.statusCode=200;
     res.send(JSON.stringify({likes:likes}));
 }
@@ -169,14 +167,6 @@ app.get('/community/:post/:postId/likes', (req, res) => {
  *              schema:
  *                type: string
  */
-app.get('/community/post/:postId',
-    (req, res) => {
-        const product = data.filter(
-            prod =>
-                req.params.productId == prod.id
-        );
-        res.send(product);
-    })
 
 /**
 * @swagger
@@ -209,22 +199,43 @@ app.get('/community/post/:postId',
 *              schema:
 *                type: string
 */
-app.get('community/posts/:postId/comments/:commentId',
+app.get('/communities/:communityId',
     (req, res) => {
-        const product = data.filter(
-            prod =>req.params.productId == prod.id
+        const community = data.community.filter(
+            community => req.params.communityId === community.communityId
             );
-        const comment = product[0].comments.filter((comment) => comment.id == req.params.commentId)
-        console.log(comment[0].comment);
-        res.send(comment);
-    }
-)
-
-
-app.get('/posts',
+        // console.log(community);
+        res.send(community)
+})
+app.get('/communities/:communityId/posts/:postId',
     (req, res) => {
-        res.send(data)
+        const community = data.community.filter(
+            community => req.params.communityId === community.communityId
+            );
+        console.log(community)
+        const posts = community[0].posts.filter(
+            post => req.params.postId === post.postId
+        );
+        // console.log(data.community[0].posts);
+        res.send(posts)
     })
+
+app.get('/communities/:communityId/posts/:postId/comments/:commentId',
+(req, res) => {
+    const community = data.community.filter(
+        community => req.params.communityId === community.communityId
+        );
+    // console.log(community);
+    const post = community[0].posts.filter(
+        post => req.params.postId === post.postId
+    );
+    // console.log(post[0].comments);
+    const comment = post[0].comments.filter(
+        comment => req.params.commentId === comment.id
+    );
+    // console.log(comment);
+    res.send(comment)
+})
 
 /**
  * @swagger

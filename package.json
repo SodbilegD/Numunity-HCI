@@ -10,16 +10,17 @@
     "mongoose": "^8.0.3",
     "normalize.css": "^8.0.1",
     "postgres": "^3.4.3",
+    "swagger-jsdoc": "^6.0.1",
     "swagger-ui": "^5.10.3",
     "swagger-ui-express": "^5.0.0"
   },
   "name": "dks",
   "version": "1.0.0",
-  "main": "app.mjs",
+  "main": "./app.mjs",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack",
-    "start": "node ./app/assets/scripts/session_ram/app.mjs"
+    "start": "node ./app.mjs"
   },
   "keywords": [],
   "author": "",

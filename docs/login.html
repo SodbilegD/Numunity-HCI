@@ -2,19 +2,14 @@
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            fetch("http://localhost:3000/login",
+            fetch("http://localhost:3000/login.html",
                 {
                     method: 'POST',
                     cache: "no-cache",
                     headers: {
                         "Content-Type": 'application/json; charset=UTF-8'
                     },
-                    body: JSON.stringify(
-                        { 
-                            email: email, 
-                            password: password 
-                        }
-                        )
+                    body: JSON.stringify({ email: email, password: password })
                 })
                 .then(result => {
                     if (result.status != 200)
@@ -30,4 +25,4 @@
                 
             })
             .then()
-        }</script><script defer="defer" src="main.df87ca197985a15462af.js"></script><link href="styles.df87ca197985a15462af.css" rel="stylesheet"></head><body><main class="form-container"><p class="form-container__title">Нэвтрэх</p><form class="form"><div class="form__input-group"><label for="email">Цахим шуудан:</label> <input name="email" id="email" placeholder=""></div><div class="form__input-group"><label for="password">Нууц үг:</label> <input type="password" name="password" id="password" placeholder=""><div class="form__forgot"><a rel="noopener noreferrer" href="#">Нууц үг мартсан?</a></div></div><button class="btn form__sign" id="btn_login" onclick="login()">Нэвтрэх</button></form><div class="social-message"><div class="social-message__line"></div><p class="social-message__message">Хялбар нэвтрэлт</p><div class="social-message__line"></div></div><div class="social-icons"><button aria-label="Log in with Google" class="social-icons__icon"><i class="fa-brands fa-google"></i></button> <button aria-label="Log in with Twitter" class="social-icons__icon"><i class="fa-brands fa-facebook"></i></button> <button aria-label="Log in with GitHub" class="social-icons__icon"><i class="fa-brands fa-instagram"></i></button></div><p class="signup">Та бүртгэлгүй юу? <a rel="noopener noreferrer" href="#" class="">Бүртгүүлэх</a></p></main><script src="./bundled.js"></script></body></html>
+        }</script><script defer="defer" src="main.df87ca197985a15462af.js"></script><link href="styles.df87ca197985a15462af.css" rel="stylesheet"></head><body><main class="form-container"><p class="form-container__title">Нэвтрэх</p><form class="form"><p id="incorrect"></p><div class="form__input-group"><label for="email">Цахим шуудан:</label> <input name="email" id="email" placeholder="" autofocus></div><div class="form__input-group"><label for="password">Нууц үг:</label> <input type="password" name="password" id="password" placeholder=""><div class="form__forgot"><a rel="noopener noreferrer" href="#">Нууц үг мартсан?</a></div></div><button class="btn form__sign" id="btn_login" onclick="login()">Нэвтрэх</button></form><div class="social-message"><div class="social-message__line"></div><p class="social-message__message">Хялбар нэвтрэлт</p><div class="social-message__line"></div></div><div class="social-icons"><button aria-label="Log in with Google" class="social-icons__icon"><i class="fa-brands fa-google"></i></button> <button aria-label="Log in with Twitter" class="social-icons__icon"><i class="fa-brands fa-facebook"></i></button> <button aria-label="Log in with GitHub" class="social-icons__icon"><i class="fa-brands fa-instagram"></i></button></div><p class="signup">Та бүртгэлгүй юу? <a rel="noopener noreferrer" href="#" class="">Бүртгүүлэх</a></p></main><script src="./bundled.js"></script></body></html>
