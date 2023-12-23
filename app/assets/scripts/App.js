@@ -16,6 +16,7 @@ import './modules/darkmode.js';
 // import './modules/filter.js';
 
 // import './component/template.js';
+import './session_ram/app.mjs';
 if(module.hot) {
     module.hot.accept();
 }
