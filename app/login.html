@@ -29,13 +29,16 @@
                     body: JSON.stringify({ email: email, password: password })
                 })
                 .then(result => {
-                    if (result.status != 200)
-                        {   document.getElementById("btn_login").insertAdjacentHTML("afterend", "<div style='display:inline-block;color:red;'> 🚷 </div>");
-                            return;}
-
-                    result.json().then(loginResponse => document.getElementById("username").innerHTML = loginResponse.username+'<button onclick="logout();">LOGOUT</button>');
-                });
-        }
+                    console.log(result);
+                    if (result.status !== 200) {
+                        document.getElementById("incorrect").innerHTML = "Та нэвтрэх нэр эсвэл нууц үгээ шалгана уу.";
+                        return;
+                    }
+                    window.location.href = "index.html";
+                    const header = document.getElementById("mainheader");
+                    header.classList.add("main-header__container2--icons");});
+                    
+            }
         function logout(){
             fetch("http://localhost:3000/logout",
             {
