@@ -15,6 +15,7 @@ import './modules/dataFetcher.js';
 import './modules/darkmode.js';
 // import './modules/filter.js';
 
+// import './component/template.js';
 if(module.hot) {
     module.hot.accept();
 }
