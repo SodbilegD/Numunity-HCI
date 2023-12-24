@@ -61,26 +61,6 @@ let config = {
     }
 }
 
-if (currentTask == 'start') {
-    cssConfig.use.unshift("style-loader");
-    config.target = 'web'; // Change 'node' to 'web'
-    config.output = {
-        filename: "bundled.js",
-        path: path.resolve(__dirname, 'app'),
-        publicPath: '/'
-    };
-    config.devServer = {
-        watchFiles: ['./app/**/*.html'],
-        static: {
-            directory: path.join(__dirname, "./app"),
-        },
-        hot: true,
-        host: '0.0.0.0',
-        port: 3000,
-    };
-    config.mode = "development"; // Change 'none' to 'development'
-}
-
 if(currentTask == 'dev'){
     cssConfig.use.unshift("style-loader");
         config.output = {

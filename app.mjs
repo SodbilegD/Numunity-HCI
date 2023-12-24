@@ -6,14 +6,11 @@ import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import { community } from './app/assets/scripts/session_ram/community.mjs';
 import { comment } from 'postcss';
-// import './modules/sidebar.js';
-const uri = 'mongodb://127.0.0.1:27017/?readPreference=primary&ssl=false&directConnection=true';
 const db = await connectToMongoDB();
-const data = await db.collection().find({}).toArray();
+const data = db.collection('Community');
 const app = express()
 const port = 3000
 let likes = 0;
-// const data = fetchData();
 
 //http://localhost:3000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
 //эхэлсэн бол диск дээрх public фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
@@ -63,13 +60,21 @@ app.get(
  * @swagger
  * tags:
  *  -
- *   name: "Product"
- *   description: Product related operations
+ *   name: "Community"
+ *   description: Community related operations
  *      
  *  - 
+ *   name: "Post"
+ *   description: Post related operations
+ *  - 
+ *   name: "Comment"
+ *   description: Comment related operations
+ *  -
  *   name: "About"
  *   description: Company info 
- *
+ *  -
+ *   name: "Followers"
+ *   description: Followers of Community
  *  - 
  *   name: "Order"
  *   description: Order related operations 
@@ -79,19 +84,26 @@ app.get(
 /**
  * @swagger
  *  paths:
- *      /products/{productId}/likes:
+ *      /communities/{communityId}/products/{productId}/likes:
  *          post:
  *              tags:
  *                  - Product
  *              summary: Upload product likes to NUM
  *              parameters:
-*                -
+ *               -
 *                   in: path
-*                   name: productId
+*                   name: communityId
 *                   schema:
 *                   type: integer
 *                   required: true
-*                   description: Numeric ID of the product
+*                   description: Numeric ID of the community
+*                -
+*                   in: path
+*                   name: postId
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: Numeric ID of the post
  *              requestBody:
  *                  description: Like ийн тоог явуулна
  *                  required: true
@@ -144,9 +156,9 @@ app.post('/communities/:communityId/posts/:postId/likes', (req, res) => {
  *                                  type: string
  */
 
-app.get('/communities/:communityId/posts/:postId/likes', (req, res) => {
+app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
     res.statusCode=200;
-    res.send(JSON.stringify({likes:likes}));
+    res.send(JSON.stringify({agreeCount:agreeCount}));
 }
 )
 
@@ -154,36 +166,106 @@ app.get('/communities/:communityId/posts/:postId/likes', (req, res) => {
 /**
  * @swagger
  * paths:
- *  /products:
+ *  /communities/{communityId}:
  *    get:
  *      tags:
- *          - Product
- *      summary: Get specific product from NUM
+ *          - Community
+ *      summary: Get specific community from DKS
+*      parameters:
+*       -
+*        in: path
+*        name: communityId
+*        schema:
+*         type: integer
+*        required: true
+*        description: Numeric ID of the community
  *      responses:
  *        "200":
- *          description: GET from NUM API
+ *          description: GET from DKS API
  *          content:
  *            application/json:
  *              schema:
  *                type: string
  */
 
+
+app.get('/communities/:communityId',
+    (req, res) => {
+        const community = data.community.filter(
+            community => req.params.communityId === community.communityId
+            );
+        // console.log(community);
+        console.log(data)
+        res.send(community)
+})
 /**
 * @swagger
 * paths:
-*  /products/{productId}/comments/{commentId}:
+*  /communities/{communityId}/posts/{postId}:
 *    get:
 *      tags:
-*          - Product
+*          - Post
+*      summary: Get specific post by ID
+*      parameters:
+*       -
+*        in: path
+*        name: communityId
+*        schema:
+*         type: integer
+*        required: true
+*        description: Numeric ID of the community
+*       -
+*        in: path
+*        name: postId
+*        schema:
+*         type: integer
+*        required: true
+*        description: Numeric ID of the post
+*
+*      responses:
+*        "200":
+*          description: post JSON
+*          content:
+*            application/json:
+*              schema:
+*                type: string
+*/
+
+app.get('/communities/:communityId/posts/:postId',
+    (req, res) => {
+        const community = data.community.filter(
+            community => req.params.communityId === community.communityId
+            );
+        console.log(community)
+        const posts = community[0].posts.filter(
+            post => req.params.postId === post.postId
+        );
+        // console.log(data.community[0].posts);
+        res.send(posts)
+    })
+/**
+* @swagger
+* paths:
+*  /communities/{communityId}/posts/{postId}/comments/{commentId}:
+*    get:
+*      tags:
+*          - Comment
 *      summary: Get specific comment by ID
 *      parameters:
 *       -
 *        in: path
-*        name: productId
+*        name: communityId
 *        schema:
 *         type: integer
 *        required: true
-*        description: Numeric ID of the product
+*        description: Numeric ID of the community
+*       -
+*        in: path
+*        name: postId
+*        schema:
+*         type: integer
+*        required: true
+*        description: Numeric ID of the post
 *       -
 *        in: path
 *        name: commentId
@@ -199,27 +281,6 @@ app.get('/communities/:communityId/posts/:postId/likes', (req, res) => {
 *              schema:
 *                type: string
 */
-app.get('/communities/:communityId',
-    (req, res) => {
-        const community = data.community.filter(
-            community => req.params.communityId === community.communityId
-            );
-        // console.log(community);
-        res.send(community)
-})
-app.get('/communities/:communityId/posts/:postId',
-    (req, res) => {
-        const community = data.community.filter(
-            community => req.params.communityId === community.communityId
-            );
-        console.log(community)
-        const posts = community[0].posts.filter(
-            post => req.params.postId === post.postId
-        );
-        // console.log(data.community[0].posts);
-        res.send(posts)
-    })
-
 app.get('/communities/:communityId/posts/:postId/comments/:commentId',
 (req, res) => {
     const community = data.community.filter(
@@ -244,10 +305,10 @@ app.get('/communities/:communityId/posts/:postId/comments/:commentId',
  *    get:
  *     tags: 
  *      - About
- *     summary: Get product likes                
+ *     summary: about data from DKS               
  *     responses:
  *      "200":
- *       description: GET about data from NUM API
+ *       description: GET about data from DKS API
  *       content:
  *        application/json:
  *         schema:
@@ -259,7 +320,6 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    const myClass = new MyClass(req, res);
-    myClass.render();
+    res.send(data)
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
