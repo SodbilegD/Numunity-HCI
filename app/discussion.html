@@ -32,6 +32,48 @@
             <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
             <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
         </form>
+        <div id="mainheader" class="main-header__container2 main-header__container2--icons">
+
+            <div class="popup-container">
+                <a href="./userprofile.html" id="notif-icon" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
+                <div class="popup">
+                    <h2 class="popup__title">Мэдэгдэл</h2>
+                    <ul class="popup__list">
+                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
+                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
+                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
+                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
+                    </ul>
+                        <a href="#" class="popup__viewmore">Цааш үзэх</a>
+                </div>
+            </div>
+
+            <div class="popup-container">
+                <a href="#" id="myprofile-icon" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a>
+                <div class="popup">
+                    <h2 class="popup__title">Миний профайл</h2>
+                    <img src="/assets/images/profile.png" alt="myprofile">
+                    <ul class="popup__list popup__list--profile">
+                        <li class="popup__list__item popup__list__item--profile">
+                            <span class="popup-myprofile__icon"><i class="fa-regular fa-folder-open"></i></span>
+                            <a href="#">Хадгалсан</a>
+                        </li>
+                        <li class="popup__list__item popup__list__item--profile">
+                            <span class="popup-myprofile__icon"><i class="fa-solid fa-gear"></i></span>
+                            <a href="#">Тохиргоо</a>
+                        </li>
+                        <li class="popup__list__item popup__list__item--profile">
+                            <span class="popup-myprofile__icon"><i class="fa-solid fa-circle-question"></i></span>
+                            <a href="#">Тусламж</a>
+                        </li>
+                        <li class="popup__list__item popup__list__item--profile">
+                            <span class="popup-myprofile__icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+                            <a href="#">Гарах</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div id="mainheader" class="main-header__container2 main-header__container2--icons"></div>
     </header>
     <div class="main-container">
@@ -71,9 +113,14 @@
                         </div>
         
                         <hr>
+                        
+                        
                         <div id="comments-container" class="comments-container">
                             <post-comment></post-comment>
+                        
                         </div>
+                    
+                    
                     </div>
                 </div>
             </div>

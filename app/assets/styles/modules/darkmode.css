@@ -65,7 +65,7 @@
   }
   .main-header__search-bar{
     color: var(--color-sbg);
-    background-color: var(--color-sfg);
+    background-color: var(--color-sfg); 
 }
 /* label{
     color: var(--color-hbg);
@@ -102,4 +102,4 @@
 ul li a{
     color: var(--color-sfg);
     color: var(--color-sbg);
- }
+ } 
