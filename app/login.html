@@ -19,7 +19,7 @@
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            fetch("http://localhost:3000/login",
+            fetch("http://localhost:3000/login.html",
                 {
                     method: 'POST',
                     cache: "no-cache",
@@ -64,8 +64,7 @@
                     <a rel="noopener noreferrer" href="#">Нууц үг мартсан?</a>
                 </div>
             </div>
-            <input type="button" value="Нэвтрэх" onclick="login()" class="btn form__sign" id="btn_login">
-            <!-- <input type="submit" value="Нэвтрэх" class="btn form__sign" id="btn_login"> -->
+            <button class="btn form__sign" id="btn_login" onclick="login()">Нэвтрэх</button>
         </form>
         <div class="social-message">
             <div class="social-message__line"></div>
