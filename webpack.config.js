@@ -61,7 +61,7 @@ let config = {
     }
 }
 
-if (currentTask === 'dev') {
+if (currentTask === 'dev' || currentTask === 'start' || currentTask === 'document') {
     cssConfig.use.unshift("style-loader");
     config.output = {
         filename: "bundled.js",

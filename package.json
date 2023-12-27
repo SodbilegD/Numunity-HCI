@@ -20,7 +20,8 @@
   "main": "./app.mjs",
   "scripts": {
     "dev": "webpack-dev-server",
-    "start": "node ./app.mjs",
+    "document": "node ./app.mjs",
+    "start": "node ./app/assets/scripts/session_ram/app.mjs",
     "build": "webpack"
   },
   "keywords": [],
