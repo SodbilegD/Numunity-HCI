@@ -53,7 +53,6 @@ class User {
             result: "OK",
             username: dbUser[0].fullname
         });
-
     }
 }
 

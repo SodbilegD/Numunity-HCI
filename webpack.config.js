@@ -83,6 +83,22 @@ if (currentTask === 'dev') {
     config.mode = "development";
 }
 
+if (currentTask === 'start') {
+    cssConfig.use.unshift("style-loader");
+    config.output = {
+        filename: "bundled.js",
+        path: path.resolve(__dirname, 'app')
+    };
+    config.devServer = {
+        static: {
+            directory: path.join(__dirname, "./app")
+        },
+        hot: true,
+        port: 3000
+    };
+    config.mode = "development";
+}
+
 if (currentTask === "build") {
     cssConfig.use.unshift(MiniCssExtractPlugin.loader);
     postcssPlugins.push(require("cssnano"));
