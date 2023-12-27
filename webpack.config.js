@@ -61,26 +61,23 @@ let config = {
     }
 }
 
-if(currentTask == 'dev'){
+if (currentTask === 'dev') {
     cssConfig.use.unshift("style-loader");
-        config.output = {
-            filename: "bundled.js",
-            path: path.resolve(__dirname, 'app')
-    },
+    config.output = {
+        filename: "bundled.js",
+        path: path.resolve(__dirname, 'app')
+    };
     config.devServer = {
-        watchFiles: ('./app/**/*.html'),
         static: {
             directory: path.join(__dirname, "./app")
-          },
+        },
         hot: true,
-        host: '0.0.0.0',
         port: 3000
-    },
-    config.mode = "development"
+    };
+    config.mode = "development";
 }
 
-if(currentTask == "build"){
-
+if (currentTask === "build") {
     cssConfig.use.unshift(MiniCssExtractPlugin.loader);
     postcssPlugins.push(require("cssnano"));
     (config.output = {

@@ -1,13 +1,12 @@
 import express from 'express';
 // import data from './data.json' assert { type: 'json' };
-import { connectToMongoDB } from "./app/assets/scripts/session_db/db/db.mjs";
+import { fetchCommunityData } from "./app/assets/scripts/session_db/db/db.mjs";
 import MyClass from './mymodule.mjs';
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import { community } from './app/assets/scripts/session_ram/community.mjs';
 import { comment } from 'postcss';
-const db = await connectToMongoDB();
-const data = db.collection('Community');
+const data = await fetchCommunityData("Community", null);
 const app = express()
 const port = 3000
 let likes = 0;
