@@ -5,7 +5,6 @@ import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import { community } from './app/assets/scripts/session_ram/community.mjs';
 import { comment } from 'postcss';
-import About from './about.mjs';
 import aboutTeam from './about.mjs';
 const data = await fetchCommunityData("Community", null);
 const app = express()
@@ -71,7 +70,7 @@ app.get(
  *   description: Comment related operations
  *  -
  *   name: "About"
- *   description: Company info 
+ *   description: My Team information
  *  -
  *   name: "Followers"
  *   description: Followers of Community
@@ -82,15 +81,15 @@ app.get(
  */
 
 /**
- * @swagger
- *  paths:
- *      /communities/{communityId}/posts/{postId}/agreeCount:
- *          post:
- *              tags:
- *                  - Post
- *              summary: Upload post agree counts to DKS
- *              parameters:
- *               -
+* @swagger
+*  paths:
+*      /communities/{communityId}/posts/{postId}/agreeCount:
+*          post:
+*              tags:
+*                  - Post
+*              summary: Upload post agree counts to DKS
+*              parameters:
+*               -
 *                   in: path
 *                   name: communityId
 *                   schema:
@@ -104,25 +103,32 @@ app.get(
 *                   type: integer
 *                   required: true
 *                   description: Numeric ID of the post
- *              requestBody:
- *                  description: Санал нэгдсэн хүмүүсийн тоог явуулна
- *                  required: true
- *                  content:
- *                      application/json:
- *                          schema:
- *                              type: object
- *                              properties:
- *                                  agreeCount:
- *                                      type: integer
- *                              
- *              responses:
- *                  "201":
- *                      description: POST to DKS API
- *                      content:
- *                          application/json:
- *                              schema:
- *                                  type: string
- */
+*                -
+*                   in: path
+*                   name: agreeCount
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: agree count of the post
+*              requestBody:
+*                  description: Санал нэгдсэн хүмүүсийн тоог явуулна
+*                  required: true
+*                  content:
+*                      application/json:
+*                          schema:
+*                              type: object
+*                              properties:
+*                                  agreeCount:
+*                                      type: integer
+*                              
+*              responses:
+*                  "201":
+*                      description: POST to DKS API
+*                      content:
+*                          application/json:
+*                              schema:
+*                                  type: string
+*/
 
 app.post('/communities/:communityId/posts/:postId/agreeCount', (req, res) => { 
         agreeCount += req.body.agreeCount;
@@ -132,14 +138,21 @@ app.post('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
 )
 
 /**
- * @swagger
- *  paths:
- *      /communities/{communityId}/posts/{postId}/agreeCount:
- *          get:
- *              tags:
- *                  - Post
- *              summary: Get post agreeCounts from NUM
- *              parameters:
+* @swagger
+*  paths:
+*      /communities/{communityId}/posts/{postId}/agreeCount:
+*          get:
+*              tags:
+*               - Post
+*              summary: Get post agreeCounts from NUM
+*              parameters:
+*               -
+*                   in: path
+*                   name: communityId
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: Numeric ID of the community
 *                -
 *                   in: path
 *                   name: postId
@@ -147,14 +160,21 @@ app.post('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
 *                   type: integer
 *                   required: true
 *                   description: Numeric ID of the post
- *              responses:
- *                  "200":
- *                      description: Success. agreeCount number
- *                      content:
- *                          application/json:
- *                              schema:
- *                                  type: string
- */
+*                -
+*                   in: path
+*                   name: agreeCount
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: agree counts of the post
+*              responses:
+*                  "200":
+*                      description: Success. agreeCount number
+*                      content:
+*                          application/json:
+*                              schema:
+*                                  type: string
+*/
 
 app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
     res.statusCode=200;
@@ -183,7 +203,7 @@ app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
 *        in: path
 *        name: communityId
 *        schema:
-*         type: integer
+*        type: integer
 *        required: true
 *        description: Numeric ID of the community
  *      responses:
@@ -204,6 +224,42 @@ app.get('/communities/:communityId',
         // console.log(community);
         res.send(community)
 })
+
+/**
+ * @swagger
+ * paths:
+ *  /communities/{communityId}/followers:
+ *    get:
+ *      tags:
+ *          - Followers
+ *      summary: followers of the community from DKS
+*      parameters:
+*       -
+*        in: path
+*        name: communityId
+*        schema:
+*        type: integer
+*        required: true
+*        description: Numeric ID of the community
+ *      responses:
+ *        "200":
+ *          description: GET from DKS API
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: string
+ */
+
+
+app.get('/communities/:communityId/followers',
+    (req, res) => {
+        const community = data.filter(
+            community => req.params.communityId === community.communityId
+            );
+        // console.log(community);
+        res.send(community[0].followers);
+})
+
 /**
 * @swagger
 * paths:
@@ -217,7 +273,7 @@ app.get('/communities/:communityId',
 *        in: path
 *        name: communityId
 *        schema:
-*         type: integer
+*        type: integer
 *        required: true
 *        description: Numeric ID of the community
 *       -
@@ -242,11 +298,9 @@ app.get('/communities/:communityId/posts/:postId',
         const community = data.filter(
             community => req.params.communityId === community.communityId
             );
-        console.log(community[0].posts)
         const posts = community[0].posts.filter(
             (posts) => req.params.postId == posts.postId
         );
-        console.log(posts);
         res.send(posts)
     })
 /**
@@ -322,6 +376,7 @@ app.get('/communities/:communityId/posts/:postId/comments/:commentId',
  */
 app.get('/about', (req, res) => {
     const about = new aboutTeam(req, res);
+    console.log(about.render());
     about.render();
 });
 
