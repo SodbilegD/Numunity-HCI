@@ -1,15 +1,16 @@
 import express from 'express';
 // import data from './data.json' assert { type: 'json' };
 import { fetchCommunityData } from "./app/assets/scripts/session_db/db/db.mjs";
-import MyClass from './mymodule.mjs';
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import { community } from './app/assets/scripts/session_ram/community.mjs';
 import { comment } from 'postcss';
+import About from './about.mjs';
+import aboutTeam from './about.mjs';
 const data = await fetchCommunityData("Community", null);
 const app = express()
 const port = 3000
-let likes = 0;
+let agreeCount = 0;
 
 //http://localhost:3000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
 //эхэлсэн бол диск дээрх public фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
@@ -83,11 +84,11 @@ app.get(
 /**
  * @swagger
  *  paths:
- *      /communities/{communityId}/products/{productId}/likes:
+ *      /communities/{communityId}/posts/{postId}/agreeCount:
  *          post:
  *              tags:
- *                  - Product
- *              summary: Upload product likes to NUM
+ *                  - Post
+ *              summary: Upload post agree counts to DKS
  *              parameters:
  *               -
 *                   in: path
@@ -104,27 +105,27 @@ app.get(
 *                   required: true
 *                   description: Numeric ID of the post
  *              requestBody:
- *                  description: Like ийн тоог явуулна
+ *                  description: Санал нэгдсэн хүмүүсийн тоог явуулна
  *                  required: true
  *                  content:
  *                      application/json:
  *                          schema:
  *                              type: object
  *                              properties:
- *                                  likes:
+ *                                  agreeCount:
  *                                      type: integer
  *                              
  *              responses:
  *                  "201":
- *                      description: POST to NUM API
+ *                      description: POST to DKS API
  *                      content:
  *                          application/json:
  *                              schema:
  *                                  type: string
  */
 
-app.post('/communities/:communityId/posts/:postId/likes', (req, res) => { 
-        likes += req.body.likes;
+app.post('/communities/:communityId/posts/:postId/agreeCount', (req, res) => { 
+        agreeCount += req.body.agreeCount;
         res.writeHead(201, "CREATED", { 'Content-Type': 'text/plain' });
         res.send();
     }
@@ -133,22 +134,22 @@ app.post('/communities/:communityId/posts/:postId/likes', (req, res) => {
 /**
  * @swagger
  *  paths:
- *      /products/{productId}/likes:
+ *      /communities/{communityId}/posts/{postId}/agreeCount:
  *          get:
  *              tags:
- *                  - Product
- *              summary: Get product likes from NUM
+ *                  - Post
+ *              summary: Get post agreeCounts from NUM
  *              parameters:
 *                -
 *                   in: path
-*                   name: productId
+*                   name: postId
 *                   schema:
 *                   type: integer
 *                   required: true
-*                   description: Numeric ID of the product
+*                   description: Numeric ID of the post
  *              responses:
  *                  "200":
- *                      description: Success. likes number
+ *                      description: Success. agreeCount number
  *                      content:
  *                          application/json:
  *                              schema:
@@ -157,6 +158,13 @@ app.post('/communities/:communityId/posts/:postId/likes', (req, res) => {
 
 app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
     res.statusCode=200;
+    const community = data.filter(
+        community => req.params.communityId === community.communityId
+        );
+    const posts = community[0].posts.filter(
+        (posts) => req.params.postId == posts.postId
+    );
+    const agreeCount = posts[0].agreeCount;
     res.send(JSON.stringify({agreeCount:agreeCount}));
 }
 )
@@ -190,11 +198,10 @@ app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
 
 app.get('/communities/:communityId',
     (req, res) => {
-        const community = data.community.filter(
+        const community = data.filter(
             community => req.params.communityId === community.communityId
             );
         // console.log(community);
-        console.log(data)
         res.send(community)
 })
 /**
@@ -232,14 +239,14 @@ app.get('/communities/:communityId',
 
 app.get('/communities/:communityId/posts/:postId',
     (req, res) => {
-        const community = data.community.filter(
+        const community = data.filter(
             community => req.params.communityId === community.communityId
             );
-        console.log(community)
+        console.log(community[0].posts)
         const posts = community[0].posts.filter(
-            post => req.params.postId === post.postId
+            (posts) => req.params.postId == posts.postId
         );
-        // console.log(data.community[0].posts);
+        console.log(posts);
         res.send(posts)
     })
 /**
@@ -282,7 +289,7 @@ app.get('/communities/:communityId/posts/:postId',
 */
 app.get('/communities/:communityId/posts/:postId/comments/:commentId',
 (req, res) => {
-    const community = data.community.filter(
+    const community = data.filter(
         community => req.params.communityId === community.communityId
         );
     // console.log(community);
@@ -314,8 +321,8 @@ app.get('/communities/:communityId/posts/:postId/comments/:commentId',
  *          type: string
  */
 app.get('/about', (req, res) => {
-    const myClass = new MyClass(req, res);
-    myClass.render();
+    const about = new aboutTeam(req, res);
+    about.render();
 });
 
 app.get('/', (req, res) => {
