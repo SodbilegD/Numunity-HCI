@@ -86,7 +86,16 @@ class theCommunitySection extends HTMLElement {
         });
     }
     
-    #RenderPost(post, user) {        
+    #RenderPost(post, user) {       
+          const postTemplate = document.getElementById('post-template');
+          const clone = document.importNode(postTemplate.content, true);
+          clone.querySelector('[slot="userName"]').textContent = user.userName;
+            clone.querySelector('[slot="publishedDate"]').textContent = post.publishedDate;
+            clone.querySelector('[slot="postTitle"]').textContent = post.postTitle;
+            clone.querySelector('[slot="postDetail"]').textContent = post.postDetail;
+            clone.querySelector('[slot="commentCount"]').textContent = post.comments.length;
+            clone.querySelector('[slot="shareCount"]').textContent = post.shareCount;
+            this.postsContainer.appendChild(clone);
 
         var postElement = document.createElement('article');
         postElement.classList.add('post');
@@ -109,8 +118,21 @@ class theCommunitySection extends HTMLElement {
             postTitleElement.classList.add('post__title');
             postTitleElement.textContent = post.postTitle;
 
+
+
             postElement.insertAdjacentHTML("beforeend",`
-            <p class="post__detail">${post.postDetail}</p>
+            
+            <template id="post-template">
+            <article class="post">
+              <div class="post__profile">
+                <img class="post__profile__img" alt="profile" src="" />
+                <p class="post__profile__name"><slot name="userName"></slot></p>
+                <p class="post__profile__time"><slot name="publishedDate"></slot></p>
+              </div>
+              <hr />
+              <h3 class="post__title"><slot name="postTitle"></slot></h3>
+
+            <p class="post__detail"><slot name="postDetail">${post.postDetail}</slot></p>
             <div class="post__reactions">
                 <agree-disagree agreeCount=${post.agreeCount} disagreeCount=${post.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
                 <p class="post__reactions__list">
@@ -119,10 +141,11 @@ class theCommunitySection extends HTMLElement {
                 </p>
                 <p class="post__reactions__list">
                     <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-                    <span class="reaction-count">${post.shareCount}</span> Share
+                    <span class="reaction-count"><slot name="shareCount">${post.shareCount}</slot></span> Share
                 </p>
             </div>
-        </article>`);
+        </article>
+        </template>`);
         this.postsContainer.appendChild(postElement);
         this.addEventListenerToPostTitle(postTitleElement, post.postId);
     }

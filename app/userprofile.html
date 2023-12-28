@@ -99,86 +99,114 @@
   
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
-    
+
     .post {
-      padding: 1rem 2rem;
-      margin-bottom: 1.5rem;
-      background-color: #ffffff;
-      border-radius: 0.5rem;
-      border: 1px solid #5555d8;
-  }
-  
-  .post__profile {
-      display: flex;
-      direction: row;
-      align-items: center;
-      margin: 0;
-  }
-  
-  .post__profile__img {
-      width: 2.5rem;
-      padding-right: 1.5rem;
-  }
-  
-  .post__profile__name {
-      font-size: 1.25rem;
-  }
-  
-  .post__profile__time {
-      margin-left: auto;
-      opacity: 0.5;
-  }
-  
-  .post__profile__community {
-      margin-left: auto;
-      opacity: 0.5;
-      font-size: 1rem;
-      text-decoration: none;
-      color: #000000;
-  }
-  
-  hr {
-      opacity: 0.5;
-      margin: 0;
-  }
-  
-  .post__title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s ease-in-out;
-  }
-  
-  .post__title:hover {
-      transform: translateX(0.5rem);
-      color: #5555d8;
-  }
-  
-  .post__detail {
-      font-size: 1rem;
-      text-align: justify;
-  }
-  
-  .post__reactions {
-      display: flex;
-      direction: row;
-      justify-content: flex-start;
-  }
-  
-  .post__list {
-      padding-right: 2.5rem;
-  }
-  
-  .post__list .clicked {
-      background-color: #ffffff;
-      color: #5555d8;
-  }
-  
-  .post__list .reaction-button {
-      border: none;
-      background-color: #ffffff;
-      color: #000000;
-  }
+    padding: 1rem 2rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-main);
+}
+
+@media screen and (max-width: 767px) {
+    .post {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.post__profile {
+    display: flex;
+    direction: row;
+    align-items: center;
+    margin: 0;
+}
+
+.post__profile__img {
+    width: 2.5rem;
+    padding-right: 1.5rem;
+}
+
+@media screen and (max-width: 1023px) {
+    .post__profile__img {
+        width: 1.75rem;
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .post__profile__img {
+        width: 1.5rem;
+        padding-right: 0.75rem;
+    }
+}
+
+.post__profile__name {
+    font-size: var(--desktop-text-medium);
+}
+
+@media screen and (max-width: 1023px) {
+    .post__profile__name {
+        font-size: var(--tablet-text-medium);
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .post__profile__name {
+        font-size: var(--mobile-text-medium);
+    }
+}
+
+hr {
+    opacity: 0.5;
+    margin: 0;
+}
+
+.post__title {
+    font-size: var(--desktop-text-medium);
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 1023px) {
+    .post__title {
+        font-size: var(--tablet-text-medium);
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .post__title {
+        font-size: var(--mobile-text-medium);
+    }
+}
+
+.post__reactions {
+    display: flex;
+    direction: row;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width: 767px) {
+    .post__reactions {
+        font-size: var(--tablet-text-small);
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .post__reactions {
+        font-size: var(--mobile-text-small);
+    }
+}
+
+.post__reactions--hidden {
+    display: none;
+}
+
+@media screen and (max-width: 479px) {
+    .post__reactions--hidden {
+        display: flex;
+    }
+}
      </style>
      <fieldset>
         <slot name="post-template-legend" part="legendPart">
