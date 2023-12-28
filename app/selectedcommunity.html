@@ -19,43 +19,9 @@
 
 </head>
 <body id="selectedcommunity">
-    <header class="main-header">
-        <div class="toggle" id="toggleId">
-            <span class="toggle__line topline"></span>
-            <span class="toggle__line midline"></span>
-            <span class="toggle__line bottomline"></span>
-        </div>
-        <div class="main-header__container1">
-            <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
-            <h2 class="main-header__container1__title">DKS</h2>
-        </div>
-        
-        <form class="main-header__search-bar">
-            <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
-            <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
-        </form>
-        <div class="main-header__container2 main-header__container2--buttons">
-           <!-- <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
-            <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a> -->
-            <button type="button" class="main-header__login-button btn btn--op btn--login" onclick="window.location.href='login.html'">Нэвтрэх</button>
-            <button type="button" class="main-header__signup-button  btn btn--signup">Бүртгүүлэх</button>
-            <i class="fa-regular fa-user main-header__container2__user"></i>
-        </div>
-    </header>
+    <wc-header></wc-header>
     <div class="main-container">
-        <nav class="slide">
-            <h1 class="slide__title">Цэс</h1>
-            <ul class="slide__list">
-                <li class="slide__list__item"><a href="#"><i class="fas fa-tv"></i>dashboard</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-user"></i>profile</a></li>
-                <li class="slide__list__item"><a href="#"><i class="fab fa-gripfire"></i>trending</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-comment"></i>messages</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-folder"></i>file manager</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-address-book"></i>portfolio</a></li>
-                <li class="slide__list__item"><a href="#"><i class="far fa-heart"></i>saved</a></li>
-                <li class="slide__list__item"><a href="#"><i class="fas fa-cogs"></i>settings</a></li>
-            </ul>
-        </nav>
+        <wc-sidebar></wc-sidebar>
         <main>
             <form class="write-post">
                 <img src="/assets/images/profile.png" alt="profile" class="write-post__prof">
@@ -101,10 +67,10 @@
     </div>
 
     <wc-footer></wc-footer>
+    <script type="module" src="./assets/scripts/component/wc-header.js"></script>
     <script type="module" src="./assets/scripts/component/wc-community-section.js"></script>
     <script type="module" src="./assets/scripts/component/wc-agree-disagree.js"></script>
     <script type="module" src="./assets/scripts/component/wc-footer.js"></script>
     <script src="./assets/scripts/modules/pagination.js"></script>
-    <script src="./assets/scripts/modules/sidebar.js"></script>
 </body>
 </html>
