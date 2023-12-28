@@ -1,6 +1,3 @@
-// import WcSidebar from "./wc-sidebar.js";
-// window.customElements.define('wc-sidebar', WcSidebar);
-
 class WcHeader extends HTMLElement {
     constructor() {
         super();
