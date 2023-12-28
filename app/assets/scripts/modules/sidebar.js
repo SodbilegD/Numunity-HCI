@@ -5,8 +5,7 @@ const slideList = document.querySelector(".slide__list");
 const slideItems = document.querySelectorAll(".slide__list__item");
 
 let showMenu = false;
-toggle.addEventListener("click", toggleMenu);
-function toggleMenu() {
+toggle.addEventListener("click", () => {
     if (!showMenu) {
         toggle.classList.add("close");
         slide.classList.add("show");
@@ -28,4 +27,4 @@ function toggleMenu() {
         // Reset the menu state
         showMenu = false;
     }
-}
+});

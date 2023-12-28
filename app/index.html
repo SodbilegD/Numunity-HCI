@@ -42,7 +42,7 @@
         </div>
     </header>
     <div class="main-container">
-        <nav class="slide">
+        <!-- <nav class="slide">
             <h1 class="slide__title">Цэс</h1>
             <ul class="slide__list">
                 <li class="slide__list__item"><a href="#"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
@@ -56,7 +56,8 @@
                 <li class="slide__list__item"><a href="#"><i class="far fa-user"></i>Миний профайл</a></li>
                 <li class="slide__list__item slide__list__item--logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Гарах</a></li>
             </ul>
-        </nav>
+        </nav> -->
+        <wc-sidebar></wc-sidebar>
         <main>
             <form class="write-post">
                 <img src="/assets/images/profile.png" alt="profile" class="write-post__prof">
@@ -153,6 +154,8 @@
     </div>
     <wc-footer></wc-footer>
     <script src="bundled.js"></script>
+    <script type="module" src="./assets/scripts/component/wc-header.js"></script>
+    <script type="module" src="./assets/scripts/component/wc-sidebar.js"></script>
     <script type="module" src="./assets/scripts/component/wc-footer.js"></script>
 </body>
 </html>

@@ -4,16 +4,21 @@ class Community {
     async renderCommunity(req, res) {
         try {
             const communityId = req.body.communityId;
+            const flag = req.body.user;
             const community = await fetchCommunityData('Community', communityId);
-            const user = await fetchCommunityData('User', null)
-            if (!community && !user) {
-                res.status(403).end();
-                return;
+            if(flag !== 1){
+                const user = await fetchCommunityData('User', null)
+                if (!community || !user) {
+                    res.status(403).end();
+                    return;
+                }
+                res.status(200).send({
+                    community: community,
+                    user: user
+                });
             }
             res.status(200).send({
-                result: 'Successful rendering community!',
-                community: community,
-                user: user
+                community: community
             });
         } catch (error) {
             console.error('Error rendering community:', error);

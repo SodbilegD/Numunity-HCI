@@ -138,3 +138,4 @@ class theCommunitySection extends HTMLElement {
 }
 
 window.customElements.define('the-community-section', theCommunitySection);
+export const community = new theCommunitySection();
