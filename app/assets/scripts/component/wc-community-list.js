@@ -22,11 +22,11 @@ class TheCommunityList extends HTMLElement {
         titleElement.textContent = community.communityName;
 
         communityElement.insertAdjacentHTML("beforeend",`
-                <p class="post__profile__community">Дагагчид: ${community.followers.length}</p>
-                <p class="post__profile__community">Нийт пост: ${community.posts.length}</p>
             </div>
             <hr>
             <p class="post__detail">${community.communityAbout}</p>
+            <p class="post__profile__community"><i class="fa-solid fa-users"></i>  Дагагчид: ${community.followers.length}</p>
+            <p class="post__profile__community"><i class="fa-regular fa-comments"></i>  Нийт пост: ${community.posts.length}</p>
             <p class="post__profile__time post__profile__time--down">${community.createdDate}</p>
         `);
         this.communityContainer.appendChild(communityElement);

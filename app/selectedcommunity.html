@@ -13,12 +13,14 @@
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./assets/styles/new css/selectedcommunity.css">
+    <link rel="stylesheet" href="./assets/styles/base/_global.css">
 
 </head>
 <body id="selectedcommunity">
     <header class="main-header">
-        <div class="toggle">
+        <div class="toggle" id="toggleId">
             <span class="toggle__line topline"></span>
             <span class="toggle__line midline"></span>
             <span class="toggle__line bottomline"></span>
@@ -32,47 +34,12 @@
             <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
             <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
         </form>
-        <div class="main-header__container2 main-header__container2--icons">
-
-            <div class="popup-container">
-                <a href="#" id="notif-icon" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
-                <div class="popup">
-                    <h2 class="popup__title">Мэдэгдэл</h2>
-                    <ul class="popup__list">
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                        <li class="popup__list__item"><a href="#">@kkkk_blahkkk хэрэглэгч тантай санал нэгдлээ.</a></li>
-                    </ul>
-                        <a href="#" class="popup__viewmore">Цааш үзэх</a>
-                </div>
-            </div>
-
-            <div class="popup-container">
-                <a href="#" id="myprofile-icon" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a>
-                <div class="popup">
-                    <h2 class="popup__title">Миний профайл</h2>
-                    <img src="/assets/images/profile.png" alt="myprofile">
-                    <ul class="popup__list popup__list--profile">
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-regular fa-folder-open"></i></span>
-                            <a href="#">Хадгалсан</a>
-                        </li>
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-solid fa-gear"></i></span>
-                            <a href="#">Тохиргоо</a>
-                        </li>
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-solid fa-circle-question"></i></span>
-                            <a href="#">Тусламж</a>
-                        </li>
-                        <li class="popup__list__item popup__list__item--profile">
-                            <span class="popup-myprofile__icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-                            <a href="#">Гарах</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="main-header__container2 main-header__container2--buttons">
+           <!-- <a href="#" class="main-header__container2__notif"><i class="fa-regular fa-bell"></i></a>
+            <a href="#" class="main-header__container2__profile"><i class="fa-regular fa-user"></i></a> -->
+            <button type="button" class="main-header__login-button btn btn--op btn--login" onclick="window.location.href='login.html'">Нэвтрэх</button>
+            <button type="button" class="main-header__signup-button  btn btn--signup">Бүртгүүлэх</button>
+            <i class="fa-regular fa-user main-header__container2__user"></i>
         </div>
     </header>
     <div class="main-container">
@@ -95,6 +62,9 @@
                 <textarea class="write-post__status-box" rows="1" placeholder="What's on your mind?" ></textarea>
                 <a href="#" class="write-post__img-icon"><i class="fa-solid fa-image"></i></a>
             </form>
+                <!--<div class="button-group pull-right">
+                    <a href="#" class="btn btn-primary">Post</a>
+                </div>-->
 
             <section class="community">
                 <div id="community"></div>
@@ -133,6 +103,6 @@
     <script type="module" src="./assets/scripts/component/wc-agree-disagree.js"></script>
     <script type="module" src="./assets/scripts/component/wc-footer.js"></script>
     <script src="./assets/scripts/modules/pagination.js"></script>
-    <script type="text/javascript" src="./bundled.js"></script>
+    <script src="./assets/scripts/modules/sidebar.js"></script>
 </body>
 </html>

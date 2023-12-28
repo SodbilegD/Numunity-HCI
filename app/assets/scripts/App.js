@@ -1,7 +1,6 @@
 import '../styles/styles.css';
 import 'lazysizes';
 import './modules/chat.js';
-import './modules/sidebar.js';
 import './modules/dataFetcher.js';
 // import './modules/pagination.js';
 // import './modules/ulrParser.js';
@@ -16,7 +15,7 @@ import './modules/darkmode.js';
 // import './modules/filter.js';
 
 // import './component/template.js';
-// import './session_ram/app.mjs';
+import './session_ram/app.mjs';
 if(module.hot) {
     module.hot.accept();
 }

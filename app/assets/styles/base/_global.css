@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
 :root {
     box-sizing: border-box;
     /* Font size atLarge */
@@ -60,20 +62,14 @@ body {
     color: #333;
     background-color: var(--color-background-white);
     padding: 0 10rem;
-    @mixin atLarge{
+    @media (max-width: 1260px){
         padding: 0 3rem;
     }
-    @mixin atMedium{
+    @media (max-width: 860px){
         padding: 0 1rem;
     }
-    @mixin atSmall{
+    @media (max-width: 693px){
         padding: 0 0.5rem;
-    }
-    @mixin atMedium{
-        padding: 0 3rem;
-    }
-    @mixin atSmall{
-        padding: 0;
     }
 }
 
@@ -86,7 +82,7 @@ body {
 main{
     margin: 0;
     width: 75%;
-    @mixin atLarge{
+    @media (max-width: 1260px){
         width: 100%;
     }
 }
@@ -96,7 +92,7 @@ aside{
     border-radius: 0.5rem;
     padding: 0.5rem;
 
-    @mixin atLarge{
+    @media (max-width: 1260px){
         display: none;
     }
 }
@@ -104,5 +100,3 @@ aside img{
     width:100%;
     margin-bottom: 1.5rem;
 }
-
-
