@@ -10,6 +10,8 @@ class theCommunitySection extends HTMLElement {
 
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+        
+        this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
 
     #render(community) {
@@ -19,8 +21,6 @@ class theCommunitySection extends HTMLElement {
             <h3 class="advertisements__info__title">${community.communityName}</h3>
             <hr>
 
-            
-            theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
             
             
             <p class="advertisements__info__detail">${community.communityAbout}</p>
@@ -87,16 +87,7 @@ class theCommunitySection extends HTMLElement {
     }
     
     #RenderPost(post, user) {       
-          const postTemplate = document.getElementById('post-template');
-          const clone = document.importNode(postTemplate.content, true);
-          clone.querySelector('[slot="userName"]').textContent = user.userName;
-            clone.querySelector('[slot="publishedDate"]').textContent = post.publishedDate;
-            clone.querySelector('[slot="postTitle"]').textContent = post.postTitle;
-            clone.querySelector('[slot="postDetail"]').textContent = post.postDetail;
-            clone.querySelector('[slot="commentCount"]').textContent = post.comments.length;
-            clone.querySelector('[slot="shareCount"]').textContent = post.shareCount;
-            this.postsContainer.appendChild(clone);
-
+        
         var postElement = document.createElement('article');
         postElement.classList.add('post');
         postElement.id = `recentPost_${post.postId}`;
@@ -118,7 +109,17 @@ class theCommunitySection extends HTMLElement {
             postTitleElement.classList.add('post__title');
             postTitleElement.textContent = post.postTitle;
 
-
+            
+            const postTemplate = document.getElementById('post-template');
+            const clone = document.importNode(postTemplate.content, true);
+            clone.querySelector('[slot="userName"]').textContent = user.userName;
+            clone.querySelector('[slot="publishedDate"]').textContent = post.publishedDate;
+            clone.querySelector('[slot="postTitle"]').textContent = post.postTitle;
+            clone.querySelector('[slot="postDetail"]').textContent = post.postDetail;
+            clone.querySelector('[slot="commentCount"]').textContent = post.comments.length;
+            clone.querySelector('[slot="shareCount"]').textContent = post.shareCount;
+            this.postsContainer.appendChild(clone);
+    
 
             postElement.insertAdjacentHTML("beforeend",`
             
