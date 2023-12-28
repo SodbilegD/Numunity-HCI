@@ -19,7 +19,6 @@
   "version": "1.0.0",
   "main": "./app.mjs",
   "scripts": {
-    "dev": "webpack-dev-server",
     "document": "node ./app.mjs",
     "start": "node ./app/assets/scripts/session_ram/app.mjs",
     "build": "webpack"
