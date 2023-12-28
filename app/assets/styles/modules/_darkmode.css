@@ -39,7 +39,18 @@
     --color-hbg: #5555d8;
     --color-hfg: #ffffff;
  }
- 
+ :root {
+    /* background colors */
+    --background-color: #fff;
+    --color: #000;}
+
+ &__card {
+    background-color: var(--background-color);
+    color: var(--text-color);
+ }
+
+
+
  .darktheme{
     border-radius: 2rem;
     border: none;
