@@ -11,7 +11,7 @@ customElements.define('post-template',
       const shadowRoot = this.attachShadow({mode: 'open'});
       shadowRoot.appendChild(starRating.cloneNode(true));
   }
-});  
+});
   // let template = document.getElementById("post-template");
   // let templateContent = template.content;
   // document.body.appendChild(templateContent);

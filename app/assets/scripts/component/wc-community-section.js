@@ -1,5 +1,5 @@
 // import { fetchData } from "../modules/dataFetcher.js";
-
+//advertisements deer bairlah ali ng community medeelliig haruulah hsg
 class theCommunitySection extends HTMLElement {
     constructor() {
         super();
@@ -18,6 +18,11 @@ class theCommunitySection extends HTMLElement {
         document.getElementById("community-detail").insertAdjacentHTML('afterbegin', `
             <h3 class="advertisements__info__title">${community.communityName}</h3>
             <hr>
+
+            
+            theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
+            
+            
             <p class="advertisements__info__detail">${community.communityAbout}</p>
             <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: ${community.createdDate}</p>
             <div class="advertisements__info__container">
@@ -88,7 +93,12 @@ class theCommunitySection extends HTMLElement {
         postElement.id = `recentPost_${post.postId}`;
         postElement.insertAdjacentHTML("afterbegin", `
         
-            <div class="post__profile">
+        // testing some dark mode thing
+        theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
+        
+        
+        
+        <div class="post__profile">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${user.userName}</p>
                 <p class="post__profile__time">${post.publishedDate}</p>
