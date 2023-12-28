@@ -1,0 +1,4 @@
+/*    "dev": "webpack --mode development",
+    "watch": "webpack --watch",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open"*/

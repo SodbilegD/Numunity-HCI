@@ -1,0 +1,298 @@
+.main-header{
+    margin: 0.75rem 0;
+    background-color: var(--color-white);
+    color: var(--color-main);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    
+    @mixin atMedium{
+      padding: 0 1rem;
+    }    
+    
+    &__container1{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;        
+
+      @mixin atMedium{
+        padding: 0 1rem;
+      }
+
+      &__logo{
+        width: 2rem;
+        height: 2rem;
+        @mixin atMedium{
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+        @mixin atSmall{
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+      &__title{
+        font-size: var(--desktop-text-medium);
+        
+        @mixin atMedium{
+          font-size: var(--tablet-text-medium);
+        }
+
+        @mixin atSmall{
+          font-size: var(--mobile-text-medium);
+        }
+
+      }
+    }
+    
+    &__search-bar {
+      display: flex;
+      align-items: center;
+      width: calc(100%/3);
+      padding: 0.25rem 1.25rem;
+      border-radius: 1.25rem;
+      background-color: var(--color-background-white); 
+
+      @mixin atSmall{
+        width: 0;
+        padding: 0;
+        margin: 0;
+      }
+    }
+      
+    &__search-field {
+      width: 100%;
+      padding: 0.25rem;
+      margin: 0 0.5rem;
+      border: none;
+      background-color: transparent;
+
+      @mixin atSmall{
+        display: none;
+      }
+    }
+
+    &__search-field:focus{
+      outline: none;
+    }
+
+    &__search-field::placeholder{
+      font-size: var(--desktop-text-small);
+      color: var(--color-main);
+
+      @mixin atMedium{
+        font-size: var(--tablet-text-small);
+      }    
+    }
+
+    &__container2{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      color: var(--color-main);
+      
+      &--icons{
+        
+        @mixin atMedium{
+          gap: 2rem;
+        }
+
+        @mixin atSmall{
+          gap: 1rem;
+        }
+      }
+
+      &--buttons{
+        gap: 1rem;
+      }
+
+      &__notif,
+      &__profile {
+        text-decoration: none;
+        font-size: 1.25rem;
+        color: var(--color-main);
+      }
+
+      &__user{
+        display: none;
+        
+        @mixin atSmall{
+          display: flex;
+        }
+      }
+    }
+  }
+
+
+/*sidebar ehlel*/
+
+.slide{
+  width: 15rem;
+  background-color: var(--color-white);
+  transition: 0.5s ease;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: none;
+
+  @mixin atMedium{
+    width: 9rem;
+    padding: 0.5rem;
+  }
+
+  @mixin atSmall{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__title{
+    color: var(--color-black);
+    font-size: var(--desktop-text-medium);
+    text-align: center;
+    
+    @mixin atMedium{
+      font-size: var(--tablet-text-medium);
+    }
+    @mixin atSmall{
+      padding-top: 3rem;
+      text-align: center;
+    }
+  }
+
+  &__list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+
+    &__item{
+      list-style: none;
+      margin: 0;
+      padding: 2rem 1rem 0 1rem ;
+      font-size: var(--desktop-text-small);
+
+      &--logout{
+        margin-top: 25rem;
+        margin-bottom: 0;
+      }
+      
+      @mixin atMedium{
+        font-size: var(--tablet-text-small);
+      }
+
+      @mixin atSmall{
+        padding: 1rem 2rem;
+      }
+    }
+
+    &__item a{
+      text-transform: capitalize;
+      text-decoration: none;
+      color: var(--color-black);
+      
+    }
+    &__item:hover{
+      transform: translateX(1.5rem);
+
+      @mixin atMedium{
+        transform: translateX(0.75rem);
+      }
+    }
+    &__item:hover a{
+      color: var(--color-main);
+      font-weight: 700;
+    }
+    &__item i{
+      padding-right: 1rem;
+
+      @mixin atMedium{
+        padding-right: 0.3rem;
+      }
+    }
+
+    &__subitem{
+      list-style: none;
+      margin: 0;
+      padding: 1rem 0 0 0 ;
+      font-size: var(--desktop-text-small);
+    }
+  }
+}
+
+.slide.show{
+  display: block;
+}
+
+
+.toggle{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+
+  @mixin atMedium{
+    gap: 0.2rem;
+  }
+  @mixin atSmall{
+    z-index: 2;
+    gap: 0.15rem;
+  }
+
+  &__line{
+    height: 0.2rem;
+    width: 1.5rem;
+    background-color: var(--color-main);
+    transition: all 0.3s ease-out;
+
+    @mixin atMedium{
+      height: 0.15rem;
+      width: 1.2rem;
+    }
+    @mixin atSmall{
+      height: 0.15rem;
+      width: 1rem;
+    }
+  }
+}
+
+.toggle.close{
+  transform: rotate(180deg);
+  
+  .topline{
+    transform: rotate(45deg) translate(0.3rem, 0.3rem);
+
+    @mixin atMedium{
+      transform: rotate(45deg) translate(0.2rem, 0.2rem);
+    }
+    
+    @mixin atSmall{
+      transform: rotate(45deg) translate(0.175rem, 0.175rem);
+    }
+  }
+  .midline{
+    opacity: 0;
+  }
+  .bottomline{
+    transform: rotate(-45deg) translate(0.4rem, -0.4rem);
+
+    @mixin atMedium{
+      transform: rotate(-45deg) translate(0.3rem, -0.3rem);
+    }
+
+    @mixin atSmall{
+      transform: rotate(-45deg) translate(0.25rem, -0.25rem);
+    }
+  }
+  
+}
+
+
+
+/*Sidebar heseg end duusna*/
