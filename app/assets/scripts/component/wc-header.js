@@ -1,3 +1,6 @@
+// import WcSidebar from "./wc-sidebar.js";
+// window.customElements.define('wc-sidebar', WcSidebar);
+
 class WcHeader extends HTMLElement {
     constructor() {
         super();
@@ -7,7 +10,7 @@ class WcHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <header class="main-header">
-                <div class="toggle">
+                <div class="toggle" id="hamburger-toggle">
                     <span class="toggle__line topline"></span>
                     <span class="toggle__line midline"></span>
                     <span class="toggle__line bottomline"></span>
@@ -27,6 +30,11 @@ class WcHeader extends HTMLElement {
                 </div>
             </header>
         `;
+
+        const toggle = this.querySelector("#hamburger-toggle");
+        toggle.addEventListener("click", () => {
+            this.dispatchEvent(new CustomEvent("toggleSidebar"));
+        });
     }
 
     disconnectedCallback() {

@@ -12,7 +12,7 @@ class WcFooter extends HTMLElement {
                     <li><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                     <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
                     <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
-                    <li><a href="community.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
+                    <li><a href="profile.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
                 </ul>
             </div>
             <div class="footer__copyright">
