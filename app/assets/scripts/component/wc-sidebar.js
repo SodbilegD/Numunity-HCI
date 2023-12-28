@@ -1,3 +1,4 @@
+//Sidebar component
 class WcSidebar extends HTMLElement {
     constructor() {
         super();

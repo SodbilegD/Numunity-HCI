@@ -1,4 +1,4 @@
-import db_user from "../db/db_user.mjs";
+import db_user from "../session_db/db/db_user.mjs";
 
 class User { 
     constructor() { 
@@ -53,6 +53,7 @@ class User {
             result: "OK",
             username: dbUser[0].fullname
         });
+
     }
 }
 

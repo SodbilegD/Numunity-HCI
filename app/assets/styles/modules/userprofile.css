@@ -1,41 +1,5 @@
-.community{
-    display: flex;
-    direction: row;
-    align-items: center;
-    margin: 1.5rem 0;
 
-    @mixin atMedium{
-        margin: 0.5rem;
-    }
 
-    &x_name{
-        font-size: var(--desktop-text-large);
-        @mixin atMedium{
-            font-size: var(--tablet-text-medium);
-        }
-    }
-
-    &__join-button{
-        margin-left: 1rem;
-        margin-right: auto;
-        @mixin atSmall{
-            margin-left: 0.5rem;
-        }
-    }
-
-    &__join-button::before{
-        content: "нэгдэх";
-        @mixin atSmall{
-            content: "+";
-        }
-    }
-    &__trending-button{
-        margin-left: 1rem;
-        @mixin atSmall{
-            margin-left: 0.25rem;
-        }
-    }
-}
 
 .advertisements{
     margin: 0;

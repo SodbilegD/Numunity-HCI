@@ -1,3 +1,4 @@
+//footer compo
 class WcFooter extends HTMLElement {
     constructor() {
         super();
@@ -10,7 +11,7 @@ class WcFooter extends HTMLElement {
                 <h3>Цэс:</h3>
                 <ul>
                     <li><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
-                    <li><a href="discussion.html"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг</a></li>
+                    <li><a href="discussion.html"><i class="fa-so lid fa-comments"></i>Хэлэлцүүлэг</a></li>
                     <li><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Чат өрөө</a></li>
                     <li><a href="profile.html"><i class="fa-solid fa-user"></i>Миний профайл</a></li>
                 </ul>
