@@ -66,6 +66,7 @@ class theCommunitySection extends HTMLElement {
         const currentDate = new Date();
         const filteredNew = this.posts.filter(post =>
         Date.parse(post.publishedDate) > currentDate - 7);
+    
         this.renderPosts(filteredNew);
     }
 
@@ -78,29 +79,8 @@ class theCommunitySection extends HTMLElement {
         });
     }
     
-    #RenderPost(post, user) {
-        
-        function timeAgo(input) {
-        const date = (input instanceof Date) ? input : new Date(input);
-        const formatter = new Intl.RelativeTimeFormat('en');
-        const ranges = {
-            years: 3600 * 24 * 365,
-            months: 3600 * 24 * 30,
-            weeks: 3600 * 24 * 7,
-            days: 3600 * 24,
-            hours: 3600,
-            minutes: 60,
-            seconds: 1
-        };
-        const secondsElapsed = (date.getTime() - Date.now()) / 1000;
-        for (let key in ranges) {
-            if (ranges[key] < Math.abs(secondsElapsed)) {
-            const delta = secondsElapsed / ranges[key];
-            return formatter.format(Math.round(delta), key);
-            }
-        }
-        } 
-        post.timeAgo = timeAgo(Date.parse(post.publishedDate));
+    #RenderPost(post, user) {        
+
         var postElement = document.createElement('article');
         postElement.classList.add('post');
         postElement.id = `recentPost_${post.postId}`;
@@ -109,7 +89,7 @@ class theCommunitySection extends HTMLElement {
             <div class="post__profile">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${user.userName}</p>
-                <p class="post__profile__time">${post.timeAgo}</p>
+                <p class="post__profile__time">${post.publishedDate}</p>
             </div>
             <hr>`);
             var postTitleElement = document.createElement('h3');

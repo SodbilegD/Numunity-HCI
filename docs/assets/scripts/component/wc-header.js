@@ -1,4 +1,3 @@
-// import { getUserFromCoockie } from "../session_ram/login.mjs"
 class WcHeader extends HTMLElement {
     constructor() {
         super();
@@ -24,7 +23,6 @@ class WcHeader extends HTMLElement {
                 <div class="main-header__container2 main-header__container2--buttons" id="header-button">
                     <button type="button" class="main-header__login-button btn btn--op btn--login" onclick="window.location.href='login.html'">Нэвтрэх</button>
                     <button type="button" class="main-header__signup-button  btn btn--signup">Бүртгүүлэх</button>
-                    <!--<button type="button" class="main-header__login-button btn btn--op btn--login" onclick="logout()">Гарах</button>-->
                     <i class="fa-regular fa-user main-header__container2__user"></i>
                 </div>
             </header>
@@ -34,13 +32,6 @@ class WcHeader extends HTMLElement {
         toggle.addEventListener("click", () => {
             this.dispatchEvent(new CustomEvent("toggleSidebar"));
         });
-        // if(document.cookie !== null){
-        //     const header = document.getElementById("header-button");
-        //     header.classList.add("main-header__container2__user");
-        //     header.classList.add("main-header__logout-button");
-        //     header.classList.remove("main-header__login-button");
-        //     header.classList.remove("main-header__signup-button");
-        // }
     }
 
     disconnectedCallback() {
