@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+:root {
+    box-sizing: border-box;
+    /* Font size atLarge */
+    --desktop-text-xsmall: 0.8rem;
+    --desktop-text-small: 1rem;
+    --desktop-text-medium: 1.25rem;
+    --desktop-text-mid: 1.5rem;
+    --desktop-text-large: 1.75rem;
+    --desktop-text-xlarge: 3rem;
+
+    /* Font size atMedium */
+    --tablet-text-xsmall: 0.6rem;
+    --tablet-text-small: 0.75rem;
+    --tablet-text-medium: 1rem;
+    --tablet-text-mid: 1.25rem;
+    --tablet-text-large: 1.5rem;
+    --tablet-text-xlarge: 1.75rem;
+
+    /* Font size atSmall */
+    --mobile-text-xsmall: 0.4rem;
+    --mobile-text-small: 0.6rem;
+    --mobile-text-medium: 0.8rem;
+    --mobile-text-mid: 1rem;
+    --mobile-text-large: 1.25rem;
+    --mobile-text-xlarge: 1.5rem;
+
+    /* Colors*/
+    --color-main: #5555d8;
+    --color-main-30: rgba(#5555d8, 0.3);
+    --color-background-white: #F5F5FA;
+    --color-background-black: #333333;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-light-grey: #d9d9d9;
+    --color-dark-grey: #3f3f3f;
+    --color-badge: #123123;
+
+    /* transition time */
+    --global-transition-time:  ease-in-out;
+
+    --transition: all 0.2s ease;
+    
+
+
+    /* darktheme colors
+
+        --color-white-lightmode: #fff;
+        --color-black-lightmode: #000;
+        --color-bg-lightmode: #e2e2e2;
+
+      
+      /* .dark-mode  */
+        /* --color-white-darkmode: #000;
+        --color-black-darkmode: #fff;
+        --color-bg-darkmode: #1d1b31; */ 
+
+}
+body {
+    font-family: 'Comfortaa', cursive;
+    color: #333;
+    background-color: var(--color-background-white);
+    padding: 0 10rem;
+    @media (max-width: 1260px){
+        padding: 0 3rem;
+    }
+    @media (max-width: 860px){
+        padding: 0 1rem;
+    }
+    @media (max-width: 693px){
+        padding: 0 0.5rem;
+    }
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+main{
+    margin: 0;
+    width: 75%;
+    @media (max-width: 1260px){
+        width: 100%;
+    }
+}
+aside{
+    width: 25%;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+
+    @media (max-width: 1260px){
+        display: none;
+    }
+}
+aside img{
+    width:100%;
+    margin-bottom: 1.5rem;
+}

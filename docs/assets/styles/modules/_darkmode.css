@@ -1,0 +1,105 @@
+[data-theme="light"] {
+    /* background-color: */
+    --color-bg: #F5F5FA;
+    --color-fg: #18191a;
+    /* search bar color */
+    --color-sbg: #ffffff;
+    --color-sfg: #3f3f3f;
+    /* post color */
+    --color-pfg: #ffffff;
+    --color-pbg: #3a3b3c;
+    /* border */
+    --color-borderfg:#5555d8;
+    --color-borderbg: none;
+    /* post profile ard taliin >>lorem */
+    --color-cfg: #3f3f3f;
+    --color-cbg: #ffffff;
+    /* search ugnii ungu kekw :(( */
+    --color-hfg: #5555d8;
+    --color-hbg: #ffffff;
+}
+ 
+ [data-theme="dark"] {
+    /* background-color */
+    --color-bg: #18191a;
+    --color-fg: #F5F5FA;
+      /* search bar color */
+      --color-sfg: #ffffff;
+      --color-sbg: #3f3f3f;
+      /* post color */
+      --color-pbg: #ffffff;
+      --color-pfg: #3a3b3c;
+      /* border */
+      --color-borderbg:#5555d8;
+      --color-borderfg: none;
+      /* post profile ard taliin >>lorem */
+    --color-cbg: #3f3f3f;
+    --color-cfg: #ffffff;
+    /* search ugnii ungu kekw :(( */
+    --color-hbg: #5555d8;
+    --color-hfg: #ffffff;
+ }
+ 
+ .darktheme{
+    border-radius: 2rem;
+    border: none;
+
+    background-color: var(--color-main);
+    color: var(--color-white);
+ }
+ body {
+   color: var(--color-bg);
+   background-color: var(--color-fg);
+ }
+ .slide{
+    color: var(--color-pfg);
+    background-color: var(--color-pbg);
+    ul{
+        color: var(--color-pfg);
+        background-color: var(--color-pbg);
+    }
+}
+ .main-header{
+    color: var(--color-sbg);
+    background-color: var(--color-sfg);
+  }
+  .main-header__search-bar{
+    color: var(--color-sbg);
+    background-color: var(--color-sfg);
+}
+/* label{
+    color: var(--color-hbg);
+    background-color: var(--color-hfg);
+} */
+.write-post{
+    color: var(--color-pfg);
+    background-color: var(--color-pbg);
+}
+.write-post__status-box{
+    color: var(--color-pfg);
+    background-color: var(--color-pbg);
+}
+.post-section__category__view-more{
+    color: var(--color-bg);
+    background-color: var(--color-fg);
+}
+.post{
+    color: var(--color-pfg);
+    background-color: var(--color-pbg);
+}
+.post__profile__community{
+    color: var(--color-cbg);
+    background-color: var(--color-cfg);
+}
+.advertisements{
+    color: var(--color-bg);
+    background-color: var(--color-fg);
+}
+.footer{
+    color: var(--color-pfg);
+    background-color: var(--color-pbg);
+ } 
+ul li a{
+    color: var(--color-sfg);
+    color: var(--color-sbg);
+ }
