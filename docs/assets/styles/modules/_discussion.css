@@ -1,18 +1,16 @@
-.sub-container1 {
+.sub-container1{
     display: flex;
     flex-direction: row;
     gap: 0;
 }
 
-.post-reactions {
+.post-reactions{
     display: flex;
     flex-direction: column;
     margin: 2rem 1rem 2rem 0;
     gap: 2rem;
-}
 
-@media (max-width: 576px) {
-    .post-reactions {
+    @mixin atSmall{
         display: none;
     }
     &__icon{
@@ -33,23 +31,21 @@
     }
 }
 
-.sub-container2 {
+.sub-container2{
     margin: 0;
 }
 
-.write-comment {
+.write-comment{
     display: flex;
     flex-direction: column;
     background-color: var(--color-white);
     padding: 1rem 2rem;
     border: 1px solid var(--color-main);
     border-radius: 0.5rem;
-}
 
     @mixin atMedium{
         padding: 0.5rem 1rem;
     }
-}
 
     &__input{
         width: 100%;
@@ -81,12 +77,10 @@
     background-color: var(--color-white);
     margin-top: 2rem;
     text-align: center;
-}
 
     @mixin atMedium{
         padding: 0.5rem 1rem;
     }
-}
 
     &__filter{
         display: flex;
@@ -102,11 +96,11 @@
                 font-size: var(--tablet-text-small);
             }
 
-@media (max-width: 576px) {
-    .post-comments__filter__total {
-        font-size: var(--mobile-text-small);
-    }
-}
+            @mixin atSmall{
+                font-size: var(--mobile-text-small);
+            }
+            
+        }
 
         &__new-button,
         &__trending-button{
@@ -120,12 +114,10 @@
         font-size: var(--desktop-text-xsmall);
         padding: 2rem 1rem 1rem 1rem;
 
-@media (min-width: 768px) {
-    .post-comments__view-more {
-        padding: 1rem;
-        font-size: var(--tablet-text-small);
-    }
-}
+        @mixin atMedium{
+            padding: 1rem;
+            font-size: var(--tablet-text-small);
+        }
 
         @mixin atMedium{
             font-size: var(--mobile-text-small);
@@ -135,13 +127,10 @@
 
 .single-comment{
     padding: 1rem 0;
-}
 
-@media (min-width: 768px) {
-    .single-comment {
+    @mixin atMedium{
         padding: 0.5rem 0;
     }
-}
 
     &__profile{
         display: flex;
@@ -152,12 +141,10 @@
             width: 2rem;
             margin-right: 1rem;
 
-@media (min-width: 768px) {
-    .single-comment__profile__img {
-        width: 1.75rem;
-        margin-right: 0.75rem;
-    }
-}
+            @mixin atMedium{
+                width: 1.75rem;
+                margin-right: 0.75rem;
+            }
 
             @mixin atSmall{
                 width: 1.5rem;
@@ -181,17 +168,13 @@
         text-align: justify;
         margin: 0;
 
-@media (min-width: 768px) {
-    .single-comment__detail {
-        font-size: var(--tablet-text-small);
+        @mixin atMedium{
+            font-size: var(--tablet-text-small);
+        }
+        @mixin atSmall{
+            font-size: var(--mobile-text-small);
+        }
     }
-}
-
-@media (max-width: 576px) {
-    .single-comment__detail {
-        font-size: var(--mobile-text-small);
-    }
-}
 
     &__reactions{
         display: flex;

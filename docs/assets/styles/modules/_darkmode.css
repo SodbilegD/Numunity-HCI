@@ -65,7 +65,7 @@
   }
   .main-header__search-bar{
     color: var(--color-sbg);
-    background-color: var(--color-sfg); 
+    background-color: var(--color-sfg);
 }
 /* label{
     color: var(--color-hbg);
@@ -103,25 +103,3 @@ ul li a{
     color: var(--color-sfg);
     color: var(--color-sbg);
  }
-
- @media (prefers-color-scheme: dark) {
-    html {
-        --color-bg: #18191a;
-        --color-fg: #F5F5FA;
-          /* search bar color */
-          --color-sfg: #ffffff;
-          --color-sbg: #3f3f3f;
-          /* post color */
-          --color-pbg: #ffffff;
-          --color-pfg: #3a3b3c;
-          /* border */
-          --color-borderbg:#5555d8;
-          --color-borderfg: none;
-          /* post profile ard taliin >>lorem */
-        --color-cbg: #3f3f3f;
-        --color-cfg: #ffffff;
-        /* search ugnii ungu kekw :(( */
-        --color-hbg: #5555d8;
-        --color-hfg: #ffffff;
-    }
-}

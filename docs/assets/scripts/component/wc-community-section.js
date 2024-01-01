@@ -1,5 +1,3 @@
-// import { fetchData } from "../modules/dataFetcher.js";
-//advertisements deer bairlah ali ng community medeelliig haruulah hsg
 class theCommunitySection extends HTMLElement {
     constructor() {
         super();
@@ -10,8 +8,6 @@ class theCommunitySection extends HTMLElement {
 
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
-        
-        this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
 
     #render(community) {
@@ -20,9 +16,6 @@ class theCommunitySection extends HTMLElement {
         document.getElementById("community-detail").insertAdjacentHTML('afterbegin', `
             <h3 class="advertisements__info__title">${community.communityName}</h3>
             <hr>
-
-            
-            
             <p class="advertisements__info__detail">${community.communityAbout}</p>
             <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: ${community.createdDate}</p>
             <div class="advertisements__info__container">
@@ -73,6 +66,7 @@ class theCommunitySection extends HTMLElement {
         const currentDate = new Date();
         const filteredNew = this.posts.filter(post =>
         Date.parse(post.publishedDate) > currentDate - 7);
+    
         this.renderPosts(filteredNew);
     }
 
@@ -85,43 +79,17 @@ class theCommunitySection extends HTMLElement {
         });
     }
     
-    #RenderPost(post, user) {
-        
-        function timeAgo(input) {
-        const date = (input instanceof Date) ? input : new Date(input);
-        const formatter = new Intl.RelativeTimeFormat('en');
-        const ranges = {
-            years: 3600 * 24 * 365,
-            months: 3600 * 24 * 30,
-            weeks: 3600 * 24 * 7,
-            days: 3600 * 24,
-            hours: 3600,
-            minutes: 60,
-            seconds: 1
-        };
-        const secondsElapsed = (date.getTime() - Date.now()) / 1000;
-        for (let key in ranges) {
-            if (ranges[key] < Math.abs(secondsElapsed)) {
-            const delta = secondsElapsed / ranges[key];
-            return formatter.format(Math.round(delta), key);
-            }
-        }
-        } 
-        post.timeAgo = timeAgo(Date.parse(post.publishedDate));
+    #RenderPost(post, user) {        
+
         var postElement = document.createElement('article');
         postElement.classList.add('post');
         postElement.id = `recentPost_${post.postId}`;
         postElement.insertAdjacentHTML("afterbegin", `
         
-        // testing some dark mode thing
-        theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
-        
-        
-        
-        <div class="post__profile">
+            <div class="post__profile">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${user.userName}</p>
-                <p class="post__profile__time">${post.timeAgo}</p>
+                <p class="post__profile__time">${post.publishedDate}</p>
             </div>
             <hr>`);
             var postTitleElement = document.createElement('h3');
@@ -129,31 +97,8 @@ class theCommunitySection extends HTMLElement {
             postTitleElement.classList.add('post__title');
             postTitleElement.textContent = post.postTitle;
 
-            
-            const postTemplate = document.getElementById('post-template');
-            const clone = document.importNode(postTemplate.content, true);
-            clone.querySelector('[slot="userName"]').textContent = user.userName;
-            clone.querySelector('[slot="publishedDate"]').textContent = post.publishedDate;
-            clone.querySelector('[slot="postTitle"]').textContent = post.postTitle;
-            clone.querySelector('[slot="postDetail"]').textContent = post.postDetail;
-            clone.querySelector('[slot="commentCount"]').textContent = post.comments.length;
-            clone.querySelector('[slot="shareCount"]').textContent = post.shareCount;
-            this.postsContainer.appendChild(clone);
-    
-
             postElement.insertAdjacentHTML("beforeend",`
-            
-            <template id="post-template">
-            <article class="post">
-              <div class="post__profile">
-                <img class="post__profile__img" alt="profile" src="" />
-                <p class="post__profile__name"><slot name="userName"></slot></p>
-                <p class="post__profile__time"><slot name="publishedDate"></slot></p>
-              </div>
-              <hr />
-              <h3 class="post__title"><slot name="postTitle"></slot></h3>
-
-            <p class="post__detail"><slot name="postDetail">${post.postDetail}</slot></p>
+            <p class="post__detail">${post.postDetail}</p>
             <div class="post__reactions">
                 <agree-disagree agreeCount=${post.agreeCount} disagreeCount=${post.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
                 <p class="post__reactions__list">
@@ -162,11 +107,10 @@ class theCommunitySection extends HTMLElement {
                 </p>
                 <p class="post__reactions__list">
                     <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-                    <span class="reaction-count"><slot name="shareCount">${post.shareCount}</slot></span> Share
+                    <span class="reaction-count">${post.shareCount}</span> Share
                 </p>
             </div>
-        </article>
-        </template>`);
+        </article>`);
         this.postsContainer.appendChild(postElement);
         this.addEventListenerToPostTitle(postTitleElement, post.postId);
     }
