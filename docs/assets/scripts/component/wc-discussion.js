@@ -1,15 +1,13 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 // import { sendDataToJsonBin } from "../modules/dataFetcher.js";
 
-//post-comment tag. discussion dr ashiglaj bga
-
 class PostComment extends HTMLElement {
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
         this.commentsContainer = document.getElementById("comments-container");
         this.commentCounter = document.getElementById("total-comments");
-         
+    
         this.trendCommentButton = document.getElementById("comment-trend-filter");
         this.trendCommentButton.addEventListener("click", this.filterTrend.bind(this));
 
@@ -49,68 +47,66 @@ class PostComment extends HTMLElement {
         }
     }
 
-    filterTrend() {
-        const currentDate = new Date();
-        const filteredTrend = this.posts.filter(post =>
-            Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
-        );
-    
-        this.renderPosts(filteredTrend);
-    }
-    
-    filterNew() {
-        const currentDate = new Date();
-        const filteredNew = this.posts.filter(post =>
-        Date.parse(post.publishedDate) > currentDate - 7);
-        this.renderPosts(filteredNew);
-    }
+    // async connectedCallback() {
+    //     await this.fetchData();
+    //     this.renderSinglePost(this.post);
+    //     this.renderComments(this.comments);
+    // }
 
-    renderPosts(posts) {
-        this.postsContainer.innerHTML = "";
-        posts.forEach(post => {
-            const userId = post.user;
+    // async fetchData() {
+    //     this.jsondata = await fetchData();
+    //     const currentUrl = new URL(window.location.href);
+    //     const communityId = currentUrl.searchParams.get('communityId');
+    //     const postsId = currentUrl.searchParams.get('postId');
+        
+    //     this.community = this.jsondata.record.community[communityId - 1];
+    //     console.log(this.community);
+    //     this.posts = this.community.posts;
+    //     this.post = this.posts.find(post => post.postId == postsId);
+    //     this.comments = this.post.comments || [];
+    // }
+
+    renderComments(comments) {
+        this.commentsContainer.innerHTML = "";
+        comments.forEach(comment => { 
+            const userId = comment.user;
             const user = this.users.find(user => user.userId === parseInt(userId));
             this.#render(comment, user)
         });
+        this.commentCounter.innerHTML = this.comments.length;
     }
-    
-    #RenderPost(post, user) {
+
+    #render(comment, user){
+        this.commentPublishedDate = comment.publishedDate;
         
-        function timeAgo(input) {
-        const date = (input instanceof Date) ? input : new Date(input);
-        const formatter = new Intl.RelativeTimeFormat('en');
-        const ranges = {
-            years: 3600 * 24 * 365,
-            months: 3600 * 24 * 30,
-            weeks: 3600 * 24 * 7,
-            days: 3600 * 24,
-            hours: 3600,
-            minutes: 60,
-            seconds: 1
-        };
-        const secondsElapsed = (date.getTime() - Date.now()) / 1000;
-        for (let key in ranges) {
-            if (ranges[key] < Math.abs(secondsElapsed)) {
-            const delta = secondsElapsed / ranges[key];
-            return formatter.format(Math.round(delta), key);
-            }
-        }
-        } 
-        post.timeAgo = timeAgo(Date.parse(post.publishedDate));
-        var postElement = document.createElement('article');
-        postElement.classList.add('post');
-        postElement.id = `recentPost_${post.postId}`;
-        postElement.insertAdjacentHTML("afterbegin", `
-        
-        // testing some dark mode thing
-        theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
-        
-        
-        
-        <div class="post__profile">
+        var commentElement = document.createElement('div');
+        commentElement.classList.add('single-comment');
+        commentElement.id = `single-comment_${(comment.commentId)}`;
+
+        commentElement.insertAdjacentHTML("afterbegin",
+        `<div class="single-comment__profile">
+                <img src="${user.profImg}" alt="profile" class="single-comment__profile__img">
+                <p class="single-comment__profile__name">${user.userName}</p>
+            </div>
+            <p class="single-comment__detail">${comment.body}</p>
+
+            <div class="single-comment__reactions">
+                <agree-disagree agreeCount=${comment.agreeCount} disagreeCount=${comment.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>                                                           
+                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
+            </div>`);
+        this.commentsContainer.appendChild(commentElement);        
+    }
+
+    renderSinglePost(post) {
+        const userId = post.user;
+        const user = this.users.find(user => user.userId === parseInt(userId));
+
+        this.postsContainer.innerHTML = `
+        <article class="post" id="recentPost_${post.postId}">
+            <div class="post__profile" id="posts-container">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${user.userName}</p>
-                <p class="post__profile__time">${post.timeAgo}</p>
+                <a href="selectedcommunity.html?communityId=${this.community.communityId}" class="post__profile__community">>>${this.community.communityName}</a>
             </div>
             <hr>
             <h1 class="post__title">${post.postTitle}</h1>
@@ -192,6 +188,33 @@ class PostComment extends HTMLElement {
             this.renderComments(this.comments);
             commentInput.value = "";
         };}
+
+    
+    // async handleSendComment() {
+    //     const commentInput = document.getElementById("comment-input");
+    //     const newCommentText = commentInput.value.trim();
+    
+    //     if (newCommentText !== "") {
+    //         const newComment = {
+    //             id: this.commentCounter.innerHTML,
+    //             body: newCommentText,
+    //             user: {
+    //                 id: 999,
+    //                 username: "comment writer",
+    //                 profileImage: "/assets/images/profile.png"
+    //             },
+    //             publishedDate: new Date().toISOString(),
+    //         };
+    
+    //         this.comments.push(newComment);
+    
+    //         this.renderComments(this.comments);
+    
+    //         commentInput.value = "";
+    //         await sendDataToJsonBin(this.jsondata.record);
+    //     }
+    // }
+    
 
     disconnectedCallback() {
         //implementation

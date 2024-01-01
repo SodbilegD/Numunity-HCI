@@ -1,0 +1,37 @@
+.btn{
+    background-color: var(--color-main);
+    color: var(--color-white);
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-main);
+    border-radius: 2rem;
+    font-size: var(--desktop-text-small);
+    &--op {
+        background-color: var(--color-white);
+        color: var(--color-main);
+    }
+    @mixin atMedium{
+        font-size: var(--tablet-text-small);
+        padding: 0.4rem 0.8rem;
+    }
+
+    @mixin atSmall{
+        font-size: var(--mobile-text-small);
+        padding: 0.25rem 0.75rem;
+    }
+
+    &--login,
+    &--signup{
+        @mixin atSmall{
+            display: none;
+        }
+    }
+}
+.btn:hover{
+    color: var(--color-main);
+    background-color: var(--color-background-white);
+}
+
+.btn--op:hover{
+    background-color: var(--color-main);
+    color: var(--color-white);
+}
