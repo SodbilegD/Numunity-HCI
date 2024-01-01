@@ -1,13 +1,15 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 // import { sendDataToJsonBin } from "../modules/dataFetcher.js";
 
+//post-comment tag. discussion dr ashiglaj bga
+
 class PostComment extends HTMLElement {
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
         this.commentsContainer = document.getElementById("comments-container");
         this.commentCounter = document.getElementById("total-comments");
-    
+         
         this.trendCommentButton = document.getElementById("comment-trend-filter");
         this.trendCommentButton.addEventListener("click", this.filterTrend.bind(this));
 
@@ -47,24 +49,6 @@ class PostComment extends HTMLElement {
         }
     }
 
-    // async connectedCallback() {
-    //     await this.fetchData();
-    //     this.renderSinglePost(this.post);
-    //     this.renderComments(this.comments);
-    // }
-
-    // async fetchData() {
-    //     this.jsondata = await fetchData();
-    //     const currentUrl = new URL(window.location.href);
-    //     const communityId = currentUrl.searchParams.get('communityId');
-    //     const postsId = currentUrl.searchParams.get('postId');
-        
-    //     this.community = this.jsondata.record.community[communityId - 1];
-    //     console.log(this.community);
-    //     this.posts = this.community.posts;
-    //     this.post = this.posts.find(post => post.postId == postsId);
-    //     this.comments = this.post.comments || [];
-    // }
 
     renderComments(comments) {
         this.commentsContainer.innerHTML = "";
@@ -188,33 +172,6 @@ class PostComment extends HTMLElement {
             this.renderComments(this.comments);
             commentInput.value = "";
         };}
-
-    
-    // async handleSendComment() {
-    //     const commentInput = document.getElementById("comment-input");
-    //     const newCommentText = commentInput.value.trim();
-    
-    //     if (newCommentText !== "") {
-    //         const newComment = {
-    //             id: this.commentCounter.innerHTML,
-    //             body: newCommentText,
-    //             user: {
-    //                 id: 999,
-    //                 username: "comment writer",
-    //                 profileImage: "/assets/images/profile.png"
-    //             },
-    //             publishedDate: new Date().toISOString(),
-    //         };
-    
-    //         this.comments.push(newComment);
-    
-    //         this.renderComments(this.comments);
-    
-    //         commentInput.value = "";
-    //         await sendDataToJsonBin(this.jsondata.record);
-    //     }
-    // }
-    
 
     disconnectedCallback() {
         //implementation
