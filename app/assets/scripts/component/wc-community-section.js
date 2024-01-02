@@ -1,20 +1,40 @@
 // import { fetchData } from "../modules/dataFetcher.js";
-// import { sendDataToJsonBin } from "../modules/dataFetcher.js";
+//advertisements deer bairlah ali ng community medeelliig haruulah hsg
+import AgreeDisagree from "./wc-agree-disagree.js";
+window.customElements.define('agree-disagree', AgreeDisagree);
 
-//post-comment tag. discussion dr ashiglaj bga
-
-class PostComment extends HTMLElement {
+class theCommunitySection extends HTMLElement {
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
-        this.commentsContainer = document.getElementById("comments-container");
-        this.commentCounter = document.getElementById("total-comments");
-         
-        this.trendCommentButton = document.getElementById("comment-trend-filter");
-        this.trendCommentButton.addEventListener("click", this.filterTrend.bind(this));
+        this.joinButtonElement = document.getElementById("joinButton");
+        this.trendButtonElement = document.getElementById("trendButton");
+        this.newButtonElement = document.getElementById("newButton");
+        this.communityId = null;
 
-        const sendCommentButton = document.getElementById("send-comment-button");
-        sendCommentButton.addEventListener("click", this.handleSendComment.bind(this));
+        this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
+        this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+        this.joinButtonElement.addEventListener("click", this.joinCommunity.bind(this));
+        
+        this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+
+    #render(community) {
+        document.getElementById("community").insertAdjacentHTML('afterbegin', `
+            <h1 class="community__name">>> ${community.communityName}</h1>`);
+        document.getElementById("community-detail").insertAdjacentHTML('afterbegin', `
+            <h3 class="advertisements__info__title">${community.communityName}</h3>
+            <hr>
+            <p class="advertisements__info__detail">${community.communityAbout}</p>
+            <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: ${community.createdDate}</p>
+            <div class="advertisements__info__container">
+                <p class="advertisements__info__followers">Дагагчид<br><span>${community.followers.length}</span></p>
+                <hr>
+                <p class="advertisements__info__total">Нийт пост<br><span>${community.posts.length}</span></p>
+            </div>
+        `);
+        this.posts = community.posts;
+        this.renderPosts(this.posts);
     }
 
     async connectedCallback() {
@@ -65,6 +85,72 @@ class PostComment extends HTMLElement {
         this.renderPosts(filteredNew);
     }
 
+    async joinCommunity() {
+        const response = await fetch("http://localhost:3000/getuser",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                }
+            });
+            if (!response.ok) {
+                window.location.href="login.html";
+                return;
+            }
+            
+            const data = await response.json();
+            const user = data.user;
+            
+            const otherResponse = await fetch("http://localhost:3000/joincommunity",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify({ communityId: this.communityId, userId: user.userId})
+            });
+            if (!otherResponse.ok) {
+                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
+            }
+
+            this.joinButtonElement.setAttribute("joined", true);
+    };
+
+    async joinCommunity() {
+        const response = await fetch("http://localhost:3000/getuser",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                }
+            });
+            if (!response.ok) {
+                window.location.href="login.html";
+                return;
+            }
+            
+            const data = await response.json();
+            const user = data.user;
+            
+            const otherResponse = await fetch("http://localhost:3000/joincommunity",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify({ communityId: this.communityId, userId: user.userId})
+            });
+            if (!otherResponse.ok) {
+                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
+            }
+
+            this.joinButtonElement.setAttribute("joined", true);
+    };
+
     #render(comment, user){
         this.commentPublishedDate = comment.publishedDate;
         
@@ -114,21 +200,21 @@ class PostComment extends HTMLElement {
         postElement.id = `recentPost_${post.postId}`;
         postElement.insertAdjacentHTML("afterbegin", `
         
-        // testing some dark mode thing
-        theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
-        
-        
-        
-        <div class="post__profile">
+            <div class="post__profile">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${user.userName}</p>
                 <p class="post__profile__time">${post.timeAgo}</p>
             </div>
-            <hr>
-            <h1 class="post__title">${post.postTitle}</h1>
+            <hr>`);
+            var postTitleElement = document.createElement('h3');
+            postElement.appendChild(postTitleElement);
+            postTitleElement.classList.add('post__title');
+            postTitleElement.textContent = post.postTitle;
+
+            postElement.insertAdjacentHTML("beforeend",`
             <p class="post__detail">${post.postDetail}</p>
-            <div class="post__reactions post__reactions--hidden">
-                <agree-disagree agreeCount="${post.agreeCount}" disagreeCount="${post.disagreeCount}"></agree-disagree>
+            <div class="post__reactions">
+                <agree-disagree agreeCount=${post.agreeCount} disagreeCount=${post.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
                 <p class="post__reactions__list">
                     <i class="fa-regular fa-comment post__reactions__icon"></i>
                     <span class="reaction-count">${post.comments.length}</span> Comment
@@ -138,72 +224,16 @@ class PostComment extends HTMLElement {
                     <span class="reaction-count">${post.shareCount}</span> Share
                 </p>
             </div>
-            <p class="post__profile__time post__profile__time--down">1h ago</p>
-        </article>`;
+        </article>`);
+        this.postsContainer.appendChild(postElement);
+        this.addEventListenerToPostTitle(postTitleElement, post.postId);
     }
 
-    filterTrend() {
-        const currentDate = new Date();
-        const filteredTrend = this.comments.filter(comment =>
-        Date.parse(comment.publishedDate) > currentDate - 7 && comment.agreeCount > 10
-        );
-
-        this.renderComments(filteredTrend);
-    }
-
-    async handleSendComment() {
-        const currentUrl = new URL(window.location.href);
-        const communityId = currentUrl.searchParams.get('communityId');
-        const postId = currentUrl.searchParams.get('postId');
-        const commentCounter = document.getElementById("total-comments");
-        const commentInput = document.getElementById("comment-input");
-        console.log(commentInput.value);
-        const newCommentText = commentInput.value.trim();
-        
-        if (newCommentText !== "") {
-            
-            const response = await fetch("http://localhost:3000/getuser",
-            {
-                method: 'POST',
-                cache: "no-cache",
-                headers: {
-                    "Content-Type": 'application/json; charset=UTF-8'
-                }
-            });
-            console.log("responseeeee",response);
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            const data = await response.json();
-            const user = data.user;
-
-            const newComment = {
-                id: commentCounter.innerHTML,
-                body: newCommentText,
-                user: user.userId,
-                publishedDate: new Date().toISOString(),
-                agreeCount: 0,
-                disagreeCount: 0
-            };
-
-            const otherResponse = await fetch("http://localhost:3000/addnewcomment",
-            {
-                method: 'POST',
-                cache: "no-cache",
-                headers: {
-                    "Content-Type": 'application/json; charset=UTF-8'
-                },
-                body: JSON.stringify({ communityId: communityId, postId: postId, newComment: newComment})
-            });
-            if (!otherResponse.ok) {
-                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
-            }
-            const otherdata = await otherResponse.json();
-            this.comments = otherdata.comments;
-            this.renderComments(this.comments);
-            commentInput.value = "";
-        };}
+    addEventListenerToPostTitle(postElement, postId) {
+        postElement.addEventListener("click", () => {
+            window.location.href = `discussion.html?communityId=${this.communityId}&postId=${postId}`;
+        });
+    };
 
     disconnectedCallback() {
         //implementation

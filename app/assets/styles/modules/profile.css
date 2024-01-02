@@ -1,0 +1,15 @@
+.userprofile{
+    padding: 1rem 2rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.userprofile img{
+    width: 5rem;
+    height: 5rem;
+    padding-right: 2rem;
+}
+

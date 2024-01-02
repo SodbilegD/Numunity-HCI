@@ -57,9 +57,11 @@
         --color-bg-darkmode: #1d1b31; */ 
 
 }
-body {
+
+*{
     font-family: 'Comfortaa', cursive;
-    color: #333;
+}
+body {
     background-color: var(--color-background-white);
     padding: 0 10rem;
     @media (max-width: 1260px){
@@ -86,16 +88,18 @@ main{
         width: 100%;
     }
 }
+
 aside{
     width: 25%;
     background-color: var(--color-white);
     border-radius: 0.5rem;
     padding: 0.5rem;
-
+    margin-left: 1rem;
     @media (max-width: 1260px){
         display: none;
     }
 }
+
 aside img{
     width:100%;
     margin-bottom: 1.5rem;

@@ -19,7 +19,9 @@ export async function fetchCommunityData(collectionName, communityId) {
       const db = await connectToMongoDB();
       const collection = db.collection(collectionName);
       if(collectionName === 'Community' && communityId){
-          return collection.findOne({ communityId: communityId });
+        const communityElement = await collection.findOne({ communityId: communityId });
+        console.log("hh",communityElement);
+        return communityElement;
       }
       return collection.find({}).toArray();
 
