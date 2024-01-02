@@ -36,11 +36,10 @@ class WcProfile extends HTMLElement {
             const result = await response2.json();
             this.community = result.community;
             console.log("this community", this.community);
-            console.log(this.user.savedPosts);
+            console.log(this.user.savedCommunities);
 
-            this.user.savedPosts.forEach(async post => {
-                const communityId = post.communityId;
-                const matchingCommunity = this.community.find(community => parseInt(community.communityId) === communityId);
+            this.user.savedCommunities.forEach(async communityId => {
+                const matchingCommunity = this.community.find(community => community.communityId === communityId);
                 if (matchingCommunity) {
                     const communityName = matchingCommunity.communityName;
                     savedCommunity.insertAdjacentHTML("beforeend", `

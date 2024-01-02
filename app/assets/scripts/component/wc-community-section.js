@@ -1,15 +1,20 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 //advertisements deer bairlah ali ng community medeelliig haruulah hsg
+import AgreeDisagree from "./wc-agree-disagree.js";
+window.customElements.define('agree-disagree', AgreeDisagree);
+
 class theCommunitySection extends HTMLElement {
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
+        this.joinButtonElement = document.getElementById("joinButton");
         this.trendButtonElement = document.getElementById("trendButton");
         this.newButtonElement = document.getElementById("newButton");
         this.communityId = null;
 
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+        this.joinButtonElement.addEventListener("click", this.joinCommunity.bind(this));
         
         this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
@@ -20,9 +25,6 @@ class theCommunitySection extends HTMLElement {
         document.getElementById("community-detail").insertAdjacentHTML('afterbegin', `
             <h3 class="advertisements__info__title">${community.communityName}</h3>
             <hr>
-
-            
-            
             <p class="advertisements__info__detail">${community.communityAbout}</p>
             <p class="advertisements__info__opened"><i class="fa-solid fa-clock"></i>Нээгдсэн: ${community.createdDate}</p>
             <div class="advertisements__info__container">
@@ -46,7 +48,6 @@ class theCommunitySection extends HTMLElement {
                 },
                 body: JSON.stringify({ communityId: this.communityId }),
             });
-            console.log("responsee",response);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -75,6 +76,39 @@ class theCommunitySection extends HTMLElement {
         Date.parse(post.publishedDate) > currentDate - 7);
         this.renderPosts(filteredNew);
     }
+
+    async joinCommunity() {
+        const response = await fetch("http://localhost:3000/getuser",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                }
+            });
+            if (!response.ok) {
+                window.location.href="login.html";
+                return;
+            }
+            
+            const data = await response.json();
+            const user = data.user;
+            
+            const otherResponse = await fetch("http://localhost:3000/joincommunity",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify({ communityId: this.communityId, userId: user.userId})
+            });
+            if (!otherResponse.ok) {
+                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
+            }
+
+            this.joinButtonElement.setAttribute("joined", true);
+    };
 
     renderPosts(posts) {
         this.postsContainer.innerHTML = "";
@@ -113,12 +147,7 @@ class theCommunitySection extends HTMLElement {
         postElement.id = `recentPost_${post.postId}`;
         postElement.insertAdjacentHTML("afterbegin", `
         
-        // testing some dark mode thing
-        theme="${window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"}">
-        
-        
-        
-        <div class="post__profile">
+            <div class="post__profile">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">${user.userName}</p>
                 <p class="post__profile__time">${post.timeAgo}</p>
@@ -129,31 +158,8 @@ class theCommunitySection extends HTMLElement {
             postTitleElement.classList.add('post__title');
             postTitleElement.textContent = post.postTitle;
 
-            
-            const postTemplate = document.getElementById('post-template');
-            const clone = document.importNode(postTemplate.content, true);
-            clone.querySelector('[slot="userName"]').textContent = user.userName;
-            clone.querySelector('[slot="publishedDate"]').textContent = post.publishedDate;
-            clone.querySelector('[slot="postTitle"]').textContent = post.postTitle;
-            clone.querySelector('[slot="postDetail"]').textContent = post.postDetail;
-            clone.querySelector('[slot="commentCount"]').textContent = post.comments.length;
-            clone.querySelector('[slot="shareCount"]').textContent = post.shareCount;
-            this.postsContainer.appendChild(clone);
-    
-
             postElement.insertAdjacentHTML("beforeend",`
-            
-            <template id="post-template">
-            <article class="post">
-              <div class="post__profile">
-                <img class="post__profile__img" alt="profile" src="" />
-                <p class="post__profile__name"><slot name="userName"></slot></p>
-                <p class="post__profile__time"><slot name="publishedDate"></slot></p>
-              </div>
-              <hr />
-              <h3 class="post__title"><slot name="postTitle"></slot></h3>
-
-            <p class="post__detail"><slot name="postDetail">${post.postDetail}</slot></p>
+            <p class="post__detail">${post.postDetail}</p>
             <div class="post__reactions">
                 <agree-disagree agreeCount=${post.agreeCount} disagreeCount=${post.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>
                 <p class="post__reactions__list">
@@ -162,11 +168,10 @@ class theCommunitySection extends HTMLElement {
                 </p>
                 <p class="post__reactions__list">
                     <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
-                    <span class="reaction-count"><slot name="shareCount">${post.shareCount}</slot></span> Share
+                    <span class="reaction-count">${post.shareCount}</span> Share
                 </p>
             </div>
-        </article>
-        </template>`);
+        </article>`);
         this.postsContainer.appendChild(postElement);
         this.addEventListenerToPostTitle(postTitleElement, post.postId);
     }

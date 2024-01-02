@@ -132,4 +132,4 @@ class AgreeDisagree extends HTMLElement {
     }
 }
 
-window.customElements.define('agree-disagree', AgreeDisagree);
+export default AgreeDisagree;
