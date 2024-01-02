@@ -20,9 +20,18 @@ const appPath = path.join(__dirname, 'app');
 let agreeCount = 0;
 app.use(express.static(appPath));
 
+app.use(express.static(appPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+        res.setHeader('Content-Type', 'text/css');
+        }
+    },
+}));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
+
 
 // Route to serve 'login.html'
 // app.post('/', (req, res) => {
@@ -419,6 +428,10 @@ app.post('/getuser', (req, res) => {
 
 app.post('/addnewcomment', (req, res) => {
     newcomment.addCommentToPost(req, res);
+});
+
+app.post('/joincommunity', (req, res) => {
+    community.joinNewCommunity(req, res);
 });
 
 // Listen on the specified port

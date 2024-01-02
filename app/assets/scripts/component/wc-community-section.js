@@ -1,15 +1,20 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 //advertisements deer bairlah ali ng community medeelliig haruulah hsg
+import AgreeDisagree from "./wc-agree-disagree.js";
+window.customElements.define('agree-disagree', AgreeDisagree);
+
 class theCommunitySection extends HTMLElement {
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
+        this.joinButtonElement = document.getElementById("joinButton");
         this.trendButtonElement = document.getElementById("trendButton");
         this.newButtonElement = document.getElementById("newButton");
         this.communityId = null;
 
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+        this.joinButtonElement.addEventListener("click", this.joinCommunity.bind(this));
         
         this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
@@ -43,7 +48,6 @@ class theCommunitySection extends HTMLElement {
                 },
                 body: JSON.stringify({ communityId: this.communityId }),
             });
-            console.log("responsee",response);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -74,6 +78,39 @@ class theCommunitySection extends HTMLElement {
         console.log(filteredNew);
         this.renderPosts(filteredNew);
     }
+
+    async joinCommunity() {
+        const response = await fetch("http://localhost:3000/getuser",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                }
+            });
+            if (!response.ok) {
+                window.location.href="login.html";
+                return;
+            }
+            
+            const data = await response.json();
+            const user = data.user;
+            
+            const otherResponse = await fetch("http://localhost:3000/joincommunity",
+            {
+                method: 'POST',
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                },
+                body: JSON.stringify({ communityId: this.communityId, userId: user.userId})
+            });
+            if (!otherResponse.ok) {
+                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
+            }
+
+            this.joinButtonElement.setAttribute("joined", true);
+    };
 
     renderPosts(posts) {
         this.postsContainer.innerHTML = "";

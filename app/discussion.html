@@ -12,65 +12,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="./assets/styles/base/_global.css">
-    <link rel="stylesheet" href="./assets/styles/modules/_header.css">
-    <link rel="stylesheet" href="./assets/styles/modules/_footer.css">
-
+    <link rel="stylesheet" href="./assets/styles/modules/_post.css">
+    <link rel="stylesheet" href="./assets/styles/modules/_discussion.css">
 </head>
-<body id="discussion">
+<body>
     <wc-header></wc-header>
     <div class="main-container">
         <wc-sidebar></wc-sidebar>
         <main>
-            <div class="sub-container1">
-                <div class="post-reactions">
-                    <i class="post-reactions__icon fa-regular fa-face-smile-beam"></i>
-                    <i class="post-reactions__icon fa-regular fa-face-frown"></i>
-                    <i class="post-reactions__icon fa-regular fa-comment"></i>
-                    <i class="post-reactions__icon fa-regular fa-share-from-square"></i>
+            <div id="posts-container"></div>
+
+            <div class="write-comment">
+                <textarea id="comment-input" placeholder="What are your thoughts?" class="write-comment__input" rows=10 ></textarea>
+                <wc-button id="send-comment-button" buttonType="send"></wc-button>
+            </div>
+
+            <div class="post-comments" id = "post-comments">
+                <div class="post-comments__filter">
+                    <p class="post-comments__filter__total"><span id="total-comments">0</span> Comments</p>
+                    <wc-button id="comment-trend-filter" buttonType="trend"></wc-button>
                 </div>
-                <div class="sub-container2">
-                    <div id="posts-container"></div>
-        
-                    <div class="write-comment">
-                        <textarea id="comment-input" placeholder="What are your thoughts?" class="write-comment__input" rows=10 ></textarea>
-                        <button type="button" id="send-comment-button" class="write-comment__send-button btn">илгээх</button>
-                    </div>
-        
-                    <div class="post-comments" id = "post-comments">
-                        <div class="post-comments__filter">
-                            <p class="post-comments__filter__total"><span id="total-comments">0</span> Comments</p>
-                            <button type="button" id="comment-trend-filter" class="post-comments__filter__new-button btn">trend</button>
-                        </div>
-        
-                        <hr>
-                        
-                        
-                        <div id="comments-container" class="comments-container">
-                            <post-comment></post-comment>
-                        
-                        </div>
-                    
-                    
-                    </div>
+                <hr>                        
+                <div id="comments-container" class="comments-container">
+                    <wc-discussion></wc-discussion>
                 </div>
             </div>
         </main>
-        <aside class="advertisements">
-            <a href="ad.com"><img src="assets/images/ad1.png" alt="advertisement-1"></a>
-            <a href="ad.com"><img src="assets/images/ad2.png" alt="advertisement-2"></a>
-            <a href="ad.com"><img src="assets/images/ad3.png" alt="advertisement-3"></a>
-        </aside>
+        <wc-advertisement></wc-advertisement>
     </div>
-    <!-- footer compo ashiglj bga heseg -->
     <wc-footer></wc-footer>
+
     <script type="module" src="./assets/scripts/component/wc-header.js"></script>
+    <script type="module" src="./assets/scripts/component/wc-sidebar.js"></script>
     <script type="module" src="./assets/scripts/component/wc-discussion.js"></script>
-    <script type="module" src="assets/scripts/component/wc-agree-disagree.js"></script>
+    <script type="module" src="./assets/scripts/component/wc-advertisement.js"></script>
     <script type="module" src="./assets/scripts/component/wc-footer.js"></script>
 </body>
 </html>
