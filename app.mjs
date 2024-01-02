@@ -5,7 +5,7 @@ import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import { community } from './app/assets/scripts/session_ram/community.mjs';
 import { comment } from 'postcss';
-import aboutTeam from './about.mjs';
+import aboutTeam from './app/assets/scripts/session_ram/about.mjs';
 const data = await fetchCommunityData("Community", null);
 const app = express()
 const port = 3000
