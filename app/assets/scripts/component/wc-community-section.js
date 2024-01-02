@@ -65,13 +65,25 @@ class PostComment extends HTMLElement {
         this.renderPosts(filteredNew);
     }
 
-    renderPosts(posts) {
-        this.postsContainer.innerHTML = "";
-        posts.forEach(post => {
-            const userId = post.user;
-            const user = this.users.find(user => user.userId === parseInt(userId));
-            this.#render(comment, user)
-        });
+    #render(comment, user){
+        this.commentPublishedDate = comment.publishedDate;
+        
+        var commentElement = document.createElement('div');
+        commentElement.classList.add('single-comment');
+        commentElement.id = `single-comment_${(comment.commentId)}`;
+
+        commentElement.insertAdjacentHTML("afterbegin",
+        `<div class="single-comment__profile">
+                <img src="${user.profImg}" alt="profile" class="single-comment__profile__img">
+                <p class="single-comment__profile__name">${user.userName}</p>
+            </div>
+            <p class="single-comment__detail">${comment.body}</p>
+
+            <div class="single-comment__reactions">
+                <agree-disagree agreeCount=${comment.agreeCount} disagreeCount=${comment.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>                                                           
+                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
+            </div>`);
+        this.commentsContainer.appendChild(commentElement);        
     }
     
     #RenderPost(post, user) {
