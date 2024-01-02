@@ -1,7 +1,8 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 // import { sendDataToJsonBin } from "../modules/dataFetcher.js";
-
-class PostComment extends HTMLElement {
+import AgreeDisagree from "./wc-agree-disagree.js";
+window.customElements.define('agree-disagree', AgreeDisagree);
+class WcDiscussion extends HTMLElement {
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
@@ -111,7 +112,7 @@ class PostComment extends HTMLElement {
             <hr>
             <h1 class="post__title">${post.postTitle}</h1>
             <p class="post__detail">${post.postDetail}</p>
-            <div class="post__reactions post__reactions--hidden">
+            <div class="post__reactions">
                 <agree-disagree agreeCount="${post.agreeCount}" disagreeCount="${post.disagreeCount}"></agree-disagree>
                 <p class="post__reactions__list">
                     <i class="fa-regular fa-comment post__reactions__icon"></i>
@@ -121,8 +122,8 @@ class PostComment extends HTMLElement {
                     <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
                     <span class="reaction-count">${post.shareCount}</span> Share
                 </p>
+                <p class="post__profile__time post__profile__time--down">1h ago</p>
             </div>
-            <p class="post__profile__time post__profile__time--down">1h ago</p>
         </article>`;
     }
 
@@ -230,4 +231,4 @@ class PostComment extends HTMLElement {
 
 }
 
-window.customElements.define('post-comment', PostComment);
+window.customElements.define('wc-discussion', WcDiscussion);
