@@ -111,12 +111,3 @@
         font-size: var(--mobile-text-medium);
     }
 }
-
-.advertisements {
-    margin: 0;
-}
-
-.advertisements__list {
-    list-style: none;
-    padding: 0 0.5rem;
-}

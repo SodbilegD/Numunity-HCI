@@ -410,6 +410,10 @@ app.get('/', (req, res) => {
 
 app.post('/login', login.verifyLogin.bind(login));
 
+app.post('/logout', (req, res) => {
+    login.logOutUser(req, res);
+});
+
 app.post('/selectedcommunity', (req, res) => {
     community.renderCommunity(req, res);
 });

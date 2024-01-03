@@ -179,38 +179,8 @@
                         return;
                     }
                     window.location.href = "index.html";
-                    if(!body.cookies){
-                        
-                    }
-                    const header = document.getElementById("header-button");
-                    header.classList.add("main-header__container2__user");
-                    header.classList.remove("main-header__login-button");
-                    header.classList.remove("main-header__signup-button");
                 });
             }
-        function logout(){
-            fetch("http://localhost:3000/logout",
-            {
-                method: 'POST',
-                    cache: "no-cache",
-                    headers: {
-                        "Content-Type": 'application/json; charset=UTF-8'
-                    }
-            })
-            .then(result => {
-                console.log(result);
-                if (result.status !== 200) {
-                    document.getElementById("incorrect").innerHTML = "Logout failed";
-                    return;
-                }
-                window.location.href = "login.html";
-                const header = document.getElementById("header-button");
-                header.classList.remove("main-header__container2__user");
-                header.classList.remove("main-header__logout-button");
-                header.classList.add("main-header__login-button");
-                header.classList.add("main-header__signup-button");
-            })
-        }
     </script>
 </head>
 <body>
