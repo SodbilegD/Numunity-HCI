@@ -2,6 +2,7 @@
 //advertisements deer bairlah ali ng community medeelliig haruulah hsg
 import AgreeDisagree from "./wc-agree-disagree.js";
 window.customElements.define('agree-disagree', AgreeDisagree);
+import timeAgo from "../modules/timeAgo.js";
 
 class theCommunitySection extends HTMLElement {
     constructor() {
@@ -63,6 +64,7 @@ class theCommunitySection extends HTMLElement {
 
     filterTrend() {
         const currentDate = new Date();
+        console.log(this.posts);
         const filteredTrend = this.posts.filter(post =>
 
             Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
@@ -72,10 +74,8 @@ class theCommunitySection extends HTMLElement {
     }
     
     filterNew() {
-        const currentDate = new Date();
-        const filteredNew = this.posts.filter(post =>
-        Date.parse(post.publishedDate) > currentDate - 7);
-        this.renderPosts(filteredNew);
+        const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate));
+        this.renderPosts(sortedPosts);
     }
 
     async joinCommunity() {
@@ -121,27 +121,6 @@ class theCommunitySection extends HTMLElement {
     }
     
     #RenderPost(post, user) {
-        
-        function timeAgo(input) {
-        const date = (input instanceof Date) ? input : new Date(input);
-        const formatter = new Intl.RelativeTimeFormat('en');
-        const ranges = {
-            years: 3600 * 24 * 365,
-            months: 3600 * 24 * 30,
-            weeks: 3600 * 24 * 7,
-            days: 3600 * 24,
-            hours: 3600,
-            minutes: 60,
-            seconds: 1
-        };
-        const secondsElapsed = (date.getTime() - Date.now()) / 1000;
-        for (let key in ranges) {
-            if (ranges[key] < Math.abs(secondsElapsed)) {
-            const delta = secondsElapsed / ranges[key];
-            return formatter.format(Math.round(delta), key);
-            }
-        }
-        } 
         post.timeAgo = timeAgo(Date.parse(post.publishedDate));
         var postElement = document.createElement('article');
         postElement.classList.add('post');

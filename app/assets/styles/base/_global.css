@@ -63,6 +63,7 @@
 *{
     font-family: 'Comfortaa', cursive;
 }
+
 body {
     background-color: var(--color-background-white);
     padding: 0 10rem;
@@ -73,14 +74,15 @@ body {
         padding: 0 1rem;
     }
     @media (max-width: 693px){
-        padding: 0 0.5rem;
+        padding: 0;
+        margin: 0;
     }
 }
 
 .main-container{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+    justify-content: space-between;
 }
 
 main{
@@ -89,20 +91,4 @@ main{
     @media (max-width: 1260px){
         width: 100%;
     }
-}
-
-aside{
-    width: 25%;
-    background-color: var(--color-white);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-left: 1rem;
-    @media (max-width: 1260px){
-        display: none;
-    }
-}
-
-aside img{
-    width:100%;
-    margin-bottom: 1.5rem;
 }

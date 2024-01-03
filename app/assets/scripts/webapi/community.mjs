@@ -1,5 +1,5 @@
-import { fetchCommunityData } from "../session_db/db/db.mjs";
-import { connectToMongoDB } from "../session_db/db/db.mjs";
+import { connectToMongoDB, fetchCommunityData } from './db.mjs';
+
 
 class Community {
     async renderCommunity(req, res) {
@@ -17,6 +17,7 @@ class Community {
                     community: community,
                     user: user
                 });
+                return;
             }
             res.status(200).send({
                 community: community
