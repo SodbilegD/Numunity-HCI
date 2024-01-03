@@ -1,16 +1,44 @@
+import path from 'path';
 import express from 'express';
-// import data from './data.json' assert { type: 'json' };
-import { fetchCommunityData } from "./app/assets/scripts/session_db/db/db.mjs";
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import { login } from './login.mjs';
+import { community } from './community.mjs';
+import { communityList } from "./communityList.mjs";
+import { discussion } from './discussion.mjs';
+import { newcomment } from './addcomment.mjs';
+import { fetchCommunityData } from "../session_db/db/db.mjs";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
-import { community } from './app/assets/scripts/session_ram/community.mjs';
-import { comment } from 'postcss';
-import aboutTeam from './app/assets/scripts/session_ram/about.mjs';
-const data = await fetchCommunityData("Community", null);
-const app = express()
-const port = 3000
-let agreeCount = 0;
+import aboutTeam from './about.mjs';
 
+const data = await fetchCommunityData("Community", null);
+const app = express();
+const port = 3000;
+const __dirname = path.resolve(path.dirname(''));
+const appPath = path.join(__dirname, 'app');
+let agreeCount = 0;
+app.use(express.static(appPath));
+
+app.use(express.static(appPath, {
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css')) {
+        res.setHeader('Content-Type', 'text/css');
+        }
+    },
+}));
+
+app.use(cookieParser());
+app.use(express.json());
+app.use(cors());
+
+
+// Route to serve 'login.html'
+// app.post('/', (req, res) => {
+//     console.log(req);
+
+//   res.sendFile('index.html', { root: appPath });
+// });
 //http://localhost:3000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
 //эхэлсэн бол диск дээрх public фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
 app.use("/app", express.static('app'));
@@ -74,10 +102,6 @@ app.get(
  *  -
  *   name: "Followers"
  *   description: Followers of Community
- *  - 
- *   name: "Order"
- *   description: Order related operations 
-
  */
 
 /**
@@ -383,4 +407,32 @@ app.get('/about', (req, res) => {
 app.get('/', (req, res) => {
     res.send(data)
 });
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+app.post('/login', login.verifyLogin.bind(login));
+
+app.post('/selectedcommunity', (req, res) => {
+    community.renderCommunity(req, res);
+});
+
+app.get('/community', (req, res) => {
+    communityList.renderCommunityList(req, res);
+});
+
+app.post('/discussion', (req, res) => {
+    discussion.renderDiscussion(req, res);
+});
+
+app.post('/getuser', (req, res) => {
+    login.getUserFromCookie(req, res);
+});
+
+app.post('/addnewcomment', (req, res) => {
+    newcomment.addCommentToPost(req, res);
+});
+
+app.post('/joincommunity', (req, res) => {
+    community.joinNewCommunity(req, res);
+});
+
+// Listen on the specified port
+app.listen(port, () => console.log(`Example app listening on http://localhost:${port}`));

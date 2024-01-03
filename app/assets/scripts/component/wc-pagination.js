@@ -57,7 +57,7 @@ class Pagination extends HTMLElement {
 
         var itemList = document.getElementById('posts-container'); // Update with the actual ID of your posts container
         var items = itemList.getElementsByTagName('article');
-        var itemsPerPage = 3;
+        var itemsPerPage = 4;
         var currentPage = 1;
 
         function showPage(page) {

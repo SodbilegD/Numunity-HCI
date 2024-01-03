@@ -2,13 +2,13 @@
     margin: 0 auto;
     width: 90%;
     overflow: hidden;
-    background-color: $main-white;
-    border: 0.75rem solid $main-goy-ungu;
+    background-color: var(--color-white);
+    border: 0.75rem solid var(--color-main);
     border-radius: 1rem;
     height: auto;
 }
 .chat-main__container {
-    background-color: $main-white;
+    background-color: var(--color-white);
     padding: 0 1.25rem;
     display: flex;
     flex-direction: row;
@@ -19,8 +19,8 @@
 }
 nav.users-window {
     max-width: 30%;
-    color: $dark-grey;
-    background-color: $main-white;
+    color: var(--color-dark);
+    background-color: var(--color-white);
     border-right: solid 1rem var(--color-main);
 }
 .users-rooms {
@@ -31,6 +31,9 @@ nav.users-window {
     margin-left: -1rem;
 }
 .users-rooms h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 ul.rooms-list {
     text-decoration: none;
@@ -49,6 +52,9 @@ div.users-head {
     margin-left: -1rem;
 }
 .users-head h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 .users-head h4 {
     padding: 0 8px;
@@ -88,6 +94,9 @@ div.room-name .room-picture {
     margin: auto 1rem;
 }
 div.room-name h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
 }
 @media screen and (min-width: 1024px) {
     div.room-name {
@@ -105,7 +114,7 @@ button.leave-btn {
     right: 0;
     padding: 5px 10px;
     border-radius: 5px;
-    color: $main-white;
+    color: var(--color-white);
     background-color: var(--color-main-30);
 }
 div.chats {
@@ -155,7 +164,7 @@ div.message__text p {
     font-size: 1rem;
     max-width: 400px;
     padding: 1rem;
-    background-color: $main-goy-ungu-op;
+    background-color: var(--color-main-30);
     border-radius: 2.5rem;
 }
 div.outgoing {
@@ -233,10 +242,10 @@ div.user-input button {
         top: 0;
         left: 0;
         width: 100%;
-        border: 0 0 10px 10px;
+        border: 0 0 0.75rem 0.75rem;
         height: max-content;
         z-index: 4;
-        box-shadow: 0 15px 20px -20px black;
+        box-shadow: 0 1rem 1.25rem -1.25rem var(--color-dark);
         padding: 0;
     }
     div.chat-window {

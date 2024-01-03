@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
-    <link rel="author" href="#" />
-	<meta name="author" content="Dulguun" />
-	<link rel="author" href="#" />
-	<meta name="author" content="Khulan" />
-    <link rel="author" href="#" />
-	<meta name="author" content="Sodbileg" />
+    <title>Team DKS Log in</title>
+	<meta name="author" content="Dulguun"/>
+	<meta name="author" content="Khulan"/>
+	<meta name="author" content="Sodbileg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A platform for university students to connect, express their thoughts, and enjoy engaging conversations.">
     <meta name="keywords" content="University, Chat room, Discussion, Student">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/styles/base/_global.css">
     <!-- <link rel="stylesheet" href="./assets/styles/modules/login.css"> -->
@@ -184,6 +179,9 @@
                         return;
                     }
                     window.location.href = "index.html";
+                    if(!body.cookies){
+                        
+                    }
                     const header = document.getElementById("header-button");
                     header.classList.add("main-header__container2__user");
                     header.classList.remove("main-header__login-button");
@@ -205,7 +203,7 @@
                     document.getElementById("incorrect").innerHTML = "Logout failed";
                     return;
                 }
-                window.location.href = "index.html";
+                window.location.href = "login.html";
                 const header = document.getElementById("header-button");
                 header.classList.remove("main-header__container2__user");
                 header.classList.remove("main-header__logout-button");

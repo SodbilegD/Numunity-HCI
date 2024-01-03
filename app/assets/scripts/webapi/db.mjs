@@ -20,7 +20,6 @@ export async function fetchCommunityData(collectionName, communityId) {
       const collection = db.collection(collectionName);
       if(collectionName === 'Community' && communityId){
         const communityElement = await collection.findOne({ communityId: communityId });
-        console.log("hh",communityElement);
         return communityElement;
       }
       return collection.find({}).toArray();
