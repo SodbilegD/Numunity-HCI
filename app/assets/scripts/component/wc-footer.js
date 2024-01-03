@@ -1,3 +1,4 @@
+// footer web component
 class WcFooter extends HTMLElement {
     constructor() {
         super();

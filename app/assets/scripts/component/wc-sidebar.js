@@ -184,7 +184,9 @@ class WcSidebar extends HTMLElement {
                 <li class="slide__list__item"><i class="fa-solid fa-comments"></i><a href="community.html">Хэлэлцүүлэг</a>
                     <ul>
                         <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=1">Веб програмчлал</a></li>
-                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=2">Гоё хоол</a></li>
+                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=2">Гоё хоолтой газар хаана байна?</a></li>
+                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=3">МУИС-МТЭС-МКУТ оюутнууд</a></li>
+                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=4">Кинонд дурлагсад</a></li>
                     </ul>
                 </li>
                 <li class="slide__list__item"><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Chat өрөө</a></li>
@@ -201,6 +203,7 @@ class WcSidebar extends HTMLElement {
         const slideItems = document.querySelectorAll(".slide__list__item");
 
         let showMenu = false;
+        // click hiih uyd sidebariig haruulna
         toggle.addEventListener("click", () => {
             if (!showMenu) {
                 toggle.classList.add("close");

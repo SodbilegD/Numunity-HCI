@@ -137,6 +137,7 @@ class WcButton extends HTMLElement {
                 this.joined = joined;
             }
         }
+        
     }
 
     adoptedCallback() {

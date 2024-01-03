@@ -2,6 +2,7 @@ import { MongoClient } from 'mongodb';
 
 const uri = 'mongodb+srv://kulnaak:Khulan123@dks-cluster.zwkwsze.mongodb.net/';
 
+// MongoDB-teigee holboh function
 export async function connectToMongoDB() {
   try {
     const client = new MongoClient(uri);
@@ -13,7 +14,7 @@ export async function connectToMongoDB() {
     throw error;
   }
 }
-
+// Community collection-g avaad butsaah function
 export async function fetchCommunityData(collectionName, communityId) {
   try {
       const db = await connectToMongoDB();

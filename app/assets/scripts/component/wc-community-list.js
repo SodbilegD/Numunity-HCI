@@ -1,17 +1,17 @@
 // import { fetchData } from "../modules/dataFetcher.js";
 import timeAgo from "../modules/timeAgo.js";
-
+// community.html iin community-g jagsaah web component
 class TheCommunityList extends HTMLElement {
     constructor() {
         super();
         this.communityContainer = document.getElementById("community-list");
     }
-
+    // render all communities
     renderCommunities() {
         this.communityContainer.innerHTML = "";
         this.communities.forEach(community => this.#render(community));
     }
-
+    // render single community
     #render(community) {
         var communityElement = document.createElement('article');
         communityElement.classList.add('post');
@@ -33,7 +33,7 @@ class TheCommunityList extends HTMLElement {
         this.communityContainer.appendChild(communityElement);
         this.addEventListenerToTitle(titleElement, community.communityId);
     }
-
+    // title deer click hiihed url uurchlugdunu
     addEventListenerToTitle(communityElement, communityId) {
         communityElement.addEventListener("click", () => {
             window.location.href = `selectedcommunity.html?communityId=${communityId}`;

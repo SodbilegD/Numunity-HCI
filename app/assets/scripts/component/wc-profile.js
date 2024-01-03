@@ -1,6 +1,6 @@
 // import { community } from './wc-community-section.js';
 // window.customElements.define('the-community-section', theCommunitySection);
-
+// profile component
 class WcProfile extends HTMLElement {
     constructor() {
         super();

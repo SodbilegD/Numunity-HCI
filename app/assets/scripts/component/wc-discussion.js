@@ -59,7 +59,7 @@ class WcDiscussion extends HTMLElement {
         });
         this.commentCounter.innerHTML = this.comments.length;
     }
-
+    // comment render
     #render(comment, user){
         this.commentPublishedDate = comment.publishedDate;
         
@@ -80,7 +80,7 @@ class WcDiscussion extends HTMLElement {
             </div>`);
         this.commentsContainer.appendChild(commentElement);        
     }
-
+    // disccussionii single post render
     renderSinglePost(post) {
         post.timeAgo = timeAgo(Date.parse(post.publishedDate));
         const userId = post.user;
@@ -125,16 +125,20 @@ class WcDiscussion extends HTMLElement {
             </div>
         </article>`;
     }
-
+    // comment filter
     filterTrend() {
-        const currentDate = new Date();
-        const filteredTrend = this.comments.filter(comment =>
-        Date.parse(comment.publishedDate) > currentDate - 7 && comment.agreeCount > 10
-        );
+        // const currentDate = new Date();
+        // const filteredTrend = this.comments.filter(comment =>
+        // Date.parse(comment.publishedDate) > currentDate - 7 && comment.agreeCount > 10
+        // );
 
-        this.renderComments(filteredTrend);
+        // this.renderComments(filteredTrend);
+        const sortedComments = this.comments
+            .sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate) && a.agreeCount > b.agreeCount);
+    
+        this.renderComments(sortedComments);
     }
-
+    // comment filter
     filterNew() {
         const sortedComments = this.comments
             .sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate));

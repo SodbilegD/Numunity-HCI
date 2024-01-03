@@ -1,3 +1,4 @@
+// pagination web component
 class Pagination extends HTMLElement {
     constructor() {
         super();

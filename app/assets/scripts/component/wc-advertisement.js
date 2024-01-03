@@ -1,3 +1,4 @@
+// Surtalchilgaanii web component
 class WcAdvertisement extends HTMLElement {
     constructor() {
         super();

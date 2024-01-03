@@ -4,10 +4,10 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { login } from './login.mjs';
 import { community } from './community.mjs';
-import { communityList } from "./communityList.mjs";
+import { communityList } from './communityList.mjs';
 import { discussion } from './discussion.mjs';
 import { newcomment } from './addcomment.mjs';
-import { fetchCommunityData } from "./db.mjs";
+import { fetchCommunityData } from './db.mjs';
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import aboutTeam from './about.mjs';
@@ -39,13 +39,13 @@ app.use(cors());
 
 //   res.sendFile('index.html', { root: appPath });
 // });
-//http://localhost:3000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
-//эхэлсэн бол диск дээрх public фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
+//http://localhost:3000/app/somepage.html гэх мэтээр static контентоор үйлчлэх бол /app гэсэн path аар 
+//эхэлсэн бол диск дээрх app фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
 app.use("/app", express.static('app'));
 
 //json data хүлээж авдаг болгохын тулд дуудаж өгнө.
 app.use(express.json());
-
+// swagger documentation options todorhoiloh 
 const options = {
     swaggerDefinition: {
         openapi: "3.0.0",
@@ -72,10 +72,11 @@ const options = {
     },
     apis: ["./app.mjs"]
 };
-
+// doc uusgeh
 const specs = swaggerJsondoc(options);
 app.use("/docs", swaggerUi.serve);
 
+// swaggerUi setup-aa beltgeh
 app.get(
     "/docs",
     swaggerUi.setup(specs, {
@@ -83,6 +84,7 @@ app.get(
     })
 );
 
+    // tag-uud
 /**
  * @swagger
  * tags:
@@ -102,117 +104,10 @@ app.get(
  *  -
  *   name: "Followers"
  *   description: Followers of Community
+ *  -
+ *   name: "Login"
+ *   description: Login
  */
-
-/**
-* @swagger
-*  paths:
-*      /communities/{communityId}/posts/{postId}/agreeCount:
-*          post:
-*              tags:
-*                  - Post
-*              summary: Upload post agree counts to DKS
-*              parameters:
-*               -
-*                   in: path
-*                   name: communityId
-*                   schema:
-*                   type: integer
-*                   required: true
-*                   description: Numeric ID of the community
-*                -
-*                   in: path
-*                   name: postId
-*                   schema:
-*                   type: integer
-*                   required: true
-*                   description: Numeric ID of the post
-*                -
-*                   in: path
-*                   name: agreeCount
-*                   schema:
-*                   type: integer
-*                   required: true
-*                   description: agree count of the post
-*              requestBody:
-*                  description: Санал нэгдсэн хүмүүсийн тоог явуулна
-*                  required: true
-*                  content:
-*                      application/json:
-*                          schema:
-*                              type: object
-*                              properties:
-*                                  agreeCount:
-*                                      type: integer
-*                              
-*              responses:
-*                  "201":
-*                      description: POST to DKS API
-*                      content:
-*                          application/json:
-*                              schema:
-*                                  type: string
-*/
-
-app.post('/communities/:communityId/posts/:postId/agreeCount', (req, res) => { 
-        agreeCount += req.body.agreeCount;
-        res.writeHead(201, "CREATED", { 'Content-Type': 'text/plain' });
-        res.send();
-    }
-)
-
-/**
-* @swagger
-*  paths:
-*      /communities/{communityId}/posts/{postId}/agreeCount:
-*          get:
-*              tags:
-*               - Post
-*              summary: Get post agreeCounts from NUM
-*              parameters:
-*               -
-*                   in: path
-*                   name: communityId
-*                   schema:
-*                   type: integer
-*                   required: true
-*                   description: Numeric ID of the community
-*                -
-*                   in: path
-*                   name: postId
-*                   schema:
-*                   type: integer
-*                   required: true
-*                   description: Numeric ID of the post
-*                -
-*                   in: path
-*                   name: agreeCount
-*                   schema:
-*                   type: integer
-*                   required: true
-*                   description: agree counts of the post
-*              responses:
-*                  "200":
-*                      description: Success. agreeCount number
-*                      content:
-*                          application/json:
-*                              schema:
-*                                  type: string
-*/
-
-app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
-    res.statusCode=200;
-    const community = data.filter(
-        community => req.params.communityId === community.communityId
-        );
-    const posts = community[0].posts.filter(
-        (posts) => req.params.postId == posts.postId
-    );
-    const agreeCount = posts[0].agreeCount;
-    res.send(JSON.stringify({agreeCount:agreeCount}));
-}
-)
-
 
 /**
  * @swagger
@@ -428,8 +323,7 @@ app.get('/', (req, res) => {
  *  /login:
  *    post:
  *      tags:
- *        - Authentication
- *      summary: Хэрэгдэгчийг баталгаажуулах
+ *        - Login
  *      requestBody:
  *        description: Хэрэглэгчийн мэдээлэл шаардлагатай
  *        required: true
@@ -449,6 +343,115 @@ app.get('/', (req, res) => {
  *          description: Нэвтрэх мэдээлэл хангалтгүй.
  */
 app.post('/login', login.verifyLogin.bind(login));
+
+/**
+* @swagger
+*  paths:
+*      /communities/{communityId}/posts/{postId}/agreeCount:
+*          post:
+*              tags:
+*                  - Post
+*              summary: Upload post agree counts to DKS
+*              parameters:
+*               -
+*                   in: path
+*                   name: communityId
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: Numeric ID of the community
+*                -
+*                   in: path
+*                   name: postId
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: Numeric ID of the post
+*                -
+*                   in: path
+*                   name: agreeCount
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: agree count of the post
+*              requestBody:
+*                  description: Санал нэгдсэн хүмүүсийн тоог явуулна
+*                  required: true
+*                  content:
+*                      application/json:
+*                          schema:
+*                              type: object
+*                              properties:
+*                                  agreeCount:
+*                                      type: integer
+*                              
+*              responses:
+*                  "201":
+*                      description: POST to DKS API
+*                      content:
+*                          application/json:
+*                              schema:
+*                                  type: string
+*/
+
+app.post('/communities/:communityId/posts/:postId/agreeCount', (req, res) => { 
+        agreeCount += req.body.agreeCount;
+        res.writeHead(201, "CREATED", { 'Content-Type': 'text/plain' });
+        res.send();
+    }
+)
+
+/**
+* @swagger
+*  paths:
+*      /communities/{communityId}/posts/{postId}/agreeCount:
+*          get:
+*              tags:
+*               - Post
+*              summary: Get post agreeCounts from NUM
+*              parameters:
+*               -
+*                   in: path
+*                   name: communityId
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: Numeric ID of the community
+*                -
+*                   in: path
+*                   name: postId
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: Numeric ID of the post
+*                -
+*                   in: path
+*                   name: agreeCount
+*                   schema:
+*                   type: integer
+*                   required: true
+*                   description: agree counts of the post
+*              responses:
+*                  "200":
+*                      description: Success. agreeCount number
+*                      content:
+*                          application/json:
+*                              schema:
+*                                  type: string
+*/
+
+app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
+    res.statusCode=200;
+    const community = data.filter(
+        community => req.params.communityId === community.communityId
+        );
+    const posts = community[0].posts.filter(
+        (posts) => req.params.postId == posts.postId
+    );
+    const agreeCount = posts[0].agreeCount;
+    res.send(JSON.stringify({agreeCount:agreeCount}));
+}
+)
 
 app.get('/logout', (req, res) => { 
     user.sessions.delete(Number(req.cookies.session_id));

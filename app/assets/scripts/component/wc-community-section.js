@@ -12,14 +12,14 @@ class theCommunitySection extends HTMLElement {
         this.trendButtonElement = document.getElementById("trendButton");
         this.newButtonElement = document.getElementById("newButton");
         this.communityId = null;
-
+        // buttonuudiin add event listener
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
         this.joinButtonElement.addEventListener("click", this.joinCommunity.bind(this));
         
         this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
-
+    // render
     #render(community) {
         document.getElementById("community").insertAdjacentHTML('afterbegin', `
             <h1 class="community__name">>> ${community.communityName}</h1>`);
@@ -61,30 +61,23 @@ class theCommunitySection extends HTMLElement {
             console.error('Error fetching data:', error);
         }
     }
-
+    // trend postuudig filterleh 
     filterTrend() {
         // const currentDate = new Date();
         // console.log(this.posts);
         // const filteredTrend = this.posts.filter(post =>
         //     Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
         // );
-        const currentDate = new Date();
-        console.log(this.posts);
-        const filteredTrend = this.posts.filter(post =>
-
-            Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
-        );
-    
         // this.renderPosts(filteredTrend);
-        const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate) && a.agreeCount > 50);
+        const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate) && b.agreeCount - a.agreeCount);
         this.renderPosts(sortedPosts);
     }
-    
+    // shine postuudig filterleh 
     filterNew() {
         const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate));
         this.renderPosts(sortedPosts);
     }
-
+    // negdsen hereglegchiin medeelliig communitytai ni damjuulana
     async joinCommunity() {
         const response = await fetch("http://localhost:3000/getuser",
             {
@@ -126,7 +119,7 @@ class theCommunitySection extends HTMLElement {
             this.#RenderPost(post, user);
         });
     }
-    
+    // post render
     #RenderPost(post, user) {
         post.timeAgo = timeAgo(Date.parse(post.publishedDate));
         var postElement = document.createElement('article');
@@ -162,7 +155,7 @@ class theCommunitySection extends HTMLElement {
         this.postsContainer.appendChild(postElement);
         this.addEventListenerToPostTitle(postTitleElement, post.postId);
     }
-
+    // url shiljuuleh
     addEventListenerToPostTitle(postElement, postId) {
         postElement.addEventListener("click", () => {
             window.location.href = `discussion.html?communityId=${this.communityId}&postId=${postId}`;
