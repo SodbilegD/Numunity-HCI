@@ -71,7 +71,8 @@ body {
         padding: 0 1rem;
     }
     @media (max-width: 693px){
-        padding: 0 0.5rem;
+        padding: 0;
+        margin: 0;
     }
 }
 

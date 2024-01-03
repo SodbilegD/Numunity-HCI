@@ -36,7 +36,7 @@
 
 .post-comments__filter{
     display: flex;
-    direction: row;
+    flex-direction: row;
     align-items: center;
 }
 .post-comments__filter__total{
@@ -54,7 +54,7 @@
 
 .single-comment__profile{
     display: flex;
-    direction: row;
+    flex-direction: row;
     align-items: center;
 }
 .single-comment__profile__img{
