@@ -50,25 +50,6 @@ class WcDiscussion extends HTMLElement {
         }
     }
 
-    // async connectedCallback() {
-    //     await this.fetchData();
-    //     this.renderSinglePost(this.post);
-    //     this.renderComments(this.comments);
-    // }
-
-    // async fetchData() {
-    //     this.jsondata = await fetchData();
-    //     const currentUrl = new URL(window.location.href);
-    //     const communityId = currentUrl.searchParams.get('communityId');
-    //     const postsId = currentUrl.searchParams.get('postId');
-        
-    //     this.community = this.jsondata.record.community[communityId - 1];
-    //     console.log(this.community);
-    //     this.posts = this.community.posts;
-    //     this.post = this.posts.find(post => post.postId == postsId);
-    //     this.comments = this.post.comments || [];
-    // }
-
     renderComments(comments) {
         this.commentsContainer.innerHTML = "";
         comments.forEach(comment => { 
@@ -104,8 +85,23 @@ class WcDiscussion extends HTMLElement {
         post.timeAgo = timeAgo(Date.parse(post.publishedDate));
         const userId = post.user;
         const user = this.users.find(user => user.userId === parseInt(userId));
-
+// component dotroh dark mode custom propertygaar duudagdaj bga heseg
         this.postsContainer.innerHTML = `
+        <style>
+\
+        @media (prefers-color-scheme: dark) {
+            .post {
+              background-color: var(--color-pfg);
+              color: var(--color-pbg);
+            }
+            .post__profile__community{
+                background-color: var(--color-pbg);
+                color: var(--color-pfg);
+            }
+        }
+        </style>
+        
+        
         <article class="post" id="recentPost_${post.postId}">
             <div class="post__profile" id="posts-container">
                 <img src="${user.profImg}" alt="profile" class="post__profile__img">
