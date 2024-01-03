@@ -1,7 +1,6 @@
 class WcAdvertisement extends HTMLElement {
     constructor() {
         super();
-        this.adType = this.getAttribute("adType") ?? "default";
         this.attachShadow({ mode: 'open' });
     }
 
@@ -31,13 +30,13 @@ class WcAdvertisement extends HTMLElement {
                     }
                 }
             </style>
-            <div class="advertisements">
+            <aside class="advertisements">
                 <ul class="advertisements__list">
                     <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad1.png" alt="advertisements1"></a></li>                
                     <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad2.png" alt="advertisements1"></a></li>
                     <li class="advertisements__item"><a href="ad.com"><img src="assets/images/ad3.png" alt="advertisements2"></a></li>
                 </ul>
-            </div>
+            </aside>
         `;
         
     }
