@@ -73,6 +73,16 @@
     margin: 0;
 }
 
+.single-comment__reactions{
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+}
+
+.single-comment__reactions i{
+    padding-right: 1rem;
+}
+
 @media (max-width: 860px) {
     .write-comment{
         padding: 0.5rem 1rem;
@@ -99,6 +109,12 @@
     .single-comment__detail {
         font-size: var(--tablet-text-small);
     }
+    .single-comment__reactions{
+        font-size: 0.75rem;
+    }
+    .single-comment__reactions i{
+        padding-right: 0.5rem;
+    }
 }
 @media (max-width: 693px) {
     .write-comment__input{
@@ -116,5 +132,11 @@
     }
     .single-comment__detail {
         font-size: var(--mobile-text-small);
+    }
+    .single-comment__reactions{
+        font-size: 0.75rem;
+    }
+    .single-comment__reactions i{
+        padding-right: 0.25rem;
     }
 }

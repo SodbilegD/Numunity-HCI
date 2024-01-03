@@ -15,7 +15,8 @@ class WcSidebar extends HTMLElement {
                 border-radius: 0.5rem;
                 padding: 1rem;
                 display: none;
-                height: 97%;
+                height: 98%;
+                margin: 0 1rem 1rem 0;
             }
           
             .slide__title {
@@ -179,8 +180,8 @@ class WcSidebar extends HTMLElement {
         <nav class="slide">
             <h1 class="slide__title">Цэс</h1>
             <ul class="slide__list">
-                <li class="slide__list__item"><a href="#"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
-                <li class="slide__list__item"><i class="fa-solid fa-comments"></i>Хэлэлцүүлэг
+                <li class="slide__list__item"><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
+                <li class="slide__list__item"><i class="fa-solid fa-comments"></i><a href="community.html">Хэлэлцүүлэг</a>
                     <ul>
                         <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=1">Веб програмчлал</a></li>
                         <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=2">Гоё хоол</a></li>
@@ -188,7 +189,7 @@ class WcSidebar extends HTMLElement {
                 </li>
                 <li class="slide__list__item"><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Chat өрөө</a></li>
                 <li class="slide__list__item"><a href="profile.html"><i class="far fa-user"></i>Миний профайл</a></li>
-                <li class="slide__list__item slide__list__item--logout"><a href="#"><i class="fa-solid fa-right-from-bracket"></i>Гарах</a></li>
+                <li class="slide__list__item slide__list__item--logout"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Гарах</a></li>
             </ul>
         </nav>
         `;

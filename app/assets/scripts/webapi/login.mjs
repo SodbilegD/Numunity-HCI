@@ -1,4 +1,4 @@
-import { connectToMongoDB } from '../session_db/db/db.mjs';
+import { connectToMongoDB } from './db.mjs';
 
 class Login {
     constructor() {

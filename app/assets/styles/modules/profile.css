@@ -5,11 +5,49 @@
     border-radius: 0.5rem;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .userprofile img{
     width: 5rem;
     height: 5rem;
     padding-right: 2rem;
+}
+
+.userprofile__username{
+    font-size: var(--desktop-text-mid);
+}
+
+@media (max-width: 860px) {
+    .userprofile{
+        padding: 0.5rem 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .userprofile img{
+        width: 3rem;
+        height: 3rem;
+        padding-right: 1.25rem;
+    }
+
+    .userprofile__username{
+        font-size: var(--tablet-text-mid);
+    }
+}
+
+@media (max-width: 693px) {
+    .userprofile{
+        padding: 0.25rem 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .userprofile img{
+        width: 2rem;
+        height: 2rem;
+        padding-right: 1rem;
+    }
+    .userprofile__username{
+        font-size: var(--mobile-text-mid);
+    }
 }
 
