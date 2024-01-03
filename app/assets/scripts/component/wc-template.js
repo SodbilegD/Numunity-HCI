@@ -12,6 +12,7 @@ template.innerHTML = `
                 <img src="./assets/images/profile.png" alt="profile" class="post__profile__img">
                 <p class="post__profile__name">Amet</p>
                 <a href="#" class="post__profile__community">>>Lorem ipsum</a>
+                <slot name="profile__community">>>Lorem bna ng communityru orno</slot>
             </div>
             <hr>
             
