@@ -403,11 +403,51 @@ app.get('/about', (req, res) => {
     console.log(about.render());
     about.render();
 });
-
+/**
+ * @swagger
+ * paths:
+ *  /:
+ *    get:
+ *      tags: 
+ *        - Static Files
+ *      summary: Login Page
+ *      responses:
+ *        "200":
+ *          description: Login successful.
+ *          content:
+ *            text/html:
+ *              schema:
+ *                type: string
+ */
 app.get('/', (req, res) => {
     res.send(data)
 });
-
+/**
+ * @swagger
+ * paths:
+ *  /login:
+ *    post:
+ *      tags:
+ *        - Authentication
+ *      summary: Хэрэгдэгчийг баталгаажуулах
+ *      requestBody:
+ *        description: Хэрэглэгчийн мэдээлэл шаардлагатай
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                email:
+ *                  type: string
+ *                password:
+ *                  type: string
+ *      responses:
+ *        "200":
+ *          description: Нэвтрэлт амжилттай.
+ *        "403":
+ *          description: Нэвтрэх мэдээлэл хангалтгүй.
+ */
 app.post('/login', login.verifyLogin.bind(login));
 
 app.get('/logout', (req, res) => { 
@@ -426,7 +466,33 @@ app.get('/community', (req, res) => {
 app.post('/discussion', (req, res) => {
     discussion.renderDiscussion(req, res);
 });
-
+/**
+ * @swagger
+ * paths:
+ *  /users:
+ *    get:
+ *      tags:
+ *        - Users
+ *      summary: Users information
+ *      responses:
+ *        "200":
+ *          description: Successful.
+ *        "404":
+ *          description: Info not found.
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: array
+ *                items:
+ *                  type: object
+ *                  properties:
+ *                    id:
+ *                      type: integer
+ *                    loginname:
+ *                      type: string
+ *                    fullname:
+ *                      type: string
+ */
 app.post('/getuser', (req, res) => {
     login.getUserFromCookie(req, res);
 });
