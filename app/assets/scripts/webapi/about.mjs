@@ -1,3 +1,4 @@
+// zugeer l bagiin medeelel sendleh class
 export default class aboutTeam{ 
     constructor(req, res){ 
         this.res = res;

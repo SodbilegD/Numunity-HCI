@@ -137,6 +137,7 @@
                 this.joined = joined;
             }
         }
+        
     }
     
 

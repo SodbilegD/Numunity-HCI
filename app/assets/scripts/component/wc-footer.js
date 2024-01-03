@@ -1,3 +1,4 @@
+// footer web component
 class WcFooter extends HTMLElement {
     constructor() {
         super();
@@ -22,7 +23,7 @@ class WcFooter extends HTMLElement {
         
         .footer__nav {
             flex-direction: row;
-            align-self: flex-start;
+            align-self: center;
         }
         
         .footer__nav h3 {

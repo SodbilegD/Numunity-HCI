@@ -1,5 +1,5 @@
 import { connectToMongoDB } from './db.mjs';
-
+// 
 class NewComment {
     async addCommentToPost(req, res) {
         try {

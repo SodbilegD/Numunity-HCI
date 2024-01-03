@@ -85,7 +85,7 @@ class AgreeDisagree extends HTMLElement {
         this.shadowRoot.getElementById('agreeButton').addEventListener('click', () => this.toggleAgree());
         this.shadowRoot.getElementById('disagreeButton').addEventListener('click', () => this.toggleDisagree());
     }
-
+    // agree deer daragdahad hiigdeh uildluud
     toggleAgree() {
         if(this.isAgreeClicked){
             this.agreeCount++;
@@ -108,7 +108,7 @@ class AgreeDisagree extends HTMLElement {
         }
         this.isAgreeClicked = !this.isAgreeClicked;        
     }
-    
+    // Disagree deer daragdahad hiigdeh uildluud
     toggleDisagree() {
         if(this.isDisagreeClicked){
             this.disagreeCount++;

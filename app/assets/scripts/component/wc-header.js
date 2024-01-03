@@ -1,6 +1,6 @@
 import WcButton from "./wc-button.js";
 window.customElements.define('wc-button', WcButton);
-
+//header web component
 class WcHeader extends HTMLElement {
     constructor() {
         super();
