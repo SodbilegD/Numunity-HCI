@@ -2,6 +2,8 @@
 // import { sendDataToJsonBin } from "../modules/dataFetcher.js";
 import AgreeDisagree from "./wc-agree-disagree.js";
 window.customElements.define('agree-disagree', AgreeDisagree);
+import timeAgo from "../modules/timeAgo.js";
+
 class WcDiscussion extends HTMLElement {
     constructor() {
         super();
@@ -9,8 +11,8 @@ class WcDiscussion extends HTMLElement {
         this.commentsContainer = document.getElementById("comments-container");
         this.commentCounter = document.getElementById("total-comments");
     
-        this.trendCommentButton = document.getElementById("comment-trend-filter");
-        this.trendCommentButton.addEventListener("click", this.filterTrend.bind(this));
+        this.newCommentButton = document.getElementById("comment-new-filter");
+        this.newCommentButton.addEventListener("click", this.filterNew.bind(this));
 
         const sendCommentButton = document.getElementById("send-comment-button");
         sendCommentButton.addEventListener("click", this.handleSendComment.bind(this));
@@ -93,12 +95,13 @@ class WcDiscussion extends HTMLElement {
 
             <div class="single-comment__reactions">
                 <agree-disagree agreeCount=${comment.agreeCount} disagreeCount=${comment.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>                                                           
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
+                <p class="single-comment__reactions__list"><i class="fa-regular fa-comment"></i>Reply</p>
             </div>`);
         this.commentsContainer.appendChild(commentElement);        
     }
 
     renderSinglePost(post) {
+        post.timeAgo = timeAgo(Date.parse(post.publishedDate));
         const userId = post.user;
         const user = this.users.find(user => user.userId === parseInt(userId));
 
@@ -122,7 +125,7 @@ class WcDiscussion extends HTMLElement {
                     <i class="fa-regular fa-share-from-square post__reactions__icon"></i>
                     <span class="reaction-count">${post.shareCount}</span> Share
                 </p>
-                <p class="post__profile__time post__profile__time--down">1h ago</p>
+                <p class="post__profile__time post__profile__time--down">${post.timeAgo}</p>
             </div>
         </article>`;
     }
@@ -135,6 +138,14 @@ class WcDiscussion extends HTMLElement {
 
         this.renderComments(filteredTrend);
     }
+
+    filterNew() {
+        const sortedComments = this.comments
+            .sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate));
+    
+        this.renderComments(sortedComments);
+    }
+    
 
     async handleSendComment() {
         const currentUrl = new URL(window.location.href);

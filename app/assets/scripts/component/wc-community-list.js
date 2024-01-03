@@ -1,4 +1,5 @@
 // import { fetchData } from "../modules/dataFetcher.js";
+import timeAgo from "../modules/timeAgo.js";
 
 class TheCommunityList extends HTMLElement {
     constructor() {
@@ -20,14 +21,14 @@ class TheCommunityList extends HTMLElement {
         communityElement.appendChild(titleElement);
         titleElement.classList.add('post__title');
         titleElement.textContent = community.communityName;
-
+        const createdDate = timeAgo(Date.parse(community.createdDate));
         communityElement.insertAdjacentHTML("beforeend",`
             </div>
             <hr>
             <p class="post__detail">${community.communityAbout}</p>
             <p class="post__profile__community"><i class="fa-solid fa-users"></i>  Дагагчид: ${community.followers.length}</p>
-            <p class="post__profile__community"><i class="fa-regular fa-comments"></i>  Нийт пост: ${community.posts.length}</p>
-            <p class="post__profile__time post__profile__time--down">${community.createdDate}</p>
+            <p class="post__profile__community"><i class="fa-solid fa-comments"></i>  Нийт пост: ${community.posts.length}</p>
+            <p class="post__profile__community"><i class="fa-solid fa-clock"></i>  Нээгдсэн: ${createdDate}</p>
         `);
         this.communityContainer.appendChild(communityElement);
         this.addEventListenerToTitle(titleElement, community.communityId);

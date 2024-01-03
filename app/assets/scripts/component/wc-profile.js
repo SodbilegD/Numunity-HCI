@@ -4,11 +4,10 @@
 class WcProfile extends HTMLElement {
     constructor() {
         super();
-        //implementation
     }
-
+    
     async connectedCallback() {
-        const savedCommunity = document.getElementById("posts-container");
+        this.communityContainer = document.getElementById("community-list");
         const response = await fetch("http://localhost:3000/getuser",
             {
                 method: 'POST',
@@ -38,17 +37,30 @@ class WcProfile extends HTMLElement {
             console.log("this community", this.community);
             console.log(this.user.savedCommunities);
 
+            this.renderUserProfile();
+
+            if(!this.user.savedCommunities){
+                this.communityContainer.innerHTML = `<h2 class="post__title">Хадгалсан community байхгүй байна.</h2>`;
+                return;
+            }
+            
             this.user.savedCommunities.forEach(async communityId => {
                 const matchingCommunity = this.community.find(community => community.communityId === communityId);
                 if (matchingCommunity) {
-                    const communityName = matchingCommunity.communityName;
-                    savedCommunity.insertAdjacentHTML("beforeend", `
-                        <p>${communityName}</p><br>
-                    `);
+                    this.#render(matchingCommunity);
                 }
             });
-            this.render();
             
+    }
+
+    renderUserProfile(){
+        this.innerHTML = `
+            <section class="userprofile">
+                <img src="${this.user.profImg}" alt="profile" class="userprofile__img">
+                <h2 class="userprofile__username">${this.user.userName}</h2>
+            </section>
+            <h1 class="post__title">Миний хадгалсан:</h1>
+        `;
     }
 
     #render(community) {
@@ -66,21 +78,19 @@ class WcProfile extends HTMLElement {
             <hr>
             <p class="post__detail">${community.communityAbout}</p>
             <p class="post__profile__community"><i class="fa-solid fa-users"></i>  Дагагчид: ${community.followers.length}</p>
-            <p class="post__profile__community"><i class="fa-regular fa-comments"></i>  Нийт пост: ${community.posts.length}</p>
-            <p class="post__profile__time post__profile__time--down">${community.createdDate}</p>
+            <p class="post__profile__community"><i class="fa-solid fa-comments"></i>  Нийт пост: ${community.posts.length}</p>
+            <p class="post__profile__community"><i class="fa-solid fa-clock"></i>  Нийт пост: ${community.posts.length}</p>
         `);
         this.communityContainer.appendChild(communityElement);
         this.addEventListenerToTitle(titleElement, community.communityId);
     }
 
-    render(){
-        this.innerHTML = `
-            <section class="userprofile">
-                <img src="${this.user.profImg}" alt="profile" class="userprofile__img">
-                <h2 class="userprofile__username">${this.user.userName}</h2>
-            </section>
-        `;
-    }
+    addEventListenerToTitle(communityElement, communityId) {
+        communityElement.addEventListener("click", () => {
+            window.location.href = `selectedcommunity.html?communityId=${communityId}`;
+        });
+    };
+
 
     disconnectedCallback() {
         //implementation
