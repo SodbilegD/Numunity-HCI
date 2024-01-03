@@ -41,28 +41,20 @@ class theCommunitySection extends HTMLElement {
         try {
             const currentUrl = new URL(window.location.href);
             this.communityId = currentUrl.searchParams.get('communityId');
-            this.postId = currentUrl.searchParams.get('postId');
-            const response = await fetch(`http://localhost:3000/discussion`, {
+            const response = await fetch(`http://localhost:3000/selectedcommunity`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json; charset=UTF-8',
                 },
-                body: JSON.stringify({ communityId: this.communityId , postId: this.postId }),
+                body: JSON.stringify({ communityId: this.communityId }),
             });
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
             const data = await response.json();
-            
             this.users = data.user;
-            this.community = data.community;
-            this.post = this.community.posts.find(e => e.postId === this.postId);
-            this.comments = this.post.comments;
-            this.sessions = data.sessions;
-
-            this.renderSinglePost(this.post);
-            this.renderComments(this.comments);
+            this.#render(data.community);
 
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -72,6 +64,7 @@ class theCommunitySection extends HTMLElement {
     filterTrend() {
         const currentDate = new Date();
         const filteredTrend = this.posts.filter(post =>
+
             Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
         );
     
@@ -118,58 +111,13 @@ class theCommunitySection extends HTMLElement {
             this.joinButtonElement.setAttribute("joined", true);
     };
 
-    async joinCommunity() {
-        const response = await fetch("http://localhost:3000/getuser",
-            {
-                method: 'POST',
-                cache: "no-cache",
-                headers: {
-                    "Content-Type": 'application/json; charset=UTF-8'
-                }
-            });
-            if (!response.ok) {
-                window.location.href="login.html";
-                return;
-            }
-            
-            const data = await response.json();
-            const user = data.user;
-            
-            const otherResponse = await fetch("http://localhost:3000/joincommunity",
-            {
-                method: 'POST',
-                cache: "no-cache",
-                headers: {
-                    "Content-Type": 'application/json; charset=UTF-8'
-                },
-                body: JSON.stringify({ communityId: this.communityId, userId: user.userId})
-            });
-            if (!otherResponse.ok) {
-                throw new Error(`HTTP error! Status: ${otherResponse.status}`);
-            }
-
-            this.joinButtonElement.setAttribute("joined", true);
-    };
-
-    #render(comment, user){
-        this.commentPublishedDate = comment.publishedDate;
-        
-        var commentElement = document.createElement('div');
-        commentElement.classList.add('single-comment');
-        commentElement.id = `single-comment_${(comment.commentId)}`;
-
-        commentElement.insertAdjacentHTML("afterbegin",
-        `<div class="single-comment__profile">
-                <img src="${user.profImg}" alt="profile" class="single-comment__profile__img">
-                <p class="single-comment__profile__name">${user.userName}</p>
-            </div>
-            <p class="single-comment__detail">${comment.body}</p>
-
-            <div class="single-comment__reactions">
-                <agree-disagree agreeCount=${comment.agreeCount} disagreeCount=${comment.disagreeCount} isAgreeClicked=${false} isDisAgreeClicked=${false}></agree-disagree>                                                           
-                <p class="single-comment__reactions__list"><i class="fa-solid fa-reply"></i>Reply</p>
-            </div>`);
-        this.commentsContainer.appendChild(commentElement);        
+    renderPosts(posts) {
+        this.postsContainer.innerHTML = "";
+        posts.forEach(post => {
+            const userId = post.user;
+            const user = this.users.find(user => user.userId === parseInt(userId));
+            this.#RenderPost(post, user);
+        });
     }
     
     #RenderPost(post, user) {
@@ -242,11 +190,12 @@ class theCommunitySection extends HTMLElement {
     attributeChangedCallback(name, oldVal, newVal) {
         //implementation
     }
-
+    
     adoptedCallback() {
         //implementation
     }
 
 }
 
-window.customElements.define('post-comment', PostComment);
+window.customElements.define('the-community-section', theCommunitySection);
+export const community = new theCommunitySection();

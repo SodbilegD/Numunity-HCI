@@ -39,25 +39,27 @@
 
     /* transition time */
     --global-transition-time:  ease-in-out;
-
     --transition: all 0.2s ease;
-    
 
-
-    /* darktheme colors
-
-        --color-white-lightmode: #fff;
-        --color-black-lightmode: #000;
-        --color-bg-lightmode: #e2e2e2;
-
-      
-      /* .dark-mode  */
-        /* --color-white-darkmode: #000;
-        --color-black-darkmode: #fff;
-        --color-bg-darkmode: #1d1b31; */ 
-
+        /* background-color */
+        --color-bg: #18191a;
+        --color-fg: #F5F5FA;
+          /* search bar color */
+          --color-pfg: #ffffff;
+          --color-pbg: #3a3b3c;
+          /* post color */
+          --color-pbg: #ffffff;
+          --color-pfg: #3a3b3c;
+          /* border */
+          --color-borderbg:#5555d8;
+          --color-borderfg: none;
+          /* post profile ard taliin >>lorem */
+        --color-cbg: #3f3f3f;
+        --color-cfg: #ffffff;
+        /* search ugnii ungu kekw :(( */
+        --color-hbg: #5555d8;
+        --color-hfg: #ffffff;
 }
-
 *{
     font-family: 'Comfortaa', cursive;
 }

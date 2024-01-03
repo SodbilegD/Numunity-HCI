@@ -82,16 +82,20 @@ class WcDiscussion extends HTMLElement {
     renderSinglePost(post) {
         const userId = post.user;
         const user = this.users.find(user => user.userId === parseInt(userId));
-
+// component dotroh dark mode custom propertygaar duudagdaj bga heseg
         this.postsContainer.innerHTML = `
-        // component dotroh dark mode custom propertygaar duudagdaj bga heseg
         <style>
+\
         @media (prefers-color-scheme: dark) {
             .post {
-              background-color: var(--color-background-black);
-              color: var(--color-white);
+              background-color: var(--color-pfg);
+              color: var(--color-pbg);
             }
-          }
+            .post__profile__community{
+                background-color: var(--color-pbg);
+                color: var(--color-pfg);
+            }
+        }
         </style>
         
         

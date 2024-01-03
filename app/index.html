@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./assets/styles/modules/_index.css">
     <link rel="stylesheet" href="./assets/styles/modules/_writepost.css">
     <link rel="stylesheet" href="./assets/styles/modules/_post.css">
+    <script type="module" src="./assets/scripts/component/wc-template.js"></script>
 </head>
 <body>
     <wc-header></wc-header>
@@ -30,31 +31,13 @@
                 <a href="#" class="write-post__img-icon"><i class="fa-solid fa-image"></i></a>
             </form>        
         <!--highlight post-->
-            <section class="post-section">
-                <div class="post-section__category">
-                    <h3 class="post-section__category__title">Онцлох:</h3>
-                    <a href="#" class="post-section__category__view-more">Цааш үзэх...</a>
-                </div>
-
-                <article class="post">
-                    <div class="post__profile">
-                        <img src="./assets/images/profile.png" alt="profile" class="post__profile__img">
-                        <p class="post__profile__name">Amet</p>
-                        <a href="#" class="post__profile__community">>>Lorem ipsum</a>
-                    </div>
-                    <hr>
-                    <h3 class="post__title"> Lorem ipsum dolor sit amet, consectetur adipiscing.</h3>
-                    <p class="post__detail">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis nisl tincidunt purus commodo fringilla. 
-                        Suspendisse pellentesque nibh et magna tempor, quis aliquet dolor faucibus. Quisque sit amet urna sem. 
-                        Sed in dolor quis sapien lacinia tempus. Proin nec dictum metus. Sed vestibulum elit nec diam mattis vehicula. 
-                        Curabitur magna libero, euismod volutpat rutrum ac, facilisis eget nisi. Morbi rhoncus varius nisl, ut 
-                        feugiat leo laoreet vel. Proin turpis lorem, tempor eu facilisis porta, pellentesque eu elit. Phasellus 
-                        egestas eu massa ut maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                    </p>
-                    <p class="post__profile__time post__profile__time--down">1h ago</p>
-                </article>
-            </section>
+        <post-template>
+                    <h3 class="post-section__category__title" slot="category__title">Онцлох:</h3>
+                    <!-- template ashiglaj bga heseg -->
+                        <h3 class="post__title" slot="title">Цагаан сар хэзээ болох вэ? </h3>
+                        <p class="post__detail" slot="detail">
+                        Мэдэхгүй ээ хө, мэдвэл хэлээрэй </p>
+        </post-template>
         <!--Trending-->
         <section class="post-section">
             <div class="post-section__category">
