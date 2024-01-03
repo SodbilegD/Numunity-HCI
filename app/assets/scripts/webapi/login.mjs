@@ -36,12 +36,6 @@ class Login {
         }
     }
 
-    // // Middleware function to parse cookies
-    // parseCookies(req, res, next) {
-    //     this.cookieParserMiddleware(req, res, next);
-    // }
-
-    // Function to get session ID from cookie
     async getUserFromCookie(req, res) {
         try {
             const sessionId = req.cookies['session_id'];
@@ -56,7 +50,8 @@ class Login {
                     const user = Usercollection.find(c => c.email === userSID.user);
                     res.status(200).send({
                         result: 'OK',
-                        user: user
+                        user: user,
+                        sessionId: sessionId
                     });
                 }
             }
@@ -64,11 +59,31 @@ class Login {
             console.error('Getting user is failed:', error);
             res.status(500).end();
         }
-
-        
-
-        
     }
+
+    async logOutUser(req, res) {
+        try {
+            const sessionId = req.body.sessionId;
+
+            if (!sessionId) {
+                res.status(401).end();
+                return;
+            }
+    
+            const db = await connectToMongoDB();
+    
+            await db.collection('Sessions').deleteOne({ sid: parseInt(sessionId) });
+        
+            res.clearCookie('session_id'); 
+            res.status(200).send({
+                result: 'OK'
+            });
+            
+        } catch (error) {
+            res.status(500).end();
+        }
+    }
+
 }
 
 export const login = new Login();

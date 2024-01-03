@@ -37,6 +37,7 @@ class WcSidebar extends HTMLElement {
                 padding: 2rem 1rem 0 1rem;
                 font-size: var(--desktop-text-small);
                 transition: transform 0.3s ease;
+                cursor: pointer;
             }
             
             .slide__list__item--logout {
@@ -189,11 +190,10 @@ class WcSidebar extends HTMLElement {
                 </li>
                 <li class="slide__list__item"><a href="chat.html"><i class="fa-solid fa-comment-dots"></i>Chat өрөө</a></li>
                 <li class="slide__list__item"><a href="profile.html"><i class="far fa-user"></i>Миний профайл</a></li>
-                <li class="slide__list__item slide__list__item--logout"><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i>Гарах</a></li>
             </ul>
         </nav>
         `;
-        
+        const logoutLink = document.querySelector(".slide__list__item--logout");
         const toggle = document.querySelector(".toggle");
         const slide = document.querySelector(".slide");
         const slideTitle = document.querySelector(".slide__title");
@@ -201,15 +201,14 @@ class WcSidebar extends HTMLElement {
         const slideItems = document.querySelectorAll(".slide__list__item");
 
         let showMenu = false;
+
         toggle.addEventListener("click", () => {
             if (!showMenu) {
                 toggle.classList.add("close");
                 slide.classList.add("show");
                 slideTitle.classList.add("show");
                 slideList.classList.add("show");
-                slideItems.forEach((item) =>
-                    item.classList.add("show"));
-
+                slideItems.forEach((item) => item.classList.add("show"));
                 // Reset the menu state
                 showMenu = true;
             } else {
@@ -217,14 +216,13 @@ class WcSidebar extends HTMLElement {
                 slide.classList.remove("show");
                 slideTitle.classList.remove("show");
                 slideList.classList.remove("show");
-                slideItems.forEach((item) =>
-                    item.classList.remove("show"));
-
+                slideItems.forEach((item) => item.classList.remove("show"));
                 // Reset the menu state
                 showMenu = false;
             }
         });
     }
+
 
     disconnectedCallback() {
         //implementation
