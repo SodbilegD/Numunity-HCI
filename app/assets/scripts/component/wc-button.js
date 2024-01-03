@@ -24,6 +24,10 @@ class WcButton extends HTMLElement {
                 button.classList.add("main-header__signup-button", "btn", "btn--signup");
                 button.textContent = "Бүртгүүлэх";
                 break;
+            case "logout": 
+                button.classList.add("main-header__signup-button", "btn", "btn--logout");
+                button.textContent = "Гарах";
+                break;
             case "join": 
                 button.classList.add("btn", "community__join-button");
                 button.textContent = "";

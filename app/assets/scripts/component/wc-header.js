@@ -156,7 +156,7 @@ class WcHeader extends HTMLElement {
                 <div class="main-header__container2 main-header__container2--buttons" id="header-button">
                     <wc-button buttonType="login"></wc-button>
                     <wc-button buttonType="signup"></wc-button>
-                    <!--<button type="button" class="main-header__login-button btn btn--op btn--login" onclick="logout()">Гарах</button>-->
+                    <wc-button buttonType="logout"></wc-button>
                     <i class="fa-regular fa-user main-header__container2__user"></i>
                 </div>
             </header>

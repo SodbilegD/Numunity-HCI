@@ -17,54 +17,87 @@
         async function login() {
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
-
-            fetch("http://localhost:3000/login",
-                {
+        
+            try {
+                const response = await fetch("http://localhost:3000/login", {
                     method: 'POST',
                     cache: "no-cache",
                     headers: {
                         "Content-Type": 'application/json; charset=UTF-8'
                     },
                     body: JSON.stringify({ email: email, password: password })
-                })
-                .then(result => {
-                    console.log(result);
-                    if (result.status !== 200) {
-                        document.getElementById("incorrect").innerHTML = "Та нэвтрэх нэр эсвэл нууц үгээ шалгана уу.";
-                        return;
-                    }
-                    window.location.href = "index.html";
-                    if(!body.cookies){
-                        
-                    }
-                    const header = document.getElementById("header-button");
-                    header.classList.add("main-header__container2__user");
-                    header.classList.remove("main-header__login-button");
-                    header.classList.remove("main-header__signup-button");
                 });
-            }
-        function logout(){
-            fetch("http://localhost:3000/logout",
-            {
-                method: 'POST',
-                    cache: "no-cache",
-                    headers: {
-                        "Content-Type": 'application/json; charset=UTF-8'
+        
+                if (response.status !== 200) {
+                    document.getElementById("incorrect").innerHTML = "Та нэвтрэх нэр эсвэл нууц үгээ шалгана уу.";
+                    return;
+                }
+        
+                const body = await response.json(); // Parse the response body as JSON
+        
+                // Check if the response contains cookies
+                if (body.cookies) {
+                    // Assuming your cookie is named 'session_id', you can access it as follows:
+                    const sessionId = body.cookies.find(cookie => cookie.name === 'session_id');
+        
+                    if (sessionId) {
+                        // Cookie found, update the UI
+                        const header = document.getElementById("header-button");
+                        header.classList.add("main-header__container2__user");
+                        header.classList.remove("main-header__login-button");
+                        header.classList.remove("main-header__signup-button");
                     }
+                }
+        
+                // Redirect to index.html
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error('Error during login:', error);
+            }
+        }
+        function logout() {
+            fetch("http://localhost:3000/logout", {
+                method: 'POST',
+                cache: "no-cache",
+                credentials: 'include', // Include credentials (cookies) in the request
+                headers: {
+                    "Content-Type": 'application/json; charset=UTF-8'
+                }
             })
             .then(result => {
                 console.log(result);
                 if (result.status !== 200) {
-                    document.getElementById("incorrect").innerHTML = "Logout failed";
+                    document.alert = "Logout failed";
                     return;
                 }
-                window.location.href = "login.html";
+        
+                // Remove the profile picture and logout button from the header
                 const header = document.getElementById("header-button");
+                const profilePicture = document.querySelector(".profile-picture");
+                const logoutButton = document.querySelector(".logout-button");
+        
+                if (profilePicture) {
+                    header.removeChild(profilePicture);
+                }
+        
+                if (logoutButton) {
+                    header.removeChild(logoutButton);
+                }
+        
+                // Delete the cookie
+                document.cookie = '';
+        
+                // Add back the login and signup buttons
                 header.classList.remove("main-header__container2__user");
-                header.classList.remove("main-header__logout-button");
                 header.classList.add("main-header__login-button");
                 header.classList.add("main-header__signup-button");
+                
+                // Redirect to index.html
+                window.location.href = "index.html";
             })
+            .catch(error => {
+                console.error('Error during logout:', error);
+            });
         }
     </script>
 </head>

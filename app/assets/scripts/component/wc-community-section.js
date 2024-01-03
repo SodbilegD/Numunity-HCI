@@ -63,13 +63,15 @@ class theCommunitySection extends HTMLElement {
     }
 
     filterTrend() {
-        const currentDate = new Date();
-        console.log(this.posts);
-        const filteredTrend = this.posts.filter(post =>
-            Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
-        );
+        // const currentDate = new Date();
+        // console.log(this.posts);
+        // const filteredTrend = this.posts.filter(post =>
+        //     Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
+        // );
     
-        this.renderPosts(filteredTrend);
+        // this.renderPosts(filteredTrend);
+        const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate) && a.agreeCount > 50);
+        this.renderPosts(sortedPosts);
     }
     
     filterNew() {

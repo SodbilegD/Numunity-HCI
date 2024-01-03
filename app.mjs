@@ -1,11 +1,11 @@
 import express from 'express';
 // import data from './data.json' assert { type: 'json' };
-import { fetchCommunityData } from "./app/assets/scripts/session_db/db/db.mjs";
+import { fetchCommunityData } from "./app/assets/scripts/webapi/db.mjs";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
-import { community } from './app/assets/scripts/session_ram/community.mjs';
+import { community } from './app/assets/scripts/webapi/community.mjs';
 import { comment } from 'postcss';
-import aboutTeam from './app/assets/scripts/session_ram/about.mjs';
+import aboutTeam from './app/assets/scripts/webapi/about.mjs';
 const data = await fetchCommunityData("Community", null);
 const app = express()
 const port = 3000

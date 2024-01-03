@@ -7,7 +7,7 @@ import { community } from './community.mjs';
 import { communityList } from "./communityList.mjs";
 import { discussion } from './discussion.mjs';
 import { newcomment } from './addcomment.mjs';
-import { fetchCommunityData } from "../session_db/db/db.mjs";
+import { fetchCommunityData } from "./db.mjs";
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import aboutTeam from './about.mjs';
@@ -409,6 +409,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/login', login.verifyLogin.bind(login));
+
+app.get('/logout', (req, res) => { 
+    user.sessions.delete(Number(req.cookies.session_id));
+    res.status(200).send();
+});
 
 app.post('/selectedcommunity', (req, res) => {
     community.renderCommunity(req, res);
