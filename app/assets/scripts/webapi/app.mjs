@@ -7,7 +7,7 @@ import { community } from './community.mjs';
 import { communityList } from "./communityList.mjs";
 import { discussion } from './discussion.mjs';
 import { newcomment } from './addcomment.mjs';
-import { fetchCommunityData } from "../session_db/db/db.mjs";
+import { fetchCommunityData } from './db.mjs';
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import aboutTeam from './about.mjs';
