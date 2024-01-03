@@ -1,4 +1,6 @@
-// her ih hugatsaanii umnu post-iig oruulsniig bodno
+
+// heden tsagiin umnu postlson tsagiig bodoh function
+
 export default function timeAgo(input) {
     const date = input instanceof Date ? input : new Date(input);
     const formatter = new Intl.RelativeTimeFormat('en');

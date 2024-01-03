@@ -4,9 +4,16 @@ window.customElements.define('wc-button', WcButton);
 class WcHeader extends HTMLElement {
     constructor() {
         super();
+        const loginButton = this.querySelector("#loginButton");
+        const signupButton = this.querySelector("#signupButton");
+        const logoutButton = this.querySelector("#logoutButton");
     }
 
-    connectedCallback() {
+    connectedCallback(){
+        this.render();
+    }
+
+    render() {
         this.innerHTML = `
             <style>
             .main-header {
@@ -154,22 +161,65 @@ class WcHeader extends HTMLElement {
                     <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
                 </form>
                 <div class="main-header__container2 main-header__container2--buttons" id="header-button">
-                    <wc-button buttonType="login"></wc-button>
-                    <wc-button buttonType="signup"></wc-button>
-                    <i class="fa-regular fa-user main-header__container2__user"></i>
+                    <wc-button id="loginButton" buttonType="login"></wc-button>
+                    <wc-button id="signupButton" buttonType="signup"></wc-button>
+                    <wc-button id="logoutButton" buttonType="logout"></wc-button>
                 </div>
             </header>
         `;
-        // hamburger tsesnii button toggle
+        logoutButton.style.display = "none";
         const toggle = this.querySelector("#hamburger-toggle");
         toggle.addEventListener("click", () => {
             this.dispatchEvent(new CustomEvent("toggleSidebar"));
         });
-        if(document.cookie !== null){
-            const header = document.getElementById("header-button");
-            header.classList.add("main-header__container2__user");
-            header.classList.remove("main-header__login-button");
-            header.classList.remove("main-header__signup-button");
+        this.UserLoginCheck();        
+    }
+
+    async UserLoginCheck(){
+        const response = await fetch("http://localhost:3000/getuser",
+        {
+            method: 'POST',
+            cache: "no-cache",
+            headers: {
+                "Content-Type": 'application/json; charset=UTF-8'
+            }
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            const sessionId = data.sessionId;
+            console.log("user's session id", sessionId);
+
+            loginButton.style.display = "none";
+            signupButton.style.display = "none";
+            logoutButton.style.display = "block";
+
+            logoutButton.addEventListener("click", async () => {
+                try {
+                    const logoutResponse = await fetch("http://localhost:3000/logout", {
+                        method: 'POST',
+                        cache: "no-cache",
+                        headers: {
+                            "Content-Type": 'application/json; charset=UTF-8'
+                        },
+                        body: JSON.stringify({ sessionId: sessionId})
+                    });
+
+                    if (logoutResponse.ok) {
+                        window.location.href="index.html";
+                        alert("User logged out successfully");
+                    } else {
+                        alert("Not logged out?");
+                        console.error("Error logging out:", logoutResponse.statusText);
+                    }
+                } catch (error) {
+                    console.error("Error logging out:", error);
+                }
+            })
+        } else {
+            loginButton.style.display = "block";
+            signupButton.style.display = "block";
+            logoutButton.style.display = "none";
         }
     }
 

@@ -36,12 +36,6 @@ class Login {
         }
     }
 
-    // // Middleware function to parse cookies
-    // parseCookies(req, res, next) {
-    //     this.cookieParserMiddleware(req, res, next);
-    // }
-
-    // Function to get session ID from cookie
     async getUserFromCookie(req, res) {
         try {
             const sessionId = req.cookies['session_id'];
@@ -56,53 +50,40 @@ class Login {
                     const user = Usercollection.find(c => c.email === userSID.user);
                     res.status(200).send({
                         result: 'OK',
-                        user: user
+                        user: user,
+                        sessionId: sessionId
                     });
                 }
             }
         } catch (error) {
             console.error('Getting user is failed:', error);
             res.status(500).end();
-        }        
-    }
-
-    // Add this function to check if the user is logged in
-    async checkLoginStatus() {
-        try {
-            const response = await fetch("http://localhost:3000/check-login", {
-                method: 'GET',
-                credentials: 'include', // Include credentials (cookies) in the request
-            });
-
-            if (response.status === 200) {
-                // User is logged in, update the UI
-                const header = document.getElementById("header-button");
-                header.classList.add("main-header__container2__user");
-                header.classList.remove("main-header__login-button");
-                header.classList.remove("main-header__signup-button");
-
-                // Add user profile picture and logout button
-                // For example, you can create an image element and a button element for logout
-                const profilePicture = document.createElement("img");
-                profilePicture.src = "path_to_profile_picture"; // Set the path to the user's profile picture
-                profilePicture.alt = "Profile Picture";
-                profilePicture.classList.add("profile-picture");
-                header.appendChild(profilePicture);
-
-                const logoutButton = document.createElement("button");
-                logoutButton.textContent = "Logout";
-                logoutButton.classList.add("logout-button");
-                logoutButton.addEventListener("click", logout);
-                header.appendChild(logoutButton);
-            }
-        } catch (error) {
-            console.error('Error checking login status:', error);
         }
     }
 
-    // Call the checkLoginStatus function when the page loads
+    async logOutUser(req, res) {
+        try {
+            const sessionId = req.body.sessionId;
 
-    // Rest of your existing code...
+            if (!sessionId) {
+                res.status(401).end();
+                return;
+            }
+    
+            const db = await connectToMongoDB();
+    
+            await db.collection('Sessions').deleteOne({ sid: parseInt(sessionId) });
+        
+            res.clearCookie('session_id'); 
+            res.status(200).send({
+                result: 'OK'
+            });
+            
+        } catch (error) {
+            res.status(500).end();
+        }
+    }
+
 }
 
 export const login = new Login();

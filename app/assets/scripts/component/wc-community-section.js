@@ -9,13 +9,18 @@ class theCommunitySection extends HTMLElement {
         super();
         this.postsContainer = document.getElementById("posts-container");
         this.joinButtonElement = document.getElementById("joinButton");
+        console.log(this.joinButtonElement);
         this.trendButtonElement = document.getElementById("trendButton");
         this.newButtonElement = document.getElementById("newButton");
         this.communityId = null;
         // buttonuudiin add event listener
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
-        this.joinButtonElement.addEventListener("click", this.joinCommunity.bind(this));
+        this.joinButtonElement.addEventListener("click", () => {
+            console.log(this.joinButtonElement.textContent);
+            this.joinButtonElement.textContent = "нэгдсэн";
+            this.joinCommunity.bind(this);
+        });
         
         this.darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
     }
@@ -107,8 +112,9 @@ class theCommunitySection extends HTMLElement {
             if (!otherResponse.ok) {
                 throw new Error(`HTTP error! Status: ${otherResponse.status}`);
             }
-
+            
             this.joinButtonElement.setAttribute("joined", true);
+            console.log(this.joinButtonElement);
     };
 
     renderPosts(posts) {

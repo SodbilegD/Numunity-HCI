@@ -25,12 +25,13 @@ class WcButton extends HTMLElement {
                 button.textContent = "Бүртгүүлэх";
                 break;
             case "logout": 
-                button.classList.add("main-header__signup-button", "btn", "btn--logout");
+                button.classList.add("main-header__logout-button", "btn", "btn--op", "btn--logout");
                 button.textContent = "Гарах";
                 break;
             case "join": 
                 button.classList.add("btn", "community__join-button");
                 button.textContent = "";
+                button.setAttribute("joined", false);
                 break;
             case "new": 
                 button.classList.add("btn", "community__new-button", "btn--new");
@@ -67,6 +68,10 @@ class WcButton extends HTMLElement {
             .btn--op {
                 background-color: var(--color-white);
                 color: var(--color-main);
+            }
+
+            .btn--logout{
+                display: block;
             }
             
             .btn:hover {
@@ -120,25 +125,21 @@ class WcButton extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
+        console.log("attributeChangedCallback");
         if (name === 'joined' && oldVal !== newVal) {
-            // The 'joined' attribute has changed
 
-            // Convert newVal to a boolean
             const joined = newVal === 'true';
 
-            // Access the button element within the shadow DOM
-            const button = this.shadowRoot.querySelector('button');
+            const button = this.shadowRoot.querySelector('#joinButton');
 
             if (button) {
-                // Update button text content based on the 'joined' attribute
-                button.textContent = joined ? 'Joined' : 'Join';
-
-                // Update the 'joined' property of the instance
+                button.textContent = joined ? 'нэгдсэн' : 'нэгдэх';
                 this.joined = joined;
             }
         }
         
     }
+    
 
     adoptedCallback() {
         // Implementation for adoptedCallback
