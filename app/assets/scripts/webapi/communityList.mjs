@@ -1,4 +1,5 @@
-import { fetchCommunityData } from "../session_db/db/db.mjs";
+import { fetchCommunityData } from './db.mjs';
+
 
 class CommunityList {
     async renderCommunityList(req, res) {
