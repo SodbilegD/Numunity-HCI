@@ -8,8 +8,10 @@ import { communityList } from "./communityList.mjs";
 import { discussion } from './discussion.mjs';
 import { newcomment } from './addcomment.mjs';
 import { fetchCommunityData } from './db.mjs';
+
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
+
 import aboutTeam from './about.mjs';
 
 const data = await fetchCommunityData("Community", null);
@@ -45,7 +47,7 @@ app.use("/app", express.static('app'));
 
 //json data хүлээж авдаг болгохын тулд дуудаж өгнө.
 app.use(express.json());
-
+//swaggeriiinha title web description gh met zuilsiig todorhoilj ugj bga heseg
 const options = {
     swaggerDefinition: {
         openapi: "3.0.0",
@@ -72,12 +74,13 @@ const options = {
     },
     apis: ["./app.mjs"]
 };
-
+//docs uusgej bga heseg
 const specs = swaggerJsondoc(options);
 app.use("/docs", swaggerUi.serve);
 
 app.get(
     "/docs",
+    //swaggerui-daa options-iig specs d taaruulj ugj bga
     swaggerUi.setup(specs, {
         explorer: true
     })
@@ -86,21 +89,16 @@ app.get(
 /**
  * @swagger
  * tags:
- *  -
- *   name: "Community"
+ *  -name: "Community"
  *   description: Community related operations
  *      
- *  - 
- *   name: "Post"
+ *  -name: "Post"
  *   description: Post related operations
- *  - 
- *   name: "Comment"
+ *  -name: "Comment"
  *   description: Comment related operations
- *  -
- *   name: "About"
+ *  -name: "About"
  *   description: My Team information
- *  -
- *   name: "Followers"
+ *  -name: "Followers"
  *   description: Followers of Community
  */
 
@@ -239,7 +237,7 @@ app.get('/communities/:communityId/posts/:postId/agreeCount', (req, res) => {
  *                type: string
  */
 
-
+//Mongo DB datagaa communityID-r n taaruulaad  res.send(community) ga damjuulna
 app.get('/communities/:communityId',
     (req, res) => {
         const community = data.filter(
@@ -273,7 +271,6 @@ app.get('/communities/:communityId',
  *              schema:
  *                type: string
  */
-
 
 app.get('/communities/:communityId/followers',
     (req, res) => {
@@ -398,6 +395,8 @@ app.get('/communities/:communityId/posts/:postId/comments/:commentId',
  *         schema:
  *          type: string
  */
+
+//DB
 app.get('/about', (req, res) => {
     const about = new aboutTeam(req, res);
     console.log(about.render());

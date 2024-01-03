@@ -1,13 +1,7 @@
 import path from 'path';
 import express from 'express';
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
-import { login } from './login.mjs';
-import { community } from './community.mjs';
-import { communityList } from "./communityList.mjs";
-import { discussion } from './discussion.mjs';
-import { newcomment } from './addcomment.mjs';
-import { fetchCommunityData } from './db.mjs';
+// import data from './data.json' assert { type: 'json' };
+import { fetchCommunityData } from './app/assets/scripts/webapi/db.mjs';
 import swaggerUi from "swagger-ui-express";
 import swaggerJsondoc from "swagger-jsdoc";
 import aboutTeam from './about.mjs';
