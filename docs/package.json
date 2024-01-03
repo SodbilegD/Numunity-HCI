@@ -20,8 +20,7 @@
   "main": "./app.mjs",
   "scripts": {
     "document": "node ./app.mjs",
-    "start": "node ./app/assets/scripts/session_ram/app.mjs",
-    "build": "webpack"
+    "start": "node ./app/assets/scripts/session_ram/app.mjs"
   },
   "keywords": [],
   "author": "",

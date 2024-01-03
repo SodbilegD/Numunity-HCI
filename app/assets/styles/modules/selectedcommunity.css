@@ -17,10 +17,9 @@
     border: none;
     font-size: var(--desktop-text-small);
     resize: none;
-
-    &:focus {
-        outline: none;
-    }
+}
+.write-post__status-box:focus {
+    outline: none;
 }
 
 .write-post__img-icon {
@@ -89,6 +88,12 @@
     }
 }
 
+.community {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1.5rem 0;
+}
 aside{
     max-width: 25%;
     min-width: 25%;
