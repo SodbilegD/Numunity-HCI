@@ -1,10 +1,13 @@
-// import { fetchData } from "../modules/dataFetcher.js";
-// import { sendDataToJsonBin } from "../modules/dataFetcher.js";
+
+// wc-agree-disagree.js ees agree-disagree geh customElements-g duudaj bna
+// timeAgo.js ees timeAgo functioing duudaj bna
+
 import AgreeDisagree from "./wc-agree-disagree.js";
 window.customElements.define('agree-disagree', AgreeDisagree);
 import timeAgo from "../modules/timeAgo.js";
 
 class WcDiscussion extends HTMLElement {
+    // baiguulagch
     constructor() {
         super();
         this.postsContainer = document.getElementById("posts-container");
@@ -51,12 +54,18 @@ class WcDiscussion extends HTMLElement {
     }
 
     renderComments(comments) {
+        //comment containerin html-g tseverleh
         this.commentsContainer.innerHTML = "";
+        // comments massiv dahi comment buriig davtalt
         comments.forEach(comment => { 
+            // user-n id-g commentoos avah
             const userId = comment.user;
+            // user id deer undeslen user-n objectiig olno
             const user = this.users.find(user => user.userId === parseInt(userId));
+            // render private methodiig comment bolon user iin hamt argument bolgon duudna.
             this.#render(comment, user)
         });
+        // 
         this.commentCounter.innerHTML = this.comments.length;
     }
 
@@ -88,8 +97,8 @@ class WcDiscussion extends HTMLElement {
 // component dotroh dark mode custom propertygaar duudagdaj bga heseg
         this.postsContainer.innerHTML = `
         <style>
-\
-        @media (prefers-color-scheme: dark) {
+
+        @media (prefers-color-scheme: dark) {=
             .post {
               background-color: var(--color-pfg);
               color: var(--color-pbg);
@@ -196,33 +205,6 @@ class WcDiscussion extends HTMLElement {
             this.renderComments(this.comments);
             commentInput.value = "";
         };}
-
-    
-    // async handleSendComment() {
-    //     const commentInput = document.getElementById("comment-input");
-    //     const newCommentText = commentInput.value.trim();
-    
-    //     if (newCommentText !== "") {
-    //         const newComment = {
-    //             id: this.commentCounter.innerHTML,
-    //             body: newCommentText,
-    //             user: {
-    //                 id: 999,
-    //                 username: "comment writer",
-    //                 profileImage: "/assets/images/profile.png"
-    //             },
-    //             publishedDate: new Date().toISOString(),
-    //         };
-    
-    //         this.comments.push(newComment);
-    
-    //         this.renderComments(this.comments);
-    
-    //         commentInput.value = "";
-    //         await sendDataToJsonBin(this.jsondata.record);
-    //     }
-    // }
-    
 
     disconnectedCallback() {
         //implementation
