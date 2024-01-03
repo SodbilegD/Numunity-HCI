@@ -33,10 +33,23 @@
                         <h3 class="post__title" slot="title">Цагаан сар хэзээ болох вэ? </h3>
                         <p class="post__detail" slot="detail">
                         Мэдэхгүй ээ хө, мэдвэл хэлээрэй </p>
+
+                        <a href="selectedcommunity.html?communityId=1" slot="profile__community">Цааш үзэх</a>
         </post-template>
 
         <!--Trending-->
-        <section class="post-section">
+
+        <post-template>
+            <h3 class="post-section__category__title" slot="category__title">Трэнд:</h3>
+            <!-- template ashiglaj bga heseg -->
+                <h3 class="post__title" slot="title">Шинэ жил хэзээ болох вэ? </h3>
+                <p class="post__detail" slot="detail">
+                БҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮҮ МЭД </p>
+                <a href="selectedcommunity.html?communityId=2" slot="profile__community">Цааш үзэх</a>
+        </post-template>
+
+
+        <!-- <section class="post-section">
             <div class="post-section__category">
                 <h3 class="post-section__category__title">Тренд:</h3>
                 <a href="selectedcommunity.html?communityId=2" class="post-section__category__view-more">Цааш үзэх...</a>
@@ -60,9 +73,20 @@
                     </p>
                     <p class="post__profile__time post__profile__time--down">1h ago</p>
                 </article>
-            </section>
+            </section> -->
         <!--New-->
-        <section class="post-section">
+        
+
+        <post-template>
+            <h3 class="post-section__category__title" slot="category__title">Шинэ:</h3>
+            <!-- template ashiglaj bga heseg -->
+                <h3 class="post__title" slot="title">Хоёрдугаар семистэр хэзээ болох вэ? </h3>
+                <p class="post__detail" slot="detail">
+                Дараа сард ：））（（</p>
+                <a href="selectedcommunity.html?communityId=3" slot="profile__community">Цааш үзэх</a>
+        </post-template>
+
+        <!-- <section class="post-section">
             <div class="post-section__category">
                 <h3 class="post-section__category__title">Шинэ:</h3>
                 <a href="selectedcommunity.html?communityId=3" class="post-section__category__view-more">Цааш үзэх...</a>
@@ -85,7 +109,7 @@
                     </p>
                     <p class="post__profile__time post__profile__time--down">1h ago</p>
                 </article>
-            </section>
+            </section> -->
         </main>
         <wc-advertisements></wc-advertisements>
     </div>
