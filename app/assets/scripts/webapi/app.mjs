@@ -16,7 +16,7 @@ import aboutTeam from './about.mjs';
 
 const data = await fetchCommunityData("Community", null);
 const app = express();
-const port = 3000;
+const port = 4000;
 const __dirname = path.resolve(path.dirname(''));
 const appPath = path.join(__dirname, 'app');
 let agreeCount = 0;
@@ -41,7 +41,7 @@ app.use(cors());
 
 //   res.sendFile('index.html', { root: appPath });
 // });
-//http://localhost:3000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
+//http://localhost:4000/public/somepage.html гэх мэтээр static контентоор үйлчлэх бол /public гэсэн path аар 
 //эхэлсэн бол диск дээрх public фордор дотор байгаа файлуудаас үйлчлэхийг тохируулж байна.
 app.use("/app", express.static('app'));
 
@@ -68,7 +68,7 @@ const options = {
         },
         servers: [
             {
-                url: "http://localhost:3000/"
+                url: "http://localhost:4000/"
             }
         ]
     },
