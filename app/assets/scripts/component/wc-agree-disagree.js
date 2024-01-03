@@ -1,3 +1,4 @@
+//comment bolon postni like tooloh
 class AgreeDisagree extends HTMLElement {
     constructor() {
         super();

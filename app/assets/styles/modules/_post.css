@@ -8,7 +8,7 @@
 
 .post__profile {
     display: flex;
-    direction: row;
+    flex-direction: row;
     align-items: center;
     margin: 0;
 }
@@ -65,7 +65,7 @@ hr {
 
 .post__reactions {
     display: flex;
-    direction: row;
+    flex-direction: row;
     justify-content: flex-start;
 }
 
@@ -123,6 +123,10 @@ hr {
 }
 
 @media screen and (max-width: 693px) {
+    .post__profile__img {
+        width: 1.5rem;
+        padding-right: 0.75rem;
+    }
     .post__profile__img {
         width: 1.5rem;
         padding-right: 0.75rem;

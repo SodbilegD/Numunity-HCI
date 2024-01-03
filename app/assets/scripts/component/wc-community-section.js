@@ -70,6 +70,7 @@ class theCommunitySection extends HTMLElement {
     filterTrend() {
         const currentDate = new Date();
         const filteredTrend = this.posts.filter(post =>
+
             Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
         );
     
