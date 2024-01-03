@@ -3,7 +3,7 @@ import { connectToMongoDB } from './db.mjs';
 class Login {
     constructor() {
     }
-
+    //DB-s user avaad email pass shalgah
     async verifyLogin(req, res) {
         try {
             const email = req.body.email;
@@ -35,7 +35,7 @@ class Login {
             res.status(500).end();
         }
     }
-
+    //cookie-r n damjuulaad user-n sessionid g haij olj bga 
     async getUserFromCookie(req, res) {
         try {
             const sessionId = req.cookies['session_id'];
@@ -60,7 +60,7 @@ class Login {
             res.status(500).end();
         }
     }
-
+//logout
     async logOutUser(req, res) {
         try {
             const sessionId = req.body.sessionId;
@@ -69,11 +69,11 @@ class Login {
                 res.status(401).end();
                 return;
             }
-    
+            
             const db = await connectToMongoDB();
-    
+            //SessionID taarj bga elementiig ustgah
             await db.collection('Sessions').deleteOne({ sid: parseInt(sessionId) });
-        
+            //sessionID cookiegees delete hiih
             res.clearCookie('session_id'); 
             res.status(200).send({
                 result: 'OK'

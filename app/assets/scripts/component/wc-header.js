@@ -167,11 +167,14 @@ class WcHeader extends HTMLElement {
                 </div>
             </header>
         `;
+        //login hiigdegu uyd logoutbutton alga bolgoh
         logoutButton.style.display = "none";
         const toggle = this.querySelector("#hamburger-toggle");
+        //click hiigdeh uyd sidebar garch irne
         toggle.addEventListener("click", () => {
             this.dispatchEvent(new CustomEvent("toggleSidebar"));
         });
+        //login uguig checkleh
         this.UserLoginCheck();        
     }
 
@@ -189,11 +192,11 @@ class WcHeader extends HTMLElement {
             const data = await response.json();
             const sessionId = data.sessionId;
             console.log("user's session id", sessionId);
-
+            //login hiigdsen uyd alga bolgono
             loginButton.style.display = "none";
             signupButton.style.display = "none";
             logoutButton.style.display = "block";
-
+            //logout hiih func
             logoutButton.addEventListener("click", async () => {
                 try {
                     const logoutResponse = await fetch("http://localhost:3000/logout", {
@@ -202,6 +205,7 @@ class WcHeader extends HTMLElement {
                         headers: {
                             "Content-Type": 'application/json; charset=UTF-8'
                         },
+                        //user session ID-g 
                         body: JSON.stringify({ sessionId: sessionId})
                     });
 
