@@ -1,4 +1,4 @@
-class WcButton extends HTMLElement {
+ class WcButton extends HTMLElement {
     constructor() {
         super();
         this.buttonType = this.getAttribute("buttonType") ?? "default";
