@@ -11,19 +11,19 @@ pipeline {
     }
     stage('Build Docker image') {
       steps {
-        sh'sudo docker build -t lastProject:latest .'
+        sh'sudo docker build -t lastproject:latest .'
       }
     }
     stage('Deploy Docker image') {
       steps {
         script{
-          def containcerExists = sh(script: 'sudo docker ps -a | grep lastProject-service', returnStatus: true) == 0
+          def containcerExists = sh(script: 'sudo docker ps -a | grep lastproject-service', returnStatus: true) == 0
           if (containerExists) {
-            sh 'sudo docker stop lastProject-service'
-            sh 'sudo docker rm lastProject-service'
+            sh 'sudo docker stop lastproject-service'
+            sh 'sudo docker rm lastproject-service'
           }
         }
-        sh 'sudo docker run -p 3000:3000 -d --name lastProject-service lastProject:latest'
+        sh 'sudo docker run -p 3000:3000 -d --name lastproject-service lastproject:latest'
       }
     }
   }
