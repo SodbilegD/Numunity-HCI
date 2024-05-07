@@ -11,19 +11,19 @@ pipeline {
     }
     stage('Build Docker image') {
       steps {
-        sh'sudo docker build -t ICSI450:latest .'
+        sh'sudo docker build -t lastProject:latest .'
       }
     }
     stage('Deploy Docker image') {
       steps {
         script{
-          def containcerExists = sh(script: 'sudo docker ps -a | grep ICSI450-service', returnStatus: true) == 0
+          def containcerExists = sh(script: 'sudo docker ps -a | grep lastProject-service', returnStatus: true) == 0
           if (containerExists) {
-            sh 'sudo docker stop ICSI450-service'
-            sh 'sudo docker rm ICSI450-service'
+            sh 'sudo docker stop lastProject-service'
+            sh 'sudo docker rm lastProject-service'
           }
         }
-        sh 'sudo docker run -p 3000:3000 -d --name ICSI450-service ICSI450:latest'
+        sh 'sudo docker run -p 3000:3000 -d --name lastProject-service lastProject:latest'
       }
     }
   }
