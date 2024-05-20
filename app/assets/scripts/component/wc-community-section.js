@@ -12,10 +12,16 @@ class theCommunitySection extends HTMLElement {
         console.log(this.joinButtonElement);
         this.trendButtonElement = document.getElementById("trendButton");
         this.newButtonElement = document.getElementById("newButton");
+        this.searchBox = document.getElementById("searchInput");
+
         this.communityId = null;
         // buttonuudiin add event listener
         this.trendButtonElement.addEventListener("click", this.filterTrend.bind(this));
         this.newButtonElement.addEventListener("click", this.filterNew.bind(this));
+        document.addEventListener("search", (event) => {
+            console.log("Received search query:", event.detail.query);
+            this.searchPosts(event);
+          });
         this.joinButtonElement.addEventListener("click", () => {
             console.log(this.joinButtonElement.textContent);
             this.joinButtonElement.textContent = "нэгдсэн";
@@ -26,6 +32,9 @@ class theCommunitySection extends HTMLElement {
     }
     // render
     #render(community) {
+        const followers = community.followers || []; // Default to empty array if undefined
+        const posts = community.posts || []; 
+
         document.getElementById("community").insertAdjacentHTML('afterbegin', `
             <h1 class="community__name">>> ${community.communityName}</h1>`);
         document.getElementById("community-detail").insertAdjacentHTML('afterbegin', `
@@ -83,8 +92,21 @@ class theCommunitySection extends HTMLElement {
         });
         this.renderPosts(filteredPosts);
     }
+    searchPosts(event) {
+        const query = event.detail.query.toLowerCase();
+        if (query === " ") {
+            this.renderPosts(this.posts);
+        } else {
+            const filteredPosts = this.posts.filter((post) =>
+                post.postTitle.toLowerCase().includes(query)
+            );
+            console.log(filteredPosts);
+            this.renderPosts(filteredPosts);
+        }
+    }
     // negdsen hereglegchiin medeelliig communitytai ni damjuulana
-    async joinCommunity() {
+     // Join community
+     async joinCommunity() {
         try {
             const response = await fetch("http://localhost:3000/getuser", {
                 method: 'POST',
@@ -94,13 +116,13 @@ class theCommunitySection extends HTMLElement {
                 }
             });
             if (!response.ok) {
-                window.location.href="login.html";
+                window.location.href = "login.html";
                 return;
             }
-            
+
             const data = await response.json();
             const user = data.user;
-            
+
             const otherResponse = await fetch("http://localhost:3000/joincommunity", {
                 method: 'POST',
                 cache: "no-cache",
@@ -112,13 +134,13 @@ class theCommunitySection extends HTMLElement {
             if (!otherResponse.ok) {
                 throw new Error(`HTTP error! Status: ${otherResponse.status}`);
             }
-            
+
             this.joinButtonElement.setAttribute("joined", true);
             console.log(this.joinButtonElement);
         } catch (error) {
             console.error('Error joining community:', error);
         }
-    };
+    }
 
     renderPosts(posts) {
         this.postsContainer.innerHTML = "";

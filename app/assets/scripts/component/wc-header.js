@@ -1,20 +1,20 @@
 import WcButton from "./wc-button.js";
-window.customElements.define('wc-button', WcButton);
+window.customElements.define("wc-button", WcButton);
 //header web component
 class WcHeader extends HTMLElement {
-    constructor() {
-        super();
-        const loginButton = this.querySelector("#loginButton");
-        const signupButton = this.querySelector("#signupButton");
-        const logoutButton = this.querySelector("#logoutButton");
-    }
+  constructor() {
+    super();
+    const loginButton = this.querySelector("#loginButton");
+    const signupButton = this.querySelector("#signupButton");
+    const logoutButton = this.querySelector("#logoutButton");
+  }
 
-    connectedCallback(){
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <style>
             .main-header {
                 margin: 0.75rem 0;
@@ -158,7 +158,7 @@ class WcHeader extends HTMLElement {
                 </div>
                 <form class="main-header__search-bar">
                     <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>
-                    <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field">
+                    <input type="text" label="Search" placeholder="Хайлт хийх" class="main-header__search-field" id="searchInput">
                 </form>
                 <div class="main-header__container2 main-header__container2--buttons" id="header-button">
                     <wc-button id="loginButton" buttonType="login"></wc-button>
@@ -167,78 +167,88 @@ class WcHeader extends HTMLElement {
                 </div>
             </header>
         `;
-        //login hiigdegu uyd logoutbutton alga bolgoh
-        logoutButton.style.display = "none";
-        const toggle = this.querySelector("#hamburger-toggle");
-        //click hiigdeh uyd sidebar garch irne
-        toggle.addEventListener("click", () => {
-            this.dispatchEvent(new CustomEvent("toggleSidebar"));
-        });
-        //login uguig checkleh
-        this.UserLoginCheck();        
-    }
+    const searchBox = this.querySelector("#searchInput");
 
-    async UserLoginCheck(){
-        const response = await fetch("http://localhost:3000/getuser",
-        {
-            method: 'POST',
+    searchBox.addEventListener("input", (event) => {
+      // console.log("Search query:", event.target.value);
+      const searchEvent = new CustomEvent("search", {
+        detail: { query: event.target.value },
+        bubbles: true,
+        composed: true,
+      });
+      this.dispatchEvent(searchEvent);
+    });
+
+    //login hiigdegu uyd logoutbutton alga bolgoh
+    logoutButton.style.display = "none";
+    const toggle = this.querySelector("#hamburger-toggle");
+    //click hiigdeh uyd sidebar garch irne
+    toggle.addEventListener("click", () => {
+      this.dispatchEvent(new CustomEvent("toggleSidebar"));
+    });
+    //login uguig checkleh
+    this.UserLoginCheck();
+  }
+
+  async UserLoginCheck() {
+    const response = await fetch("http://localhost:3000/getuser", {
+      method: "POST",
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      const sessionId = data.sessionId;
+      console.log("user's session id", sessionId);
+      //login hiigdsen uyd alga bolgono
+      loginButton.style.display = "none";
+      signupButton.style.display = "none";
+      logoutButton.style.display = "block";
+      //logout hiih func
+      logoutButton.addEventListener("click", async () => {
+        try {
+          const logoutResponse = await fetch("http://localhost:3000/logout", {
+            method: "POST",
             cache: "no-cache",
             headers: {
-                "Content-Type": 'application/json; charset=UTF-8'
-            }
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            const sessionId = data.sessionId;
-            console.log("user's session id", sessionId);
-            //login hiigdsen uyd alga bolgono
-            loginButton.style.display = "none";
-            signupButton.style.display = "none";
-            logoutButton.style.display = "block";
-            //logout hiih func
-            logoutButton.addEventListener("click", async () => {
-                try {
-                    const logoutResponse = await fetch("http://localhost:3000/logout", {
-                        method: 'POST',
-                        cache: "no-cache",
-                        headers: {
-                            "Content-Type": 'application/json; charset=UTF-8'
-                        },
-                        //user session ID-g 
-                        body: JSON.stringify({ sessionId: sessionId})
-                    });
+              "Content-Type": "application/json; charset=UTF-8",
+            },
+            //user session ID-g
+            body: JSON.stringify({ sessionId: sessionId }),
+          });
 
-                    if (logoutResponse.ok) {
-                        window.location.href="index.html";
-                        alert("User logged out successfully");
-                    } else {
-                        alert("Not logged out?");
-                        console.error("Error logging out:", logoutResponse.statusText);
-                    }
-                } catch (error) {
-                    console.error("Error logging out:", error);
-                }
-            })
-        } else {
-            loginButton.style.display = "block";
-            signupButton.style.display = "block";
-            logoutButton.style.display = "none";
+          if (logoutResponse.ok) {
+            window.location.href = "index.html";
+            alert("User logged out successfully");
+          } else {
+            alert("Not logged out?");
+            console.error("Error logging out:", logoutResponse.statusText);
+          }
+        } catch (error) {
+          console.error("Error logging out:", error);
         }
+      });
+    } else {
+      loginButton.style.display = "block";
+      signupButton.style.display = "block";
+      logoutButton.style.display = "none";
     }
+  }
 
-    disconnectedCallback() {
-        //implementation
-    }
+  disconnectedCallback() {
+    //implementation
+  }
 
-    attributeChangedCallback(name, oldVal, newVal) {
-        //implementation
-    }
+  attributeChangedCallback(name, oldVal, newVal) {
+    //implementation
+  }
 
-    adoptedCallback() {
-        //implementation
-    }
-
+  adoptedCallback() {
+    //implementation
+  }
 }
 
-window.customElements.define('wc-header', WcHeader);
+window.customElements.define("wc-header", WcHeader);
