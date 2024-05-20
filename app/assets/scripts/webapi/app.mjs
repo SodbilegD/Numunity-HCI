@@ -15,7 +15,7 @@ import aboutTeam from './about.mjs';
 
 const data = await fetchCommunityData("Community", null);
 const app = express();
-const port = 4000;
+const port = 3000;
 const __dirname = path.resolve(path.dirname(''));
 const appPath = path.join(__dirname, 'app');
 let agreeCount = 0;

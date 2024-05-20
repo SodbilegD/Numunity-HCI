@@ -1,4 +1,3 @@
-
 // wc-agree-disagree.js ees agree-disagree geh customElements-g duudaj bna
 // timeAgo.js ees timeAgo functioing duudaj bna
 
@@ -54,18 +53,16 @@ class WcDiscussion extends HTMLElement {
     }
 
     renderComments(comments) {
-        //comment containerin html-g tseverleh
         this.commentsContainer.innerHTML = "";
-        // comments massiv dahi comment buriig davtalt
         comments.forEach(comment => { 
-            // user-n id-g commentoos avah
             const userId = comment.user;
-            // user id deer undeslen user-n objectiig olno
             const user = this.users.find(user => user.userId === parseInt(userId));
-            // render private methodiig comment bolon user iin hamt argument bolgon duudna.
-            this.#render(comment, user)
+            if (user) {
+                this.#render(comment, user);
+            } else {
+                console.error('User not found for comment:', comment);
+            }
         });
-        // 
         this.commentCounter.innerHTML = this.comments.length;
     }
     // comment render
