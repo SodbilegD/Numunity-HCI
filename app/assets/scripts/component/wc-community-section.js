@@ -39,7 +39,7 @@ class theCommunitySection extends HTMLElement {
                 <p class="advertisements__info__total">Нийт пост<br><span>${community.posts.length}</span></p>
             </div>
         `);
-        this.posts = community.posts;
+        this.posts = community.posts || [];
         this.renderPosts(this.posts);
     }
 
@@ -66,26 +66,27 @@ class theCommunitySection extends HTMLElement {
             console.error('Error fetching data:', error);
         }
     }
-    // trend postuudig filterleh 
+    // Filter trending posts
     filterTrend() {
-        // const currentDate = new Date();
-        // console.log(this.posts);
-        // const filteredTrend = this.posts.filter(post =>
-        //     Date.parse(post.publishedDate) > currentDate - 7 && post.agreeCount > 15
-        // );
-        // this.renderPosts(filteredTrend);
-        const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate) && b.agreeCount - a.agreeCount);
-        this.renderPosts(sortedPosts);
+        const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+        const filteredPosts = this.posts.filter(post => {
+            return Date.parse(post.publishedDate) > oneWeekAgo && post.agreeCount > 15;
+        });
+        this.renderPosts(filteredPosts);
     }
-    // shine postuudig filterleh 
+
+    // Filter new posts
     filterNew() {
-        const sortedPosts = this.posts.sort((a, b) => Date.parse(b.publishedDate) - Date.parse(a.publishedDate));
-        this.renderPosts(sortedPosts);
+        const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+        const filteredPosts = this.posts.filter(post => {
+            return Date.parse(post.publishedDate) > oneWeekAgo;
+        });
+        this.renderPosts(filteredPosts);
     }
     // negdsen hereglegchiin medeelliig communitytai ni damjuulana
     async joinCommunity() {
-        const response = await fetch("http://localhost:3000/getuser",
-            {
+        try {
+            const response = await fetch("http://localhost:3000/getuser", {
                 method: 'POST',
                 cache: "no-cache",
                 headers: {
@@ -100,14 +101,13 @@ class theCommunitySection extends HTMLElement {
             const data = await response.json();
             const user = data.user;
             
-            const otherResponse = await fetch("http://localhost:3000/joincommunity",
-            {
+            const otherResponse = await fetch("http://localhost:3000/joincommunity", {
                 method: 'POST',
                 cache: "no-cache",
                 headers: {
                     "Content-Type": 'application/json; charset=UTF-8'
                 },
-                body: JSON.stringify({ communityId: this.communityId, userId: user.userId})
+                body: JSON.stringify({ communityId: this.communityId, userId: user.userId })
             });
             if (!otherResponse.ok) {
                 throw new Error(`HTTP error! Status: ${otherResponse.status}`);
@@ -115,6 +115,9 @@ class theCommunitySection extends HTMLElement {
             
             this.joinButtonElement.setAttribute("joined", true);
             console.log(this.joinButtonElement);
+        } catch (error) {
+            console.error('Error joining community:', error);
+        }
     };
 
     renderPosts(posts) {
@@ -122,7 +125,11 @@ class theCommunitySection extends HTMLElement {
         posts.forEach(post => {
             const userId = post.user;
             const user = this.users.find(user => user.userId === parseInt(userId));
-            this.#RenderPost(post, user);
+            if (user) {
+                this.#RenderPost(post, user);
+            } else {
+                console.error(`User not found for post: ${post.postId}`);
+            }
         });
     }
     // post render
