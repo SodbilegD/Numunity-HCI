@@ -57,7 +57,10 @@ class WcProfile extends HTMLElement {
         this.innerHTML = `
             <section class="userprofile">
                 <img src="${this.user.profImg}" alt="profile" class="userprofile__img">
-                <h2 class="userprofile__username">${this.user.userName}</h2>
+                <div style="display: flex; flex-direction: column; ">
+                    <h2 class="userprofile__username">${this.user.userName}</h2>
+                    <h3> Nickname: / Явдаг Викифедиа / </h3>
+                </div>
             </section>
             <h1 class="post__title">Миний хадгалсан:</h1>
         `;
