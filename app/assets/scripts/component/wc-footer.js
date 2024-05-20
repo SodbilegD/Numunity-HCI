@@ -179,13 +179,13 @@ class WcFooter extends HTMLElement {
                 </ul>
             </div>
             <div class="footer__copyright">
-                <h3><img src="assets/images/logo.png" alt="Team DKS logo">DKS</h3>
-                <p>DKS &copy; 2023 - All Rights Reserved</p>
+                <h3><img src="assets/images/logo.png" alt="Team Numunity logo">Numunity</h3>
+                <p>Numunity &copy; 2023 - All Rights Reserved</p>
             </div>
             <div class="footer__contacts">
                 <h3>Холбоо барих:</h3>
                 <p><i class="fa-solid fa-phone"></i>+976 8066 5030</p>
-                <p><i class="fa-solid fa-envelope"></i>team_dks@nomail.com</p>
+                <p><i class="fa-solid fa-envelope"></i>team_numunity@nomail.com</p>
                 <i class="fa-sharp fa-solid fa-share-nodes fa-bounce fa-2xl"></i>
                 <i class="fa-brands fa-facebook"></i>
                 <i class="fa-brands fa-instagram"></i>

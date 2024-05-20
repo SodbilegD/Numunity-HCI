@@ -153,8 +153,8 @@ class WcHeader extends HTMLElement {
                     <span class="toggle__line bottomline"></span>
                 </div>
                 <div class="main-header__container1">
-                    <img src="assets/images/logo.png" alt="Team DKS logo" class="main-header__container1__logo">
-                    <h2 class="main-header__container1__title">DKS</h2>
+                    <img src="assets/images/logo.png" alt="Team Numunity logo" class="main-header__container1__logo">
+                    <h2 class="main-header__container1__title">Numunity</h2>
                 </div>
                 <form class="main-header__search-bar">
                     <i class="fa-solid fa-magnifying-glass" class="main-header__search-icon"></i>

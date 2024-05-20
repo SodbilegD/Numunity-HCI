@@ -5,7 +5,7 @@ export default class aboutTeam{
         this.req = req;
     }
     render() { 
-        this.res.send({id:1, teamName:"Team DKS", pic:"./app/assets/images/logo.png"})
+        this.res.send({id:1, teamName:"Team Numunity", pic:"./app/assets/images/logo.png"})
     }
 }
 

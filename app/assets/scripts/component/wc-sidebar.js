@@ -184,7 +184,7 @@ class WcSidebar extends HTMLElement {
                 <li class="slide__list__item"><a href="index.html"><i class="fa-solid fa-house"></i>Нүүр хуудас</a></li>
                 <li class="slide__list__item"><i class="fa-solid fa-comments"></i><a href="community.html">Хэлэлцүүлэг</a>
                     <ul>
-                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=1">Веб програмчлал</a></li>
+                        <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=1">Хүн Ком Харилцаа</a></li>
                         <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=2">Гоё хоолтой газар хаана байна?</a></li>
                         <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=3">МУИС-МТЭС-МКУТ оюутнууд</a></li>
                         <li class="slide__list__subitem"><a href="selectedcommunity.html?communityId=4">Кинонд дурлагсад</a></li>
